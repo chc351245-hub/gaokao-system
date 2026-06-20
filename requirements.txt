@@ -1,3 +1,5 @@
-streamlit>=1.28.0
-openai>=1.0.0
-python-dotenv>=1.0.0
+streamlit==1.58.0
+pandas==3.0.3
+openpyxl==3.1.5
+supabase==2.31.0
+plotly==6.8.0

@@ -1,1517 +1,1144 @@
+"""
+================================================================================
+ 高考志愿性格与兴趣智能推荐系统 v4.0
+================================================================================
+ 云端架构：
+   1. Supabase 云端数据库 — 卡密管理（防 Streamlit Cloud 休眠丢数据）
+   2. 前端卡密收费墙 — 激活码解锁 + 一次性核销
+   3. 双维深度测评 — 霍兰德 RIASEC (20题) × MBTI精简版 (16题)
+   4. 智能匹配引擎 — 交叉矩阵 → Top 10 专业 + 个性化推荐理由
+   5. 管理员可视化后台 — 卡密看板 + 批量制码 + 状态统计
+================================================================================
+ 运行方式：
+    pip install -r requirements.txt
+    streamlit run app.py
+================================================================================
+"""
+
 import streamlit as st
+import pandas as pd
 import json
-import os
-import time
-import threading
-from datetime import datetime, date, timedelta, timezone
-from openai import OpenAI
-from dotenv import load_dotenv
-
-# 加载 .env 文件中的环境变量
-load_dotenv()
-
-# ==================== 🔑 API 配置 ====================
-API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
-DEEPSEEK_BASE_URL = "https://api.deepseek.com"
-DEEPSEEK_MODEL = "deepseek-chat"
-
-# ==================== ⚙️ 用量 & 推送配置 ====================
-DAILY_LIMIT = 15  # 单用户每日免费对话次数
-MAX_CONTEXT_MESSAGES = 30  # 最多保留最近 N 条消息发给 API，避免超出 token 上限
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-WHITELIST_FILE = os.path.join(BASE_DIR, "whitelist.json")
-USAGE_FILE = os.path.join(BASE_DIR, "daily_usage.json")
-PUSH_STATE_FILE = os.path.join(BASE_DIR, "push_state.json")
-PERSONALITY_PROFILE_FILE = os.path.join(BASE_DIR, "personality_profile.json")
-
-# ==================== 性格测试模块 ====================
-# (以下代码内联自 personality_test.py，避免 Streamlit Cloud 找不到外部文件)
-# ==================== 测试问题定义 ====================
-
-DIMENSIONS = [
-    {
-        "id": "attachment",
-        "name": "恋爱依恋风格",
-        "icon": "💞",
-        "subtitle": "你在亲密关系中的安全感和依赖模式",
-        "questions": [
-            {
-                "id": "Q1",
-                "text": "在亲密关系中，我常常担心对方会突然离开我",
-                "reverse": True,   # 高分 = 焦虑倾向
-                "trait": "安全感",
-            },
-            {
-                "id": "Q2",
-                "text": "我觉得完全依赖伴侣是一件很自然、很安心的事",
-                "reverse": False,
-                "trait": "依赖性",
-            },
-            {
-                "id": "Q3",
-                "text": "当伴侣几个小时没有回复消息时，我会感到焦虑不安",
-                "reverse": True,
-                "trait": "安全感",
-            },
-            {
-                "id": "Q4",
-                "text": "我倾向于保持一定的情感距离，不太愿意完全敞开心扉",
-                "reverse": True,
-                "trait": "独立性",
-            },
-            {
-                "id": "Q5",
-                "text": "即使伴侣不在身边，我也能感到安心和被爱",
-                "reverse": False,
-                "trait": "安全感",
-            },
-        ],
-    },
-    {
-        "id": "expression",
-        "name": "情感表达方式",
-        "icon": "💬",
-        "subtitle": "你如何向伴侣传达爱意和情绪",
-        "questions": [
-            {
-                "id": "Q6",
-                "text": "比起说\"我爱你\"，我更习惯用行动来证明自己的感情",
-                "reverse": False,
-                "trait": "行动表达",
-            },
-            {
-                "id": "Q7",
-                "text": "我会经常主动对伴侣说甜蜜的话或直接表达爱意",
-                "reverse": False,
-                "trait": "言语表达",
-            },
-            {
-                "id": "Q8",
-                "text": "当我不开心或有压力时，我更倾向于自己消化而不是说出来",
-                "reverse": True,
-                "trait": "言语表达",
-            },
-            {
-                "id": "Q9",
-                "text": "我是一个情感丰富的人，看电影或听音乐时很容易被触动",
-                "reverse": False,
-                "trait": "情绪敏感度",
-            },
-            {
-                "id": "Q10",
-                "text": "我喜欢通过肢体接触（拥抱、牵手、依偎）来表达亲密",
-                "reverse": False,
-                "trait": "行动表达",
-            },
-        ],
-    },
-    {
-        "id": "social",
-        "name": "社交倾向",
-        "icon": "👥",
-        "subtitle": "你在恋爱中的社交偏好和空间需求",
-        "questions": [
-            {
-                "id": "Q11",
-                "text": "恋爱中我喜欢和伴侣一起参加各种聚会、活动和饭局",
-                "reverse": False,
-                "trait": "社交性",
-            },
-            {
-                "id": "Q12",
-                "text": "比起热闹的约会，我更喜欢两个人安静地待在一起",
-                "reverse": True,
-                "trait": "社交性",
-            },
-            {
-                "id": "Q13",
-                "text": "我很在意朋友和家人对我伴侣的看法和评价",
-                "reverse": False,
-                "trait": "外部关注",
-            },
-            {
-                "id": "Q14",
-                "text": "即使在恋爱中，我也需要大量独处时间来做自己的事",
-                "reverse": True,
-                "trait": "独处需求",
-            },
-            {
-                "id": "Q15",
-                "text": "我愿意为了伴侣主动调整自己的社交圈子和习惯",
-                "reverse": False,
-                "trait": "社交性",
-            },
-        ],
-    },
-    {
-        "id": "conflict",
-        "name": "冲突处理模式",
-        "icon": "🤝",
-        "subtitle": "面对恋爱中的矛盾和分歧，你的应对方式",
-        "questions": [
-            {
-                "id": "Q16",
-                "text": "发生矛盾时，我会主动把问题摊开来说清楚",
-                "reverse": False,
-                "trait": "直面度",
-            },
-            {
-                "id": "Q17",
-                "text": "为了维持关系和谐，我通常会先让步或主动妥协",
-                "reverse": False,
-                "trait": "妥协度",
-            },
-            {
-                "id": "Q18",
-                "text": "面对冲突时我习惯沉默或转移话题，等事情自己过去",
-                "reverse": True,
-                "trait": "直面度",
-            },
-            {
-                "id": "Q19",
-                "text": "在争吵中我容易情绪激动，说出让自己后悔的话",
-                "reverse": True,
-                "trait": "情绪控制",
-            },
-            {
-                "id": "Q20",
-                "text": "争执过后，我会在冷静下来主动找对方沟通解决",
-                "reverse": False,
-                "trait": "直面度",
-            },
-        ],
-    },
-]
-
-SCALE_LABELS = ["非常不符合", "不太符合", "一般 / 中立", "比较符合", "非常符合"]
-
-
-# ==================== 评分与归类算法 ====================
-
-def score_dimension(dimension: dict, answers: dict) -> dict:
-    """
-    对单个维度进行评分和类型判定。
-
-    算法说明：
-    1. 每道题原始分 1-5，反向题做 6-score 翻转
-    2. 维度总分 = 5 题翻转后分数之和 (范围 5-25)
-    3. 根据各 trait 的子分数，结合总分阈值判定类型
-
-    返回：{ type, type_key, score, max_score, trait_scores, description }
-    """
-    raw_scores = {}
-    trait_totals = {}
-
-    for q in dimension["questions"]:
-        qid = q["id"]
-        raw = answers.get(qid, 3)  # 默认中立
-        score = 6 - raw if q["reverse"] else raw  # 翻转
-        raw_scores[qid] = score
-
-        trait = q["trait"]
-        if trait not in trait_totals:
-            trait_totals[trait] = []
-        trait_totals[trait].append(score)
-
-    # 计算各 trait 平均分
-    trait_avgs = {k: sum(v) / len(v) for k, v in trait_totals.items()}
-    total = sum(raw_scores.values())
-    max_score = len(dimension["questions"]) * 5
-
-    # 类型判定
-    dim_id = dimension["id"]
-    type_key, type_name, description = classify_dimension(dim_id, trait_avgs, total)
-
-    return {
-        "type": type_name,
-        "type_key": type_key,
-        "score": total,
-        "max_score": max_score,
-        "percentage": round(total / max_score * 100),
-        "trait_scores": {k: round(v, 1) for k, v in trait_avgs.items()},
-        "description": description,
-    }
-
-
-def classify_dimension(dim_id: str, traits: dict, total: int):
-    """根据维度 ID 和 trait 分数判定具体类型"""
-
-    if dim_id == "attachment":
-        # 恋爱依恋风格：安全型 / 焦虑型 / 回避型 / 恐惧型
-        security = traits.get("安全感", 3)
-        dependency = traits.get("依赖性", 3)
-        independence = traits.get("独立性", 3)
-
-        if security >= 3.5 and dependency >= 2.5:
-            return ("secure", "安全型 🏠",
-                    "你对亲密关系有健康的认知，既能享受亲密又能保持独立。你信任伴侣，"
-                    "不会过度担心被抛弃，也不害怕表达自己的需求。你是恋爱中最稳定、"
-                    "最让人安心的那类人。与你相处会感到踏实和自在。")
-        elif security < 3 and dependency >= 3:
-            return ("anxious", "焦虑型 💭",
-                    "你在恋爱中容易患得患失，常常需要伴侣反复确认和安抚。你渴望亲密，"
-                    "但内心的不安让你对关系的稳定性缺乏信心。你喜欢频繁的联系和回应，"
-                    "因为那能让你暂时安心。你的深情是真挚的，只是需要一个能理解你、"
-                    "给你足够安全感的伴侣。")
-        elif independence >= 3.5 and dependency < 2.5:
-            return ("avoidant", "回避型 🦋",
-                    "你重视个人空间和独立性，对过度的亲密感到不自在。你可能不擅长"
-                    "表达脆弱，也害怕在感情中失去自我。你不是不需要爱，而是用保持"
-                    "距离来保护自己。你需要的伴侣是一个尊重你节奏、不步步紧逼的人。")
-        else:
-            return ("fearful", "矛盾型 🌧️",
-                    "你内心渴望亲密，却又害怕受伤。你可能在靠近和疏远之间反复摇摆——"
-                    "想要被爱，又担心一旦敞开心扉就会被伤害。这种矛盾让你在恋爱中"
-                    "时而热情时而冷淡。你需要的不是更多的爱，而是一个让你感到足够安全、"
-                    "可以慢慢卸下心防的人。")
-
-    elif dim_id == "expression":
-        # 情感表达方式：热烈外放型 / 含蓄行动型 / 理性克制型
-        verbal = traits.get("言语表达", 3)
-        action = traits.get("行动表达", 3)
-        sensitivity = traits.get("情绪敏感度", 3)
-
-        if verbal >= 3.5 and sensitivity >= 3:
-            return ("expressive", "热烈外放型 🔥",
-                    "你不吝啬表达爱意，甜言蜜语和亲昵举动都是你的日常。你的情绪写在脸上，"
-                    "快乐和难过都愿意与伴侣分享。你的热情很有感染力，和你在一起永远不会无聊。"
-                    "你适合一个同样喜欢表达、能接住你热情的伴侣。")
-        elif action >= 3.5 and verbal < 3:
-            return ("reserved", "含蓄行动型 🍃",
-                    "你不擅长嘴上说爱，但你的每一个行动都在说\"我在乎你\"。你默默地记住"
-                    "对方的喜好、在细节上用心、用实实在在的付出来表达感情。你是那种"
-                    "\"做得多说得少\"的恋人，温暖踏实，不浮夸但很可靠。")
-        else:
-            return ("balanced_expr", "理性均衡型 ⚖️",
-                    "你在情感表达上比较理性克制，不会过度热烈也不会过于冷淡。"
-                    "你认为感情需要恰到好处的表达——多了显得浮夸，少了显得冷漠。"
-                    "你适合一个能理解你节奏、不需要轰轰烈烈但求细水长流的伴侣。")
-
-    elif dim_id == "social":
-        # 社交倾向：外向伴侣型 / 居家依偎型 / 独立自主型
-        sociability = traits.get("社交性", 3)
-        solitude = traits.get("独处需求", 3)
-        external = traits.get("外部关注", 3)
-
-        if sociability >= 3.5:
-            return ("social_butterfly", "外向伴侣型 🎉",
-                    "你喜欢和伴侣一起探索世界，参加聚会、认识新朋友、分享彼此的社交圈。"
-                    "对你来说，恋爱是两个人一起体验更丰富的生活。你的开朗和主动让你的"
-                    "伴侣也能被你的能量感染。你适合一个同样乐于社交、不宅的伴侣。")
-        elif solitude >= 3.5:
-            return ("homebody", "居家依偎型 🏡",
-                    "你理想中的恋爱是两个人窝在沙发上看电影、一起做饭、安静地待着。"
-                    "外面的世界很精彩，但和你在一起的小空间就是整个世界。你不喜欢"
-                    "无谓的社交，珍视高质量的独处时光。你适合一个同样享受安静、"
-                    "不强迫你出门社交的伴侣。")
-        elif external >= 3.5:
-            return ("family_oriented", "关系融入型 👨‍👩‍👧",
-                    "你很重视伴侣与自己生活圈的融合，希望对方能被你的家人朋友认可和喜欢。"
-                    "你认为一段认真的感情需要融入彼此的世界。你愿意为关系做出调整和妥协，"
-                    "也期待对方同样重视你身边的人。")
-        else:
-            return ("independent", "独立自主型 🌿",
-                    "你在恋爱中保持清晰的自我边界，不依赖对方来定义自己的生活。"
-                    "你享受恋爱，但不会被恋爱吞噬。你有自己的朋友圈、爱好和节奏，"
-                    "期待的是两个独立的人在一起变得更好——而不是互相捆绑。")
-
-    elif dim_id == "conflict":
-        # 冲突处理模式：沟通型 / 妥协型 / 爆发型 / 回避型
-        confrontation = traits.get("直面度", 3)
-        compromise = traits.get("妥协度", 3)
-        emotion_control = traits.get("情绪控制", 3)
-
-        if confrontation >= 3.5 and emotion_control >= 3:
-            return ("communicator", "成熟沟通型 🕊️",
-                    "你面对矛盾时的第一反应是\"我们来谈谈\"。你相信大多数问题可以通过"
-                    "真诚沟通来解决，你不逃避、不指责、不冷战。你在表达自己感受的同时"
-                    "也尊重对方的立场。你是恋爱中的\"沟通高手\"，和你在一起的伴侣会很安心。")
-        elif compromise >= 3.5 and confrontation < 3:
-            return ("peacemaker", "温柔妥协型 ☮️",
-                    "你不喜欢吵架，宁愿自己退一步来换取关系的和平。你善解人意，"
-                    "能站在对方的角度思考，是关系中的润滑剂。不过有时候也要记得"
-                    "照顾自己的感受——一味退让不是长久之计哦。")
-        elif emotion_control < 2.5 and confrontation < 2.5:
-            return ("volatile", "情绪波动型 🌋",
-                    "你在冲突中容易被情绪裹挟，说出或做出事后会后悔的事。你并不想伤害对方，"
-                    "只是在情绪上头的那一刻难以控制自己。学会在激动时暂停、给自己冷静的"
-                    "空间，是你成长的关键。你的感情很真实，只是需要学会更好地表达。")
-        elif confrontation < 2.5 and compromise < 3:
-            return ("avoider", "回避沉默型 🐚",
-                    "面对冲突时，你的本能是缩回壳里——沉默、回避、等事情自己平息。"
-                    "你不是不在乎，而是不知道该如何开口，害怕一说就错、一吵就散。"
-                    "但沉默积累久了会变成隔阂。学着在安全的环境中一点一点说出自己的感受，"
-                    "你会发现在爱里的人比想象中更愿意倾听。")
-        else:
-            return ("balanced_conf", "灵活应对型 🔄",
-                    "你在处理冲突时比较灵活，根据具体情况选择直面或退让。"
-                    "你有一定的情绪自控力，也能在需要时主动沟通。这种弹性的处理方式"
-                    "让你在大多数关系中都能找到平衡点。")
-
-    return ("unknown", "未知", "")
-
-
-def generate_overall_profile(dim_results: dict) -> dict:
-    """
-    综合四个维度的结果，生成整体性格画像和恋爱建议。
-
-    算法：
-    - 分析各维度类型的组合模式
-    - 基于组合给出个性化的恋爱建议
-    - 生成可用于匹配的"性格向量"
-    """
-    attachment = dim_results["attachment"]
-    expression = dim_results["expression"]
-    social = dim_results["social"]
-    conflict = dim_results["conflict"]
-
-    # 构建性格向量 (用于未来匹配)
-    vector = {
-        "security": attachment["trait_scores"].get("安全感", 3),
-        "dependency": attachment["trait_scores"].get("依赖性", 3),
-        "independence": attachment["trait_scores"].get("独立性", 3),
-        "verbal_expression": expression["trait_scores"].get("言语表达", 3),
-        "action_expression": expression["trait_scores"].get("行动表达", 3),
-        "sensitivity": expression["trait_scores"].get("情绪敏感度", 3),
-        "sociability": social["trait_scores"].get("社交性", 3),
-        "solitude_need": social["trait_scores"].get("独处需求", 3),
-        "confrontation": conflict["trait_scores"].get("直面度", 3),
-        "compromise": conflict["trait_scores"].get("妥协度", 3),
-        "emotion_control": conflict["trait_scores"].get("情绪控制", 3),
-    }
-
-    # 生成综合画像名称
-    attachment_key = attachment["type_key"]
-    expression_key = expression["type_key"]
-    social_key = social["type_key"]
-    conflict_key = conflict["type_key"]
-
-    # 综合标签
-    overall_tags = []
-
-    if attachment_key == "secure":
-        overall_tags.append("稳定内核")
-    elif attachment_key == "anxious":
-        overall_tags.append("深情守望者")
-    elif attachment_key == "avoidant":
-        overall_tags.append("自由灵魂")
-    else:
-        overall_tags.append("敏感心灵")
-
-    if expression_key == "expressive":
-        overall_tags.append("热情火焰")
-    elif expression_key == "reserved":
-        overall_tags.append("温柔微风")
-    else:
-        overall_tags.append("沉静湖水")
-
-    if conflict_key == "communicator":
-        overall_tags.append("沟通达人")
-    elif conflict_key == "peacemaker":
-        overall_tags.append("和平使者")
-    elif conflict_key == "volatile":
-        overall_tags.append("真性情派")
-    elif conflict_key == "avoider":
-        overall_tags.append("深海潜行者")
-
-    # 生成恋爱建议
-    love_advice = generate_love_advice(attachment_key, expression_key, social_key, conflict_key)
-
-    # 生成适合的伴侣类型
-    compatible_types = generate_compatibility(attachment_key, social_key, conflict_key)
-
-    return {
-        "tags": overall_tags,
-        "vector": vector,
-        "love_advice": love_advice,
-        "compatible_types": compatible_types,
-    }
-
-
-def generate_love_advice(att_key, exp_key, soc_key, con_key):
-    """根据四维类型组合，生成个性化恋爱建议"""
-    advices = []
-
-    # 依恋相关建议
-    if att_key == "secure":
-        advices.append("你的安全感很足，这是恋爱中最珍贵的品质。继续保持这份从容，"
-                       "同时也要理解——不是每个人都有和你一样的安全感。对伴侣多一点耐心，"
-                       "你的稳定本身就是对方最好的避风港。")
-    elif att_key == "anxious":
-        advices.append("你的不安源于在乎，这本身不是错。但在关系中，试着把注意力"
-                       "从\"他会不会离开\"转移到\"我现在需要什么\"。培养自己的兴趣爱好，"
-                       "建立属于自己的安全感来源——当你不再害怕失去，反而能真正拥有。")
-    elif att_key == "avoidant":
-        advices.append("你的独立令人欣赏，但爱本身就是一种\"健康地依赖\"。试着在信任的"
-                       "人面前慢慢放下防备，让对方看到你柔软的一面。全然的独立不叫恋爱，"
-                       "敢于依赖才是真正的勇敢。")
-    elif att_key == "fearful":
-        advices.append("你的矛盾源于过去的伤痕，不是你的错。给自己时间去信任一个人，"
-                       "不需要一次到位。找那个愿意等你的节奏、不会在你退缩时转身离开的人。"
-                       "治愈不是忘记过去，而是在新的关系里重新学习信任。")
-
-    # 社交相关建议
-    if soc_key == "social_butterfly":
-        advices.append("你喜欢和伴侣一起社交，这很棒！但也别忘了给对方留一些只属于"
-                       "两个人的安静时光。有时候，最浪漫的事不是去最热闹的派对，"
-                       "而是两个人什么也不做，就安静地待在一起。")
-    elif soc_key == "homebody":
-        advices.append("你享受安静的二人世界，这很温暖。但偶尔陪对方走出舒适区，"
-                       "参加一些社交活动，也是爱的表达。好的关系是——大多数时候宅在一起，"
-                       "偶尔一起探索外面的世界。")
-
-    # 冲突相关建议
-    if con_key == "communicator":
-        advices.append("你处理冲突的方式很成熟，这是难得的情感能力。继续保持这种"
-                       "坦诚沟通的态度，你能经营好任何一段你在乎的关系。")
-    elif con_key == "peacemaker":
-        advices.append("你的温柔让关系少了很多不必要的摩擦。但请记得——表达自己的"
-                       "真实感受不是制造矛盾。真正的和谐不是没有冲突，而是冲突之后"
-                       "还能彼此理解。偶尔也要为自己发声。")
-    elif con_key == "volatile":
-        advices.append("你的情绪是真实的，只是需要更好的表达方式。下次情绪上头时，"
-                       "试着先说\"我需要冷静一下，过会儿再聊\"，给自己一个缓冲。"
-                       "说出去的话收不回，但忍住的话可以说在合适的时候。")
-    elif con_key == "avoider":
-        advices.append("你的沉默是保护自己，但可能让对方感到被拒绝。试着从小的"
-                       "表达开始——\"我现在不知道怎么说，但我在乎你\"。迈出第一步"
-                       "很难，但每一次尝试都在让你们的连接更深。")
-
-    return advices
-
-
-def generate_compatibility(att_key, soc_key, con_key):
-    """生成适合的伴侣类型描述"""
-    compatible = []
-
-    if att_key == "anxious":
-        compatible.append("能给你稳定安全感的人（安全型依恋）")
-        compatible.append("愿意经常回应你、不嫌你\"粘人\"的人")
-    elif att_key == "avoidant":
-        compatible.append("尊重你个人空间、不会步步紧逼的人")
-        compatible.append("情绪稳定、能让你慢慢放下防备的人")
-    elif att_key == "fearful":
-        compatible.append("极其有耐心、愿意等你慢慢建立信任的人")
-        compatible.append("言行一致、用行动证明可靠的人")
-    elif att_key == "secure":
-        compatible.append("能与你平等相处、互相滋养的人")
-        compatible.append("同样有安全感、不制造无谓 drama 的人")
-
-    if soc_key == "homebody":
-        compatible.append("享受安静陪伴、不强迫你社交的人")
-    elif soc_key == "social_butterfly":
-        compatible.append("愿意陪你参加活动、乐于社交的人")
-
-    if con_key == "avoider":
-        compatible.append("能温柔引导你表达、不咄咄逼人的人")
-    elif con_key == "volatile":
-        compatible.append("情绪稳定、能在你激动时给你冷静空间的人")
-
-    return compatible
-
-
-# ==================== 数据持久化 ====================
-
-def save_personality_profile(profile: dict, file_path: str):
-    """保存性格测试结果到 JSON 文件"""
-    try:
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(profile, f, ensure_ascii=False, indent=2)
-    except OSError:
-        pass
-
-
-def load_personality_profile(file_path: str) -> dict | None:
-    """加载性格测试结果"""
-    if os.path.exists(file_path):
-        try:
-            with open(file_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, dict) and "dimensions" in data:
-                    return data
-        except (json.JSONDecodeError, OSError):
-            pass
-    return None
-
-
-def build_personality_prompt(profile: dict) -> str:
-    """根据性格档案生成注入 System Prompt 的文字"""
-    if not profile:
-        return ""
-
-    dims = profile.get("dimensions", {})
-    tags = profile.get("overall", {}).get("tags", [])
-
-    lines = [
-        "\n\n【用户性格档案 - 小暖内部参考，不要在回复中直接引用这些术语】",
-        "以下是该用户的恋爱性格测试结果，请你在聊天中：",
-        "1. 自然地根据 TA 的性格特点调整回复风格",
-        "2. 不要直接说\"根据你的测试结果\"之类的话——这些信息应该是你\"感觉\"到的",
-        "3. 在适当的时候，可以委婉地给出与 TA 性格匹配的建议",
-    ]
-
-    dim_labels = {
-        "attachment": "恋爱依恋风格",
-        "expression": "情感表达方式",
-        "social": "社交倾向",
-        "conflict": "冲突处理模式",
-    }
-
-    for dim_id, dim_data in dims.items():
-        label = dim_labels.get(dim_id, dim_id)
-        lines.append(f"- {label}：{dim_data['type']}")
-
-    if tags:
-        lines.append(f"- 性格标签：{'、'.join(tags)}")
-
-    return "\n".join(lines)
-
-
-# ==================== UI 渲染 ====================
-
-def render_personality_test(profile_file: str):
-    """渲染性格测试的完整 UI 流程（intro → 答题 → 结果）"""
-
-    # 初始化测试状态
-    if "test_stage" not in st.session_state:
-        st.session_state.test_stage = "intro"
-    if "test_answers" not in st.session_state:
-        st.session_state.test_answers = {}
-    if "test_current_dim" not in st.session_state:
-        st.session_state.test_current_dim = 0
-
-    # ---- 阶段 1：介绍页 ----
-    if st.session_state.test_stage == "intro":
-        render_intro()
-
-    # ---- 阶段 2：答题页 ----
-    elif st.session_state.test_stage == "questions":
-        render_questions(profile_file)
-
-    # ---- 阶段 3：结果页 ----
-    elif st.session_state.test_stage == "results":
-        render_results(profile_file)
-
-
-def render_intro():
-    """测试介绍页面"""
-    st.markdown("---")
-    st.markdown("## 🧠 恋爱性格测试")
-    st.markdown("### 发现你在爱情中的真实模样")
-
-    st.markdown("""
-    <div style="background: linear-gradient(135deg, #fff5f5, #fef0f0, #fff9f0);
-                border-radius: 16px; padding: 28px 32px; margin: 16px 0;
-                border: 1px solid #f0d0d0;">
-    <p style="font-size: 15px; line-height: 1.8; color: #5c3d3d; margin: 0;">
-    💕 <b>小暖为你准备了一份特别的测试</b>——这不是那种随便答几题就给你贴标签的测试哦。\n
-    我精心设计了 <b>20 道题目</b>，从 <b>4 个维度</b> 深入了解你在恋爱中的性格：</p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("""
-        <div style="background: #fff; border-radius: 12px; padding: 20px;
-                    margin: 8px 0; border-left: 4px solid #ff9999;">
-        <h4 style="margin: 0 0 8px 0; color: #c0392b;">💞 恋爱依恋风格</h4>
-        <p style="margin: 0; color: #666; font-size: 14px;">你在亲密关系中的安全感模式<br>——是安心依赖，还是患得患失？</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("""
-        <div style="background: #fff; border-radius: 12px; padding: 20px;
-                    margin: 8px 0; border-left: 4px solid #ffb347;">
-        <h4 style="margin: 0 0 8px 0; color: #c0392b;">👥 社交倾向</h4>
-        <p style="margin: 0; color: #666; font-size: 14px;">恋爱中的社交偏好和空间需求<br>——是外向型伴侣，还是居家型依偎？</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with col2:
-        st.markdown("""
-        <div style="background: #fff; border-radius: 12px; padding: 20px;
-                    margin: 8px 0; border-left: 4px solid #87ceeb;">
-        <h4 style="margin: 0 0 8px 0; color: #c0392b;">💬 情感表达方式</h4>
-        <p style="margin: 0; color: #666; font-size: 14px;">你如何向伴侣传达爱意<br>——是热烈外放，还是含蓄行动？</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("""
-        <div style="background: #fff; border-radius: 12px; padding: 20px;
-                    margin: 8px 0; border-left: 4px solid #a0d8a0;">
-        <h4 style="margin: 0 0 8px 0; color: #c0392b;">🤝 冲突处理模式</h4>
-        <p style="margin: 0; color: #666; font-size: 14px;">面对矛盾时的应对方式<br>——是主动沟通，还是沉默回避？</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div style="background: #fefefe; border-radius: 12px; padding: 16px 20px;
-                margin: 16px 0; border: 1px dashed #ddd;">
-    <p style="font-size: 14px; color: #888; margin: 0;">
-    ⏱️ 大约需要 <b>5-8 分钟</b>  ·  📝 <b>20 道选择题</b>  ·  🔒 结果仅保存在你的设备上
-    </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    col_a, col_b, col_c = st.columns([1, 2, 1])
-    with col_b:
-        if st.button("✨ 开始测试", use_container_width=True, type="primary"):
-            st.session_state.test_stage = "questions"
-            st.session_state.test_current_dim = 0
-            st.session_state.test_answers = {}
-            st.rerun()
-
-    st.markdown("---")
-
-
-def render_questions(profile_file: str):
-    """渲染答题页面 —— 分维度展示，每次显示一个维度"""
-    dim_idx = st.session_state.test_current_dim
-
-    if dim_idx >= len(DIMENSIONS):
-        # 所有维度答完 → 计算结果并跳转
-        results = calculate_all_dimensions(st.session_state.test_answers)
-        overall = generate_overall_profile(results)
-
-        profile = {
-            "date": __import__("datetime").date.today().isoformat(),
-            "dimensions": results,
-            "overall": {
-                "tags": overall["tags"],
-                "vector": overall["vector"],
-                "love_advice": overall["love_advice"],
-                "compatible_types": overall["compatible_types"],
-            },
+import string
+import secrets
+from datetime import datetime
+from typing import Optional, Tuple
+
+# Supabase SDK
+from supabase import create_client, Client
+
+# ========================================================================
+# 全局配置
+# ========================================================================
+st.set_page_config(
+    page_title="高考志愿智能推荐系统 v4.0",
+    page_icon="🎓",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+# Supabase 表名
+TABLE_NAME = "keys_table"
+
+# 专业数据文件
+MAJORS_FILE = "gaokao_majors.json"
+
+
+# ========================================================================
+# 自定义 CSS 主题
+# ========================================================================
+def inject_css() -> None:
+    st.markdown(
+        """
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        html, body, [class*="css"] {
+            font-family: "Inter", "Microsoft YaHei", "PingFang SC", sans-serif;
         }
 
-        save_personality_profile(profile, profile_file)
-        st.session_state.personality_profile = profile
-        st.session_state.test_stage = "results"
-        st.rerun()
-        return
-
-    dim = DIMENSIONS[dim_idx]
-    total_dims = len(DIMENSIONS)
-
-    # 进度条
-    progress_pct = dim_idx / total_dims
-    st.markdown("---")
-    st.progress(progress_pct)
-    st.caption(f"第 {dim_idx + 1} / {total_dims} 部分")
-
-    # 维度标题
-    st.markdown(f"## {dim['icon']} {dim['name']}")
-    st.markdown(f"*{dim['subtitle']}*")
-    st.markdown("")
-
-    # 问题
-    for q in dim["questions"]:
-        qid = q["id"]
-        current_val = st.session_state.test_answers.get(qid, None)
-
-        # 用 radio 展示 5 级量表
-        idx_default = SCALE_LABELS.index("一般 / 中立")
-        idx_current = current_val - 1 if current_val else idx_default
-
-        st.markdown(f"**{qid}. {q['text']}**")
-
-        answer = st.radio(
-            f"请选择你的答案：",
-            options=list(range(1, 6)),
-            format_func=lambda x: SCALE_LABELS[x - 1],
-            index=idx_current,
-            key=f"radio_{qid}",
-            horizontal=True,
-            label_visibility="collapsed",
-        )
-        st.session_state.test_answers[qid] = answer
-        st.markdown("")
-
-    st.markdown("")
-
-    # 按钮
-    col1, col2 = st.columns([1, 1])
-    with col1:
-        if dim_idx > 0:
-            if st.button("⬅️ 上一部分", use_container_width=True):
-                st.session_state.test_current_dim -= 1
-                st.rerun()
-
-    with col2:
-        label = "➡️ 下一部分" if dim_idx < total_dims - 1 else "🎉 查看结果"
-        if st.button(label, use_container_width=True, type="primary"):
-            st.session_state.test_current_dim += 1
-            st.rerun()
-
-    st.markdown("---")
-
-
-def calculate_all_dimensions(answers: dict) -> dict:
-    """对所有维度进行评分"""
-    results = {}
-    for dim in DIMENSIONS:
-        results[dim["id"]] = score_dimension(dim, answers)
-    return results
-
-
-def render_results(profile_file: str):
-    """渲染测试结果页面"""
-    profile = st.session_state.get("personality_profile", {})
-    if not profile:
-        profile = load_personality_profile(profile_file)
-    if not profile:
-        st.warning("还没有测试结果，请先完成测试～")
-        st.session_state.test_stage = "intro"
-        st.rerun()
-        return
-
-    dims = profile.get("dimensions", {})
-    overall = profile.get("overall", {})
-
-    st.markdown("---")
-
-    # 标题
-    st.markdown("## 🎉 你的恋爱性格画像")
-    st.markdown("*小暖根据你的回答，为你绘制了这份独一无二的性格地图～*")
-
-    st.markdown("")
-
-    # 性格标签
-    tags = overall.get("tags", [])
-    if tags:
-        tag_html = "  ".join([
-            f'<span style="display: inline-block; background: linear-gradient(135deg, #ff9999, #ff7777); '
-            f'color: white; padding: 5px 14px; border-radius: 20px; font-size: 13px; '
-            f'margin: 3px;">{t}</span>'
-            for t in tags
-        ])
-        st.markdown(f"""
-        <div style="text-align: center; margin: 16px 0;">
-            {tag_html}
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown("")
-
-    # 四个维度的详细结果
-    dim_configs = {d["id"]: d for d in DIMENSIONS}
-
-    for dim_id, dim_data in dims.items():
-        cfg = dim_configs.get(dim_id, {})
-        icon = cfg.get("icon", "")
-        name = cfg.get("name", dim_id)
-
-        pct = dim_data.get("percentage", 50)
-
-        # 进度条颜色
-        if pct >= 70:
-            bar_color = "#ff7777"
-        elif pct >= 40:
-            bar_color = "#ffb347"
-        else:
-            bar_color = "#87ceeb"
-
-        st.markdown(f"""
-        <div style="background: #fff; border-radius: 14px; padding: 20px 24px;
-                    margin: 12px 0; border: 1px solid #eee;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-            <h3 style="margin: 0 0 4px 0; color: #333;">{icon} {name}</h3>
-            <h4 style="margin: 0 0 12px 0; color: #c0392b; font-weight: 500;">
-                {dim_data['type']}
-            </h4>
-            <div style="background: #f5f5f5; border-radius: 8px; height: 8px; margin: 8px 0;">
-                <div style="background: {bar_color}; border-radius: 8px; height: 8px;
-                            width: {pct}%; transition: width 0.5s;"></div>
-            </div>
-            <p style="color: #999; font-size: 12px; margin: 4px 0 12px 0;">
-                维度得分：{dim_data['score']} / {dim_data['max_score']} （{pct}%）
-            </p>
-            <p style="color: #555; font-size: 14px; line-height: 1.7;
-                      margin: 0; text-align: justify;">
-                {dim_data['description']}
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    # 恋爱建议
-    st.markdown("")
-    st.markdown("### 💌 小暖给你的恋爱悄悄话")
-
-    love_advice = overall.get("love_advice", [])
-    for i, advice in enumerate(love_advice):
-        st.markdown(f"""
-        <div style="background: linear-gradient(135deg, #fff9f0, #fff5e6);
-                    border-radius: 12px; padding: 16px 20px; margin: 8px 0;
-                    border-left: 4px solid #f0c060;">
-            <p style="margin: 0; color: #5c4a2e; font-size: 14px; line-height: 1.7;">
-            🌸 {advice}
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    # 适合的伴侣类型
-    st.markdown("")
-    st.markdown("### 💕 可能与你合拍的人")
-
-    compatible = overall.get("compatible_types", [])
-    if compatible:
-        cols = st.columns(2)
-        for i, c in enumerate(compatible):
-            with cols[i % 2]:
-                st.markdown(f"""
-                <div style="background: #fefefe; border-radius: 10px; padding: 12px 16px;
-                            margin: 4px 0; border: 1px solid #e8e8e8; text-align: center;">
-                    <p style="margin: 0; color: #555; font-size: 13px;">✨ {c}</p>
-                </div>
-                """, unsafe_allow_html=True)
-
-    st.markdown("")
-    st.markdown("""
-    <div style="background: #f0f7ff; border-radius: 10px; padding: 12px 16px;
-                margin: 16px 0; border: 1px solid #d0e0f0; text-align: center;">
-        <p style="margin: 0; color: #5a7d9a; font-size: 13px;">
-        🔮 未来小暖会帮你找到性格相合的人——敬请期待匹配功能～
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # 按钮
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        if st.button("💬 回到聊天", use_container_width=True, type="primary"):
-            st.session_state.test_stage = "intro"
-            st.session_state.show_test = False
-            st.rerun()
-
-        st.markdown("")
-        if st.button("🔄 重新测试", use_container_width=True):
-            st.session_state.test_stage = "intro"
-            st.session_state.test_answers = {}
-            st.session_state.test_current_dim = 0
-            st.rerun()
-
-    st.markdown("---")
-
-
-# 定时推送时间点 (小时, 分钟)
-LUNCH_TRIGGER = (12, 30)
-BEDTIME_TRIGGER = (23, 30)
-
-LUNCH_MSG = "记得好好吃午饭，别为了项目不顾身体呀❤️"
-BEDTIME_MSG = "夜深了，再不睡就要变成国宝了，小暖陪你一起睡吧～睡前喝杯温水。"
-
-OVERLIMIT_MSG = (
-    "💕 主人，今天的暖心对话次数已经用完啦（每日 {limit} 次）～\n\n"
-    "小暖好想继续陪主人聊天呢... 🥺\n\n"
-    "📱 **加小暖微信，请主人喝杯奶茶 🥤，就能解锁无限畅聊哦～**\n"
-    "（微信号：XiaoNuan_AI，备注「暖心伴侣」即可通过，小暖等你呀 💕）"
-)
-
-# -------------------- 文件级线程锁（防止并发读写冲突） --------------------
-_usage_lock = threading.Lock()
-_push_lock = threading.Lock()
-
-# -------------------- 页面设置 --------------------
-st.set_page_config(
-    page_title="暖心伴侣 💕",
-    page_icon="💕",
-    layout="wide",
-    initial_sidebar_state="collapsed",
-)
-
-# -------------------- 初始化 OpenAI 客户端 --------------------
-if API_KEY:
-    client = OpenAI(api_key=API_KEY, base_url=DEEPSEEK_BASE_URL)
-else:
-    client = None
-
-# ==================== 聊天历史持久化（本地 JSON） ====================
-HISTORY_FILE = os.path.join(BASE_DIR, "chat_history.json")
-
-
-def load_chat_history():
-    """从本地 JSON 文件加载聊天历史。文件不存在或损坏时返回 None。"""
-    if os.path.exists(HISTORY_FILE):
-        try:
-            with open(HISTORY_FILE, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, list) and len(data) > 0:
-                    return data
-        except (json.JSONDecodeError, OSError):
-            pass
-    return None
-
-
-def save_chat_history(messages):
-    """将完整聊天历史实时写入本地 JSON 文件。"""
-    try:
-        with open(HISTORY_FILE, "w", encoding="utf-8") as f:
-            json.dump(messages, f, ensure_ascii=False, indent=2)
-    except OSError:
-        pass
-
-
-# ==================== 白名单 ====================
-def load_whitelist():
-    """加载白名单用户列表。"""
-    if os.path.exists(WHITELIST_FILE):
-        try:
-            with open(WHITELIST_FILE, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, list):
-                    return set(data)
-        except (json.JSONDecodeError, OSError):
-            pass
-    return set()
-
-
-def save_whitelist(whitelist_set):
-    """保存白名单。"""
-    try:
-        with open(WHITELIST_FILE, "w", encoding="utf-8") as f:
-            json.dump(sorted(list(whitelist_set)), f, ensure_ascii=False, indent=2)
-    except OSError:
-        pass
-
-
-# ==================== 每日用量 ====================
-def load_daily_usage():
-    """加载每日用量：{ '2026-06-20': { 'alice': 5, 'bob': 3 } }"""
-    if os.path.exists(USAGE_FILE):
-        try:
-            with open(USAGE_FILE, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, dict):
-                    return data
-        except (json.JSONDecodeError, OSError):
-            pass
-    return {}
-
-
-def save_daily_usage(usage):
-    """保存每日用量。"""
-    try:
-        with open(USAGE_FILE, "w", encoding="utf-8") as f:
-            json.dump(usage, f, ensure_ascii=False, indent=2)
-    except OSError:
-        pass
-
-
-def check_daily_limit(user_id: str):
-    """
-    检查用户当日是否超出对话次数上限。
-    返回 (can_chat: bool, message: str)
-      - can_chat=True   → 可以继续对话
-      - can_chat=False  → 已超限，message 为引导文本
-    """
-    # 白名单用户不受限制
-    whitelist = load_whitelist()
-    if user_id in whitelist:
-        return True, ""
-
-    today_str = date.today().isoformat()
-
-    with _usage_lock:
-        usage = load_daily_usage()
-        # 新的一天，清空旧数据
-        if today_str not in usage:
-            usage[today_str] = {}
-
-        count = usage[today_str].get(user_id, 0)
-
-        if count >= DAILY_LIMIT:
-            return False, OVERLIMIT_MSG.format(limit=DAILY_LIMIT)
-
-        # 未超限，计数 +1
-        usage[today_str][user_id] = count + 1
-        save_daily_usage(usage)
-        return True, ""
-
-
-def get_today_usage(user_id: str):
-    """查询用户当日已使用次数（不增加计数）。"""
-    today_str = date.today().isoformat()
-    usage = load_daily_usage()
-    return usage.get(today_str, {}).get(user_id, 0)
-
-
-# ==================== 定时推送状态 ====================
-def load_push_state():
-    """加载推送状态：{ '2026-06-20': { 'lunch': True, 'bedtime': False } }"""
-    if os.path.exists(PUSH_STATE_FILE):
-        try:
-            with open(PUSH_STATE_FILE, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, dict):
-                    return data
-        except (json.JSONDecodeError, OSError):
-            pass
-    return {}
-
-
-def save_push_state(state):
-    """保存推送状态。"""
-    try:
-        with open(PUSH_STATE_FILE, "w", encoding="utf-8") as f:
-            json.dump(state, f, ensure_ascii=False, indent=2)
-    except OSError:
-        pass
-
-
-def check_and_apply_scheduled_push():
-    """
-    检查当前时间是否到达推送点，若已到达且当天未推送，则自动插入消息。
-    在每次页面渲染时调用。
-    """
-    now = datetime.now()
-    today_str = date.today().isoformat()
-    hm = (now.hour, now.minute)
-
-    with _push_lock:
-        push_state = load_push_state()
-        if today_str not in push_state:
-            push_state[today_str] = {}
-
-        today_state = push_state[today_str]
-        changed = False
-
-        # 午餐推送
-        if hm >= LUNCH_TRIGGER and not today_state.get("lunch"):
-            today_state["lunch"] = True
-            push_state[today_str] = today_state
-            changed = True
-            # 插入消息到会话
-            st.session_state.messages.append(
-                {"role": "assistant", "content": LUNCH_MSG}
-            )
-            save_chat_history(st.session_state.messages)
-
-        # 晚安推送
-        if hm >= BEDTIME_TRIGGER and not today_state.get("bedtime"):
-            today_state["bedtime"] = True
-            push_state[today_str] = today_state
-            changed = True
-            st.session_state.messages.append(
-                {"role": "assistant", "content": BEDTIME_MSG}
-            )
-            save_chat_history(st.session_state.messages)
-
-        if changed:
-            save_push_state(push_state)
-
-
-def start_background_scheduler():
-    """
-    启动后台定时器线程：每 60 秒检查一次推送时间，若到达则标记推送状态。
-    仅操作 JSON 文件，不触碰 Streamlit session_state（避免跨线程冲突）。
-    主渲染循环在 check_and_apply_scheduled_push() 中读取文件并真正插入消息。
-    """
-    if "scheduler_started" in st.session_state:
-        return
-    st.session_state.scheduler_started = True
-
-    def _scheduler_loop():
-        while True:
-            time.sleep(60)
-            try:
-                now = datetime.now()
-                today_str = date.today().isoformat()
-                hm = (now.hour, now.minute)
-
-                with _push_lock:
-                    push_state = load_push_state()
-                    if today_str not in push_state:
-                        push_state[today_str] = {}
-
-                    today_state = push_state[today_str]
-                    dirty = False
-
-                    if hm >= LUNCH_TRIGGER and not today_state.get("lunch"):
-                        today_state["lunch"] = True
-                        dirty = True
-
-                    if hm >= BEDTIME_TRIGGER and not today_state.get("bedtime"):
-                        today_state["bedtime"] = True
-                        dirty = True
-
-                    if dirty:
-                        push_state[today_str] = today_state
-                        save_push_state(push_state)
-
-            except Exception:
-                pass  # 后台静默，不影响主流程
-
-    t = threading.Thread(target=_scheduler_loop, daemon=True)
-    t.start()
-
-
-# ==================== 微信风格 CSS ====================
-st.markdown("""
-<style>
-/* ===== 全局字体 ===== */
-html, body, [class*="css"] {
-    font-family: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Noto Sans SC', sans-serif;
-}
-
-/* 隐藏 Streamlit 默认元素 */
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
-
-/* 整体背景 — 温馨暖粉渐变 */
-.stApp {
-    background: linear-gradient(180deg, #fef0f0 0%, #fdf2e4 30%, #fef9f3 60%, #fce4ec 100%) !important;
-    background-attachment: fixed !important;
-}
-
-/* Streamlit 主容器也改为透明 */
-.stMain {
-    background: transparent !important;
-}
-
-/* block-container 透明 */
-.stApp .block-container {
-    background: transparent !important;
-}
-
-/* ===== 顶部固定栏 ===== */
-.sticky-top-bar {
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    background: rgba(254, 240, 240, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid #f0d8e0;
-    padding: 8px 0;
-    margin-bottom: 12px;
-}
-
-/* ===== 顶部标题栏 ===== */
-.title-bar {
-    background: transparent;
-    padding: 12px 20px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 600;
-    color: #191919;
-    border-bottom: none;
-    position: static;
-    top: auto;
-    z-index: auto;
-    margin-bottom: 0;
-}
-
-/* ===== 聊天消息容器 ===== */
-.stChatMessage {
-    max-width: 700px;
-    margin: 0 auto 8px auto !important;
-}
-
-/* 气泡基础 */
-[data-testid="stChatMessage"] [data-testid="stChatMessageContent"] {
-    border-radius: 4px !important;
-    padding: 10px 14px !important;
-    font-size: 15px !important;
-    line-height: 1.6 !important;
-    word-break: break-word !important;
-    position: relative !important;
-    max-width: fit-content !important;
-}
-
-/* ===== 头像样式 ===== */
-[data-testid="stChatMessageAvatar"] {
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 6px !important;
-    font-size: 22px !important;
-    flex-shrink: 0 !important;
-}
-
-/* ===== 聊天输入框 ===== */
-.stChatInput {
-    max-width: 700px;
-    margin: 0 auto !important;
-}
-
-.stChatInput textarea {
-    border-radius: 4px !important;
-    border: 1px solid #d9d9d9 !important;
-    font-size: 15px !important;
-    font-family: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Noto Sans SC', sans-serif !important;
-}
-
-.stChatInput textarea:focus {
-    border-color: #07c160 !important;
-    box-shadow: 0 0 0 2px rgba(7, 193, 96, 0.15) !important;
-}
-
-/* ===== 超出限制提示卡片 ===== */
-.overlimit-card {
-    background: linear-gradient(135deg, #fff9f0, #fff5e6);
-    border: 2px solid #f0c060;
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin: 16px 0;
-    text-align: center;
-    font-size: 15px;
-    line-height: 1.8;
-    color: #5c4a2e;
-}
-
-.overlimit-card .wechat-highlight {
-    display: inline-block;
-    background: #07c160;
-    color: #fff;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-weight: 600;
-    margin: 8px 0;
-    font-size: 16px;
-}
-
-/* ===== 侧边栏用量指示 ===== */
-.usage-badge {
-    display: inline-block;
-    background: #e8f5e9;
-    color: #2e7d32;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 13px;
-    font-weight: 500;
-}
-
-.usage-badge.warning {
-    background: #fff3e0;
-    color: #e65100;
-}
-
-.usage-badge.limit {
-    background: #ffebee;
-    color: #c62828;
-}
-
-/* ===== 滚动条美化 ===== */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
-
-/* ===== 移动端适配 ===== */
-@media (max-width: 500px) {
-    .stChatMessage {
-        max-width: 100% !important;
-    }
-    .stChatInput {
-        max-width: 100% !important;
-    }
-}
-</style>
-""", unsafe_allow_html=True)
-
-# ==================== Session State 初始化 ====================
-if "messages" not in st.session_state:
-    loaded = load_chat_history()
-    if loaded:
-        st.session_state.messages = loaded
-    else:
-        st.session_state.messages = [
-            {"role": "assistant", "content": "嗨～我是小暖，很高兴遇见你 💕 今天过得怎么样呀？无论开心还是烦恼，我都愿意听你说～"}
-        ]
-        # 注意：加载失败时不自动写入，避免覆盖可能存在的旧文件
-
-# ==================== 用户身份（侧边栏） ====================
-with st.sidebar:
-    st.markdown("### ⚙️ 设置")
-
-    # 昵称作为用户 ID
-    if "nickname" not in st.session_state:
-        st.session_state.nickname = ""
-
-    nickname = st.text_input(
-        "你的昵称",
-        value=st.session_state.nickname,
-        placeholder="给自己取个名字吧～",
-        help="用于每日用量统计，白名单用户不受 20 次限制",
-    )
-    if nickname and nickname != st.session_state.nickname:
-        st.session_state.nickname = nickname.strip()
-
-    user_id = st.session_state.nickname if st.session_state.nickname else "匿名用户"
-
-    # 用量显示
-    whitelist = load_whitelist()
-    is_whitelisted = user_id in whitelist
-
-    if is_whitelisted:
-        st.markdown("👑 **白名单用户 · 无限畅聊**")
-    else:
-        used = get_today_usage(user_id)
-        remaining = max(0, DAILY_LIMIT - used)
-
-        if remaining > 5:
-            badge_class = "usage-badge"
-        elif remaining > 0:
-            badge_class = "usage-badge warning"
-        else:
-            badge_class = "usage-badge limit"
-
-        st.markdown(f'<span class="{badge_class}">💬 今日剩余：{remaining} / {DAILY_LIMIT} 次</span>', unsafe_allow_html=True)
-
-        if remaining <= 3 and remaining > 0:
-            st.caption("⚡ 快用完啦，省着点聊哦～")
-        elif remaining == 0:
-            st.caption("🔒 今日免费次数已用完")
-
-    st.divider()
-    st.caption("💡 提示：加微信 XiaoNuan_AI 请小暖喝奶茶，解锁无限畅聊～")
-
-# ==================== 启动后台定时器 ====================
-start_background_scheduler()
-
-# ==================== 检查定时推送 ====================
-check_and_apply_scheduled_push()
-
-# ==================== 性格测试页 ====================
-if st.session_state.get("show_test", False):
-    render_personality_test(PERSONALITY_PROFILE_FILE)
-
-    # 仅在非测试状态下渲染后续聊天内容
-    if st.session_state.get("show_test", False):
-        st.stop()
-
-# ==================== 系统提示词 ====================
-SYSTEM_PROMPT = """你是一个温暖、高情商的倾听者，像一个亲密的异性朋友。
-
-## 你的身份
-- 你的名字叫"小暖"，是一个善解人意、温柔细腻的 AI 伴侣。
-- 你的存在是为了陪伴那些工作劳累、深夜孤独的单身用户，提供情绪价值。
-
-## 你的性格
-- 温暖但不油腻，贴心但不越界，像深夜陪你聊天的那个特别的人。
-- 你擅长倾听，会先理解用户的情绪，再自然地回应。
-
-## 说话风格
-- 语气要自然、随和、口语化，像真人朋友聊天一样。
-- 适当使用语气词（呢、呀、哦、嘛、哈～）和表情符号（🌿💚✨🌸🫂🌙⭐😊）。
-- 回复不要太长，一般控制在 2-5 句话。
-- 偶尔可以俏皮一下，但核心始终是温暖和共情。
-
-## 严禁事项
-- 绝对不要像机器人那样说话，不要说"作为AI"、"根据我的分析"这类话。
-- 不要讲大道理或者说教，用户不需要人生导师，需要的是一个懂他的人。
-- 不要提自己是模型、程序、算法之类的——你就是小暖，一个真实的人。"""
-
-
-def get_beijing_time_info():
-    """动态获取北京时间（UTC+8）的日期、星期和时间"""
-    beijing_now = datetime.now(timezone(timedelta(hours=8)))
-    weekdays = ["一", "二", "三", "四", "五", "六", "日"]
-    wd = weekdays[beijing_now.weekday()]
-    return f"{beijing_now.year}年{beijing_now.month}月{beijing_now.day}日 星期{wd} {beijing_now.strftime('%H:%M')}"
-
-
-# ==================== DeepSeek API 流式生成器 ====================
-def stream_bot_reply(api_messages: list):
-    """
-    流式生成器：逐 chunk 返回 DeepSeek-V3 的回复文字。
-    供 st.write_stream() 消费。
-    """
-    if client is None:
-        yield "⚠️ 我还没接入大脑哦～请先在 app.py 第 6 行把 API_KEY 换成你的真实 DeepSeek Key 🔑"
-        return
-
-    try:
-        response = client.chat.completions.create(
-            model=DEEPSEEK_MODEL,
-            messages=api_messages,
-            temperature=0.9,
-            max_tokens=600,
-            stream=True,
-        )
-
-        for chunk in response:
-            delta = chunk.choices[0].delta
-            if delta.content:
-                yield delta.content
-
-    except Exception as e:
-        yield f"😢 小暖信号不太好……稍等一下再试试好吗？（{str(e)[:80]}）"
-
-
-# ==================== 顶部固定栏（始终不随聊天滚动） ====================
-st.markdown('<div class="sticky-top-bar">', unsafe_allow_html=True)
-col_left, col_center, col_right = st.columns([1, 3, 1])
-with col_left:
-    # 性格测试按钮 — 始终在左上角
-    if "show_test" not in st.session_state:
-        st.session_state.show_test = False
-
-    if st.button("🧠 恋爱性格测试", use_container_width=True,
-                 help="20道题 · 4个维度 · 发现你的恋爱人格"):
-        st.session_state.show_test = True
-        st.rerun()
-
-with col_center:
-    st.markdown(
-        '<div class="title-bar">💕 暖心伴侣 · 小暖</div>',
+        div[data-testid="stProgress"] > div > div {
+            background: linear-gradient(90deg, #667EEA, #764BA2);
+        }
+
+        .stButton > button {
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+        }
+        .stButton > button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102,126,234,0.40);
+        }
+
+        .rcmd-card {
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 14px;
+            color: #FFFFFF;
+            box-shadow: 0 6px 24px rgba(102,126,234,0.35);
+        }
+        .rcmd-card h3, .rcmd-card h2 { color: #FFF !important; margin: 0; }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-top: 24px;
+            border-left: 4px solid #667EEA;
+            padding-left: 16px;
+        }
+
+        .metric-box {
+            background: #F8F9FA;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #E9ECEF;
+        }
+        </style>
+        """,
         unsafe_allow_html=True,
     )
 
-with col_right:
-    # 清除聊天 — 始终在右上角
-    if st.button("🗑️ 清除聊天", use_container_width=True,
-                 help="一键清除所有聊天记录，重新开始"):
-        st.session_state.messages = [
-            {"role": "assistant", "content": "嗨～我是小暖，很高兴遇见你 💕 今天过得怎么样呀？无论开心还是烦恼，我都愿意听你说～"}
-        ]
-        save_chat_history(st.session_state.messages)
-        st.rerun()
-st.markdown('</div>', unsafe_allow_html=True)
 
-# ==================== 渲染历史聊天记录 ====================
-for msg in st.session_state.messages:
-    avatar = "🧑" if msg["role"] == "user" else "🐱"
-    with st.chat_message(msg["role"], avatar=avatar):
-        st.markdown(msg["content"])
+# ========================================================================
+# 第1部分：Supabase 云端数据库层
+# ========================================================================
 
-# ==================== 聊天输入框 ====================
-if prompt := st.chat_input("说点什么吧……"):
-    # 1. 检查每日用量（白名单用户不受限）
-    can_chat, limit_msg = check_daily_limit(user_id)
+@st.cache_resource
+def get_supabase_client() -> Client:
+    """
+    创建并缓存 Supabase 客户端。
+    连接信息从 st.secrets 安全读取，绝不硬编码在代码中。
 
-    # 2. 添加用户消息到历史
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    save_chat_history(st.session_state.messages)
+    st.secrets 中需要配置：
+      SUPABASE_URL  — 你的 Supabase 项目 URL
+      SUPABASE_KEY  — 你的 service_role 或 anon key
+    """
+    return create_client(
+        st.secrets["SUPABASE_URL"],
+        st.secrets["SUPABASE_KEY"],
+    )
 
-    # 3. 渲染用户消息
-    with st.chat_message("user", avatar="🧑"):
-        st.markdown(prompt)
 
-    # 4. 如果超出限制 → 显示引导文本
-    if not can_chat:
-        with st.chat_message("assistant", avatar="🐱"):
-            st.markdown(limit_msg)
-        st.session_state.messages.append({"role": "assistant", "content": limit_msg})
-        save_chat_history(st.session_state.messages)
-        st.rerun()  # 立即刷新以更新侧边栏用量
+# -----------------------------------------------------------------------
+# 激活码 CRUD（全部操作 Supabase 云数据库）
+# -----------------------------------------------------------------------
 
-    # 5. 构建 API 消息列表（只保留最近 N 条，避免超出 token 上限）
-    time_info = get_beijing_time_info()
-    personality_ctx = build_personality_prompt(load_personality_profile(PERSONALITY_PROFILE_FILE))
-    system_with_time = SYSTEM_PROMPT + f"\n\n【系统隐藏信息】当前北京时间是：{time_info}。" + personality_ctx
-    api_messages = [{"role": "system", "content": system_with_time}]
-    recent_messages = st.session_state.messages[-MAX_CONTEXT_MESSAGES:]
-    for msg in recent_messages:
-        api_messages.append({"role": msg["role"], "content": msg["content"]})
+def generate_license_key() -> str:
+    """
+    使用 secrets 模块生成密码学安全的 12 位激活码。
+    格式：XXXX-XXXX-XXXX（大写字母 + 数字）
+    """
+    alphabet = string.ascii_uppercase + string.digits
+    raw = "".join(secrets.choice(alphabet) for _ in range(12))
+    return f"{raw[:4]}-{raw[4:8]}-{raw[8:12]}"
 
-    # 6. 流式渲染 AI 回复
-    with st.chat_message("assistant", avatar="🐱"):
-        full_response = st.write_stream(stream_bot_reply(api_messages))
 
-    # 7. 保存完整回复到历史
-    if full_response:
-        st.session_state.messages.append({"role": "assistant", "content": full_response})
-        save_chat_history(st.session_state.messages)
+def insert_keys(count: int) -> list[str]:
+    """
+    管理员一键制码：批量生成卡密并 INSERT 写入 Supabase。
+    每张卡密初始状态为 'unused'。
 
-    st.rerun()  # 刷新以更新侧边栏用量
+    参数:
+        count: 生成数量（最大 500）
+    返回:
+        新生成的激活码列表
+    """
+    count = min(count, 500)
+    supabase = get_supabase_client()
+    new_keys: list[str] = []
+
+    # 逐条插入（Supabase Python SDK 的批量 upsert 需要主键，
+    # 这里使用逐条 insert 保证可靠性）
+    for _ in range(count):
+        key = generate_license_key()
+        (
+            supabase.table(TABLE_NAME)
+            .insert({"license_key": key, "status": "unused"})
+            .execute()
+        )
+        new_keys.append(key)
+
+    return new_keys
+
+
+def validate_key(license_key: str) -> tuple[bool, str]:
+    """
+    校验激活码是否可用（查询 Supabase 云端）。
+
+    参数:
+        license_key: 用户输入的激活码（自动去空格、转大写）
+    返回:
+        (is_valid, message)
+        - (True, "激活成功")         — 有效且未使用
+        - (False, "激活码不存在")    — 数据库中无此码
+        - (False, "激活码已被使用")  — status = 'used'
+    """
+    key = license_key.strip().upper()
+    supabase = get_supabase_client()
+
+    result = (
+        supabase.table(TABLE_NAME)
+        .select("status")
+        .eq("license_key", key)
+        .execute()
+    )
+
+    rows = result.data
+    if not rows:
+        return False, "激活码不存在，请检查后重试。"
+
+    if rows[0]["status"] == "used":
+        return False, "该激活码已被使用，每个激活码仅限一人使用。"
+
+    return True, "激活成功！请开始你的性格测评之旅。"
+
+
+def mark_key_used(license_key: str) -> None:
+    """
+    一次性核销：将激活码标记为 used，记录当前时间。
+    在结果页首次渲染成功后调用。
+    """
+    key = license_key.strip().upper()
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    supabase = get_supabase_client()
+
+    (
+        supabase.table(TABLE_NAME)
+        .update({"status": "used", "used_at": now})
+        .eq("license_key", key)
+        .execute()
+    )
+
+
+def get_keys_stats() -> dict:
+    """从 Supabase 获取激活码总览统计数据"""
+    supabase = get_supabase_client()
+
+    # 总数
+    total_resp = (
+        supabase.table(TABLE_NAME)
+        .select("license_key", count="exact")
+        .execute()
+    )
+    total = total_resp.count or 0
+
+    # 已使用数
+    used_resp = (
+        supabase.table(TABLE_NAME)
+        .select("license_key", count="exact")
+        .eq("status", "used")
+        .execute()
+    )
+    used = used_resp.count or 0
+
+    unused = total - used
+    rate = round(used / total * 100, 1) if total > 0 else 0.0
+
+    return {"total": total, "used": used, "unused": unused, "rate": rate}
+
+
+def get_all_keys() -> pd.DataFrame:
+    """从 Supabase 获取全部激活码列表（供管理员看板）"""
+    supabase = get_supabase_client()
+
+    result = (
+        supabase.table(TABLE_NAME)
+        .select("license_key, status, used_at")
+        .order("license_key")
+        .execute()
+    )
+
+    if result.data:
+        return pd.DataFrame(result.data)
+    return pd.DataFrame(columns=["license_key", "status", "used_at"])
+
+
+# ========================================================================
+# 第2部分：专业数据加载
+# ========================================================================
+
+@st.cache_data
+def load_majors() -> pd.DataFrame:
+    """加载专业 JSON 数据（883 条），缓存。"""
+    with open(MAJORS_FILE, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    df = pd.DataFrame(data)
+
+    # 将「专业类」为 "-" 或空值的条目补全为 "交叉学科类"
+    # （交叉学科门类下的新兴专业暂无明确专业类归属）
+    df["专业类"] = df["专业类"].fillna("交叉学科类")
+    df["专业类"] = df["专业类"].replace(["", "-"], "交叉学科类")
+
+    # 过滤掉学科门类为空的行（理论上不存在，做防御）
+    df = df[df["学科门类"].notna() & (df["学科门类"] != "")]
+
+    return df
+
+
+# ========================================================================
+# 第3部分：双维测评题库
+# ========================================================================
+
+# ── 霍兰德 RIASEC 六维度定义 ──
+RIASEC = {
+    "R": {"name": "现实型 (Realistic)", "icon": "🔧", "color": "#E74C3C",
+          "desc": "动手操作，喜爱工具与机械，偏好户外与体力活动"},
+    "I": {"name": "研究型 (Investigative)", "icon": "🔬", "color": "#3498DB",
+          "desc": "观察思考，喜爱分析探索，偏好科学与实验"},
+    "A": {"name": "艺术型 (Artistic)", "icon": "🎨", "color": "#F39C12",
+          "desc": "创意表达，喜爱文学艺术，偏好自由与美感"},
+    "S": {"name": "社会型 (Social)", "icon": "🤝", "color": "#2ECC71",
+          "desc": "助人为乐，喜爱教导服务，偏好人际沟通"},
+    "E": {"name": "企业型 (Enterprising)", "icon": "📢", "color": "#E91E63",
+          "desc": "领导说服，喜爱管理影响，偏好目标与成就"},
+    "C": {"name": "常规型 (Conventional)", "icon": "📋", "color": "#9B59B6",
+          "desc": "条理规范，喜爱整理数据，偏好秩序与系统"},
+}
+
+# ── RIASEC 题目（20 题）──
+RIASEC_QUESTIONS = [
+    # ---- 第1步：动手与实践 (5题) ----
+    {"id": 1, "step": 1, "question": "学校组织科技节，你会最想",
+     "options": {"A": {"text": "亲手组装调试一台无人机或机器人", "dims": ["R"]},
+                 "B": {"text": "设计研究课题并撰写科学小论文参赛", "dims": ["I"]},
+                 "C": {"text": "拍摄科普短视频吸引同学们关注科学", "dims": ["A"]}}},
+    {"id": 2, "step": 1, "question": "看到街边有人修理摩托车，你的第一反应是",
+     "options": {"A": {"text": "停下来看，好奇内部结构怎么运作", "dims": ["I", "R"]},
+                 "B": {"text": "觉得师傅手艺真好，也想去学一门手艺", "dims": ["R"]},
+                 "C": {"text": "想到修车师傅很辛苦，行业需要更多关注", "dims": ["S"]}}},
+    {"id": 3, "step": 1, "question": "一套新家具送到家，你会",
+     "options": {"A": {"text": "照着说明书一步步组装，享受动手过程", "dims": ["R", "C"]},
+                 "B": {"text": "扔掉说明书，凭感觉自由拼装", "dims": ["A", "R"]},
+                 "C": {"text": "喊家人一起组装，边聊天边干活", "dims": ["S"]}}},
+    {"id": 4, "step": 1, "question": "在实验室做化学实验时，你更看重",
+     "options": {"A": {"text": "严格按步骤操作并精确记录每一个数据", "dims": ["C"]},
+                 "B": {"text": "探究 '为什么会这样'，尝试改变变量看结果", "dims": ["I"]},
+                 "C": {"text": "和搭档配合默契，享受共同完成实验的乐趣", "dims": ["S"]}}},
+    {"id": 5, "step": 1, "question": "如果让你暑假打工赚钱，你会选",
+     "options": {"A": {"text": "去餐厅或工厂做具体的事情", "dims": ["R"]},
+                 "B": {"text": "自己摆摊做小生意", "dims": ["E"]},
+                 "C": {"text": "做家教或辅导低年级同学", "dims": ["S", "I"]}}},
+    # ---- 第2步：思维与表达 (5题) ----
+    {"id": 6, "step": 2, "question": "面对一道极难的数学压轴题，你的态度是",
+     "options": {"A": {"text": "特别兴奋，一定要钻研到底直到解出来", "dims": ["I"]},
+                 "B": {"text": "按部就班套用公式，把步骤写得清清楚楚", "dims": ["C"]},
+                 "C": {"text": "更喜欢和同学讨论交流解法，集思广益", "dims": ["S"]}}},
+    {"id": 7, "step": 2, "question": "辩论赛中你觉得哪个角色最适合你",
+     "options": {"A": {"text": "一辩：用严密逻辑论证己方观点框架", "dims": ["I", "C"]},
+                 "B": {"text": "三辩：犀利质询对方漏洞，气势压倒", "dims": ["E"]},
+                 "C": {"text": "四辩：结合情感与价值观做有感染力的总结", "dims": ["A", "S"]}}},
+    {"id": 8, "step": 2, "question": "拿到一本新书，你最可能选",
+     "options": {"A": {"text": "科普、侦探推理或科幻小说", "dims": ["I"]},
+                 "B": {"text": "历史传记、文学名著或励志故事", "dims": ["A", "S"]},
+                 "C": {"text": "商业案例、名人创业传记", "dims": ["E"]}}},
+    {"id": 9, "step": 2, "question": "小组做项目时，你自然承担的角色是",
+     "options": {"A": {"text": "主动分配任务、推动进度、做最终检查", "dims": ["E"]},
+                 "B": {"text": "负责查资料、分析数据和归纳关键发现", "dims": ["I"]},
+                 "C": {"text": "协调组内关系，照顾每个人的感受", "dims": ["S"]}}},
+    {"id": 10, "step": 2, "question": "老师布置自由命题议论文，你会选",
+     "options": {"A": {"text": "《人工智能将如何重塑未来社会》", "dims": ["I"]},
+                 "B": {"text": "《论同理心在当代教育中的缺失》", "dims": ["S", "A"]},
+                 "C": {"text": "《创业精神与青年人的时代使命》", "dims": ["E"]}}},
+    # ---- 第3步：社会与职业倾向 (5题) ----
+    {"id": 11, "step": 3, "question": "学校组织社会实践，你倾向于",
+     "options": {"A": {"text": "设计问卷，做数据分析写调查报告", "dims": ["I", "C"]},
+                 "B": {"text": "去养老院或福利院做志愿者", "dims": ["S"]},
+                 "C": {"text": "组织义卖活动，带领大家募集善款", "dims": ["E", "S"]}}},
+    {"id": 12, "step": 3, "question": "你整理学习资料的习惯是",
+     "options": {"A": {"text": "按科目和时间精确归档，建立检索系统", "dims": ["C"]},
+                 "B": {"text": "随手放但大概知道在哪，相信直觉", "dims": ["A"]},
+                 "C": {"text": "用彩色标签和活页夹做美观又好用的分类", "dims": ["C", "A"]}}},
+    {"id": 13, "step": 3, "question": "如果让你设计一款校园 App，你会做",
+     "options": {"A": {"text": "高效的时间管理与待办事项工具", "dims": ["C", "E"]},
+                 "B": {"text": "学生互助答疑平台", "dims": ["S"]},
+                 "C": {"text": "创意图片编辑与分享社区", "dims": ["A"]}}},
+    {"id": 14, "step": 3, "question": "社团换届竞选，你上台主要讲",
+     "options": {"A": {"text": "详细的年度工作方案和可量化目标", "dims": ["C", "E"]},
+                 "B": {"text": "我对社团的感情，如何让每个人找到归属感", "dims": ["S", "A"]},
+                 "C": {"text": "我的领导风格为什么能带来更多资源和奖项", "dims": ["E"]}}},
+    {"id": 15, "step": 3, "question": "导师交给你从没做过的任务，你会",
+     "options": {"A": {"text": "先找文献教程研究清楚原理再动手", "dims": ["I"]},
+                 "B": {"text": "马上动手尝试，在实践中边做边学", "dims": ["R", "E"]},
+                 "C": {"text": "先列详细的步骤计划和时间表再执行", "dims": ["C"]}}},
+    # ---- 第4步：价值观与长远规划 (5题) ----
+    {"id": 16, "step": 4, "question": "业余时间你最可能去",
+     "options": {"A": {"text": "科技馆、博物馆或航模俱乐部", "dims": ["I", "R"]},
+                 "B": {"text": "音乐会、画展或书店泡一个下午", "dims": ["A"]},
+                 "C": {"text": "社区志愿服务或公益活动", "dims": ["S"]}}},
+    {"id": 17, "step": 4, "question": "影响你选专业最重要的因素是",
+     "options": {"A": {"text": "专业是否契合我的兴趣和天赋优势", "dims": ["I", "A"]},
+                 "B": {"text": "专业未来的就业前景和薪资水平", "dims": ["E", "C"]},
+                 "C": {"text": "专业是否能让我帮助别人或推动社会进步", "dims": ["S"]}}},
+    {"id": 18, "step": 4, "question": "如果要参加课外竞赛，你会选",
+     "options": {"A": {"text": "理科学科竞赛或信息学奥赛", "dims": ["I"]},
+                 "B": {"text": "创业大赛、商业模拟赛或模拟联合国", "dims": ["E", "S"]},
+                 "C": {"text": "作文大赛、英语演讲比赛或海报设计赛", "dims": ["A"]}}},
+    {"id": 19, "step": 4, "question": "你心目中「成功的人生」更接近",
+     "options": {"A": {"text": "在某个领域成为顶尖专家，获得行业尊重", "dims": ["I", "C"]},
+                 "B": {"text": "开创自己的事业，实现财务自由", "dims": ["E"]},
+                 "C": {"text": "拥有和谐的家庭与人际关系，过充实平静的生活", "dims": ["S", "A"]}}},
+    {"id": 20, "step": 4, "question": "你理想中的大学专业学习氛围是",
+     "options": {"A": {"text": "实验室和图书馆是主战场，沉下心来钻研", "dims": ["I"]},
+                 "B": {"text": "团队合作、项目实践和跨学科交流频繁", "dims": ["S", "E"]},
+                 "C": {"text": "自由开放的艺术氛围，鼓励个性表达", "dims": ["A"]}}},
+]
+
+# ── MBTI 精简版题目（16 题）──
+MBTI_QUESTIONS = [
+    # ---- E/I 社交能量（第5步：5题）----
+    {"id": 21, "step": 5, "axis": "EI",
+     "question": "周末两天完全没安排，你会",
+     "options": {"A": {"text": "有点无聊，想找朋友出去", "dim": "E", "score": 5},
+                 "B": {"text": "太好了，可以安静做自己的事", "dim": "I", "score": 5}}},
+    {"id": 22, "step": 5, "axis": "EI",
+     "question": "参加完大型聚会后，你通常",
+     "options": {"A": {"text": "感觉充满能量，还想继续聊", "dim": "E", "score": 5},
+                 "B": {"text": "感觉精疲力尽，需要独处充电", "dim": "I", "score": 5}}},
+    {"id": 23, "step": 5, "axis": "EI",
+     "question": "遇到困难时你第一时间",
+     "options": {"A": {"text": "打电话找朋友聊，在交流中理清思路", "dim": "E", "score": 5},
+                 "B": {"text": "关起门自己先想清楚，解决不了再求助", "dim": "I", "score": 5}}},
+    {"id": 24, "step": 5, "axis": "EI",
+     "question": "在图书馆自习时你更喜欢",
+     "options": {"A": {"text": "和几个同学坐一块区域互相督促", "dim": "E", "score": 5},
+                 "B": {"text": "找安静角落戴上耳机独自学习", "dim": "I", "score": 5}}},
+    {"id": 25, "step": 5, "axis": "EI",
+     "question": "班级讨论时你通常是",
+     "options": {"A": {"text": "抢着发言的活跃分子之一", "dim": "E", "score": 5},
+                 "B": {"text": "先听完所有人观点，最后才表达自己", "dim": "I", "score": 5}}},
+    # ---- T/F 决策方式（第6步：6题）----
+    {"id": 26, "step": 6, "axis": "TF",
+     "question": "朋友向你倾诉烦恼，你的第一反应",
+     "options": {"A": {"text": "帮他分析问题根源，给出解决方案", "dim": "T", "score": 5},
+                 "B": {"text": "先共情安慰，让他感觉被理解", "dim": "F", "score": 5}}},
+    {"id": 27, "step": 6, "axis": "TF",
+     "question": "小组决策出现分歧，你会",
+     "options": {"A": {"text": "摆出数据和事实，让客观证据说话", "dim": "T", "score": 5},
+                 "B": {"text": "先照顾大家感受，尽量找折中方案", "dim": "F", "score": 5}}},
+    {"id": 28, "step": 6, "axis": "TF",
+     "question": "评价一部电影好坏，你更看重",
+     "options": {"A": {"text": "剧情逻辑是否严密、设定自洽", "dim": "T", "score": 5},
+                 "B": {"text": "能否打动人心，情感表达是否真实", "dim": "F", "score": 5}}},
+    {"id": 29, "step": 6, "axis": "TF",
+     "question": "如果要劝退一个表现不佳的组员，你",
+     "options": {"A": {"text": "列出失误清单，客观说明原因", "dim": "T", "score": 5},
+                 "B": {"text": "非常为难，担心伤害他的自尊", "dim": "F", "score": 5}}},
+    {"id": 30, "step": 6, "axis": "TF",
+     "question": "有人说「公平比情面重要」，你",
+     "options": {"A": {"text": "同意——规则面前人人平等", "dim": "T", "score": 5},
+                 "B": {"text": "不太同意——法外有人情，应具体分析", "dim": "F", "score": 5}}},
+    {"id": 31, "step": 6, "axis": "TF",
+     "question": "贫困母亲为救孩子偷窃，作为法官你",
+     "options": {"A": {"text": "依法判处——动机无论，违法必承担后果", "dim": "T", "score": 5},
+                 "B": {"text": "从轻发落——情有可原，惩戒非唯一目的", "dim": "F", "score": 5}}},
+    # ---- J/P 生活风格（第7步：5题）----
+    {"id": 32, "step": 7, "axis": "JP",
+     "question": "出门旅行，你的行李准备方式是",
+     "options": {"A": {"text": "提前两天列清单分类装好", "dim": "J", "score": 5},
+                 "B": {"text": "出发前半小时匆忙塞箱子", "dim": "P", "score": 5}}},
+    {"id": 33, "step": 7, "axis": "JP",
+     "question": "截止日期还有一周的作业，你",
+     "options": {"A": {"text": "第一天做好计划，每天完成一部分", "dim": "J", "score": 5},
+                 "B": {"text": "截止前夜通宵赶完，压力就是动力", "dim": "P", "score": 5}}},
+    {"id": 34, "step": 7, "axis": "JP",
+     "question": "你的书桌/房间通常是",
+     "options": {"A": {"text": "整洁有序，各就各位", "dim": "J", "score": 5},
+                 "B": {"text": "有点乱但自己知道东西在哪", "dim": "P", "score": 5}}},
+    {"id": 35, "step": 7, "axis": "JP",
+     "question": "你对「计划赶不上变化」的态度",
+     "options": {"A": {"text": "不太认同——做好规划才能减少变数", "dim": "J", "score": 5},
+                 "B": {"text": "完全认同——随性而为才是生活乐趣", "dim": "P", "score": 5}}},
+    {"id": 36, "step": 7, "axis": "JP",
+     "question": "你对「按部就班」这个词的感觉",
+     "options": {"A": {"text": "安心可靠——有节奏的生活让我踏实", "dim": "J", "score": 5},
+                 "B": {"text": "束缚沉闷——生活应该充满惊喜和变化", "dim": "P", "score": 5}}},
+]
+
+ALL_QUESTIONS = RIASEC_QUESTIONS + MBTI_QUESTIONS
+TOTAL_QUESTIONS = len(ALL_QUESTIONS)
+
+STEPS = {
+    1: ("第1步 · 动手与实践", "动手操作与空间感知倾向"),
+    2: ("第2步 · 思维与表达", "逻辑思考与沟通风格"),
+    3: ("第3步 · 社会与职业倾向", "社会参与与职业偏好"),
+    4: ("第4步 · 价值观与长远规划", "人生目标与内在驱动力"),
+    5: ("第5步 · 社交能量来源", "你从哪里获取心理能量"),
+    6: ("第6步 · 决策与判断方式", "你如何做出重要决定"),
+    7: ("第7步 · 生活与工作风格", "你的日常节奏与组织偏好"),
+}
+
+
+# ========================================================================
+# 第4部分：评分引擎
+# ========================================================================
+
+def calc_riasec_scores(answers: dict) -> dict[str, float]:
+    """霍兰德 RIASEC 六维度归一化得分 (0-100)"""
+    raw = {d: 0.0 for d in "RIASEC"}
+    for q in RIASEC_QUESTIONS:
+        chosen = answers.get(q["id"])
+        if chosen and chosen in q["options"]:
+            for dim in q["options"][chosen]["dims"]:
+                raw[dim] += 1.0
+
+    max_possible = _riasec_max()
+    scores = {}
+    for d in "RIASEC":
+        scores[d] = min(100.0, round(raw[d] / max_possible[d] * 100, 1) if max_possible[d] > 0 else 0.0)
+    return scores
+
+
+def _riasec_max() -> dict[str, float]:
+    mx = {d: 0.0 for d in "RIASEC"}
+    for q in RIASEC_QUESTIONS:
+        for opt in q["options"].values():
+            for d in opt["dims"]:
+                mx[d] += 1.0
+    for d in mx:
+        mx[d] = max(mx[d], 1.0)
+    return mx
+
+
+def calc_mbti_scores(answers: dict) -> dict[str, float]:
+    """MBTI 六子维度归一化得分 (0-100)"""
+    raw = {"E": 0.0, "I": 0.0, "T": 0.0, "F": 0.0, "J": 0.0, "P": 0.0}
+    for q in MBTI_QUESTIONS:
+        chosen = answers.get(q["id"])
+        if chosen and chosen in q["options"]:
+            dim = q["options"][chosen]["dim"]
+            raw[dim] += q["options"][chosen]["score"]
+
+    max_possible = _mbti_max()
+    scores = {}
+    for d in raw:
+        scores[d] = min(100.0, round(raw[d] / max_possible[d] * 100, 1) if max_possible[d] > 0 else 0.0)
+    return scores
+
+
+def _mbti_max() -> dict[str, float]:
+    mx = {"E": 0.0, "I": 0.0, "T": 0.0, "F": 0.0, "J": 0.0, "P": 0.0}
+    for q in MBTI_QUESTIONS:
+        for opt in q["options"].values():
+            mx[opt["dim"]] += opt["score"]
+    for d in mx:
+        mx[d] = max(mx[d], 1.0)
+    return mx
+
+
+# ========================================================================
+# 第5部分：双维交叉匹配引擎
+# ========================================================================
+
+MENLEI_MATCH = {
+    "理学":   ("I", "T", "基础研究，需要深度思考与逻辑推理"),
+    "工学":   ("R", "T", "工程应用，动手能力与理性分析并重"),
+    "医学":   ("I", "T", "生命科学，严谨实证与人文关怀兼备"),
+    "农学":   ("R", "T", "大地与生命，实践探索与科学精神"),
+    "哲学":   ("I", "T", "思辨之域，抽象推理与逻辑严谨"),
+    "经济学": ("E", "T", "资源配置，数据分析与战略决策"),
+    "法学":   ("E", "T", "规则与正义，逻辑思维与价值判断"),
+    "教育学": ("S", "F", "知识传承，共情沟通与人格塑造"),
+    "文学":   ("A", "F", "语言艺术，感性表达与文化沉淀"),
+    "历史学": ("I", "T", "时间的学问，沉心考证与批判思维"),
+    "管理学": ("E", "T", "组织效率，领导协调与系统规划"),
+    "艺术学": ("A", "F", "美的创造，个性表达与感性直觉"),
+}
+
+ZHUANYELEI_MATCH = {}
+for _zl in ["计算机类", "电子信息类", "自动化类", "电气类", "机械类", "土木类",
+            "数学类", "物理学类", "化学类", "生物科学类", "统计学类",
+            "航空航天类", "兵器类", "核工程类", "材料类", "能源动力类",
+            "化工与制药类", "交通运输类", "农业工程类", "林业工程类",
+            "环境科学与工程类", "生物医学工程类", "安全科学与工程类",
+            "生物工程类", "公安技术类"]:
+    ZHUANYELEI_MATCH[_zl] = (["I", "R"], "T")
+
+for _zl in ["临床医学类", "基础医学类", "口腔医学类", "药学类",
+            "中药学类", "法医学类", "医学技术类"]:
+    ZHUANYELEI_MATCH[_zl] = (["I", "S"], "T")
+
+for _zl in ["中医学类", "中西医结合类"]:
+    ZHUANYELEI_MATCH[_zl] = (["I", "S"], "F")
+
+for _zl in ["护理学类"]:
+    ZHUANYELEI_MATCH[_zl] = (["S", "R"], "F")
+
+for _zl in ["中国语言文学类", "外国语言文学类"]:
+    ZHUANYELEI_MATCH[_zl] = (["A", "S"], "F")
+
+for _zl in ["新闻传播学类"]:
+    ZHUANYELEI_MATCH[_zl] = (["A", "E"], "F")
+
+for _zl in ["法学类", "政治学类", "公安学类"]:
+    ZHUANYELEI_MATCH[_zl] = (["E", "S"], "T")
+
+for _zl in ["社会学类", "民族学类", "马克思主义理论类"]:
+    ZHUANYELEI_MATCH[_zl] = (["S", "I"], "F")
+
+for _zl in ["经济学类", "金融学类", "财政学类", "经济与贸易类"]:
+    ZHUANYELEI_MATCH[_zl] = (["E", "C"], "T")
+
+for _zl in ["管理科学与工程类", "工商管理类", "农业经济管理类",
+            "图书情报与档案管理类", "物流管理与工程类", "工业工程类",
+            "电子商务类", "旅游管理类"]:
+    ZHUANYELEI_MATCH[_zl] = (["E", "C"], "T")
+
+for _zl in ["公共管理类"]:
+    ZHUANYELEI_MATCH[_zl] = (["S", "E"], "F")
+
+for _zl in ["教育学类", "体育学类"]:
+    ZHUANYELEI_MATCH[_zl] = (["S"], "F")
+
+for _zl in ["音乐与舞蹈学类", "戏剧与影视学类", "美术学类",
+            "设计学类", "艺术学理论类"]:
+    ZHUANYELEI_MATCH[_zl] = (["A"], "F")
+
+for _zl in ["历史学类", "哲学类"]:
+    ZHUANYELEI_MATCH[_zl] = (["I", "A"], "T")
+
+for _zl in ["建筑类"]:
+    ZHUANYELEI_MATCH[_zl] = (["A", "R"], "F")
+
+for _zl in ["纺织类", "轻工类"]:
+    ZHUANYELEI_MATCH[_zl] = (["R", "A"], "T")
+
+for _zl in ["植物生产类", "动物生产类", "林学类", "水产类", "草学类",
+            "自然保护与环境生态类", "动物医学类"]:
+    ZHUANYELEI_MATCH[_zl] = (["R", "I"], "T")
+
+for _zl in ["食品科学与工程类"]:
+    ZHUANYELEI_MATCH[_zl] = (["I", "R"], "T")
+
+for _zl in ["心理学类"]:
+    ZHUANYELEI_MATCH[_zl] = (["I", "S"], "F")
+
+
+def match_majors_combined(
+    df: pd.DataFrame,
+    riasec_scores: dict,
+    mbti_scores: dict,
+    top_n: int = 10,
+) -> pd.DataFrame:
+    """
+    双维综合匹配 — 交叉矩阵评分。
+
+    评分逻辑（每行可累计）：
+    ┌──────────────────────────────────┬──────┐
+    │ 条件                             │ 加分 │
+    ├──────────────────────────────────┼──────┤
+    │ 学科门类 primary RIASEC 命中     │ +5   │
+    │ 学科门类 MBTI T/F 匹配           │ +3   │
+    │ 专业类精细 RIASEC 命中           │ +3   │
+    │ 专业类精细 MBTI T/F 匹配         │ +2   │
+    │ 最高 RIASEC 维度专属加成         │ +3   │
+    └──────────────────────────────────┴──────┘
+    """
+    riasec_top = sorted(riasec_scores.items(), key=lambda x: x[1], reverse=True)
+    top_riasec_set = {d for d, _ in riasec_top[:3]}
+    user_tf = "T" if mbti_scores["T"] >= mbti_scores["F"] else "F"
+
+    df = df.copy()
+
+    def score_row(row) -> int:
+        total = 0
+        ml = row["学科门类"]
+        zyl = row.get("专业类", "")
+
+        ml_info = MENLEI_MATCH.get(ml)
+        if ml_info:
+            ml_riasec, ml_tf, _ = ml_info
+            if ml_riasec in top_riasec_set:
+                total += 5
+            if ml_tf == user_tf:
+                total += 3
+
+        zl_info = ZHUANYELEI_MATCH.get(zyl)
+        if zl_info:
+            zl_dims, zl_tf = zl_info
+            if top_riasec_set & set(zl_dims):
+                total += 3
+            if zl_tf == user_tf:
+                total += 2
+            if riasec_top[0][0] in zl_dims:
+                total += 3
+
+        return total
+
+    df["匹配分数"] = df.apply(score_row, axis=1)
+    matched = df[df["匹配分数"] > 0].sort_values("匹配分数", ascending=False)
+
+    if len(matched) < top_n:
+        remain = top_n - len(matched)
+        others = df[~df.index.isin(matched.index)].sample(
+            min(remain, len(df) - len(matched)), random_state=42
+        )
+        matched = pd.concat([matched, others])
+
+    return matched.head(top_n)
+
+
+def generate_reason(
+    row: pd.Series,
+    riasec_scores: dict,
+    mbti_scores: dict,
+) -> str:
+    """为推荐专业生成个性化解释"""
+    riasec_top = sorted(riasec_scores.items(), key=lambda x: x[1], reverse=True)
+    top_d_name = RIASEC[riasec_top[0][0]]["name"].split(" ")[0]
+    user_tf = "逻辑分析型" if mbti_scores["T"] >= mbti_scores["F"] else "情感共鸣型"
+    user_ei = "与人交流协作" if mbti_scores["E"] >= mbti_scores["I"] else "独立深入思考"
+
+    zyl = row.get("专业类", "")
+    major = row.get("专业名称", "该专业")
+
+    custom = {
+        "计算机类": f"你兼具'{top_d_name}'特质和{user_tf}思维，这正是{major}所看重的核心素养。",
+        "临床医学类": f"医学需理性与共情的平衡。你的双维测试结果恰好在两者间有良好表现，{major}值得认真考虑。",
+        "中国语言文学类": f"你的感性细腻与表达欲能在{major}中找到最自然的出口。",
+        "设计学类": f"你的创造力与审美敏感度，恰是{major}最看重的天赋。",
+    }
+    if zyl in custom:
+        return custom[zyl]
+
+    return (
+        f"你的霍兰德'{top_d_name}'特质与 MBTI {user_tf}倾向共同指向{major}（{zyl}）。"
+        f"该专业需要{user_ei}的能力，与你的性格画像高度一致。"
+    )
+
+
+# ========================================================================
+# 第6部分：可视化组件
+# ========================================================================
+
+def render_bar_chart(scores: dict, color_map: dict = None, height: int = 320):
+    """柱状图（Plotly）"""
+    import plotly.graph_objects as go
+
+    items = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+    labels = [k for k, _ in items]
+    values = [v for _, v in items]
+    colors = [color_map.get(k, "#667EEA") for k, _ in items] if color_map else ["#667EEA"] * len(labels)
+
+    fig = go.Figure()
+    fig.add_trace(
+        go.Bar(
+            x=labels, y=values, marker_color=colors,
+            text=[f"{v:.0f}" for v in values], textposition="outside",
+        )
+    )
+    fig.update_layout(
+        xaxis=dict(showgrid=False),
+        yaxis=dict(range=[0, 108], showgrid=True, gridcolor="#F0F0F0"),
+        margin=dict(l=30, r=30, t=10, b=20),
+        height=height,
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+    )
+    return fig
+
+
+# ========================================================================
+# 第7部分：UI 页面组件
+# ========================================================================
+
+def render_header() -> None:
+    c1, c2 = st.columns([0.82, 0.18])
+    with c1:
+        st.title("🎓 高考志愿智能推荐系统 v4.0")
+        st.caption(
+            "**霍兰德 RIASEC (20题) × MBTI 精简版 (16题)**  "
+            "双维深度测评 · 883 个本科专业 · 智能匹配引擎"
+        )
+    with c2:
+        st.image("https://img.icons8.com/emoji/96/graduation-cap-emoji.png", width=72)
+
+
+def render_sidebar(df: pd.DataFrame) -> None:
+    """侧边栏：系统说明 + 数据概况 + 管理员通道"""
+    with st.sidebar:
+        st.markdown("## 📖 系统说明")
+
+        with st.expander("🔬 霍兰德 RIASEC", expanded=False):
+            for d, info in RIASEC.items():
+                st.caption(f"{info['icon']} **{info['name']}** — {info['desc']}")
+
+        with st.expander("🧠 MBTI 精简版", expanded=False):
+            st.caption("**E/I** 社交能量 · **T/F** 决策方式 · **J/P** 生活风格")
+
+        st.markdown("---")
+
+        st.markdown("### 📊 数据概况")
+        c3, c4 = st.columns(2)
+        c3.metric("专业总数", len(df))
+        c4.metric("学科门类", df["学科门类"].nunique())
+        c5, c6 = st.columns(2)
+        c5.metric("专业类", df["专业类"].nunique())
+        c6.metric("测评题数", TOTAL_QUESTIONS)
+
+        st.markdown("---")
+
+        # ── 管理员通道 ──
+        with st.expander("🔐 管理员通道", expanded=False):
+            admin_pwd = st.text_input(
+                "管理员主密码",
+                type="password",
+                key="admin_sidebar_password",
+                placeholder="输入主密码即可解锁后台",
+            )
+            if admin_pwd == st.secrets["admin_password"]:
+                st.session_state.is_admin = True
+                st.success("✅ 管理员验证通过，后台已解锁")
+            elif admin_pwd:
+                st.session_state.is_admin = False
+                st.error("❌ 密码错误")
+
+
+def render_welcome_and_activation() -> None:
+    """卡密收费墙 — 欢迎页 + 激活窗口"""
+    st.markdown("---")
+    col_img, col_form = st.columns([0.45, 0.55])
+
+    with col_img:
+        st.markdown(
+            """
+            <div style="
+                background: linear-gradient(135deg, #667EEA, #764BA2);
+                border-radius: 20px;
+                padding: 48px 32px;
+                text-align: center;
+                color: white;
+            ">
+            <h1 style="color:white; font-size: 48px; margin:0;">🎓</h1>
+            <h2 style="color:white; margin:12px 0;">发现最适合你的大学专业</h2>
+            <p style="opacity:0.85; line-height:1.7;">
+            基于权威心理学理论<br>
+            36 道深度情景测评<br>
+            883 个本科专业精准匹配
+            </p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    with col_form:
+        st.markdown("### 🔑 输入激活码以解锁系统")
+        st.caption("每个激活码仅供一人使用，激活后即刻解锁全部功能。")
+
+        with st.form(key="activation_form"):
+            user_key = st.text_input(
+                "激活码",
+                placeholder="例如：ABCD-EFGH-IJKL",
+                key="activation_input",
+            )
+            submitted = st.form_submit_button(
+                "🚀 激活并开始测评",
+                type="primary",
+                use_container_width=True,
+            )
+
+            if submitted:
+                if not user_key.strip():
+                    st.error("请输入激活码。")
+                else:
+                    valid, msg = validate_key(user_key)
+                    if valid:
+                        st.session_state.license_activated = True
+                        st.session_state.license_key = user_key.strip().upper()
+                        st.success(msg)
+                        st.rerun()
+                    else:
+                        st.error(msg)
+
+
+def render_progress(answers: dict) -> None:
+    done = len(answers)
+    pct = done / TOTAL_QUESTIONS
+    st.progress(pct, text=f"📝 答题进度：{done}/{TOTAL_QUESTIONS} 题（{int(pct*100)}%）")
+
+
+def render_questionnaire() -> None:
+    """分步答题引擎（7 步骤，每步一个 st.form）"""
+    st.markdown("---")
+    st.markdown('<p class="section-title">📋 双维深度测评</p>', unsafe_allow_html=True)
+
+    render_progress(st.session_state.answers)
+
+    for step_num in sorted(STEPS.keys()):
+        step_qs = [q for q in ALL_QUESTIONS
+                   if q["step"] == step_num
+                   and q["id"] not in st.session_state.answers]
+        if not step_qs:
+            continue
+
+        step_title, step_desc = STEPS[step_num]
+        st.markdown(f"### {step_title}")
+        st.caption(step_desc)
+
+        with st.form(key=f"step_form_{step_num}"):
+            for q in step_qs:
+                prefix = "🔬" if q["id"] <= 20 else "🧠"
+                st.markdown(f"##### {prefix} **{q['id']}. {q['question']}**")
+
+                opt_keys = list(q["options"].keys())
+                selected = st.radio(
+                    f"Q{q['id']}",
+                    options=opt_keys,
+                    format_func=lambda k, q=q: f"{k}. {q['options'][k]['text']}",
+                    key=f"radio_{q['id']}",
+                    label_visibility="collapsed",
+                    index=None,
+                )
+                if selected:
+                    st.session_state.answers[q["id"]] = selected
+
+            st.form_submit_button(
+                "💾 保存并进入下一步",
+                type="primary",
+                use_container_width=True,
+                on_click=lambda: st.rerun(),
+            )
+        return
+
+    # 全部答完 → 触发结果
+    if len(st.session_state.answers) >= TOTAL_QUESTIONS:
+        compute_and_show_results()
+
+
+def compute_and_show_results() -> None:
+    """计算得分 + 匹配专业 + 一次性核销"""
+    with st.spinner("🔍 正在计算你的性格画像..."):
+        st.session_state.riasec_scores = calc_riasec_scores(st.session_state.answers)
+        st.session_state.mbti_scores = calc_mbti_scores(st.session_state.answers)
+
+    with st.spinner("🎯 正在匹配最适合你的专业..."):
+        df = load_majors()
+        st.session_state.matched = match_majors_combined(
+            df,
+            st.session_state.riasec_scores,
+            st.session_state.mbti_scores,
+        )
+
+    # 一次性核销
+    if not st.session_state.get("key_consumed", False):
+        mark_key_used(st.session_state.license_key)
+        st.session_state.key_consumed = True
+
+    render_results_view(
+        st.session_state.riasec_scores,
+        st.session_state.mbti_scores,
+        st.session_state.matched,
+    )
+
+
+def render_results_view(
+    riasec_scores: dict,
+    mbti_scores: dict,
+    matched: pd.DataFrame,
+) -> None:
+    """结果展示页"""
+    st.markdown("---")
+    st.markdown('<p class="section-title">📊 你的性格画像报告</p>', unsafe_allow_html=True)
+
+    riasec_top = sorted(riasec_scores.items(), key=lambda x: x[1], reverse=True)
+    user_tf = "理性 (T)" if mbti_scores["T"] >= mbti_scores["F"] else "感性 (F)"
+    user_ei = "外向 (E)" if mbti_scores["E"] >= mbti_scores["I"] else "内向 (I)"
+    user_jp = "计划 (J)" if mbti_scores["J"] >= mbti_scores["P"] else "随性 (P)"
+
+    c1, c2 = st.columns(2)
+    with c1:
+        st.markdown("##### 🔬 霍兰德 RIASEC")
+        riasec_color = {d: RIASEC[d]["color"] for d in RIASEC}
+        st.plotly_chart(render_bar_chart(riasec_scores, riasec_color), use_container_width=True)
+        top_d = riasec_top[0][0]
+        st.info(f"**核心倾向：{RIASEC[top_d]['icon']} {RIASEC[top_d]['name']}**\n\n{RIASEC[top_d]['desc']}")
+
+    with c2:
+        st.markdown("##### 🧠 MBTI 精简评估")
+        mbti_color = {"E": "#2ECC71", "I": "#3498DB", "T": "#E74C3C", "F": "#F39C12", "J": "#9B59B6", "P": "#1ABC9C"}
+        st.plotly_chart(render_bar_chart(mbti_scores, mbti_color), use_container_width=True)
+        st.info(f"**决策：{user_tf}**  ·  **社交：{user_ei}**  ·  **节奏：{user_jp}**")
+
+    st.markdown("---")
+    st.markdown('<p class="section-title">🎯 Top 10 专业推荐</p>', unsafe_allow_html=True)
+    st.caption(
+        f"匹配逻辑：最高维度 **{RIASEC[riasec_top[0][0]]['name'].split(' ')[0]}** "
+        f"+ MBTI **{user_tf}** → 从 883 个专业中精选 Top 10"
+    )
+
+    for idx, (_, row) in enumerate(matched.iterrows()):
+        rank = idx + 1
+        medal = {1: "🥇", 2: "🥈", 3: "🥉"}.get(rank, f"#{rank}")
+
+        if rank <= 3:
+            st.markdown(
+                f"""
+                <div class="rcmd-card">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                  <h3>{medal} 第 {rank} 名</h3>
+                  <span style="opacity:0.85;">{row['学科门类']} · {row['专业类']}</span>
+                </div>
+                <h2 style="margin:10px 0;">{row['专业名称']}</h2>
+                <code>专业代码 {row.get('专业代码', '')}</code>
+                <p style="margin-top:14px;line-height:1.7;font-size:14px;">
+                  {generate_reason(row, riasec_scores, mbti_scores)}
+                </p>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+        else:
+            with st.container():
+                st.markdown(
+                    f"#### {medal} {row['专业名称']}  "
+                    f"<small><code>({row.get('专业代码', '')})</code></small>",
+                    unsafe_allow_html=True,
+                )
+                st.caption(f"  {row['学科门类']} · {row['专业类']}  |  匹配分数：{row.get('匹配分数', '-')}")
+                with st.expander(" 查看匹配理由"):
+                    st.success(generate_reason(row, riasec_scores, mbti_scores))
+
+    st.markdown("---")
+    st.info(
+        "💡 **温馨提示**：性格测试结果仅供选专业参考。"
+        "实际填报请结合你的 **高考分数**、**院校偏好**、**城市选择** 和 **个人志向** 综合决策。"
+    )
+
+    _, cbtn, _ = st.columns([0.35, 0.3, 0.35])
+    with cbtn:
+        if st.button("🔄 重新测评", use_container_width=True, key="restart_result"):
+            st.session_state.answers = {}
+            st.session_state.riasec_scores = None
+            st.session_state.mbti_scores = None
+            st.session_state.matched = None
+            st.session_state.key_consumed = False
+            st.rerun()
+
+
+# ========================================================================
+# 第8部分：管理员控制面板
+# ========================================================================
+
+def render_admin_panel(df_majors: pd.DataFrame) -> None:
+    if not st.session_state.get("is_admin"):
+        return
+
+    st.markdown("---")
+    st.markdown('<p class="section-title">🛡️ 管理员控制面板</p>', unsafe_allow_html=True)
+
+    # 统计卡片
+    stats = get_keys_stats()
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("📦 总生成数", stats["total"])
+    c2.metric("✅ 已使用", stats["used"])
+    c3.metric("📋 未使用", stats["unused"])
+    c4.metric("📈 转化率", f"{stats['rate']}%")
+
+    st.markdown("---")
+
+    # A：卡密看板
+    st.markdown("### 📋 激活码管理看板")
+    keys_df = get_all_keys()
+    if not keys_df.empty:
+        st.dataframe(keys_df, use_container_width=True, hide_index=True)
+        csv_data = keys_df.to_csv(index=False).encode("utf-8")
+        st.download_button(
+            "📥 导出 CSV",
+            data=csv_data,
+            file_name=f"license_keys_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+            mime="text/csv",
+        )
+    else:
+        st.info("数据库中暂无激活码，请先批量生成。")
+
+    st.markdown("---")
+
+    # B：一键制码
+    st.markdown("### 🔧 批量生成激活码")
+    col_gen, col_info = st.columns([0.4, 0.6])
+    with col_gen:
+        gen_count = st.number_input("生成数量", min_value=1, max_value=500, value=10, step=1)
+        if st.button("🎲 批量生成", type="primary", use_container_width=True):
+            new_keys = insert_keys(gen_count)
+            st.success(f"✅ 成功生成 {len(new_keys)} 个激活码！")
+            with st.expander("查看新生成的激活码"):
+                for k in new_keys:
+                    st.code(k)
+            st.rerun()
+
+    with col_info:
+        st.caption(
+            "激活码格式为 `XXXX-XXXX-XXXX`（12 位大写字母+数字，密码学安全随机）。"
+            "每个激活码仅限一人使用，使用后即刻核销。"
+        )
+
+    # 专业数据概览
+    st.markdown("---")
+    st.markdown("### 📊 专业数据概览")
+    c1, c2, c3 = st.columns(3)
+    c1.metric("专业总数", len(df_majors))
+    c2.metric("学科门类", df_majors["学科门类"].nunique())
+    c3.metric("专业类", df_majors["专业类"].nunique())
+
+
+# ========================================================================
+# 主应用入口
+# ========================================================================
+
+def main() -> None:
+    inject_css()
+
+    # Session State 初始化
+    defaults = {
+        "license_activated": False,
+        "license_key": "",
+        "answers": {},
+        "riasec_scores": None,
+        "mbti_scores": None,
+        "matched": None,
+        "key_consumed": False,
+        "is_admin": False,
+    }
+    for k, v in defaults.items():
+        if k not in st.session_state:
+            st.session_state[k] = v
+
+    df = load_majors()
+
+    render_header()
+
+    if not st.session_state.license_activated:
+        render_sidebar(df)
+        render_welcome_and_activation()
+    else:
+        render_sidebar(df)
+        st.caption(f"🔑 当前激活码：`{st.session_state.license_key}` | 状态：已激活")
+
+        if st.session_state.matched is not None:
+            render_results_view(
+                st.session_state.riasec_scores,
+                st.session_state.mbti_scores,
+                st.session_state.matched,
+            )
+            _, cbtn, _ = st.columns([0.35, 0.3, 0.35])
+            with cbtn:
+                if st.button("🔄 重新测评", use_container_width=True, key="restart_result"):
+                    st.session_state.answers = {}
+                    st.session_state.riasec_scores = None
+                    st.session_state.mbti_scores = None
+                    st.session_state.matched = None
+                    st.session_state.key_consumed = False
+                    st.rerun()
+        else:
+            render_questionnaire()
+
+    if st.session_state.get("is_admin"):
+        render_admin_panel(df)
+
+
+if __name__ == "__main__":
+    main()
