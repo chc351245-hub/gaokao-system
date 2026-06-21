@@ -415,17 +415,80 @@ def load_funnel_data() -> FunnelData:
 
 
 # ============================================================================
+# 选科 → 学科门类兼容性（Layer 1 使用）
+# ============================================================================
+
+SCIENCE_SUBJECTS = {"物理", "化学", "生物"}
+ARTS_SUBJECTS = {"历史", "地理", "政治"}
+
+# 理工农医：必须有理科基础
+SCIENCE_DISCIPLINES = {"理学", "工学", "农学", "医学"}
+# 人文社科：必须有文科基础
+ARTS_DISCIPLINES = {"哲学", "法学", "教育学", "文学", "历史学", "艺术学"}
+# 经管军：文理兼收
+MIXED_DISCIPLINES = {"经济学", "管理学", "军事学"}
+
+
+def _subject_discipline_compatibility(
+    selected_subjects: list[str],
+    discipline_name: str,
+) -> float:
+    """
+    计算用户选科与学科门类的兼容系数。
+
+    规则：
+      - 理工农医门类：纯文科生（历史/地理/政治）→ 严重衰减 ×0.15
+      - 人文社科门类：纯理科生（物理/化学/生物）→ 严重衰减 ×0.15
+      - 经管军门类：文理兼收，无衰减
+      - 混合选科（如物理+历史）：按理科/文科数量阶梯衰减
+
+    Returns:
+        0.0 ~ 1.0 的乘法系数
+    """
+    subjects = set(selected_subjects)
+    if not subjects:
+        return 1.0  # 未设置选科时不影响
+
+    science_count = len(subjects & SCIENCE_SUBJECTS)
+    arts_count = len(subjects & ARTS_SUBJECTS)
+
+    if discipline_name in SCIENCE_DISCIPLINES:
+        if science_count == 0:
+            return 0.15  # 纯文科生无法报考理工农医
+        elif science_count == 1:
+            return 0.50  # 仅1门理科 → 部分受限
+        else:
+            return 1.0   # ≥2门理科 → 正常兼容
+
+    if discipline_name in ARTS_DISCIPLINES:
+        if arts_count == 0:
+            return 0.15  # 纯理科生与人文社科兼容度极低
+        elif arts_count == 1:
+            return 0.50
+        else:
+            return 1.0
+
+    # 经管军等混合门类 → 文理兼收
+    return 1.0
+
+
+# ============================================================================
 # Layer 1: 学科门类匹配
 # ============================================================================
 
 def layer1_discipline_match(user: UserProfile, data: FunnelData) -> list[dict]:
     """
     第一层：学科门类初筛
-    匹配用户的认知风格 + 人格倾向 → 13 个门类得分
+    匹配用户的认知风格 + 人格倾向 + 选科兼容 → 13 个门类得分
 
-    score = cosine(behavior, disc_cognitive) × 0.5
-          + cosine(personality, disc_persona) × 0.3
-          + discipline_weight × 0.2
+    raw_score = cosine(behavior, disc_cognitive) × 0.5
+              + cosine(personality, disc_persona) × 0.3
+              + discipline_weight × 0.2
+
+    score = raw_score × subject_compatibility
+      - 纯文科生（无物理/化学/生物）报理工农医 → ×0.15
+      - 纯理科生（无历史/地理/政治）报人文社科 → ×0.15
+      - 经管军门类文理兼收 → ×1.0
     """
     # 用户向量
     user_behavior = [user.micro_behavior_vector.get(d, 50.0) / 100.0 for d in BEHAVIOR_DIMENSIONS]
@@ -445,13 +508,20 @@ def layer1_discipline_match(user: UserProfile, data: FunnelData) -> list[dict]:
         cog_sim = cosine_similarity(user_behavior, disc_cognitive_vec)
         per_sim = cosine_similarity(user_personality, disc_persona_vec)
 
-        score = cog_sim * 0.5 + per_sim * 0.3 + disc_weight * 0.2
+        raw_score = cog_sim * 0.5 + per_sim * 0.3 + disc_weight * 0.2
+
+        # 选科兼容系数：文科生报理工科 / 理科生报文科 → 大幅衰减
+        subject_mul = _subject_discipline_compatibility(
+            user.selected_subjects, disc_name
+        )
+        score = raw_score * subject_mul
 
         results.append({
             "discipline_name": disc_name,
             "cognitive_sim": round(cog_sim, 4),
             "persona_sim": round(per_sim, 4),
             "weight_bonus": round(disc_weight, 4),
+            "subject_mul": round(subject_mul, 4),
             "score": round(score, 4),
         })
 

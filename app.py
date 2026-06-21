@@ -665,6 +665,17 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
             st.session_state.user = None
             st.session_state.key_consumed = False
             st.session_state.profile_done = False
+            # 清除用户画像数据，防止新旧测试数据串扰
+            st.session_state.user_subjects = []
+            st.session_state.user_score = 500
+            st.session_state.user_rank_pct = 50.0
+            st.session_state.user_physical = []
+            st.session_state.user_econ = "中"
+            st.session_state.user_city = "新一线"
+            st.session_state.user_overseas = False
+            st.session_state.user_industry_conn = "无"
+            st.session_state.user_track = "暂无"
+            st.session_state.user_stance = None
             st.rerun()
 
 
@@ -937,6 +948,17 @@ def main() -> None:
                     st.session_state.user = None
                     st.session_state.key_consumed = False
                     st.session_state.profile_done = False
+                    # 清除用户画像数据，防止新旧测试数据串扰
+                    st.session_state.user_subjects = []
+                    st.session_state.user_score = 500
+                    st.session_state.user_rank_pct = 50.0
+                    st.session_state.user_physical = []
+                    st.session_state.user_econ = "中"
+                    st.session_state.user_city = "新一线"
+                    st.session_state.user_overseas = False
+                    st.session_state.user_industry_conn = "无"
+                    st.session_state.user_track = "暂无"
+                    st.session_state.user_stance = None
                     st.rerun()
         elif not st.session_state.profile_done:
             render_user_profile_form()
