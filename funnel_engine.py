@@ -415,66 +415,89 @@ def load_funnel_data() -> FunnelData:
 
 
 # ============================================================================
-# 选科 → 学科门类兼容性（Layer 1 使用）
+# ============================================================================
+# 专业类 → 新高考选科要求（Layer 2 精确校验）
+# ============================================================================
+# 每个专业类的必选科目。用户不满足 → 该专业类直接归零。
+# 空集合表示不限选科。
+# 数据来源：教育部《普通高校本科招生专业选考科目要求指引》
 # ============================================================================
 
-SCIENCE_SUBJECTS = {"物理", "化学", "生物"}
-ARTS_SUBJECTS = {"历史", "地理", "政治"}
+CATEGORY_SUBJECT_REQUIREMENTS: dict[str, set[str]] = {
+    # ===== 医学类 =====
+    "临床医学类":               {"物理", "化学"},
+    "口腔医学类":               {"物理", "化学"},
+    "基础医学类":               {"物理", "化学"},
+    "中西医结合类":             {"物理", "化学"},
+    "法医学类":                 {"物理", "化学"},
+    "中医学类":                 {"物理"},
+    "中药学类":                 {"化学"},
+    "药学类":                   {"化学"},
+    "医学技术类":               {"物理"},
+    "公共卫生与预防医学类":     {"物理"},
+    "护理学类":                 set(),
 
-# 理工农医：必须有理科基础
-SCIENCE_DISCIPLINES = {"理学", "工学", "农学", "医学"}
-# 人文社科：必须有文科基础
-ARTS_DISCIPLINES = {"哲学", "法学", "教育学", "文学", "历史学", "艺术学"}
-# 经管军：文理兼收
-MIXED_DISCIPLINES = {"经济学", "管理学", "军事学"}
+    # ===== 工学类 =====
+    "计算机类":                 {"物理"},
+    "电子信息类":               {"物理"},
+    "自动化类":                 {"物理"},
+    "电气类":                   {"物理"},
+    "机械类":                   {"物理"},
+    "土木类":                   {"物理"},
+    "建筑类":                   {"物理"},
+    "航空航天类":               {"物理"},
+    "核工程类":                 {"物理"},
+    "兵器类":                   {"物理"},
+    "交通运输类":               {"物理"},
+    "仪器类":                   {"物理"},
+    "力学类":                   {"物理"},
+    "测绘类":                   {"物理"},
+    "安全科学与工程类":         {"物理"},
+    "工业工程类":               {"物理"},
+    "海洋工程类":               {"物理"},
+    "水利类":                   {"物理"},
+    "矿业类":                   {"物理"},
+    "地质类":                   {"物理"},
+    "农业工程类":               {"物理"},
+    "林业工程类":               {"物理"},
+    "公安技术类":               {"物理"},
+    "能源动力类":               {"物理"},
+    "生物医学工程类":           {"物理"},
+    "环境科学与工程类":         {"物理"},
+    # 物理 + 化学 双锁
+    "材料类":                   {"物理", "化学"},
+    "化工与制药类":             {"物理", "化学"},
+    "纺织类":                   {"物理", "化学"},
+    "轻工类":                   {"物理", "化学"},
+    "生物工程类":               {"物理", "化学"},
+    "食品科学与工程类":         {"物理", "化学"},
 
+    # ===== 理学类 =====
+    "数学类":                   {"物理"},
+    "物理学类":                 {"物理"},
+    "化学类":                   {"物理", "化学"},
+    "天文学类":                 {"物理"},
+    "大气科学类":               {"物理"},
+    "海洋科学类":               {"物理"},
+    "地球物理学类":             {"物理"},
+    "地质学类":                 {"物理"},
+    "生物科学类":               {"物理", "化学"},
+    "统计学类":                 {"物理"},
+    "心理学类":                 set(),
+    "地理科学类":               {"地理"},
 
-def _subject_discipline_compatibility(
-    selected_subjects: list[str],
-    discipline_name: str,
-) -> float:
-    """
-    计算用户选科与学科门类的兼容系数（含加成与惩罚）。
+    # ===== 农学类 =====
+    "植物生产类":               {"化学"},
+    "动物生产类":               {"化学"},
+    "动物医学类":               {"物理", "化学"},
+    "林学类":                   {"化学"},
+    "水产类":                   {"化学"},
+    "草学类":                   {"化学"},
+    "自然保护与环境生态类":     {"化学"},
 
-    核心逻辑：
-      - 理科生报理工农医 → 强力加成 ×1.50（因为选科与学科高度匹配）
-      - 文科生报人文社科 → 强力加成 ×1.50
-      - 文理混合 → 两边都有中等加成
-      - 错配（理科→文科 / 文科→理科）→ 严重惩罚 ×0.10
-      - 经管军门类文理兼收 → ×1.0 中性
-
-    Returns:
-        0.0 ~ 1.5 的乘法系数（>1.0 表示加成）
-    """
-    subjects = set(selected_subjects)
-    if not subjects:
-        return 1.0  # 未设置选科时不影响
-
-    science_count = len(subjects & SCIENCE_SUBJECTS)
-    arts_count = len(subjects & ARTS_SUBJECTS)
-
-    if discipline_name in SCIENCE_DISCIPLINES:
-        if science_count == 0:
-            return 0.10  # 纯文科生无法报考理工农医
-        elif science_count == 1:
-            return 0.60  # 仅1门理科 → 部分受限
-        elif science_count == 2:
-            return 1.30  # 2门理科 → 明显加成
-        else:
-            return 1.50  # 3门理科(物化生全齐) → 强力加成
-
-    if discipline_name in ARTS_DISCIPLINES:
-        if arts_count == 0:
-            return 0.10  # 纯理科生与人文社科兼容度极低
-        elif arts_count == 1:
-            return 0.60
-        elif arts_count == 2:
-            return 1.30
-        else:
-            return 1.50  # 3门文科(史地政全齐) → 强力加成
-
-    # 经管军等混合门类 → 文理兼收，中性
-    return 1.0
+    # ===== 交叉学科 =====
+    "交叉类":                   {"物理"},
+}
 
 
 # ============================================================================
@@ -483,17 +506,13 @@ def _subject_discipline_compatibility(
 
 def layer1_discipline_match(user: UserProfile, data: FunnelData) -> list[dict]:
     """
-    第一层：学科门类初筛
-    匹配用户的认知风格 + 人格倾向 + 选科兼容 → 13 个门类得分
+    第一层：学科门类初筛（纯认知风格 + 人格倾向，不做选科过滤）
 
-    raw_score = cosine(behavior, disc_cognitive) × 0.5
-              + cosine(personality, disc_persona) × 0.3
-              + discipline_weight × 0.2
+    score = cosine(behavior, disc_cognitive) × 0.5
+          + cosine(personality, disc_persona) × 0.3
+          + discipline_weight × 0.2
 
-    score = raw_score × subject_compatibility
-      - 纯文科生（无物理/化学/生物）报理工农医 → ×0.15
-      - 纯理科生（无历史/地理/政治）报人文社科 → ×0.15
-      - 经管军门类文理兼收 → ×1.0
+    选科校验下沉到 Layer 2（专业类级别精确匹配）。
     """
     # 用户向量
     user_behavior = [user.micro_behavior_vector.get(d, 50.0) / 100.0 for d in BEHAVIOR_DIMENSIONS]
@@ -513,20 +532,13 @@ def layer1_discipline_match(user: UserProfile, data: FunnelData) -> list[dict]:
         cog_sim = cosine_similarity(user_behavior, disc_cognitive_vec)
         per_sim = cosine_similarity(user_personality, disc_persona_vec)
 
-        raw_score = cog_sim * 0.5 + per_sim * 0.3 + disc_weight * 0.2
-
-        # 选科兼容系数：文科生报理工科 / 理科生报文科 → 大幅衰减
-        subject_mul = _subject_discipline_compatibility(
-            user.selected_subjects, disc_name
-        )
-        score = raw_score * subject_mul
+        score = cog_sim * 0.5 + per_sim * 0.3 + disc_weight * 0.2
 
         results.append({
             "discipline_name": disc_name,
             "cognitive_sim": round(cog_sim, 4),
             "persona_sim": round(per_sim, 4),
             "weight_bonus": round(disc_weight, 4),
-            "subject_mul": round(subject_mul, 4),
             "score": round(score, 4),
         })
 
@@ -548,7 +560,9 @@ def layer2_category_match(
     第二层：专业类精选
     匹配产业向往 + 资产敏感度 + 分数敏感度 → Top N 截断
 
-    score = industry_match × 0.5 + asset_match × 0.2 + score_match × 0.3
+    1. 选科硬校验：不满足 CATEGORY_SUBJECT_REQUIREMENTS → 直接跳过
+    2. score = industry_match × 0.5 + asset_match × 0.2 + score_match × 0.3
+    3. × 产业热度微调 + 选科匹配加成(+3%/科) + L1门类传导(±25%)
     """
     # 用户顶层产业（得分 > 60 的集群）
     top_industries = {
@@ -566,8 +580,15 @@ def layer2_category_match(
     disc_scores = {d["discipline_name"]: d["score"] for d in l1_results}
 
     results = []
+    user_subjects = set(user.selected_subjects)
     for cat_name, cat_labels in data.categories.items():
         disc_name = data.get_discipline(cat_name)
+
+        # ---- subject_check：新高考选科硬要求 ----
+        required_subjects = CATEGORY_SUBJECT_REQUIREMENTS.get(cat_name)
+        if required_subjects and not required_subjects.issubset(user_subjects):
+            # 不满足该专业类的选科要求 → 直接跳过
+            continue
 
         # --- industry_match ---
         industry_tags = cat_labels.get("industry_map", [])
@@ -602,9 +623,13 @@ def layer2_category_match(
                 industry_bonus = max(industry_bonus, INDUSTRY_HEAT_BONUS[tag])
         score = score * industry_bonus
 
-        # L1 门类得分强传导（±40%）：选科匹配的门类得到显著拉升
+        # 选科匹配加成：每满足1个必选科目 +3%
+        if required_subjects:
+            score *= 1.0 + 0.03 * len(required_subjects)
+
+        # L1 门类得分传导（±25%）：认知/人格匹配结果渗入L2
         disc_bonus = disc_scores.get(disc_name, 0.5)
-        score = score * (0.60 + 0.80 * disc_bonus)
+        score = score * (0.75 + 0.50 * disc_bonus)
 
         results.append({
             "category_name": cat_name,
