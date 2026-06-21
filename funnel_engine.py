@@ -32,7 +32,7 @@ from user_profile import (
 # 路径配置
 # ============================================================================
 BASE_DIR = Path(__file__).parent
-CHECKPOINT_DIR = BASE_DIR / ".label_checkpoints"
+CHECKPOINT_DIR = BASE_DIR / "label_checkpoints"
 MAJORS_XLSX = BASE_DIR / "gaokao_majors.xlsx"
 
 # ============================================================================
@@ -287,57 +287,75 @@ class FunnelData:
 def load_funnel_data() -> FunnelData:
     """加载三层标签数据"""
     data = FunnelData()
+    errors = []
 
     # Layer 1: 学科门类
     l1_path = CHECKPOINT_DIR / "layer1_disciplines.json"
     if l1_path.exists():
         with open(l1_path, "r", encoding="utf-8") as f:
             data.disciplines = json.load(f)
+    else:
+        errors.append(f"L1 missing: {l1_path}")
 
     # Layer 2: 专业类
     l2_path = CHECKPOINT_DIR / "layer2_categories.json"
     if l2_path.exists():
         with open(l2_path, "r", encoding="utf-8") as f:
             data.categories = json.load(f)
+    else:
+        errors.append(f"L2 missing: {l2_path}")
 
-    # Layer 3 + 专业元数据: 从 Excel 加载
+    # Layer 3: 从 JSON 加载标签
     l3_path = CHECKPOINT_DIR / "layer3_majors.json"
     l3_data = {}
     if l3_path.exists():
         with open(l3_path, "r", encoding="utf-8") as f:
             l3_data = json.load(f)
+    else:
+        errors.append(f"L3 missing: {l3_path}")
 
     # 从 Excel 读取专业元数据
-    wb = openpyxl.load_workbook(MAJORS_XLSX)
-    ws = wb[wb.sheetnames[0]]
-    for row in ws.iter_rows(min_row=2, max_row=ws.max_row, values_only=True):
-        seq, discipline, category, code, name = row
-        if not category or str(category).strip() in ("", "-"):
-            category = "交叉类"
-        category = str(category).strip()
-        discipline = str(discipline).strip() if discipline else ""
-        code = str(code).strip() if code else ""
-        name = str(name).strip() if name else ""
+    if not MAJORS_XLSX.exists():
+        errors.append(f"Excel missing: {MAJORS_XLSX}")
+    else:
+        wb = openpyxl.load_workbook(MAJORS_XLSX)
+        ws = wb[wb.sheetnames[0]]
+        for row in ws.iter_rows(min_row=2, max_row=ws.max_row, values_only=True):
+            seq, discipline, category, code, name = row
+            if not category or str(category).strip() in ("", "-"):
+                category = "交叉类"
+            category = str(category).strip()
+            discipline = str(discipline).strip() if discipline else ""
+            code = str(code).strip() if code else ""
+            name = str(name).strip() if name else ""
 
-        major_entry = {
-            "seq": seq,
-            "discipline": discipline,
-            "category": category,
-            "code": code,
-            "name": name,
-            # Layer 3 标签
-            "micro_actions": l3_data.get(name, {}).get("micro_actions", []),
-            "hard_threshold": l3_data.get(name, {}).get("hard_threshold", []),
-            "social_heat": l3_data.get(name, {}).get("social_heat", "中"),
-            "heat_trend": l3_data.get(name, {}).get("heat_trend", "平稳"),
-        }
-        data.majors.append(major_entry)
+            major_entry = {
+                "seq": seq,
+                "discipline": discipline,
+                "category": category,
+                "code": code,
+                "name": name,
+                "micro_actions": l3_data.get(name, {}).get("micro_actions", []),
+                "hard_threshold": l3_data.get(name, {}).get("hard_threshold", []),
+                "social_heat": l3_data.get(name, {}).get("social_heat", "中"),
+                "heat_trend": l3_data.get(name, {}).get("heat_trend", "平稳"),
+            }
+            data.majors.append(major_entry)
+            data._cat_to_disc[category] = discipline
+            if category not in data._cat_to_majors:
+                data._cat_to_majors[category] = []
+            data._cat_to_majors[category].append(major_entry)
 
-        # 索引
-        data._cat_to_disc[category] = discipline
-        if category not in data._cat_to_majors:
-            data._cat_to_majors[category] = []
-        data._cat_to_majors[category].append(major_entry)
+    # 校验
+    data._load_errors = errors
+    if not data.disciplines:
+        print(f"[WARN] load_funnel_data: 0 disciplines loaded!")
+    if not data.categories:
+        print(f"[WARN] load_funnel_data: 0 categories loaded!")
+    if not data.majors:
+        print(f"[WARN] load_funnel_data: 0 majors loaded!")
+    if errors:
+        print(f"[WARN] load_funnel_data errors: {errors}")
 
     return data
 
@@ -681,7 +699,28 @@ def run_funnel(user: UserProfile, verbose: bool = False) -> list[dict]:
     Returns:
         list[dict]: 符合前端 Schema 的推荐结果
     """
+    try:
+        return _run_funnel_impl(user, verbose)
+    except Exception as e:
+        import traceback
+        print(f"[ERROR] run_funnel failed: {e}")
+        traceback.print_exc()
+        return []
+
+
+def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
     data = load_funnel_data()
+
+    # 数据校验
+    if not data.disciplines:
+        print("[ERROR] Funnel data: no disciplines loaded!")
+        return []
+    if not data.categories:
+        print("[ERROR] Funnel data: no categories loaded!")
+        return []
+    if not data.majors:
+        print("[ERROR] Funnel data: no majors loaded!")
+        return []
 
     # ---- Layer 1: 学科门类初筛 ----
     if verbose:
@@ -700,6 +739,10 @@ def run_funnel(user: UserProfile, verbose: bool = False) -> list[dict]:
         for i, c in enumerate(l2):
             print(f"  #{i+1} {c['category_name']} ({c['discipline_name']}): {c['score']:.4f} "
                   f"ind={c['industry_match']:.3f} ast={c['asset_match']:.3f} scr={c['score_match']:.3f}")
+
+    if not l2:
+        print("[ERROR] Layer 2 returned no categories!")
+        return []
 
     # ---- Layer 3: 专业微观狙击 (≤6/类) ----
     if verbose:

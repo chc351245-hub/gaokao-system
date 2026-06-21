@@ -525,7 +525,11 @@ def compute_and_show_results() -> None:
         mark_key_used(st.session_state.license_key)
         st.session_state.key_consumed = True
 
-    render_funnel_results(funnel_results, user)
+    if not funnel_results:
+        st.error("⚠️ 推荐引擎未返回结果。请检查数据文件是否完整：`label_checkpoints/` 目录下应有 3 个 JSON 文件，以及 `gaokao_majors.xlsx`。")
+        st.info("可尝试在终端运行 `python test_funnel.py` 排查问题。")
+    else:
+        render_funnel_results(funnel_results, user)
 
 
 def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None:
