@@ -1,0 +1,157 @@
+{
+  "工学": {
+    "cognitive_style": [
+      "系统建构",
+      "逻辑推演",
+      "动手实践"
+    ],
+    "persona_tendency": [
+      "动手实践型",
+      "探索创新型",
+      "规则执行型"
+    ],
+    "discipline_weight": 0.92
+  },
+  "理学": {
+    "cognitive_style": [
+      "逻辑推演",
+      "抽象思辨",
+      "实验思维"
+    ],
+    "persona_tendency": [
+      "理性分析型",
+      "探索创新型"
+    ],
+    "discipline_weight": 0.65
+  },
+  "医学": {
+    "cognitive_style": [
+      "记忆积累",
+      "实验思维",
+      "系统建构"
+    ],
+    "persona_tendency": [
+      "社会服务型",
+      "理性分析型"
+    ],
+    "discipline_weight": 0.6
+  },
+  "经济学": {
+    "cognitive_style": [
+      "数据敏感",
+      "逻辑推演",
+      "社会洞察"
+    ],
+    "persona_tendency": [
+      "数据驱动型",
+      "理性分析型"
+    ],
+    "discipline_weight": 0.75
+  },
+  "管理学": {
+    "cognitive_style": [
+      "流程管控",
+      "社会洞察",
+      "归纳推理"
+    ],
+    "persona_tendency": [
+      "领导管理型",
+      "沟通协作型"
+    ],
+    "discipline_weight": 0.78
+  },
+  "文学": {
+    "cognitive_style": [
+      "语言敏感",
+      "共情表达",
+      "批判思维"
+    ],
+    "persona_tendency": [
+      "情感输出型",
+      "沟通协作型"
+    ],
+    "discipline_weight": 0.5
+  },
+  "法学": {
+    "cognitive_style": [
+      "逻辑推演",
+      "批判思维",
+      "记忆积累"
+    ],
+    "persona_tendency": [
+      "规则执行型",
+      "理性分析型"
+    ],
+    "discipline_weight": 0.55
+  },
+  "教育学": {
+    "cognitive_style": [
+      "共情表达",
+      "社会洞察",
+      "归纳推理"
+    ],
+    "persona_tendency": [
+      "社会服务型",
+      "沟通协作型"
+    ],
+    "discipline_weight": 0.5
+  },
+  "艺术学": {
+    "cognitive_style": [
+      "审美判断",
+      "创意发散",
+      "空间想象"
+    ],
+    "persona_tendency": [
+      "审美直觉型",
+      "情感输出型"
+    ],
+    "discipline_weight": 0.4
+  },
+  "历史学": {
+    "cognitive_style": [
+      "记忆积累",
+      "批判思维",
+      "归纳推理"
+    ],
+    "persona_tendency": [
+      "理性分析型"
+    ],
+    "discipline_weight": 0.3
+  },
+  "哲学": {
+    "cognitive_style": [
+      "抽象思辨",
+      "批判思维",
+      "逻辑推演"
+    ],
+    "persona_tendency": [
+      "理性分析型"
+    ],
+    "discipline_weight": 0.25
+  },
+  "农学": {
+    "cognitive_style": [
+      "实验思维",
+      "动手实践",
+      "系统建构"
+    ],
+    "persona_tendency": [
+      "动手实践型",
+      "探索创新型"
+    ],
+    "discipline_weight": 0.45
+  },
+  "交叉学科": {
+    "cognitive_style": [
+      "创意发散",
+      "系统建构",
+      "模式识别"
+    ],
+    "persona_tendency": [
+      "探索创新型",
+      "数据驱动型"
+    ],
+    "discipline_weight": 0.48
+  }
+}

@@ -1,12 +1,12 @@
 """
 ================================================================================
- 高考志愿智能推荐系统 v5.0
+ 高考志愿智能推荐系统 v6.0 — 三层递进漏斗引擎
 ================================================================================
  云端架构：
    1. Supabase 云端数据库 — 卡密管理（防 Streamlit Cloud 休眠丢数据）
    2. 前端卡密收费墙 — 激活码解锁 + 一次性核销
    3. 隐蔽式深度测评 — 宏观意愿题(10道) + 微观行为场景题(30道)
-   4. 6步算法管线 — 测谎 → 红线过滤 → 特殊赛道 → 余弦匹配 → 现实折损 → 多样性打散
+   4. 三层递进漏斗 — 门类初筛 → 专业类 Top 8 → 专业微观狙击(≤6/类)
    5. 管理员可视化后台 — 卡密看板 + 批量制码 + 状态统计
 ================================================================================
  运行方式：
@@ -47,11 +47,18 @@ from recommendation_engine import (
     clamp,
 )
 
+# v6.0 三层递进漏斗引擎
+from funnel_engine import (
+    run_funnel,
+    print_funnel_results,
+    load_funnel_data,
+)
+
 # ========================================================================
 # 全局配置
 # ========================================================================
 st.set_page_config(
-    page_title="高考志愿智能推荐系统 v5.0",
+    page_title="高考志愿智能推荐系统 v6.0",
     page_icon="🎓",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -481,7 +488,7 @@ def render_questionnaire() -> None:
 # ========================================================================
 
 def compute_and_show_results() -> None:
-    """构建用户画像 → 运行6步管线 → 展示结果 + 核销"""
+    """构建用户画像 → 运行三层递进漏斗 → 展示结果 + 核销"""
 
     # 构建用户画像
     macro_answers = {q["id"]: st.session_state.answers[q["id"]] for q in MACRO_QUESTIONS}
@@ -507,10 +514,10 @@ def compute_and_show_results() -> None:
             special_track_stance=st.session_state.get("user_stance"),
         )
 
-    with st.spinner("🎯 正在运行 6 步智能匹配管线..."):
-        report = recommend_for_user(user, majors_file=MAJORS_FILE, top_n=10, verbose=False)
+    with st.spinner("🎯 正在运行三层递进漏斗匹配..."):
+        funnel_results = run_funnel(user, verbose=False)
 
-    st.session_state.report = report
+    st.session_state.funnel_results = funnel_results
     st.session_state.user = user
 
     # 一次性核销
@@ -518,13 +525,12 @@ def compute_and_show_results() -> None:
         mark_key_used(st.session_state.license_key)
         st.session_state.key_consumed = True
 
-    render_results_view(report, user)
+    render_funnel_results(funnel_results, user)
 
 
-def render_results_view(report: dict, user: UserProfile) -> None:
-    """结果展示页"""
-    results = report["results"]
-    pipeline_log = report["pipeline_log"]
+def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None:
+    """三层递进漏斗结果展示页"""
+    total_majors = sum(len(c["recommended_majors"]) for c in funnel_results)
 
     st.markdown("---")
     st.markdown('<p class="section-title">📊 你的行为画像报告</p>', unsafe_allow_html=True)
@@ -552,7 +558,7 @@ def render_results_view(report: dict, user: UserProfile) -> None:
         )
 
     with col2:
-        st.markdown("##### 🏭 10大产业向往（已过测谎）")
+        st.markdown("##### 🏭 10大产业向往")
         industry_color = {
             "AI与大模型": "#667EEA", "互联网与软件": "#764BA2", "半导体与芯片": "#E74C3C",
             "金融科技": "#F39C12", "智能制造": "#E67E22", "新能源": "#2ECC71",
@@ -570,99 +576,71 @@ def render_results_view(report: dict, user: UserProfile) -> None:
         st.info(
             f"**推断人格倾向**：{dom_info.get('icon', '')} {dom_info.get('name', dominant)}  \n"
             f"{dom_info.get('desc', '')}  \n"
+            f"**风险容忍度**：{user.macro_value_vector.get('风险容忍度', 50):.0f}/100  \n"
             f"**测谎分数**：{user.lie_score:.2f} "
             f"({'✅ 高度一致' if user.lie_score < 0.15 else '⚠️ 部分矛盾' if user.lie_score < 0.35 else '🔴 显著矛盾'})"
         )
 
-    # ---- 管线摘要 ----
+    # ---- 漏斗摘要 ----
     st.markdown("---")
-    st.markdown('<p class="section-title">🔬 6步管线摘要</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-title">🔬 三层递进漏斗摘要</p>', unsafe_allow_html=True)
 
     col_a, col_b, col_c = st.columns(3)
-    step0 = pipeline_log.get("step0", {})
-    step1 = pipeline_log.get("step1", {})
-    step4 = pipeline_log.get("step4", {})
-    step5 = pipeline_log.get("step5", {})
+    col_a.metric("📚 学科门类覆盖", f"{len(set(c['discipline_name'] for c in funnel_results))} 个")
+    col_b.metric("📦 精选专业类", f"{len(funnel_results)} 个 (Top 8)")
+    col_c.metric("🎯 推荐专业", f"{total_majors} 个 (≤6/类)")
 
-    col_a.metric("Step 0 · 测谎检测", f"{step0.get('contradiction_count', 0)} 项矛盾")
-    col_b.metric("Step 1 · 红线过滤", f"通过 {step1.get('survivors', 0)}/{step1.get('total_in', 0)} 专业")
-    col_c.metric("Step 5 · 强穿透", f"{step5.get('bypass_count', 0)} 专业触发")
-
-    # 测谎详情
-    if step0.get("details"):
-        with st.expander("🔍 查看测谎详情"):
-            for cd in step0["details"]:
-                st.caption(
-                    f"**{cd['cluster']}**：{cd['label']}  "
-                    f"（宏观 {cd['macro_original']:.0f} → {cd['macro_adjusted']:.0f}，"
-                    f"微观均值 {cd['micro_avg']:.0f} < 阈值 {cd['threshold']}）"
-                )
-
-    # ---- Top 10 推荐 ----
-    st.markdown("---")
-    st.markdown('<p class="section-title">🎯 Top 10 专业推荐</p>', unsafe_allow_html=True)
     st.caption(
-        "匹配逻辑：30%人格 + 30%产业向往 + 40%微观行为 → 余弦相似度匹配 → "
-        "现实折损 → 多样性打散。**匹配分≠录取概率**，录取概率请结合分数另行评估。"
+        "匹配逻辑：第1层 认知风格+人格倾向 → 第2层 产业+资产+分数 → "
+        "第3层 微观动作+热度+红线。**匹配分≠录取概率**，请结合分数另行评估。"
     )
 
-    for idx, r in enumerate(results):
-        rank = idx + 1
-        medal = {1: "🥇", 2: "🥈", 3: "🥉"}.get(rank, f"#{rank}")
-        major = r.major
-        name = major.get("专业名称", "未知专业")
-        code = major.get("专业代码", "")
-        category = major.get("学科门类", "")
-        zyl = major.get("专业类", "")
+    # ---- 层级式推荐结果 ----
+    st.markdown("---")
+    st.markdown('<p class="section-title">🎯 专业推荐（按方向分组）</p>', unsafe_allow_html=True)
 
-        label_icon = {
-            "高优直达": "🚀",
-            "排雷预警": "⚠️",
-            "跨界Plan B": "🔄",
-            "标准推荐": "✅",
-        }.get(r.label, "✅")
+    for ci, cat in enumerate(funnel_results):
+        medal = {0: "🥇", 1: "🥈", 2: "🥉"}.get(ci, f"#{ci+1}")
+        cat_name = cat["category_name"]
+        disc_name = cat["discipline_name"]
+        cat_score = cat["category_score"]
+        cat_reason = cat["category_reason"]
 
-        if rank <= 3:
-            st.markdown(
-                f"""
-                <div class="rcmd-card">
-                <div style="display:flex;justify-content:space-between;align-items:center;">
-                  <h3>{medal} 第 {rank} 名 {label_icon} {r.label}</h3>
-                  <span style="opacity:0.85;">{category} · {zyl}</span>
-                </div>
-                <h2 style="margin:10px 0;">{name}</h2>
-                <code>专业代码 {code} | 匹配分 {r.final_score:.3f} | 基础分 {r.base_score:.3f}</code>
-                <p style="margin-top:14px;line-height:1.7;font-size:14px;">{r.reason}</p>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-        else:
-            with st.container():
-                st.markdown(
-                    f"#### {medal} {name} {label_icon}  "
-                    f"<small><code>({code})</code> | 匹配分 {r.final_score:.3f}</small>",
-                    unsafe_allow_html=True,
-                )
-                st.caption(f"  {category} · {zyl} | {r.label}")
-                with st.expander("📋 查看详细分析"):
-                    st.write(f"**人格相似度**: {r.personality_sim:.3f}")
-                    st.write(f"**产业相似度**: {r.industry_sim:.3f}")
-                    st.write(f"**微观行为相似度**: {r.micro_sim:.3f}")
-                    st.write(f"**现实折损系数**: {r.reality_penalty:.2f} "
-                             f"(分数×{r.score_penalty:.2f} 资源×{r.resource_penalty:.2f})")
-                    if r.bypassed:
-                        st.success("🚀 已触发底层信号强穿透")
-                    if r.boosted:
-                        st.info("📈 已触发特殊赛道提权")
-                    if r.warnings:
-                        for w in r.warnings:
-                            st.warning(w)
-                    st.info(r.reason)
+        # 展开式卡片
+        with st.expander(
+            f"{medal} **{cat_name}** ({disc_name}) — {cat_reason[:60]}..."
+            if len(cat_reason) > 60
+            else f"{medal} **{cat_name}** ({disc_name}) — {cat_reason}",
+            expanded=(ci < 3),
+        ):
+            st.caption(f"📌 {cat_reason}")
+            st.caption(f"方向匹配分：{cat_score:.3f} | 共 {len(cat['recommended_majors'])} 个专业")
+
+            # 专业卡片网格
+            cols = st.columns(min(len(cat["recommended_majors"]), 3))
+            for mi, m in enumerate(cat["recommended_majors"]):
+                with cols[mi % 3]:
+                    tag_html = " ".join(
+                        f'<span style="background:#667EEA20;color:#667EEA;padding:2px 6px;border-radius:4px;font-size:11px;margin:1px;">{t}</span>'
+                        for t in m["tags"]
+                    )
+                    st.markdown(
+                        f"""
+                        <div style="border:1px solid #E0E0E0;border-radius:12px;padding:14px;margin-bottom:8px;height:100%;">
+                        <strong>{m['major_name']}</strong><br>
+                        <small><code>{m['major_code']}</code></small><br>
+                        <small>匹配分: {m['major_score']:.3f}</small><br>
+                        <div style="margin-top:6px;">{tag_html}</div>
+                        <p style="font-size:12px;color:#666;margin-top:6px;">{m['major_reason'][:100]}...</p>
+                        </div>
+                        """,
+                        unsafe_allow_html=True,
+                    )
 
     st.markdown("---")
     st.info(
-        "💡 **温馨提示**：匹配分衡量「你适不适合这个专业」，不等同于「你能不能考上」。"
+        "💡 **温馨提示**：以上推荐基于你的认知风格、产业向往和微观行为模式。"
+        "匹配分衡量「你适不适合这个专业」，不等同于「你能不能考上」。"
         "实际填报请结合你的 **高考分数**、**院校偏好** 和 **城市选择** 综合决策。"
     )
 
@@ -670,7 +648,7 @@ def render_results_view(report: dict, user: UserProfile) -> None:
     with cbtn:
         if st.button("🔄 重新测评", use_container_width=True, key="restart_result"):
             st.session_state.answers = {}
-            st.session_state.report = None
+            st.session_state.funnel_results = None
             st.session_state.user = None
             st.session_state.key_consumed = False
             st.session_state.profile_done = False
@@ -684,10 +662,10 @@ def render_results_view(report: dict, user: UserProfile) -> None:
 def render_header() -> None:
     c1, c2 = st.columns([0.82, 0.18])
     with c1:
-        st.title("🎓 高考志愿智能推荐系统 v5.0")
+        st.title("🎓 高考志愿智能推荐系统 v6.0")
         st.caption(
-            "**隐蔽式深度测评（40题）× 6步算法管线**  "
-            "测谎 → 红线过滤 → 余弦匹配 → 现实折损 → 多样性打散 → Top 10 推荐"
+            "**隐蔽式深度测评（40题）× 三层递进漏斗**  "
+            "门类初筛 → 专业类 Top 8 → 微观狙击 ≤6/类"
         )
     with c2:
         st.image("https://img.icons8.com/emoji/96/graduation-cap-emoji.png", width=72)
@@ -709,27 +687,23 @@ def render_sidebar() -> None:
                 "**测谎机制** — 宏观向往与微观行为矛盾时自动衰减，防止「叶公好龙」。"
             )
 
-        with st.expander("🔬 6步算法管线", expanded=False):
+        with st.expander("🔬 三层递进漏斗", expanded=False):
             st.caption(
-                "**Step 0** 情绪测谎 — 宏观vs微观矛盾检测\n"
-                "**Step 1** 生死红线 — 选科不符/体检限制 → 物理移除\n"
-                "**Step 2** 特殊赛道 — 医学/师范/军警的阻断与提权\n"
-                "**Step 3** 基础匹配 — 余弦相似度(人格30%+产业30%+微观40%)\n"
-                "**Step 4** 现实折损 — 分数位次×家庭资源折损\n"
-                "**Step 5** 强穿透 — 微观极高分(≥95)拉满基础分\n"
-                "**Step 6** 多样性打散 — Top3同门类→注入跨界Plan B"
+                "**第 1 层** 学科门类初筛 — 认知风格 + 人格倾向匹配\n"
+                "**第 2 层** 专业类精选 — 产业 + 资产 + 分数 → Top 8 截断\n"
+                "**第 3 层** 专业微观狙击 — 微观动作 + 热度 + 红线 → ≤6/类\n\n"
+                "**红线公式**：score = (micro×0.6 + heat×0.4) × threshold_pass\n"
+                "触发生理红线（色盲/色弱等）→ 直接归零。"
             )
 
         st.markdown("---")
 
         st.markdown("### 📊 数据概况")
         c3, c4 = st.columns(2)
-        c3.metric("专业总数", len(majors))
-        cats = set(m.get("学科门类", "") for m in majors)
-        c4.metric("学科门类", len(cats))
+        c3.metric("专业总数", "883")
+        c4.metric("学科门类", "13")
         c5, c6 = st.columns(2)
-        zyls = set(m.get("专业类", "") for m in majors)
-        c5.metric("专业类", len(zyls))
+        c5.metric("专业类", "93")
         c6.metric("测评题数", TOTAL_QUESTIONS)
 
         st.markdown("---")
@@ -769,8 +743,8 @@ def render_welcome_and_activation() -> None:
             <h2 style="color:white; margin:12px 0;">发现最适合你的大学专业</h2>
             <p style="opacity:0.85; line-height:1.7;">
             40道隐蔽式深度测评<br>
-            6步智能算法管线<br>
-            33个核心专业精准匹配
+            三层递进漏斗算法<br>
+            883个专业全面覆盖
             </p>
             </div>
             """,
@@ -867,13 +841,10 @@ def render_admin_panel() -> None:
     # 专业数据概览
     st.markdown("---")
     st.markdown("### 📊 专业数据概览")
-    majors = load_majors()
     c1, c2, c3 = st.columns(3)
-    c1.metric("专业总数", len(majors))
-    cats = set(m.get("学科门类", "") for m in majors)
-    c2.metric("学科门类", len(cats))
-    zyls = set(m.get("专业类", "") for m in majors)
-    c3.metric("专业类", len(zyls))
+    c1.metric("专业总数", "883")
+    c2.metric("学科门类", "13")
+    c3.metric("专业类", "93")
 
 
 # ========================================================================
@@ -889,7 +860,7 @@ def main() -> None:
         "license_key": "",
         "answers": {},
         "profile_done": False,
-        "report": None,
+        "funnel_results": None,
         "user": None,
         "key_consumed": False,
         "is_admin": False,
@@ -918,13 +889,13 @@ def main() -> None:
         render_sidebar()
         st.caption(f"🔑 当前激活码：`{st.session_state.license_key}` | 状态：已激活")
 
-        if st.session_state.report is not None:
-            render_results_view(st.session_state.report, st.session_state.user)
+        if st.session_state.funnel_results is not None:
+            render_funnel_results(st.session_state.funnel_results, st.session_state.user)
             _, cbtn, _ = st.columns([0.35, 0.3, 0.35])
             with cbtn:
                 if st.button("🔄 重新测评", use_container_width=True, key="restart_result"):
                     st.session_state.answers = {}
-                    st.session_state.report = None
+                    st.session_state.funnel_results = None
                     st.session_state.user = None
                     st.session_state.key_consumed = False
                     st.session_state.profile_done = False

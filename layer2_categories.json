@@ -1,0 +1,929 @@
+{
+  "中医学类": {
+    "industry_map": [
+      "医疗健康/临床",
+      "制药/生物技术"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "中国语言文学类": {
+    "industry_map": [
+      "教育培训",
+      "传媒/广告/公关",
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "低"
+  },
+  "中药学类": {
+    "industry_map": [
+      "制药/生物技术",
+      "医疗健康/临床"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "中西医结合类": {
+    "industry_map": [
+      "医疗健康/临床"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "临床医学类": {
+    "industry_map": [
+      "医疗健康/临床"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "极高",
+    "salary_potential": "高"
+  },
+  "交叉类": {
+    "industry_map": [
+      "人工智能/大模型",
+      "半导体/集成电路",
+      "智能制造/机器人",
+      "能源/电力/碳中和",
+      "航空航天"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "极高",
+    "salary_potential": "极高"
+  },
+  "交通运输类": {
+    "industry_map": [
+      "物流/供应链",
+      "航空航天",
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "仪器类": {
+    "industry_map": [
+      "智能制造/机器人",
+      "半导体/集成电路",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "体育学类": {
+    "industry_map": [
+      "体育产业",
+      "教育培训"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "低",
+    "salary_potential": "中"
+  },
+  "公共卫生与预防医学类": {
+    "industry_map": [
+      "医疗健康/临床",
+      "政府/公共服务",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "公共管理类": {
+    "industry_map": [
+      "政府/公共服务",
+      "教育培训",
+      "咨询/审计/税务"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "低"
+  },
+  "公安学类": {
+    "industry_map": [
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "公安技术类": {
+    "industry_map": [
+      "政府/公共服务",
+      "互联网/软件"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "兵器类": {
+    "industry_map": [
+      "军事/国防工业",
+      "智能制造/机器人"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "农业工程类": {
+    "industry_map": [
+      "农业/食品/林业",
+      "智能制造/机器人"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "低"
+  },
+  "农业经济管理类": {
+    "industry_map": [
+      "农业/食品/林业",
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "低"
+  },
+  "力学类": {
+    "industry_map": [
+      "航空航天",
+      "智能制造/机器人"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "动物医学类": {
+    "industry_map": [
+      "农业/食品/林业",
+      "医疗健康/临床"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "中"
+  },
+  "动物生产类": {
+    "industry_map": [
+      "农业/食品/林业"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "低"
+  },
+  "化学类": {
+    "industry_map": [
+      "石油/化工/材料",
+      "制药/生物技术",
+      "科研/学术",
+      "环保/新能源"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "化工与制药类": {
+    "industry_map": [
+      "石油/化工/材料",
+      "制药/生物技术",
+      "环保/新能源"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "医学技术类": {
+    "industry_map": [
+      "医疗健康/临床"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "历史学类": {
+    "industry_map": [
+      "教育培训",
+      "传媒/广告/公关",
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "低"
+  },
+  "口腔医学类": {
+    "industry_map": [
+      "医疗健康/临床"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "极高",
+    "salary_potential": "极高"
+  },
+  "哲学类": {
+    "industry_map": [
+      "教育培训",
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "低"
+  },
+  "图书情报与档案管理类": {
+    "industry_map": [
+      "政府/公共服务",
+      "互联网/软件"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "低"
+  },
+  "土木类": {
+    "industry_map": [
+      "建筑/土木/城规",
+      "房地产/物业"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "地球物理学类": {
+    "industry_map": [
+      "测绘/地质/矿业",
+      "科研/学术",
+      "环保/新能源"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "地理科学类": {
+    "industry_map": [
+      "测绘/地质/矿业",
+      "政府/公共服务",
+      "教育培训"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "低"
+  },
+  "地质学类": {
+    "industry_map": [
+      "测绘/地质/矿业",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "地质类": {
+    "industry_map": [
+      "测绘/地质/矿业",
+      "石油/化工/材料"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "基础医学类": {
+    "industry_map": [
+      "医疗健康/临床",
+      "科研/学术",
+      "制药/生物技术"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "极高",
+    "salary_potential": "中"
+  },
+  "外国语言文学类": {
+    "industry_map": [
+      "教育培训",
+      "传媒/广告/公关",
+      "政府/公共服务",
+      "零售/电商/消费"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "大气科学类": {
+    "industry_map": [
+      "环保/新能源",
+      "政府/公共服务",
+      "航空航天",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "天文学类": {
+    "industry_map": [
+      "科研/学术",
+      "航空航天"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "极高",
+    "salary_potential": "中"
+  },
+  "安全科学与工程类": {
+    "industry_map": [
+      "建筑/土木/城规",
+      "能源/电力/碳中和",
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "工业工程类": {
+    "industry_map": [
+      "智能制造/机器人",
+      "物流/供应链",
+      "咨询/审计/税务"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "工商管理类": {
+    "industry_map": [
+      "金融/银行",
+      "证券/基金/资管",
+      "咨询/审计/税务",
+      "零售/电商/消费"
+    ],
+    "asset_sensitivity": "高",
+    "score_sensitivity": "高",
+    "salary_potential": "高"
+  },
+  "建筑类": {
+    "industry_map": [
+      "建筑/土木/城规",
+      "艺术设计/文创",
+      "房地产/物业"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "心理学类": {
+    "industry_map": [
+      "教育培训",
+      "医疗健康/临床",
+      "科研/学术",
+      "互联网/软件"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "戏剧与影视学类": {
+    "industry_map": [
+      "影视/动画/娱乐",
+      "艺术设计/文创",
+      "传媒/广告/公关"
+    ],
+    "asset_sensitivity": "高",
+    "score_sensitivity": "低",
+    "salary_potential": "极高"
+  },
+  "护理学类": {
+    "industry_map": [
+      "医疗健康/临床"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "中"
+  },
+  "政治学类": {
+    "industry_map": [
+      "政府/公共服务",
+      "科研/学术",
+      "传媒/广告/公关"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "教育学类": {
+    "industry_map": [
+      "教育培训"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "低"
+  },
+  "数学类": {
+    "industry_map": [
+      "互联网/软件",
+      "人工智能/大模型",
+      "金融/银行",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "极高"
+  },
+  "新闻传播学类": {
+    "industry_map": [
+      "传媒/广告/公关",
+      "影视/动画/娱乐",
+      "互联网/软件"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "旅游管理类": {
+    "industry_map": [
+      "旅游/酒店/会展",
+      "零售/电商/消费",
+      "传媒/广告/公关"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "机械类": {
+    "industry_map": [
+      "智能制造/机器人",
+      "新能源汽车",
+      "航空航天",
+      "石油/化工/材料",
+      "能源/电力/碳中和"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "材料类": {
+    "industry_map": [
+      "半导体/集成电路",
+      "新能源汽车",
+      "航空航天",
+      "石油/化工/材料",
+      "能源/电力/碳中和"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "林业工程类": {
+    "industry_map": [
+      "农业/食品/林业",
+      "建筑/土木/城规",
+      "房地产/物业"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "低"
+  },
+  "林学类": {
+    "industry_map": [
+      "农业/食品/林业",
+      "环保/新能源",
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "低"
+  },
+  "核工程类": {
+    "industry_map": [
+      "能源/电力/碳中和",
+      "军事/国防工业",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "高"
+  },
+  "植物生产类": {
+    "industry_map": [
+      "农业/食品/林业",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "低"
+  },
+  "民族学类": {
+    "industry_map": [
+      "政府/公共服务",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "低"
+  },
+  "水产类": {
+    "industry_map": [
+      "农业/食品/林业",
+      "海洋工程/船舶"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "低"
+  },
+  "水利类": {
+    "industry_map": [
+      "建筑/土木/城规",
+      "能源/电力/碳中和",
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "法医学类": {
+    "industry_map": [
+      "政府/公共服务",
+      "医疗健康/临床"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "法学类": {
+    "industry_map": [
+      "法律服务/合规",
+      "政府/公共服务",
+      "金融/银行"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "高",
+    "salary_potential": "高"
+  },
+  "测绘类": {
+    "industry_map": [
+      "测绘/地质/矿业",
+      "建筑/土木/城规",
+      "航空航天",
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "海洋工程类": {
+    "industry_map": [
+      "海洋工程/船舶",
+      "军事/国防工业",
+      "能源/电力/碳中和"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "海洋科学类": {
+    "industry_map": [
+      "科研/学术",
+      "环保/新能源",
+      "农业/食品/林业"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "低"
+  },
+  "物流管理与工程类": {
+    "industry_map": [
+      "物流/供应链",
+      "零售/电商/消费",
+      "智能制造/机器人"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "物理学类": {
+    "industry_map": [
+      "科研/学术",
+      "半导体/集成电路",
+      "人工智能/大模型",
+      "航空航天",
+      "教育培训"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "高"
+  },
+  "环境科学与工程类": {
+    "industry_map": [
+      "环保/新能源",
+      "政府/公共服务",
+      "建筑/土木/城规",
+      "能源/电力/碳中和"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "生物医学工程类": {
+    "industry_map": [
+      "医疗健康/临床",
+      "智能制造/机器人",
+      "人工智能/大模型"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "高"
+  },
+  "生物工程类": {
+    "industry_map": [
+      "制药/生物技术",
+      "农业/食品/林业",
+      "石油/化工/材料"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "生物科学类": {
+    "industry_map": [
+      "科研/学术",
+      "制药/生物技术",
+      "农业/食品/林业"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "电子信息类": {
+    "industry_map": [
+      "互联网/软件",
+      "人工智能/大模型",
+      "半导体/集成电路",
+      "通信/5G/6G",
+      "智能制造/机器人"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "高"
+  },
+  "电子商务类": {
+    "industry_map": [
+      "零售/电商/消费",
+      "互联网/软件",
+      "物流/供应链"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "电气类": {
+    "industry_map": [
+      "能源/电力/碳中和",
+      "智能制造/机器人",
+      "新能源汽车",
+      "建筑/土木/城规"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "矿业类": {
+    "industry_map": [
+      "石油/化工/材料",
+      "测绘/地质/矿业",
+      "能源/电力/碳中和"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "中"
+  },
+  "社会学类": {
+    "industry_map": [
+      "政府/公共服务",
+      "咨询/审计/税务",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "低"
+  },
+  "管理科学与工程类": {
+    "industry_map": [
+      "咨询/审计/税务",
+      "互联网/软件",
+      "金融/银行",
+      "智能制造/机器人",
+      "房地产/物业"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "纺织类": {
+    "industry_map": [
+      "艺术设计/文创",
+      "石油/化工/材料",
+      "零售/电商/消费"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "低",
+    "salary_potential": "低"
+  },
+  "经济与贸易类": {
+    "industry_map": [
+      "零售/电商/消费",
+      "金融/银行",
+      "物流/供应链",
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "经济学类": {
+    "industry_map": [
+      "金融/银行",
+      "证券/基金/资管",
+      "咨询/审计/税务",
+      "政府/公共服务",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "高",
+    "salary_potential": "高"
+  },
+  "统计学类": {
+    "industry_map": [
+      "互联网/软件",
+      "金融/银行",
+      "证券/基金/资管",
+      "人工智能/大模型",
+      "咨询/审计/税务"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "高"
+  },
+  "美术学类": {
+    "industry_map": [
+      "艺术设计/文创",
+      "教育培训",
+      "影视/动画/娱乐"
+    ],
+    "asset_sensitivity": "高",
+    "score_sensitivity": "中",
+    "salary_potential": "高"
+  },
+  "能源动力类": {
+    "industry_map": [
+      "能源/电力/碳中和",
+      "新能源汽车",
+      "航空航天",
+      "智能制造/机器人"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "自动化类": {
+    "industry_map": [
+      "智能制造/机器人",
+      "航空航天",
+      "新能源汽车",
+      "人工智能/大模型",
+      "互联网/软件"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "高"
+  },
+  "自然保护与环境生态类": {
+    "industry_map": [
+      "环保/新能源",
+      "农业/食品/林业",
+      "政府/公共服务"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "低"
+  },
+  "航空航天类": {
+    "industry_map": [
+      "航空航天",
+      "军事/国防工业",
+      "智能制造/机器人"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "高",
+    "salary_potential": "中"
+  },
+  "艺术学理论类": {
+    "industry_map": [
+      "艺术设计/文创",
+      "教育培训",
+      "传媒/广告/公关"
+    ],
+    "asset_sensitivity": "高",
+    "score_sensitivity": "中",
+    "salary_potential": "低"
+  },
+  "草学类": {
+    "industry_map": [
+      "农业/食品/林业",
+      "环保/新能源"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "低"
+  },
+  "药学类": {
+    "industry_map": [
+      "制药/生物技术",
+      "医疗健康/临床",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "计算机类": {
+    "industry_map": [
+      "互联网/软件",
+      "人工智能/大模型",
+      "金融/银行",
+      "通信/5G/6G",
+      "智能制造/机器人"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "中",
+    "salary_potential": "极高"
+  },
+  "设计学类": {
+    "industry_map": [
+      "艺术设计/文创",
+      "互联网/软件",
+      "影视/动画/娱乐",
+      "传媒/广告/公关"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "财政学类": {
+    "industry_map": [
+      "政府/公共服务",
+      "咨询/审计/税务",
+      "金融/银行"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "中"
+  },
+  "轻工类": {
+    "industry_map": [
+      "石油/化工/材料",
+      "农业/食品/林业",
+      "零售/电商/消费"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "中"
+  },
+  "金融学类": {
+    "industry_map": [
+      "金融/银行",
+      "证券/基金/资管",
+      "保险/精算",
+      "咨询/审计/税务"
+    ],
+    "asset_sensitivity": "高",
+    "score_sensitivity": "极高",
+    "salary_potential": "极高"
+  },
+  "音乐与舞蹈学类": {
+    "industry_map": [
+      "影视/动画/娱乐",
+      "教育培训",
+      "艺术设计/文创"
+    ],
+    "asset_sensitivity": "高",
+    "score_sensitivity": "中",
+    "salary_potential": "高"
+  },
+  "食品科学与工程类": {
+    "industry_map": [
+      "农业/食品/林业",
+      "零售/电商/消费",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "低",
+    "score_sensitivity": "低",
+    "salary_potential": "中"
+  },
+  "马克思主义理论类": {
+    "industry_map": [
+      "政府/公共服务",
+      "教育培训",
+      "科研/学术"
+    ],
+    "asset_sensitivity": "中",
+    "score_sensitivity": "中",
+    "salary_potential": "低"
+  }
+}
