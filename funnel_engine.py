@@ -434,16 +434,17 @@ def _subject_discipline_compatibility(
     discipline_name: str,
 ) -> float:
     """
-    计算用户选科与学科门类的兼容系数。
+    计算用户选科与学科门类的兼容系数（含加成与惩罚）。
 
-    规则：
-      - 理工农医门类：纯文科生（历史/地理/政治）→ 严重衰减 ×0.15
-      - 人文社科门类：纯理科生（物理/化学/生物）→ 严重衰减 ×0.15
-      - 经管军门类：文理兼收，无衰减
-      - 混合选科（如物理+历史）：按理科/文科数量阶梯衰减
+    核心逻辑：
+      - 理科生报理工农医 → 强力加成 ×1.50（因为选科与学科高度匹配）
+      - 文科生报人文社科 → 强力加成 ×1.50
+      - 文理混合 → 两边都有中等加成
+      - 错配（理科→文科 / 文科→理科）→ 严重惩罚 ×0.10
+      - 经管军门类文理兼收 → ×1.0 中性
 
     Returns:
-        0.0 ~ 1.0 的乘法系数
+        0.0 ~ 1.5 的乘法系数（>1.0 表示加成）
     """
     subjects = set(selected_subjects)
     if not subjects:
@@ -454,21 +455,25 @@ def _subject_discipline_compatibility(
 
     if discipline_name in SCIENCE_DISCIPLINES:
         if science_count == 0:
-            return 0.15  # 纯文科生无法报考理工农医
+            return 0.10  # 纯文科生无法报考理工农医
         elif science_count == 1:
-            return 0.50  # 仅1门理科 → 部分受限
+            return 0.60  # 仅1门理科 → 部分受限
+        elif science_count == 2:
+            return 1.30  # 2门理科 → 明显加成
         else:
-            return 1.0   # ≥2门理科 → 正常兼容
+            return 1.50  # 3门理科(物化生全齐) → 强力加成
 
     if discipline_name in ARTS_DISCIPLINES:
         if arts_count == 0:
-            return 0.15  # 纯理科生与人文社科兼容度极低
+            return 0.10  # 纯理科生与人文社科兼容度极低
         elif arts_count == 1:
-            return 0.50
+            return 0.60
+        elif arts_count == 2:
+            return 1.30
         else:
-            return 1.0
+            return 1.50  # 3门文科(史地政全齐) → 强力加成
 
-    # 经管军等混合门类 → 文理兼收
+    # 经管军等混合门类 → 文理兼收，中性
     return 1.0
 
 
@@ -597,9 +602,9 @@ def layer2_category_match(
                 industry_bonus = max(industry_bonus, INDUSTRY_HEAT_BONUS[tag])
         score = score * industry_bonus
 
-        # L1 门类得分微调（±5%）
+        # L1 门类得分强传导（±40%）：选科匹配的门类得到显著拉升
         disc_bonus = disc_scores.get(disc_name, 0.5)
-        score = score * (0.95 + 0.1 * disc_bonus)
+        score = score * (0.60 + 0.80 * disc_bonus)
 
         results.append({
             "category_name": cat_name,
