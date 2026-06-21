@@ -7770,7 +7770,8 @@
       "实验设计与执行"
     ],
     "hard_threshold": [
-      "无传染性疾病"
+      "无传染性疾病",
+      "无红绿色盲"
     ],
     "social_heat": "极高",
     "heat_trend": "上升",
@@ -7917,7 +7918,9 @@
       "临床诊断与鉴别",
       "文献检索与综述撰写"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "中",
     "heat_trend": "平稳",
     "enrollment_volume": "极小"
@@ -7927,7 +7930,9 @@
       "临床诊断与鉴别",
       "文献检索与综述撰写"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "中",
     "heat_trend": "平稳",
     "enrollment_volume": "极小"
@@ -7937,7 +7942,9 @@
       "临床诊断与鉴别",
       "文献检索与综述撰写"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "中",
     "heat_trend": "平稳",
     "enrollment_volume": "极小"
@@ -7947,7 +7954,9 @@
       "临床诊断与鉴别",
       "文献检索与综述撰写"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "低",
     "heat_trend": "平稳",
     "enrollment_volume": "极小"
@@ -7957,7 +7966,9 @@
       "临床诊断与鉴别",
       "文献检索与综述撰写"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "低",
     "heat_trend": "平稳",
     "enrollment_volume": "极小"
@@ -7967,7 +7978,9 @@
       "临床诊断与鉴别",
       "文献检索与综述撰写"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "低",
     "heat_trend": "平稳",
     "enrollment_volume": "极小"
@@ -7977,7 +7990,9 @@
       "临床诊断与鉴别",
       "文献检索与综述撰写"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "低",
     "heat_trend": "平稳",
     "enrollment_volume": "极小"
@@ -8001,7 +8016,9 @@
       "康复训练方案制定",
       "文献检索与综述撰写"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "高",
     "heat_trend": "上升",
     "enrollment_volume": "小"
@@ -8319,7 +8336,9 @@
       "体能训练与运动康复",
       "用户需求调研与访谈"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "高",
     "heat_trend": "上升",
     "enrollment_volume": "大"
@@ -8356,7 +8375,9 @@
       "用户需求调研与访谈",
       "实验设计与执行"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "中",
     "heat_trend": "上升",
     "enrollment_volume": "小"
@@ -8366,7 +8387,9 @@
       "康复训练方案制定",
       "体能训练与运动康复"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "高",
     "heat_trend": "上升",
     "enrollment_volume": "小"
@@ -8376,7 +8399,9 @@
       "康复训练方案制定",
       "用户需求调研与访谈"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "高",
     "heat_trend": "上升",
     "enrollment_volume": "小"
@@ -8387,7 +8412,9 @@
       "风险评估与量化",
       "用户需求调研与访谈"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "中",
     "heat_trend": "上升",
     "enrollment_volume": "极小"
@@ -8398,7 +8425,9 @@
       "康复训练方案制定",
       "用户需求调研与访谈"
     ],
-    "hard_threshold": [],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
     "social_heat": "高",
     "heat_trend": "上升",
     "enrollment_volume": "极小"

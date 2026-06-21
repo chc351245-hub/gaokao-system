@@ -158,7 +158,7 @@ INDUSTRY_TAG_TO_CLUSTER: dict[str, str] = {
     "体育产业":           "教育培训",
     "政府/公共服务":      "政府公共",
     "军事/国防工业":      "政府公共",
-    "科研/学术":          "AI与大模型",
+    "科研/学术":          "政府公共",
     "环保/新能源":        "新能源",
     "物流/供应链":        "智能制造",
     "零售/电商/消费":     "互联网与软件",
@@ -217,10 +217,19 @@ def _rank_tier(percentile: float) -> str:
         return "lower"
 
 
-def _risk_tier(risk_tolerance: float) -> str:
-    if risk_tolerance >= 70:
+def _risk_tier(user: UserProfile) -> str:
+    """根据用户价值观向量内部相对值判断风险容忍度等级"""
+    risk_tolerance = user.macro_value_vector.get("风险容忍度", 50.0)
+    # 用户在五个价值观维度中的最大值（用于内部归一化）
+    all_vals = list(user.macro_value_vector.values())
+    max_val = max(all_vals) if all_vals else 100.0
+    if max_val <= 0:
+        max_val = 100.0
+    # 相对风险容忍度
+    relative_risk = risk_tolerance / max_val
+    if relative_risk >= 0.6:
         return "high"
-    elif risk_tolerance >= 40:
+    elif relative_risk >= 0.35:
         return "medium"
     else:
         return "low"
@@ -252,6 +261,27 @@ INDUSTRY_HEAT_BONUS: dict[str, float] = {
 # ============================================================================
 # 工具函数
 # ============================================================================
+
+# 红线语义映射：用户自述条件 → 匹配的专业红线关键词
+_THRESHOLD_SEMANTIC_MAP: dict[str, set[str]] = {
+    "色盲": {"色盲", "红绿色盲", "色觉", "色弱"},   # 色盲→触发所有色觉类红线
+    "色弱": {"色弱", "色觉", "红绿色盲"},           # 色弱→触发色弱+色觉类
+    "裸眼视力<4.8": {"视力", "裸眼"},
+    "身高不达标": {"身高"},
+}
+
+def _threshold_match(user_condition: str, major_threshold: str) -> bool:
+    """检查用户身体条件是否触发专业的红线（语义匹配）"""
+    # 语义扩展匹配
+    expanded = _THRESHOLD_SEMANTIC_MAP.get(user_condition, {user_condition})
+    for keyword in expanded:
+        if keyword in major_threshold:
+            return True
+    # 兜底：用户条件作为专业红线的子串
+    if user_condition in major_threshold:
+        return True
+    return False
+
 
 def cosine_similarity(a: list[float], b: list[float]) -> float:
     """余弦相似度，钳位到 [0, 1]"""
@@ -437,10 +467,11 @@ def layer2_category_match(
     user: UserProfile,
     data: FunnelData,
     l1_results: list[dict],
+    top_n: int = 8,
 ) -> list[dict]:
     """
     第二层：专业类精选
-    匹配产业向往 + 资产敏感度 + 分数敏感度 → Top 8 截断
+    匹配产业向往 + 资产敏感度 + 分数敏感度 → Top N 截断
 
     score = industry_match × 0.5 + asset_match × 0.2 + score_match × 0.3
     """
@@ -454,8 +485,7 @@ def layer2_category_match(
 
     rank_tier = _rank_tier(user.estimated_rank_percentile)
     econ_level = user.family_economic_level  # "高"/"中"/"低"
-    risk_tol = user.macro_value_vector.get("风险容忍度", 50.0)
-    risk_tier = _risk_tier(risk_tol)
+    risk_tier = _risk_tier(user)
 
     # 构建 L1 的门类得分查找表
     disc_scores = {d["discipline_name"]: d["score"] for d in l1_results}
@@ -467,13 +497,17 @@ def layer2_category_match(
         # --- industry_match ---
         industry_tags = cat_labels.get("industry_map", [])
         matched_clusters = set()
+        category_clusters = set()
         for tag in industry_tags:
             cluster = INDUSTRY_TAG_TO_CLUSTER.get(tag, "")
+            category_clusters.add(cluster)
             if cluster in top_industries:
                 matched_clusters.add(cluster)
-        industry_match = len(matched_clusters) / max(len(top_industries), 1)
-        # 奖励更广泛的产业覆盖
-        industry_match = min(1.0, industry_match * (1.0 + 0.1 * len(industry_tags)))
+        # Jaccard 指数: 交集 / 并集（双向惩罚）
+        union = top_industries | category_clusters
+        industry_match = len(matched_clusters) / max(len(union), 1)
+        # 产业广度微调（多标签覆盖的类别小幅加成）
+        industry_match = min(1.0, industry_match * (1.0 + 0.05 * min(len(industry_tags), 8)))
 
         # --- asset_match ---
         asset_sens = cat_labels.get("asset_sensitivity", "中")
@@ -509,10 +543,8 @@ def layer2_category_match(
 
     results.sort(key=lambda x: x["score"], reverse=True)
 
-    # 🔴 硬截断：仅保留 Top 8
-    top8 = results[:8]
-
-    return top8
+    # 🔴 硬截断：保留 Top N
+    return results[:top_n]
 
 
 # ============================================================================
@@ -532,8 +564,7 @@ def layer3_major_match(
     """
     user_behavior = [user.micro_behavior_vector.get(d, 50.0) / 100.0 for d in BEHAVIOR_DIMENSIONS]
     user_physical = set(user.physical_conditions)
-    risk_tol = user.macro_value_vector.get("风险容忍度", 50.0)
-    risk_tier = _risk_tier(risk_tol)
+    risk_tier = _risk_tier(user)
 
     funnel_output = []
 
@@ -560,8 +591,7 @@ def layer3_major_match(
             if hard_thresholds:
                 for ht in hard_thresholds:
                     for uc in user_physical:
-                        # 子串匹配：用户的"色盲"匹配专业的"无红绿色盲"
-                        if uc in ht or ht in uc:
+                        if _threshold_match(uc, ht):
                             threshold_pass = 0
                             triggered.append(ht)
                             break
@@ -776,6 +806,23 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
     if not l2:
         print("[ERROR] Layer 2 returned no categories!")
         return []
+
+    # ---- 多样性强制打散：若 ≥6/8 来自同一门类，替换末位 ----
+    from collections import Counter
+    disc_counts = Counter(c["discipline_name"] for c in l2)
+    dominant_disc, dominant_count = disc_counts.most_common(1)[0]
+    if dominant_count >= 6:
+        all_cats = layer2_category_match(user, data, l1, top_n=999)
+        replaced = None
+        for cat in all_cats[8:]:
+            if cat["discipline_name"] != dominant_disc:
+                replaced = cat
+                break
+        if replaced:
+            l2[-1] = replaced
+            if verbose:
+                print(f"  [Diversity] 强制打散: {dominant_disc} 占 {dominant_count}/8, "
+                      f"末位替换为 {replaced['category_name']}({replaced['discipline_name']})")
 
     # ---- Layer 3: 专业微观狙击 (≤6/类) ----
     if verbose:

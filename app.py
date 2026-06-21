@@ -20,7 +20,7 @@ import pandas as pd
 import json
 import string
 import secrets
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Optional
 
 # Supabase SDK
@@ -768,30 +768,53 @@ def render_welcome_and_activation() -> None:
         st.markdown("### 🔑 输入激活码以解锁系统")
         st.caption("每个激活码仅供一人使用，激活后即刻解锁全部功能。")
 
-        with st.form(key="activation_form"):
-            user_key = st.text_input(
-                "激活码",
-                placeholder="例如：ABCD-EFGH-IJKL",
-                key="activation_input",
-            )
-            submitted = st.form_submit_button(
-                "🚀 激活并开始测评",
-                type="primary",
-                use_container_width=True,
-            )
+        # 限流检查
+        now = datetime.now()
+        lockout_until = st.session_state.get("rate_lockout_until")
+        if lockout_until and now < lockout_until:
+            remaining = int((lockout_until - now).total_seconds())
+            st.error(f"⛔ 激活码尝试次数过多，请 {remaining} 秒后再试。")
+        else:
+            # 锁定期满，重置
+            if lockout_until and now >= lockout_until:
+                st.session_state.rate_failed_attempts = 0
+                st.session_state.rate_lockout_until = None
 
-            if submitted:
-                if not user_key.strip():
-                    st.error("请输入激活码。")
-                else:
-                    valid, msg = validate_key(user_key)
-                    if valid:
-                        st.session_state.license_activated = True
-                        st.session_state.license_key = user_key.strip().upper()
-                        st.success(msg)
-                        st.rerun()
+            with st.form(key="activation_form"):
+                user_key = st.text_input(
+                    "激活码",
+                    placeholder="例如：ABCD-EFGH-IJKL",
+                    key="activation_input",
+                )
+                submitted = st.form_submit_button(
+                    "🚀 激活并开始测评",
+                    type="primary",
+                    use_container_width=True,
+                )
+
+                if submitted:
+                    if not user_key.strip():
+                        st.error("请输入激活码。")
                     else:
-                        st.error(msg)
+                        valid, msg = validate_key(user_key)
+                        if valid:
+                            st.session_state.license_activated = True
+                            st.session_state.license_key = user_key.strip().upper()
+                            st.session_state.rate_failed_attempts = 0
+                            st.session_state.rate_lockout_until = None
+                            st.success(msg)
+                            st.rerun()
+                        else:
+                            # 递增失败计数
+                            attempts = st.session_state.get("rate_failed_attempts", 0) + 1
+                            st.session_state.rate_failed_attempts = attempts
+
+                            # 渐进式锁定时长
+                            delays = {1: 2, 2: 5, 3: 10, 4: 30, 5: 600}  # 第5次起锁10分钟
+                            lock_sec = delays.get(attempts, 600)
+                            st.session_state.rate_lockout_until = now + timedelta(seconds=lock_sec)
+
+                            st.error(f"{msg}（剩余尝试 {max(0, 5 - attempts)} 次）")
 
 
 # ========================================================================
@@ -877,6 +900,8 @@ def main() -> None:
         "user": None,
         "key_consumed": False,
         "is_admin": False,
+        "rate_failed_attempts": 0,
+        "rate_lockout_until": None,
         # 用户画像
         "user_subjects": [],
         "user_score": 500,
