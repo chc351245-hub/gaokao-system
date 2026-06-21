@@ -419,7 +419,6 @@ def _render_question_block(
             "💾 保存并继续",
             type="primary",
             use_container_width=True,
-            on_click=lambda: st.rerun(),
         )
 
 
@@ -598,6 +597,11 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
         "匹配逻辑：第1层 认知风格+人格倾向 → 第2层 产业+资产+分数 → "
         "第3层 微观动作+热度+红线。**匹配分≠录取概率**，请结合分数另行评估。"
     )
+    st.warning(
+        "⚠️ **免责声明**：本测评结果基于数据模型与大语言模型生成，仅供志愿填报参考。"
+        "高考录取受政策、排位、招生计划等多重动态因素影响，可能存在数据偏差。"
+        "最终志愿决策与风险需由本人及家属独立承担。"
+    )
 
     # ---- 层级式推荐结果 ----
     st.markdown("---")
@@ -646,6 +650,11 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
         "💡 **温馨提示**：以上推荐基于你的认知风格、产业向往和微观行为模式。"
         "匹配分衡量「你适不适合这个专业」，不等同于「你能不能考上」。"
         "实际填报请结合你的 **高考分数**、**院校偏好** 和 **城市选择** 综合决策。"
+    )
+    st.caption(
+        "⚠️ 本测评结果基于数据模型与大语言模型生成，仅供志愿填报参考。"
+        "高考录取受政策、排位、招生计划等多重动态因素影响，可能存在数据偏差。"
+        "最终志愿决策与风险需由本人及家属独立承担。"
     )
 
     _, cbtn, _ = st.columns([0.35, 0.3, 0.35])

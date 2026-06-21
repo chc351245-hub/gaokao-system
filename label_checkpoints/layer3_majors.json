@@ -5,7 +5,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "逻辑学": {
     "micro_actions": [
@@ -13,7 +14,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "宗教学": {
     "micro_actions": [
@@ -22,7 +24,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "伦理学": {
     "micro_actions": [
@@ -30,7 +33,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "经济学": {
     "micro_actions": [
@@ -39,7 +43,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "经济统计学": {
     "micro_actions": [
@@ -48,7 +53,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "国民经济管理": {
     "micro_actions": [
@@ -57,7 +63,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "资源与环境经济学": {
     "micro_actions": [
@@ -66,7 +73,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "商务经济学": {
     "micro_actions": [
@@ -75,7 +83,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "能源经济": {
     "micro_actions": [
@@ -84,7 +93,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "劳动经济学": {
     "micro_actions": [
@@ -93,7 +103,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "经济工程": {
     "micro_actions": [
@@ -102,7 +113,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "数字经济": {
     "micro_actions": [
@@ -111,7 +123,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "低空经济与管理": {
     "micro_actions": [
@@ -120,7 +133,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "资源环境审计": {
     "micro_actions": [
@@ -129,7 +143,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "财政学": {
     "micro_actions": [
@@ -138,7 +153,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "税收学": {
     "micro_actions": [
@@ -147,7 +163,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "国际税收": {
     "micro_actions": [
@@ -156,7 +173,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "金融学": {
     "micro_actions": [
@@ -165,7 +183,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "金融工程": {
     "micro_actions": [
@@ -174,7 +193,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "保险学": {
     "micro_actions": [
@@ -183,7 +203,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "投资学": {
     "micro_actions": [
@@ -192,7 +213,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "金融数学": {
     "micro_actions": [
@@ -201,7 +223,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "信用管理": {
     "micro_actions": [
@@ -210,7 +233,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "经济与金融": {
     "micro_actions": [
@@ -219,7 +243,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "精算学": {
     "micro_actions": [
@@ -228,7 +253,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "互联网金融": {
     "micro_actions": [
@@ -237,7 +263,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "小"
   },
   "金融科技": {
     "micro_actions": [
@@ -247,7 +274,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "金融审计": {
     "micro_actions": [
@@ -256,7 +284,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "数字金融": {
     "micro_actions": [
@@ -265,7 +294,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "国际经济与贸易": {
     "micro_actions": [
@@ -274,7 +304,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极大"
   },
   "贸易经济": {
     "micro_actions": [
@@ -283,7 +314,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "国际经济发展合作": {
     "micro_actions": [
@@ -292,7 +324,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "数字贸易": {
     "micro_actions": [
@@ -301,7 +334,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "法学": {
     "micro_actions": [
@@ -310,7 +344,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "知识产权": {
     "micro_actions": [
@@ -319,7 +354,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "监狱学": {
     "micro_actions": [
@@ -327,7 +363,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "信用风险管理与法律防控": {
     "micro_actions": [
@@ -336,7 +373,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "国际经贸规则": {
     "micro_actions": [
@@ -345,7 +383,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "司法警察学": {
     "micro_actions": [
@@ -355,7 +394,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "社区矫正": {
     "micro_actions": [
@@ -363,7 +403,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "纪检监察": {
     "micro_actions": [
@@ -372,7 +413,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "国际法": {
     "micro_actions": [
@@ -381,7 +423,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "司法鉴定学": {
     "micro_actions": [
@@ -392,7 +435,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "国家安全学": {
     "micro_actions": [
@@ -401,7 +445,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "海外利益安全": {
     "micro_actions": [
@@ -410,7 +455,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "政治学与行政学": {
     "micro_actions": [
@@ -419,7 +465,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "国际政治": {
     "micro_actions": [
@@ -428,7 +475,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "外交学": {
     "micro_actions": [
@@ -437,7 +485,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "国际事务与国际关系": {
     "micro_actions": [
@@ -446,7 +495,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "政治学、经济学与哲学": {
     "micro_actions": [
@@ -457,7 +507,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "国际组织与全球治理": {
     "micro_actions": [
@@ -468,7 +519,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "社会学": {
     "micro_actions": [
@@ -478,7 +530,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "社会工作": {
     "micro_actions": [
@@ -488,7 +541,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "人类学": {
     "micro_actions": [
@@ -497,7 +551,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "女性学": {
     "micro_actions": [
@@ -507,7 +562,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "家政学": {
     "micro_actions": [
@@ -517,7 +573,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "老年学": {
     "micro_actions": [
@@ -527,7 +584,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "社会政策": {
     "micro_actions": [
@@ -537,7 +595,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "民族学": {
     "micro_actions": [
@@ -546,7 +605,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "科学社会主义": {
     "micro_actions": [
@@ -557,7 +617,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "中国共产党历史": {
     "micro_actions": [
@@ -568,7 +629,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "思想政治教育": {
     "micro_actions": [
@@ -579,7 +641,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "马克思主义理论": {
     "micro_actions": [
@@ -590,7 +653,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "工会学": {
     "micro_actions": [
@@ -600,7 +664,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "治安学": {
     "micro_actions": [
@@ -612,7 +677,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "侦查学": {
     "micro_actions": [
@@ -625,7 +691,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "边防管理": {
     "micro_actions": [
@@ -637,7 +704,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "禁毒学": {
     "micro_actions": [
@@ -649,7 +717,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "警犬技术": {
     "micro_actions": [
@@ -660,7 +729,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "经济犯罪侦查": {
     "micro_actions": [
@@ -673,7 +743,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "边防指挥": {
     "micro_actions": [
@@ -685,7 +756,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "消防指挥": {
     "micro_actions": [
@@ -697,7 +769,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "警卫学": {
     "micro_actions": [
@@ -708,7 +781,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "公安情报学": {
     "micro_actions": [
@@ -720,7 +794,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "犯罪学": {
     "micro_actions": [
@@ -732,7 +807,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "公安管理学": {
     "micro_actions": [
@@ -743,7 +819,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "涉外警务": {
     "micro_actions": [
@@ -755,7 +832,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "国内安全保卫": {
     "micro_actions": [
@@ -767,7 +845,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "警务指挥与战术": {
     "micro_actions": [
@@ -778,7 +857,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "技术侦查学": {
     "micro_actions": [
@@ -789,7 +869,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "海警执法": {
     "micro_actions": [
@@ -801,7 +882,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "公安政治工作": {
     "micro_actions": [
@@ -813,7 +895,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "移民管理": {
     "micro_actions": [
@@ -825,7 +908,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "出入境管理": {
     "micro_actions": [
@@ -837,7 +921,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "反恐警务": {
     "micro_actions": [
@@ -849,7 +934,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "消防政治工作": {
     "micro_actions": [
@@ -861,7 +947,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "铁路警务": {
     "micro_actions": [
@@ -873,7 +960,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "森林消防": {
     "micro_actions": [
@@ -885,7 +973,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "政治安全保卫": {
     "micro_actions": [
@@ -897,7 +986,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "教育学": {
     "micro_actions": [
@@ -907,7 +997,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "科学教育": {
     "micro_actions": [
@@ -917,7 +1008,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "人文教育": {
     "micro_actions": [
@@ -927,7 +1019,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "教育技术学": {
     "micro_actions": [
@@ -938,7 +1031,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "艺术教育": {
     "micro_actions": [
@@ -949,7 +1043,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "学前教育": {
     "micro_actions": [
@@ -959,7 +1054,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "小学教育": {
     "micro_actions": [
@@ -969,7 +1065,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "特殊教育": {
     "micro_actions": [
@@ -980,7 +1077,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "华文教育": {
     "micro_actions": [
@@ -990,7 +1088,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "教育康复学": {
     "micro_actions": [
@@ -1000,7 +1099,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "卫生教育": {
     "micro_actions": [
@@ -1010,7 +1110,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "认知科学与技术": {
     "micro_actions": [
@@ -1020,7 +1121,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "融合教育": {
     "micro_actions": [
@@ -1030,7 +1132,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "劳动教育": {
     "micro_actions": [
@@ -1039,7 +1142,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "家庭教育": {
     "micro_actions": [
@@ -1049,7 +1153,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "孤独症儿童教育": {
     "micro_actions": [
@@ -1059,7 +1164,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "人工智能教育": {
     "micro_actions": [
@@ -1069,7 +1175,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "婴幼儿发展与健康管理": {
     "micro_actions": [
@@ -1079,7 +1186,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "体育教育": {
     "micro_actions": [
@@ -1089,7 +1197,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "运动训练": {
     "micro_actions": [
@@ -1099,7 +1208,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "社会体育指导与管理": {
     "micro_actions": [
@@ -1109,7 +1219,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "武术与民族传统体育": {
     "micro_actions": [
@@ -1119,7 +1230,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "中"
   },
   "运动人体科学": {
     "micro_actions": [
@@ -1129,7 +1241,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "运动康复": {
     "micro_actions": [
@@ -1139,7 +1252,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "休闲体育": {
     "micro_actions": [
@@ -1148,7 +1262,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "体能训练": {
     "micro_actions": [
@@ -1157,7 +1272,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "冰雪运动": {
     "micro_actions": [
@@ -1166,7 +1282,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "电子竞技运动与管理": {
     "micro_actions": [
@@ -1176,7 +1293,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "智能体育工程": {
     "micro_actions": [
@@ -1186,7 +1304,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "体育旅游": {
     "micro_actions": [
@@ -1195,7 +1314,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "运动能力开发": {
     "micro_actions": [
@@ -1204,7 +1324,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "足球运动": {
     "micro_actions": [
@@ -1214,7 +1335,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "马术运动与管理": {
     "micro_actions": [
@@ -1223,7 +1345,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "体育康养": {
     "micro_actions": [
@@ -1233,7 +1356,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "航空运动": {
     "micro_actions": [
@@ -1242,7 +1366,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "太极拳": {
     "micro_actions": [
@@ -1251,7 +1376,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "汉语言文学": {
     "micro_actions": [
@@ -1261,7 +1387,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "汉语言": {
     "micro_actions": [
@@ -1271,7 +1398,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "汉语国际教育": {
     "micro_actions": [
@@ -1281,7 +1409,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "中国少数民族语言文学": {
     "micro_actions": [
@@ -1291,7 +1420,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "古典文献学": {
     "micro_actions": [
@@ -1300,7 +1430,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "应用语言学": {
     "micro_actions": [
@@ -1310,7 +1441,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "秘书学": {
     "micro_actions": [
@@ -1320,7 +1452,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "中国语言与文化": {
     "micro_actions": [
@@ -1329,7 +1462,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "手语翻译": {
     "micro_actions": [
@@ -1338,7 +1472,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "数字人文": {
     "micro_actions": [
@@ -1348,7 +1483,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "中国古典学": {
     "micro_actions": [
@@ -1357,7 +1493,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "汉学与中国学": {
     "micro_actions": [
@@ -1367,7 +1504,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "应用中文": {
     "micro_actions": [
@@ -1377,7 +1515,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "语言科学": {
     "micro_actions": [
@@ -1387,7 +1526,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "桑戈语": {
     "micro_actions": [
@@ -1396,7 +1536,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "英语": {
     "micro_actions": [
@@ -1406,7 +1547,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极大"
   },
   "俄语": {
     "micro_actions": [
@@ -1416,7 +1558,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "德语": {
     "micro_actions": [
@@ -1426,7 +1569,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "法语": {
     "micro_actions": [
@@ -1436,7 +1580,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "西班牙语": {
     "micro_actions": [
@@ -1446,7 +1591,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "阿拉伯语": {
     "micro_actions": [
@@ -1456,7 +1602,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "日语": {
     "micro_actions": [
@@ -1466,7 +1613,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "波斯语": {
     "micro_actions": [
@@ -1475,7 +1623,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "朝鲜语": {
     "micro_actions": [
@@ -1485,7 +1634,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "中"
   },
   "菲律宾语": {
     "micro_actions": [
@@ -1493,7 +1643,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "语言学": {
     "micro_actions": [
@@ -1502,7 +1653,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "塔玛齐格特语": {
     "micro_actions": [
@@ -1510,7 +1662,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "爪哇语": {
     "micro_actions": [
@@ -1518,7 +1671,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "旁遮普语": {
     "micro_actions": [
@@ -1526,7 +1680,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "区域国别学": {
     "micro_actions": [
@@ -1536,7 +1691,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "法律英语": {
     "micro_actions": [
@@ -1545,7 +1701,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "计算语言学": {
     "micro_actions": [
@@ -1556,7 +1713,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "语言智能": {
     "micro_actions": [
@@ -1567,7 +1725,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "梵语巴利语": {
     "micro_actions": [
@@ -1576,7 +1735,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "印度尼西亚语": {
     "micro_actions": [
@@ -1584,7 +1744,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "印地语": {
     "micro_actions": [
@@ -1592,7 +1753,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "柬埔寨语": {
     "micro_actions": [
@@ -1600,7 +1762,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "老挝语": {
     "micro_actions": [
@@ -1608,7 +1771,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "缅甸语": {
     "micro_actions": [
@@ -1616,7 +1780,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "马来语": {
     "micro_actions": [
@@ -1624,7 +1789,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "蒙古语": {
     "micro_actions": [
@@ -1632,7 +1798,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "僧伽罗语": {
     "micro_actions": [
@@ -1640,7 +1807,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "泰语": {
     "micro_actions": [
@@ -1648,7 +1816,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "乌尔都语": {
     "micro_actions": [
@@ -1656,7 +1825,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "希伯来语": {
     "micro_actions": [
@@ -1664,7 +1834,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "越南语": {
     "micro_actions": [
@@ -1672,7 +1843,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "豪萨语": {
     "micro_actions": [
@@ -1680,7 +1852,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "斯瓦希里语": {
     "micro_actions": [
@@ -1688,7 +1861,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "阿尔巴尼亚语": {
     "micro_actions": [
@@ -1696,7 +1870,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "保加利亚语": {
     "micro_actions": [
@@ -1704,7 +1879,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "波兰语": {
     "micro_actions": [
@@ -1712,7 +1888,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "捷克语": {
     "micro_actions": [
@@ -1720,7 +1897,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "斯洛伐克语": {
     "micro_actions": [
@@ -1728,7 +1906,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "罗马尼亚语": {
     "micro_actions": [
@@ -1736,7 +1915,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "葡萄牙语": {
     "micro_actions": [
@@ -1744,7 +1924,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "瑞典语": {
     "micro_actions": [
@@ -1752,7 +1933,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "塞尔维亚语": {
     "micro_actions": [
@@ -1760,7 +1942,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "土耳其语": {
     "micro_actions": [
@@ -1768,7 +1951,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "希腊语": {
     "micro_actions": [
@@ -1776,7 +1960,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "匈牙利语": {
     "micro_actions": [
@@ -1784,7 +1969,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "意大利语": {
     "micro_actions": [
@@ -1792,7 +1978,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "泰米尔语": {
     "micro_actions": [
@@ -1800,7 +1987,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "普什图语": {
     "micro_actions": [
@@ -1808,7 +1996,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "世界语": {
     "micro_actions": [
@@ -1816,7 +2005,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "孟加拉语": {
     "micro_actions": [
@@ -1824,7 +2014,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "尼泊尔语": {
     "micro_actions": [
@@ -1832,7 +2023,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "克罗地亚语": {
     "micro_actions": [
@@ -1840,7 +2032,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "荷兰语": {
     "micro_actions": [
@@ -1848,7 +2041,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "芬兰语": {
     "micro_actions": [
@@ -1856,7 +2050,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "乌克兰语": {
     "micro_actions": [
@@ -1864,7 +2059,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "挪威语": {
     "micro_actions": [
@@ -1872,7 +2068,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "丹麦语": {
     "micro_actions": [
@@ -1880,7 +2077,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "冰岛语": {
     "micro_actions": [
@@ -1888,7 +2086,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "爱尔兰语": {
     "micro_actions": [
@@ -1896,7 +2095,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "拉脱维亚语": {
     "micro_actions": [
@@ -1906,7 +2106,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "立陶宛语": {
     "micro_actions": [
@@ -1916,7 +2117,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "斯洛文尼亚语": {
     "micro_actions": [
@@ -1926,7 +2128,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "爱沙尼亚语": {
     "micro_actions": [
@@ -1936,7 +2139,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "马耳他语": {
     "micro_actions": [
@@ -1946,7 +2150,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "哈萨克语": {
     "micro_actions": [
@@ -1956,7 +2161,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "乌兹别克语": {
     "micro_actions": [
@@ -1966,7 +2172,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "祖鲁语": {
     "micro_actions": [
@@ -1976,7 +2183,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "拉丁语": {
     "micro_actions": [
@@ -1987,7 +2195,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "翻译": {
     "micro_actions": [
@@ -1998,7 +2207,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "商务英语": {
     "micro_actions": [
@@ -2009,7 +2219,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "阿姆哈拉语": {
     "micro_actions": [
@@ -2019,7 +2230,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "吉尔吉斯语": {
     "micro_actions": [
@@ -2029,7 +2241,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "索马里语": {
     "micro_actions": [
@@ -2039,7 +2252,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "土库曼语": {
     "micro_actions": [
@@ -2049,7 +2263,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "加泰罗尼亚语": {
     "micro_actions": [
@@ -2059,7 +2274,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "约鲁巴语": {
     "micro_actions": [
@@ -2069,7 +2285,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "亚美尼亚语": {
     "micro_actions": [
@@ -2079,7 +2296,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "马达加斯加语": {
     "micro_actions": [
@@ -2089,7 +2307,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "格鲁吉亚语": {
     "micro_actions": [
@@ -2099,7 +2318,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "阿塞拜疆语": {
     "micro_actions": [
@@ -2109,7 +2329,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "阿非利卡语": {
     "micro_actions": [
@@ -2119,7 +2340,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "马其顿语": {
     "micro_actions": [
@@ -2129,7 +2351,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "塔吉克语": {
     "micro_actions": [
@@ -2139,7 +2362,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "茨瓦纳语": {
     "micro_actions": [
@@ -2149,7 +2373,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "恩德贝莱语": {
     "micro_actions": [
@@ -2159,7 +2384,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "科摩罗语": {
     "micro_actions": [
@@ -2169,7 +2395,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "克里奥尔语": {
     "micro_actions": [
@@ -2179,7 +2406,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "绍纳语": {
     "micro_actions": [
@@ -2189,7 +2417,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "提格雷尼亚语": {
     "micro_actions": [
@@ -2199,7 +2428,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "白俄罗斯语": {
     "micro_actions": [
@@ -2209,7 +2439,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "毛利语": {
     "micro_actions": [
@@ -2219,7 +2450,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "汤加语": {
     "micro_actions": [
@@ -2229,7 +2461,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "萨摩亚语": {
     "micro_actions": [
@@ -2239,7 +2472,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "库尔德语": {
     "micro_actions": [
@@ -2249,7 +2483,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "比斯拉马语": {
     "micro_actions": [
@@ -2259,7 +2494,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "达里语": {
     "micro_actions": [
@@ -2269,7 +2505,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "德顿语": {
     "micro_actions": [
@@ -2279,7 +2516,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "迪维希语": {
     "micro_actions": [
@@ -2289,7 +2527,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "斐济语": {
     "micro_actions": [
@@ -2299,7 +2538,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "库克群岛毛利语": {
     "micro_actions": [
@@ -2309,7 +2549,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "隆迪语": {
     "micro_actions": [
@@ -2319,7 +2560,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "卢森堡语": {
     "micro_actions": [
@@ -2329,7 +2571,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "卢旺达语": {
     "micro_actions": [
@@ -2339,7 +2582,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "纽埃语": {
     "micro_actions": [
@@ -2349,7 +2593,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "皮金语": {
     "micro_actions": [
@@ -2359,7 +2604,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "切瓦语": {
     "micro_actions": [
@@ -2369,7 +2615,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "塞苏陀语": {
     "micro_actions": [
@@ -2379,7 +2626,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "新闻学": {
     "micro_actions": [
@@ -2388,7 +2636,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "广播电视学": {
     "micro_actions": [
@@ -2398,7 +2647,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "广告学": {
     "micro_actions": [
@@ -2408,7 +2658,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "传播学": {
     "micro_actions": [
@@ -2418,7 +2669,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "编辑出版学": {
     "micro_actions": [
@@ -2428,7 +2680,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "网络与新媒体": {
     "micro_actions": [
@@ -2439,7 +2692,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "数字出版": {
     "micro_actions": [
@@ -2449,7 +2703,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "时尚传播": {
     "micro_actions": [
@@ -2459,7 +2714,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "国际新闻与传播": {
     "micro_actions": [
@@ -2471,7 +2727,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "会展": {
     "micro_actions": [
@@ -2481,7 +2738,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "历史学": {
     "micro_actions": [
@@ -2490,7 +2748,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "世界史": {
     "micro_actions": [
@@ -2499,7 +2758,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "考古学": {
     "micro_actions": [
@@ -2509,7 +2769,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "文物与博物馆学": {
     "micro_actions": [
@@ -2519,7 +2780,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "文物保护技术": {
     "micro_actions": [
@@ -2529,7 +2791,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "外国语言与外国历史": {
     "micro_actions": [
@@ -2538,7 +2801,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "文化遗产": {
     "micro_actions": [
@@ -2548,7 +2812,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "古文字学": {
     "micro_actions": [
@@ -2556,7 +2821,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "科学史": {
     "micro_actions": [
@@ -2564,7 +2830,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "数学与应用数学": {
     "micro_actions": [
@@ -2573,7 +2840,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "信息与计算科学": {
     "micro_actions": [
@@ -2584,7 +2852,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "数理基础科学": {
     "micro_actions": [
@@ -2593,7 +2862,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "数据计算及应用": {
     "micro_actions": [
@@ -2603,7 +2873,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "智能计算": {
     "micro_actions": [
@@ -2613,7 +2884,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "物理学": {
     "micro_actions": [
@@ -2622,7 +2894,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "应用物理学": {
     "micro_actions": [
@@ -2632,7 +2905,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "核物理": {
     "micro_actions": [
@@ -2641,7 +2915,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "声学": {
     "micro_actions": [
@@ -2651,7 +2926,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "系统科学与工程": {
     "micro_actions": [
@@ -2661,7 +2937,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "量子信息科学": {
     "micro_actions": [
@@ -2671,7 +2948,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "化学": {
     "micro_actions": [
@@ -2683,7 +2961,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "应用化学": {
     "micro_actions": [
@@ -2695,7 +2974,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "化学生物学": {
     "micro_actions": [
@@ -2707,7 +2987,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "分子科学与工程": {
     "micro_actions": [
@@ -2718,7 +2999,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "能源化学": {
     "micro_actions": [
@@ -2730,7 +3012,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "化学测量学与技术": {
     "micro_actions": [
@@ -2741,7 +3024,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "资源化学": {
     "micro_actions": [
@@ -2753,7 +3037,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "天文学": {
     "micro_actions": [
@@ -2763,7 +3048,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "地理科学": {
     "micro_actions": [
@@ -2773,7 +3059,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "自然地理与资源环境": {
     "micro_actions": [
@@ -2783,7 +3070,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "人文地理与城乡规划": {
     "micro_actions": [
@@ -2793,7 +3081,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "地理信息科学": {
     "micro_actions": [
@@ -2803,7 +3092,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "大气科学": {
     "micro_actions": [
@@ -2813,7 +3103,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "应用气象学": {
     "micro_actions": [
@@ -2823,7 +3114,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "气象技术与工程": {
     "micro_actions": [
@@ -2833,7 +3125,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "地球系统科学": {
     "micro_actions": [
@@ -2843,7 +3136,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "海洋科学": {
     "micro_actions": [
@@ -2853,7 +3147,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "海洋技术": {
     "micro_actions": [
@@ -2863,7 +3158,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "海洋资源与环境": {
     "micro_actions": [
@@ -2873,7 +3169,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "军事海洋学": {
     "micro_actions": [
@@ -2882,7 +3179,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "海洋科学与技术": {
     "micro_actions": [
@@ -2891,7 +3189,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "地球物理学": {
     "micro_actions": [
@@ -2901,7 +3200,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "空间科学与技术": {
     "micro_actions": [
@@ -2911,7 +3211,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "防灾减灾科学与工程": {
     "micro_actions": [
@@ -2922,7 +3223,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "行星科学": {
     "micro_actions": [
@@ -2932,7 +3234,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "地质学": {
     "micro_actions": [
@@ -2942,7 +3245,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "地球化学": {
     "micro_actions": [
@@ -2955,7 +3259,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "地球信息科学与技术": {
     "micro_actions": [
@@ -2965,7 +3270,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "古生物学": {
     "micro_actions": [
@@ -2975,7 +3281,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "生物科学": {
     "micro_actions": [
@@ -2987,7 +3294,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "生物技术": {
     "micro_actions": [
@@ -2999,7 +3307,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "生物信息学": {
     "micro_actions": [
@@ -3010,7 +3319,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "生态学": {
     "micro_actions": [
@@ -3021,7 +3331,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "整合科学": {
     "micro_actions": [
@@ -3031,7 +3342,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "神经科学": {
     "micro_actions": [
@@ -3041,7 +3353,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "心理学": {
     "micro_actions": [
@@ -3051,7 +3364,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "应用心理学": {
     "micro_actions": [
@@ -3062,7 +3376,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "心理、脑与认知科学": {
     "micro_actions": [
@@ -3072,7 +3387,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "统计学": {
     "micro_actions": [
@@ -3083,7 +3399,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "应用统计学": {
     "micro_actions": [
@@ -3094,7 +3411,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "数据科学": {
     "micro_actions": [
@@ -3105,7 +3423,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "生物统计学": {
     "micro_actions": [
@@ -3115,7 +3434,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "理论与应用力学": {
     "micro_actions": [
@@ -3126,7 +3446,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "工程力学": {
     "micro_actions": [
@@ -3136,7 +3457,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "机械工程": {
     "micro_actions": [
@@ -3147,7 +3469,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "机械设计制造及其自动化": {
     "micro_actions": [
@@ -3158,7 +3481,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "材料成型及控制工程": {
     "micro_actions": [
@@ -3169,7 +3493,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "机械电子工程": {
     "micro_actions": [
@@ -3180,7 +3505,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "工业设计": {
     "micro_actions": [
@@ -3193,7 +3519,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "过程装备与控制工程": {
     "micro_actions": [
@@ -3204,7 +3531,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "车辆工程": {
     "micro_actions": [
@@ -3215,7 +3543,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "汽车服务工程": {
     "micro_actions": [
@@ -3225,7 +3554,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "机械工艺技术": {
     "micro_actions": [
@@ -3235,7 +3565,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "微机电系统工程": {
     "micro_actions": [
@@ -3246,7 +3577,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "机电技术教育": {
     "micro_actions": [
@@ -3256,7 +3588,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "汽车维修工程教育": {
     "micro_actions": [
@@ -3267,7 +3600,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "智能制造工程": {
     "micro_actions": [
@@ -3278,7 +3612,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "智能车辆工程": {
     "micro_actions": [
@@ -3289,7 +3624,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "仿生科学与工程": {
     "micro_actions": [
@@ -3300,7 +3636,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "新能源汽车工程": {
     "micro_actions": [
@@ -3311,7 +3648,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "增材制造工程": {
     "micro_actions": [
@@ -3322,7 +3660,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智能交互设计": {
     "micro_actions": [
@@ -3333,7 +3672,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "应急装备技术与工程": {
     "micro_actions": [
@@ -3343,7 +3683,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "农林智能装备工程": {
     "micro_actions": [
@@ -3353,7 +3694,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "真空工程与技术": {
     "micro_actions": [
@@ -3363,7 +3705,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "测控技术与仪器": {
     "micro_actions": [
@@ -3374,7 +3717,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "精密仪器": {
     "micro_actions": [
@@ -3384,7 +3728,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "智能感知工程": {
     "micro_actions": [
@@ -3395,7 +3740,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "材料科学与工程": {
     "micro_actions": [
@@ -3408,7 +3754,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "材料物理": {
     "micro_actions": [
@@ -3420,7 +3767,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "材料化学": {
     "micro_actions": [
@@ -3432,7 +3780,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "冶金工程": {
     "micro_actions": [
@@ -3445,7 +3794,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "金属材料工程": {
     "micro_actions": [
@@ -3457,7 +3807,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "无机非金属材料工程": {
     "micro_actions": [
@@ -3469,7 +3820,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "高分子材料与工程": {
     "micro_actions": [
@@ -3481,7 +3833,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "复合材料与工程": {
     "micro_actions": [
@@ -3493,7 +3846,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "粉体材料科学与工程": {
     "micro_actions": [
@@ -3504,7 +3858,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "宝石及材料工艺学": {
     "micro_actions": [
@@ -3516,7 +3871,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "焊接技术与工程": {
     "micro_actions": [
@@ -3528,7 +3884,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "功能材料": {
     "micro_actions": [
@@ -3540,7 +3897,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "纳米材料与技术": {
     "micro_actions": [
@@ -3552,7 +3910,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "新能源材料与器件": {
     "micro_actions": [
@@ -3563,7 +3922,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "材料设计科学与工程": {
     "micro_actions": [
@@ -3575,7 +3935,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "复合材料成型工程": {
     "micro_actions": [
@@ -3587,7 +3948,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "智能材料与结构": {
     "micro_actions": [
@@ -3598,7 +3960,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "光电信息材料与器件": {
     "micro_actions": [
@@ -3610,7 +3973,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "生物材料": {
     "micro_actions": [
@@ -3622,7 +3986,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "材料智能技术": {
     "micro_actions": [
@@ -3633,7 +3998,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "电子信息材料": {
     "micro_actions": [
@@ -3645,7 +4011,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "软物质科学与工程": {
     "micro_actions": [
@@ -3656,7 +4023,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "稀土材料科学与工程": {
     "micro_actions": [
@@ -3668,7 +4036,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "能源与动力工程": {
     "micro_actions": [
@@ -3678,7 +4047,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "能源与环境系统工程": {
     "micro_actions": [
@@ -3688,7 +4058,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "新能源科学与工程": {
     "micro_actions": [
@@ -3698,7 +4069,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "储能科学与工程": {
     "micro_actions": [
@@ -3708,7 +4080,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "能源服务工程": {
     "micro_actions": [
@@ -3717,7 +4090,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "氢能科学与工程": {
     "micro_actions": [
@@ -3727,7 +4101,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "可持续能源": {
     "micro_actions": [
@@ -3737,7 +4112,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "能源科学与工程": {
     "micro_actions": [
@@ -3747,7 +4123,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "电气工程及其自动化": {
     "micro_actions": [
@@ -3757,7 +4134,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "智能电网信息工程": {
     "micro_actions": [
@@ -3767,7 +4145,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "光源与照明": {
     "micro_actions": [
@@ -3776,7 +4155,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "电气工程与智能控制": {
     "micro_actions": [
@@ -3785,7 +4165,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "电机电器智能化": {
     "micro_actions": [
@@ -3794,7 +4175,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "电缆工程": {
     "micro_actions": [
@@ -3804,7 +4186,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "能源互联网工程": {
     "micro_actions": [
@@ -3813,7 +4196,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智慧能源工程": {
     "micro_actions": [
@@ -3822,7 +4206,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "电动载运工程": {
     "micro_actions": [
@@ -3832,7 +4217,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "大功率半导体科学与工程": {
     "micro_actions": [
@@ -3842,7 +4228,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "电子信息工程": {
     "micro_actions": [
@@ -3852,7 +4239,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "电子科学与技术": {
     "micro_actions": [
@@ -3862,7 +4250,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "通信工程": {
     "micro_actions": [
@@ -3872,7 +4261,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "微电子科学与工程": {
     "micro_actions": [
@@ -3882,7 +4272,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "光电信息科学与工程": {
     "micro_actions": [
@@ -3892,7 +4283,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "信息工程": {
     "micro_actions": [
@@ -3901,7 +4293,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "广播电视工程": {
     "micro_actions": [
@@ -3910,7 +4303,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "小"
   },
   "水声工程": {
     "micro_actions": [
@@ -3920,7 +4314,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "电子封装技术": {
     "micro_actions": [
@@ -3930,7 +4325,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "集成电路设计与集成系统": {
     "micro_actions": [
@@ -3940,7 +4336,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "医学信息工程": {
     "micro_actions": [
@@ -3950,7 +4347,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "电磁场与无线技术": {
     "micro_actions": [
@@ -3960,7 +4358,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "电波传播与天线": {
     "micro_actions": [
@@ -3970,7 +4369,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "电子信息科学与技术": {
     "micro_actions": [
@@ -3981,7 +4381,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "电信工程及管理": {
     "micro_actions": [
@@ -3992,7 +4393,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "应用电子技术教育": {
     "micro_actions": [
@@ -4003,7 +4405,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "人工智能": {
     "micro_actions": [
@@ -4014,7 +4417,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "海洋信息工程": {
     "micro_actions": [
@@ -4025,7 +4429,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "柔性电子学": {
     "micro_actions": [
@@ -4036,7 +4441,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智能测控工程": {
     "micro_actions": [
@@ -4047,7 +4453,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智能视觉工程": {
     "micro_actions": [
@@ -4058,7 +4465,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智能视听工程": {
     "micro_actions": [
@@ -4069,7 +4477,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "半导体工艺与装备": {
     "micro_actions": [
@@ -4082,7 +4491,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "自动化": {
     "micro_actions": [
@@ -4093,7 +4503,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "轨道交通信号与控制": {
     "micro_actions": [
@@ -4106,7 +4517,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "机器人工程": {
     "micro_actions": [
@@ -4117,7 +4529,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "邮政工程": {
     "micro_actions": [
@@ -4128,7 +4541,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "核电技术与控制工程": {
     "micro_actions": [
@@ -4139,7 +4553,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "智能装备与系统": {
     "micro_actions": [
@@ -4150,7 +4565,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "工业智能": {
     "micro_actions": [
@@ -4161,7 +4577,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智能工程与创意设计": {
     "micro_actions": [
@@ -4172,7 +4589,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "计算机科学与技术": {
     "micro_actions": [
@@ -4183,7 +4601,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "软件工程": {
     "micro_actions": [
@@ -4194,7 +4613,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "网络工程": {
     "micro_actions": [
@@ -4205,7 +4625,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "信息安全": {
     "micro_actions": [
@@ -4216,7 +4637,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "物联网工程": {
     "micro_actions": [
@@ -4227,7 +4649,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "数字媒体技术": {
     "micro_actions": [
@@ -4238,7 +4661,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "智能科学与技术": {
     "micro_actions": [
@@ -4249,7 +4673,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "空间信息与数字技术": {
     "micro_actions": [
@@ -4260,7 +4685,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "电子与计算机工程": {
     "micro_actions": [
@@ -4271,7 +4697,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "数据科学与大数据技术": {
     "micro_actions": [
@@ -4282,7 +4709,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "网络空间安全": {
     "micro_actions": [
@@ -4293,7 +4721,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "新媒体技术": {
     "micro_actions": [
@@ -4304,7 +4733,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "电影制作": {
     "micro_actions": [
@@ -4315,7 +4745,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "保密技术": {
     "micro_actions": [
@@ -4326,7 +4757,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "服务科学与工程": {
     "micro_actions": [
@@ -4337,7 +4769,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "虚拟现实技术": {
     "micro_actions": [
@@ -4348,7 +4781,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "区块链工程": {
     "micro_actions": [
@@ -4359,7 +4793,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "密码科学与技术": {
     "micro_actions": [
@@ -4370,7 +4805,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "工业软件": {
     "micro_actions": [
@@ -4381,7 +4817,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "土木工程": {
     "micro_actions": [
@@ -4394,7 +4831,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极大"
   },
   "建筑环境与能源应用工程": {
     "micro_actions": [
@@ -4407,7 +4845,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "给排水科学与工程": {
     "micro_actions": [
@@ -4420,7 +4859,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "建筑电气与智能化": {
     "micro_actions": [
@@ -4433,7 +4873,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "城市地下空间工程": {
     "micro_actions": [
@@ -4446,7 +4887,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "道路桥梁与渡河工程": {
     "micro_actions": [
@@ -4459,7 +4901,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "中"
   },
   "铁道工程": {
     "micro_actions": [
@@ -4472,7 +4915,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "智能建造": {
     "micro_actions": [
@@ -4485,7 +4929,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "土木、水利与海洋工程": {
     "micro_actions": [
@@ -4498,7 +4943,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "土木、水利与交通工程": {
     "micro_actions": [
@@ -4511,7 +4957,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "城市水系统工程": {
     "micro_actions": [
@@ -4524,7 +4971,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "智能建造与智慧交通": {
     "micro_actions": [
@@ -4537,7 +4985,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "工程软件": {
     "micro_actions": [
@@ -4548,7 +4997,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "城市更新": {
     "micro_actions": [
@@ -4559,7 +5009,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "水利水电工程": {
     "micro_actions": [
@@ -4570,7 +5021,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "水文与水资源工程": {
     "micro_actions": [
@@ -4581,7 +5033,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "港口航道与海岸工程": {
     "micro_actions": [
@@ -4592,7 +5045,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "水务工程": {
     "micro_actions": [
@@ -4603,7 +5057,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "水利科学与工程": {
     "micro_actions": [
@@ -4614,7 +5069,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "智慧水利": {
     "micro_actions": [
@@ -4625,7 +5081,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "测绘工程": {
     "micro_actions": [
@@ -4638,7 +5095,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "遥感科学与技术": {
     "micro_actions": [
@@ -4651,7 +5109,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "导航工程": {
     "micro_actions": [
@@ -4662,7 +5121,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "地理国情监测": {
     "micro_actions": [
@@ -4675,7 +5135,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "地理空间信息工程": {
     "micro_actions": [
@@ -4688,7 +5149,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "时空信息工程": {
     "micro_actions": [
@@ -4699,7 +5161,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "化学工程与工艺": {
     "micro_actions": [
@@ -4712,7 +5175,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "制药工程": {
     "micro_actions": [
@@ -4724,7 +5188,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "资源循环科学与工程": {
     "micro_actions": [
@@ -4737,7 +5202,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "能源化学工程": {
     "micro_actions": [
@@ -4750,7 +5216,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "化学工程与工业生物工程": {
     "micro_actions": [
@@ -4762,7 +5229,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "化工安全工程": {
     "micro_actions": [
@@ -4775,7 +5243,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "涂料工程": {
     "micro_actions": [
@@ -4788,7 +5257,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "精细化工": {
     "micro_actions": [
@@ -4801,7 +5271,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "智能分子工程": {
     "micro_actions": [
@@ -4814,7 +5285,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "地质工程": {
     "micro_actions": [
@@ -4827,7 +5299,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "勘查技术与工程": {
     "micro_actions": [
@@ -4840,7 +5313,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "资源勘查工程": {
     "micro_actions": [
@@ -4852,7 +5326,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "地下水科学与工程": {
     "micro_actions": [
@@ -4865,7 +5340,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "旅游地学与规划工程": {
     "micro_actions": [
@@ -4876,7 +5352,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "智能地球探测": {
     "micro_actions": [
@@ -4889,7 +5366,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "资源环境大数据工程": {
     "micro_actions": [
@@ -4900,7 +5378,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "采矿工程": {
     "micro_actions": [
@@ -4913,7 +5392,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "石油工程": {
     "micro_actions": [
@@ -4926,7 +5406,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "矿物加工工程": {
     "micro_actions": [
@@ -4939,7 +5420,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "油气储运工程": {
     "micro_actions": [
@@ -4950,7 +5432,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "矿物资源工程": {
     "micro_actions": [
@@ -4962,7 +5445,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "海洋油气工程": {
     "micro_actions": [
@@ -4975,7 +5459,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "智能采矿工程": {
     "micro_actions": [
@@ -4988,7 +5473,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "碳储科学与工程": {
     "micro_actions": [
@@ -5001,7 +5487,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "稀土科学与工程": {
     "micro_actions": [
@@ -5014,7 +5501,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "纺织工程": {
     "micro_actions": [
@@ -5027,7 +5515,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "服装设计与工程": {
     "micro_actions": [
@@ -5040,7 +5529,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "非织造材料与工程": {
     "micro_actions": [
@@ -5053,7 +5543,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "服装设计与工艺教育": {
     "micro_actions": [
@@ -5066,7 +5557,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "丝绸设计与工程": {
     "micro_actions": [
@@ -5079,7 +5571,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "纤维科学与智能制造": {
     "micro_actions": [
@@ -5092,7 +5585,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "轻化工程": {
     "micro_actions": [
@@ -5105,7 +5599,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "包装工程": {
     "micro_actions": [
@@ -5118,7 +5613,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "印刷工程": {
     "micro_actions": [
@@ -5131,7 +5627,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "香料香精技术与工程": {
     "micro_actions": [
@@ -5144,7 +5641,8 @@
       "嗅觉正常"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "化妆品技术与工程": {
     "micro_actions": [
@@ -5157,7 +5655,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "生物质能源与材料": {
     "micro_actions": [
@@ -5170,7 +5669,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "生物质技术与工程": {
     "micro_actions": [
@@ -5183,7 +5683,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "交通运输": {
     "micro_actions": [
@@ -5193,7 +5694,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "交通工程": {
     "micro_actions": [
@@ -5205,7 +5707,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "航海技术": {
     "micro_actions": [
@@ -5219,7 +5722,8 @@
       "无传染性疾病"
     ],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "小"
   },
   "轮机工程": {
     "micro_actions": [
@@ -5232,7 +5736,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "小"
   },
   "飞行技术": {
     "micro_actions": [
@@ -5246,7 +5751,8 @@
       "无传染性疾病"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "交通设备与控制工程": {
     "micro_actions": [
@@ -5259,7 +5765,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "救助与打捞工程": {
     "micro_actions": [
@@ -5271,7 +5778,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "船舶电子电气工程": {
     "micro_actions": [
@@ -5284,7 +5792,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "轨道交通电气与控制": {
     "micro_actions": [
@@ -5297,7 +5806,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "邮轮工程与管理": {
     "micro_actions": [
@@ -5311,7 +5821,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "智慧交通": {
     "micro_actions": [
@@ -5322,7 +5833,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智能运输工程": {
     "micro_actions": [
@@ -5333,7 +5845,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "交通能源融合工程": {
     "micro_actions": [
@@ -5343,7 +5856,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "船舶与海洋工程": {
     "micro_actions": [
@@ -5356,7 +5870,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "海洋工程与技术": {
     "micro_actions": [
@@ -5369,7 +5884,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "海洋资源开发技术": {
     "micro_actions": [
@@ -5382,7 +5898,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "海洋机器人": {
     "micro_actions": [
@@ -5395,7 +5912,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智慧海洋技术": {
     "micro_actions": [
@@ -5406,7 +5924,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智能海洋装备": {
     "micro_actions": [
@@ -5419,7 +5938,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "海洋智能与无人技术": {
     "micro_actions": [
@@ -5430,7 +5950,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "航空航天工程": {
     "micro_actions": [
@@ -5441,7 +5962,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "飞行器设计与工程": {
     "micro_actions": [
@@ -5452,7 +5974,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "飞行器制造工程": {
     "micro_actions": [
@@ -5463,7 +5986,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "飞行器动力工程": {
     "micro_actions": [
@@ -5474,7 +5998,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "飞行器环境与生命保障工程": {
     "micro_actions": [
@@ -5485,7 +6010,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "飞行器质量与可靠性": {
     "micro_actions": [
@@ -5496,7 +6022,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "飞行器适航技术": {
     "micro_actions": [
@@ -5506,7 +6033,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "飞行器控制与信息工程": {
     "micro_actions": [
@@ -5517,7 +6045,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "无人驾驶航空器系统工程": {
     "micro_actions": [
@@ -5528,7 +6057,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智能飞行器技术": {
     "micro_actions": [
@@ -5539,7 +6069,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "空天智能电推进技术": {
     "micro_actions": [
@@ -5550,7 +6081,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "飞行器运维工程": {
     "micro_actions": [
@@ -5561,7 +6093,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "武器系统与工程": {
     "micro_actions": [
@@ -5572,7 +6105,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "武器发射工程": {
     "micro_actions": [
@@ -5583,7 +6117,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "探测制导与控制技术": {
     "micro_actions": [
@@ -5594,7 +6129,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "弹药工程与爆炸技术": {
     "micro_actions": [
@@ -5607,7 +6143,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "特种能源技术与工程": {
     "micro_actions": [
@@ -5620,7 +6157,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "装甲车辆工程": {
     "micro_actions": [
@@ -5631,7 +6169,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "信息对抗技术": {
     "micro_actions": [
@@ -5642,7 +6181,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "智能无人系统技术": {
     "micro_actions": [
@@ -5653,7 +6193,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "核工程与核技术": {
     "micro_actions": [
@@ -5666,7 +6207,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "辐射防护与核安全": {
     "micro_actions": [
@@ -5679,7 +6221,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "工程物理": {
     "micro_actions": [
@@ -5690,7 +6233,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "核化工与核燃料工程": {
     "micro_actions": [
@@ -5703,7 +6247,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "农业工程": {
     "micro_actions": [
@@ -5714,7 +6259,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "农业机械化及其自动化": {
     "micro_actions": [
@@ -5725,7 +6271,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "农业电气化": {
     "micro_actions": [
@@ -5738,7 +6285,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "农业建筑环境与能源工程": {
     "micro_actions": [
@@ -5749,7 +6297,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "农业水利工程": {
     "micro_actions": [
@@ -5760,7 +6309,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "土地整治工程": {
     "micro_actions": [
@@ -5771,7 +6321,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "农业智能装备工程": {
     "micro_actions": [
@@ -5782,7 +6333,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "农业机器人": {
     "micro_actions": [
@@ -5793,7 +6345,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "森林工程": {
     "micro_actions": [
@@ -5804,7 +6357,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "木材科学与工程": {
     "micro_actions": [
@@ -5815,7 +6369,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "林产化工": {
     "micro_actions": [
@@ -5828,7 +6383,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "家具设计与工程": {
     "micro_actions": [
@@ -5841,7 +6397,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "木结构建筑与材料": {
     "micro_actions": [
@@ -5852,7 +6409,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "环境科学与工程": {
     "micro_actions": [
@@ -5863,7 +6421,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "环境工程": {
     "micro_actions": [
@@ -5874,7 +6433,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "环境科学": {
     "micro_actions": [
@@ -5885,7 +6445,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "环境生态工程": {
     "micro_actions": [
@@ -5896,7 +6457,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "环保设备工程": {
     "micro_actions": [
@@ -5907,7 +6469,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "资源环境科学": {
     "micro_actions": [
@@ -5918,7 +6481,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "水质科学与技术": {
     "micro_actions": [
@@ -5929,7 +6493,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "生物医学工程": {
     "micro_actions": [
@@ -5940,7 +6505,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "假肢矫形工程": {
     "micro_actions": [
@@ -5951,7 +6517,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "临床工程技术": {
     "micro_actions": [
@@ -5962,7 +6529,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "康复工程": {
     "micro_actions": [
@@ -5973,7 +6541,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "健康科学与技术": {
     "micro_actions": [
@@ -5984,7 +6553,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "食品科学与工程": {
     "micro_actions": [
@@ -5995,7 +6565,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "食品质量与安全": {
     "micro_actions": [
@@ -6006,7 +6577,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "粮食工程": {
     "micro_actions": [
@@ -6017,7 +6589,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "乳品工程": {
     "micro_actions": [
@@ -6028,7 +6601,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "酿酒工程": {
     "micro_actions": [
@@ -6041,7 +6615,8 @@
       "嗅觉正常"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "葡萄与葡萄酒工程": {
     "micro_actions": [
@@ -6054,7 +6629,8 @@
       "嗅觉正常"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "食品营养与检验教育": {
     "micro_actions": [
@@ -6065,7 +6641,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "烹饪与营养教育": {
     "micro_actions": [
@@ -6076,7 +6653,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "食品安全与检测": {
     "micro_actions": [
@@ -6087,7 +6665,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "食品营养与健康": {
     "micro_actions": [
@@ -6098,7 +6677,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "食用菌科学与工程": {
     "micro_actions": [
@@ -6109,7 +6689,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "白酒酿造工程": {
     "micro_actions": [
@@ -6122,7 +6703,8 @@
       "嗅觉正常"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "咖啡科学与工程": {
     "micro_actions": [
@@ -6135,7 +6717,8 @@
       "嗅觉正常"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "建筑学": {
     "micro_actions": [
@@ -6148,7 +6731,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "城乡规划": {
     "micro_actions": [
@@ -6161,7 +6745,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "风景园林": {
     "micro_actions": [
@@ -6174,7 +6759,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "历史建筑保护工程": {
     "micro_actions": [
@@ -6187,7 +6773,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "人居环境科学与技术": {
     "micro_actions": [
@@ -6198,7 +6785,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "城市设计": {
     "micro_actions": [
@@ -6211,7 +6799,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "智慧建筑与建造": {
     "micro_actions": [
@@ -6222,7 +6811,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智慧景观营造": {
     "micro_actions": [
@@ -6233,7 +6823,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "安全工程": {
     "micro_actions": [
@@ -6244,7 +6835,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "应急技术与管理": {
     "micro_actions": [
@@ -6255,7 +6847,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "职业卫生工程": {
     "micro_actions": [
@@ -6266,7 +6859,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "安全生产监管": {
     "micro_actions": [
@@ -6277,7 +6871,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "智慧应急": {
     "micro_actions": [
@@ -6288,7 +6883,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "生物工程": {
     "micro_actions": [
@@ -6301,7 +6897,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "生物制药": {
     "micro_actions": [
@@ -6314,7 +6911,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "合成生物学": {
     "micro_actions": [
@@ -6327,7 +6925,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "生物制造": {
     "micro_actions": [
@@ -6340,7 +6939,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "刑事科学技术": {
     "micro_actions": [
@@ -6353,7 +6953,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "消防工程": {
     "micro_actions": [
@@ -6365,7 +6966,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "交通管理工程": {
     "micro_actions": [
@@ -6377,7 +6979,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "安全防范工程": {
     "micro_actions": [
@@ -6389,7 +6992,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "公安视听技术": {
     "micro_actions": [
@@ -6401,7 +7005,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "抢险救援指挥与技术": {
     "micro_actions": [
@@ -6413,7 +7018,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "火灾勘查": {
     "micro_actions": [
@@ -6425,7 +7031,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "网络安全与执法": {
     "micro_actions": [
@@ -6438,7 +7045,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "核生化消防": {
     "micro_actions": [
@@ -6450,7 +7058,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "海警舰艇指挥与技术": {
     "micro_actions": [
@@ -6461,7 +7070,8 @@
       "裸眼视力≥5.0"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "数据警务技术": {
     "micro_actions": [
@@ -6473,7 +7083,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "食品药品环境犯罪侦查技术": {
     "micro_actions": [
@@ -6485,7 +7096,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "低空安全管理": {
     "micro_actions": [
@@ -6497,7 +7109,8 @@
       "视力矫正≥4.8"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "农学": {
     "micro_actions": [
@@ -6507,7 +7120,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "园艺": {
     "micro_actions": [
@@ -6516,7 +7130,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "植物保护": {
     "micro_actions": [
@@ -6526,7 +7141,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "植物科学与技术": {
     "micro_actions": [
@@ -6535,7 +7151,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "种子科学与工程": {
     "micro_actions": [
@@ -6544,7 +7161,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "设施农业科学与工程": {
     "micro_actions": [
@@ -6553,7 +7171,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "茶学": {
     "micro_actions": [
@@ -6562,7 +7181,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "烟草": {
     "micro_actions": [
@@ -6571,7 +7191,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "应用生物科学": {
     "micro_actions": [
@@ -6580,7 +7201,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "农艺教育": {
     "micro_actions": [
@@ -6589,7 +7211,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "园艺教育": {
     "micro_actions": [
@@ -6598,7 +7221,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "智慧农业": {
     "micro_actions": [
@@ -6607,7 +7231,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "菌物科学与工程": {
     "micro_actions": [
@@ -6616,7 +7241,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "农药化肥": {
     "micro_actions": [
@@ -6626,7 +7252,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "生物农药科学与工程": {
     "micro_actions": [
@@ -6636,7 +7263,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "生物育种科学": {
     "micro_actions": [
@@ -6645,7 +7273,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "生物育种技术": {
     "micro_actions": [
@@ -6654,7 +7283,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "农业资源与环境": {
     "micro_actions": [
@@ -6664,7 +7294,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "野生动物与自然保护区管理": {
     "micro_actions": [
@@ -6674,7 +7305,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "水土保持与荒漠化防治": {
     "micro_actions": [
@@ -6684,7 +7316,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "生物质科学与工程": {
     "micro_actions": [
@@ -6694,7 +7327,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "土地科学与技术": {
     "micro_actions": [
@@ -6703,7 +7337,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "湿地保护与恢复": {
     "micro_actions": [
@@ -6712,7 +7347,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "国家公园建设与管理": {
     "micro_actions": [
@@ -6721,7 +7357,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "生态修复学": {
     "micro_actions": [
@@ -6731,7 +7368,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "盐碱地科学与工程": {
     "micro_actions": [
@@ -6741,7 +7379,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "动物科学": {
     "micro_actions": [
@@ -6750,7 +7389,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "蚕学": {
     "micro_actions": [
@@ -6759,7 +7399,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "蜂学": {
     "micro_actions": [
@@ -6768,7 +7409,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "经济动物学": {
     "micro_actions": [
@@ -6777,7 +7419,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "马业科学": {
     "micro_actions": [
@@ -6786,7 +7429,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "饲料工程": {
     "micro_actions": [
@@ -6795,7 +7439,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "智慧牧业科学与工程": {
     "micro_actions": [
@@ -6804,7 +7449,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "动物医学": {
     "micro_actions": [
@@ -6816,7 +7462,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "动物药学": {
     "micro_actions": [
@@ -6828,7 +7475,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "动植物检疫": {
     "micro_actions": [
@@ -6840,7 +7488,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "实验动物学": {
     "micro_actions": [
@@ -6852,7 +7501,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "中兽医学": {
     "micro_actions": [
@@ -6862,7 +7512,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "兽医公共卫生": {
     "micro_actions": [
@@ -6873,7 +7524,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "林学": {
     "micro_actions": [
@@ -6884,7 +7536,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "园林": {
     "micro_actions": [
@@ -6895,7 +7548,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "森林保护": {
     "micro_actions": [
@@ -6906,7 +7560,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "经济林": {
     "micro_actions": [
@@ -6917,7 +7572,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "智慧林业": {
     "micro_actions": [
@@ -6928,7 +7584,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "水产养殖学": {
     "micro_actions": [
@@ -6939,7 +7596,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "海洋渔业科学与技术": {
     "micro_actions": [
@@ -6950,7 +7608,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "水族科学与技术": {
     "micro_actions": [
@@ -6961,7 +7620,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "水生动物医学": {
     "micro_actions": [
@@ -6972,7 +7632,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智慧渔业": {
     "micro_actions": [
@@ -6983,7 +7644,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "草业科学": {
     "micro_actions": [
@@ -6994,7 +7656,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "草坪科学与工程": {
     "micro_actions": [
@@ -7005,7 +7668,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "基础医学": {
     "micro_actions": [
@@ -7015,7 +7679,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "生物医学": {
     "micro_actions": [
@@ -7025,7 +7690,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "生物医学科学": {
     "micro_actions": [
@@ -7035,7 +7701,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "临床医学": {
     "micro_actions": [
@@ -7049,7 +7716,8 @@
       "无传染性疾病"
     ],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "麻醉学": {
     "micro_actions": [
@@ -7063,7 +7731,8 @@
       "无传染性疾病"
     ],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "医学影像学": {
     "micro_actions": [
@@ -7076,7 +7745,8 @@
       "无传染性疾病"
     ],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "眼视光医学": {
     "micro_actions": [
@@ -7089,7 +7759,8 @@
       "无传染性疾病"
     ],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "精神医学": {
     "micro_actions": [
@@ -7102,7 +7773,8 @@
       "无传染性疾病"
     ],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "放射医学": {
     "micro_actions": [
@@ -7115,7 +7787,8 @@
       "无传染性疾病"
     ],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "儿科学": {
     "micro_actions": [
@@ -7128,7 +7801,8 @@
       "无传染性疾病"
     ],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "口腔医学": {
     "micro_actions": [
@@ -7142,7 +7816,8 @@
       "无传染性疾病"
     ],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "预防医学": {
     "micro_actions": [
@@ -7153,7 +7828,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "食品卫生与营养学": {
     "micro_actions": [
@@ -7163,7 +7839,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "妇幼保健医学": {
     "micro_actions": [
@@ -7173,7 +7850,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "卫生监督": {
     "micro_actions": [
@@ -7183,7 +7861,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "全球健康学": {
     "micro_actions": [
@@ -7193,7 +7872,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "运动与公共健康": {
     "micro_actions": [
@@ -7203,7 +7883,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "中医学": {
     "micro_actions": [
@@ -7215,7 +7896,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "针灸推拿学": {
     "micro_actions": [
@@ -7227,7 +7909,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "藏医学": {
     "micro_actions": [
@@ -7236,7 +7919,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "蒙医学": {
     "micro_actions": [
@@ -7245,7 +7929,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "维医学": {
     "micro_actions": [
@@ -7254,7 +7939,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "壮医学": {
     "micro_actions": [
@@ -7263,7 +7949,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "哈医学": {
     "micro_actions": [
@@ -7272,7 +7959,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "傣医学": {
     "micro_actions": [
@@ -7281,7 +7969,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "回医学": {
     "micro_actions": [
@@ -7290,7 +7979,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "中医康复学": {
     "micro_actions": [
@@ -7302,7 +7992,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "中医养生学": {
     "micro_actions": [
@@ -7312,7 +8003,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "中医儿科学": {
     "micro_actions": [
@@ -7324,7 +8016,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "中医骨伤科学": {
     "micro_actions": [
@@ -7336,7 +8029,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "中西医临床医学": {
     "micro_actions": [
@@ -7350,7 +8044,8 @@
       "无传染性疾病"
     ],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "药学": {
     "micro_actions": [
@@ -7363,7 +8058,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "药物制剂": {
     "micro_actions": [
@@ -7375,7 +8071,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "临床药学": {
     "micro_actions": [
@@ -7387,7 +8084,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "药事管理": {
     "micro_actions": [
@@ -7397,7 +8095,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "药物分析": {
     "micro_actions": [
@@ -7410,7 +8109,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "药物化学": {
     "micro_actions": [
@@ -7423,7 +8123,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "海洋药学": {
     "micro_actions": [
@@ -7436,7 +8137,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "化妆品科学与技术": {
     "micro_actions": [
@@ -7449,7 +8151,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "药物经济与管理": {
     "micro_actions": [
@@ -7460,7 +8163,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "中药学": {
     "micro_actions": [
@@ -7473,7 +8177,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "中药资源与开发": {
     "micro_actions": [
@@ -7486,7 +8191,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "藏药学": {
     "micro_actions": [
@@ -7498,7 +8204,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "蒙药学": {
     "micro_actions": [
@@ -7510,7 +8217,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "中药制药": {
     "micro_actions": [
@@ -7523,7 +8231,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "中草药栽培与鉴定": {
     "micro_actions": [
@@ -7535,7 +8244,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "法医学": {
     "micro_actions": [
@@ -7549,7 +8259,8 @@
       "无传染性疾病"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "医学检验技术": {
     "micro_actions": [
@@ -7562,7 +8273,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "医学实验技术": {
     "micro_actions": [
@@ -7574,7 +8286,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "医学影像技术": {
     "micro_actions": [
@@ -7585,7 +8298,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "眼视光学": {
     "micro_actions": [
@@ -7596,7 +8310,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "康复治疗学": {
     "micro_actions": [
@@ -7606,7 +8321,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "口腔医学技术": {
     "micro_actions": [
@@ -7618,7 +8334,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "卫生检验与检疫": {
     "micro_actions": [
@@ -7630,7 +8347,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "听力与言语康复学": {
     "micro_actions": [
@@ -7640,7 +8358,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "康复物理治疗": {
     "micro_actions": [
@@ -7649,7 +8368,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "康复作业治疗": {
     "micro_actions": [
@@ -7658,7 +8378,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "健康与医疗保障": {
     "micro_actions": [
@@ -7668,7 +8389,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "老年医学与健康": {
     "micro_actions": [
@@ -7678,7 +8400,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "核医学工程": {
     "micro_actions": [
@@ -7690,7 +8413,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "护理学": {
     "micro_actions": [
@@ -7701,7 +8425,8 @@
       "无传染性疾病"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极大"
   },
   "助产学": {
     "micro_actions": [
@@ -7712,7 +8437,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "管理科学": {
     "micro_actions": [
@@ -7722,7 +8448,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "信息管理与信息系统": {
     "micro_actions": [
@@ -7733,7 +8460,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "工程管理": {
     "micro_actions": [
@@ -7744,7 +8472,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "房地产开发与管理": {
     "micro_actions": [
@@ -7754,7 +8483,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "中"
   },
   "工程造价": {
     "micro_actions": [
@@ -7764,7 +8494,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "保密管理": {
     "micro_actions": [
@@ -7774,7 +8505,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "邮政管理": {
     "micro_actions": [
@@ -7783,7 +8515,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "大数据管理与应用": {
     "micro_actions": [
@@ -7794,7 +8527,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "工程审计": {
     "micro_actions": [
@@ -7805,7 +8539,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "计算金融": {
     "micro_actions": [
@@ -7816,7 +8551,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "应急管理": {
     "micro_actions": [
@@ -7826,7 +8562,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "工商管理": {
     "micro_actions": [
@@ -7837,7 +8574,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "市场营销": {
     "micro_actions": [
@@ -7848,7 +8586,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "会计学": {
     "micro_actions": [
@@ -7858,7 +8597,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极大"
   },
   "财务管理": {
     "micro_actions": [
@@ -7868,7 +8608,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "国际商务": {
     "micro_actions": [
@@ -7878,7 +8619,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "人力资源管理": {
     "micro_actions": [
@@ -7888,7 +8630,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "审计学": {
     "micro_actions": [
@@ -7899,7 +8642,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "资产评估": {
     "micro_actions": [
@@ -7910,7 +8654,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "物业管理": {
     "micro_actions": [
@@ -7920,7 +8665,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "文化产业管理": {
     "micro_actions": [
@@ -7930,7 +8676,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "劳动关系": {
     "micro_actions": [
@@ -7940,7 +8687,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "体育经济与管理": {
     "micro_actions": [
@@ -7951,7 +8699,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "财务会计教育": {
     "micro_actions": [
@@ -7961,7 +8710,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "小"
   },
   "市场营销教育": {
     "micro_actions": [
@@ -7972,7 +8722,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "零售业管理": {
     "micro_actions": [
@@ -7982,7 +8733,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "创业管理": {
     "micro_actions": [
@@ -7993,7 +8745,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "海关稽查": {
     "micro_actions": [
@@ -8004,7 +8757,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "内部审计": {
     "micro_actions": [
@@ -8014,7 +8768,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "商业人工智能": {
     "micro_actions": [
@@ -8025,7 +8780,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "农林经济管理": {
     "micro_actions": [
@@ -8035,7 +8791,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "农村区域发展": {
     "micro_actions": [
@@ -8045,7 +8802,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "乡村治理": {
     "micro_actions": [
@@ -8055,7 +8813,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "公共事业管理": {
     "micro_actions": [
@@ -8065,7 +8824,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "行政管理": {
     "micro_actions": [
@@ -8074,7 +8834,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "劳动与社会保障": {
     "micro_actions": [
@@ -8084,7 +8845,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "土地资源管理": {
     "micro_actions": [
@@ -8094,7 +8856,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "城市管理": {
     "micro_actions": [
@@ -8104,7 +8867,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "海关管理": {
     "micro_actions": [
@@ -8114,7 +8878,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "交通管理": {
     "micro_actions": [
@@ -8123,7 +8888,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "海事管理": {
     "micro_actions": [
@@ -8133,7 +8899,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "公共关系学": {
     "micro_actions": [
@@ -8143,7 +8910,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "健康服务与管理": {
     "micro_actions": [
@@ -8153,7 +8921,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "海警后勤管理": {
     "micro_actions": [
@@ -8162,7 +8931,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "医疗产品管理": {
     "micro_actions": [
@@ -8172,7 +8942,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "医疗保险": {
     "micro_actions": [
@@ -8182,7 +8953,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "养老服务管理": {
     "micro_actions": [
@@ -8192,7 +8964,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "海关检验检疫安全": {
     "micro_actions": [
@@ -8202,7 +8975,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "海外安全管理": {
     "micro_actions": [
@@ -8212,7 +8986,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "自然资源登记与管理": {
     "micro_actions": [
@@ -8222,7 +8997,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "慈善管理": {
     "micro_actions": [
@@ -8232,7 +9008,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "航空安防管理": {
     "micro_actions": [
@@ -8241,7 +9018,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "无障碍管理": {
     "micro_actions": [
@@ -8251,7 +9029,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "人才发展与管理": {
     "micro_actions": [
@@ -8261,7 +9040,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "数字公共治理": {
     "micro_actions": [
@@ -8271,7 +9051,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "图书馆学": {
     "micro_actions": [
@@ -8281,7 +9062,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "档案学": {
     "micro_actions": [
@@ -8290,7 +9072,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "信息资源管理": {
     "micro_actions": [
@@ -8300,7 +9083,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "数据资源与数据智能": {
     "micro_actions": [
@@ -8310,7 +9094,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "物流管理": {
     "micro_actions": [
@@ -8320,7 +9105,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "物流工程": {
     "micro_actions": [
@@ -8330,7 +9116,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "采购管理": {
     "micro_actions": [
@@ -8340,7 +9127,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "供应链管理": {
     "micro_actions": [
@@ -8350,7 +9138,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "工业工程": {
     "micro_actions": [
@@ -8360,7 +9149,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "标准化工程": {
     "micro_actions": [
@@ -8369,7 +9159,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "质量管理工程": {
     "micro_actions": [
@@ -8379,7 +9170,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "电子商务": {
     "micro_actions": [
@@ -8389,7 +9181,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极大"
   },
   "电子商务及法律": {
     "micro_actions": [
@@ -8399,7 +9192,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "跨境电子商务": {
     "micro_actions": [
@@ -8409,7 +9203,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "旅游管理": {
     "micro_actions": [
@@ -8418,7 +9213,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "酒店管理": {
     "micro_actions": [
@@ -8427,7 +9223,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "会展经济与管理": {
     "micro_actions": [
@@ -8436,7 +9233,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "旅游管理与服务教育": {
     "micro_actions": [
@@ -8446,7 +9244,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "国际邮轮管理": {
     "micro_actions": [
@@ -8455,7 +9254,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "数字文旅": {
     "micro_actions": [
@@ -8465,7 +9265,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "艺术史论": {
     "micro_actions": [
@@ -8474,7 +9275,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "艺术管理": {
     "micro_actions": [
@@ -8484,7 +9286,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "非物质文化遗产保护": {
     "micro_actions": [
@@ -8494,7 +9297,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "音乐表演": {
     "micro_actions": [
@@ -8502,7 +9306,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "音乐学": {
     "micro_actions": [
@@ -8511,7 +9316,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "作曲与作曲技术理论": {
     "micro_actions": [
@@ -8520,7 +9326,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "舞蹈表演": {
     "micro_actions": [
@@ -8529,7 +9336,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "舞蹈学": {
     "micro_actions": [
@@ -8538,7 +9346,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "舞蹈编导": {
     "micro_actions": [
@@ -8547,7 +9356,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "舞蹈教育": {
     "micro_actions": [
@@ -8557,7 +9367,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "航空服务艺术与管理": {
     "micro_actions": [
@@ -8570,7 +9381,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "流行音乐": {
     "micro_actions": [
@@ -8578,7 +9390,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "音乐治疗": {
     "micro_actions": [
@@ -8588,7 +9401,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "流行舞蹈": {
     "micro_actions": [
@@ -8597,7 +9411,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "音乐教育": {
     "micro_actions": [
@@ -8607,7 +9422,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "中"
   },
   "冰雪舞蹈表演": {
     "micro_actions": [
@@ -8617,7 +9433,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "舞蹈治疗": {
     "micro_actions": [
@@ -8627,7 +9444,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "音乐科技": {
     "micro_actions": [
@@ -8637,7 +9455,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "乐器智造": {
     "micro_actions": [
@@ -8648,7 +9467,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "表演": {
     "micro_actions": [
@@ -8656,7 +9476,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "戏剧学": {
     "micro_actions": [
@@ -8665,7 +9486,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "电影学": {
     "micro_actions": [
@@ -8674,7 +9496,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "戏剧影视文学": {
     "micro_actions": [
@@ -8683,7 +9506,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "广播电视编导": {
     "micro_actions": [
@@ -8693,7 +9517,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "中"
   },
   "戏剧影视导演": {
     "micro_actions": [
@@ -8702,7 +9527,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "戏剧影视美术设计": {
     "micro_actions": [
@@ -8714,7 +9540,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "录音艺术": {
     "micro_actions": [
@@ -8725,7 +9552,8 @@
       "无听力障碍(裸耳≥5m)"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "播音与主持艺术": {
     "micro_actions": [
@@ -8737,7 +9565,8 @@
       "无口吃/发音障碍"
     ],
     "social_heat": "高",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "大"
   },
   "动画": {
     "micro_actions": [
@@ -8749,7 +9578,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "影视摄影与制作": {
     "micro_actions": [
@@ -8760,7 +9590,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "影视技术": {
     "micro_actions": [
@@ -8771,7 +9602,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "戏剧教育": {
     "micro_actions": [
@@ -8781,7 +9613,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "曲艺": {
     "micro_actions": [
@@ -8790,7 +9623,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "音乐剧": {
     "micro_actions": [
@@ -8800,7 +9634,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "数字戏剧": {
     "micro_actions": [
@@ -8810,7 +9645,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "数字演艺设计": {
     "micro_actions": [
@@ -8820,7 +9656,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智能影像艺术": {
     "micro_actions": [
@@ -8830,7 +9667,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "美术学": {
     "micro_actions": [
@@ -8841,7 +9679,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "绘画": {
     "micro_actions": [
@@ -8851,7 +9690,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "雕塑": {
     "micro_actions": [
@@ -8862,7 +9702,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "摄影": {
     "micro_actions": [
@@ -8873,7 +9714,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "书法学": {
     "micro_actions": [
@@ -8881,7 +9723,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "中国画": {
     "micro_actions": [
@@ -8891,7 +9734,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "实验艺术": {
     "micro_actions": [
@@ -8901,7 +9745,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "跨媒体艺术": {
     "micro_actions": [
@@ -8911,7 +9756,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "文物保护与修复": {
     "micro_actions": [
@@ -8923,7 +9769,8 @@
       "无任何色觉障碍"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "漫画": {
     "micro_actions": [
@@ -8935,7 +9782,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "纤维艺术": {
     "micro_actions": [
@@ -8944,7 +9792,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "科技艺术": {
     "micro_actions": [
@@ -8953,7 +9802,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "美术教育": {
     "micro_actions": [
@@ -8965,7 +9815,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "虚拟空间艺术": {
     "micro_actions": [
@@ -8977,7 +9828,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "艺术治疗": {
     "micro_actions": [
@@ -8986,7 +9838,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "低",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "艺术设计学": {
     "micro_actions": [
@@ -8997,7 +9850,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "中"
   },
   "视觉传达设计": {
     "micro_actions": [
@@ -9008,7 +9862,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极大"
   },
   "环境设计": {
     "micro_actions": [
@@ -9020,7 +9875,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极大"
   },
   "产品设计": {
     "micro_actions": [
@@ -9032,7 +9888,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "服装与服饰设计": {
     "micro_actions": [
@@ -9044,7 +9901,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "大"
   },
   "公共艺术": {
     "micro_actions": [
@@ -9055,7 +9913,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "工艺美术": {
     "micro_actions": [
@@ -9065,7 +9924,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "数字媒体艺术": {
     "micro_actions": [
@@ -9077,7 +9937,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "大"
   },
   "艺术与科技": {
     "micro_actions": [
@@ -9089,7 +9950,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "陶瓷艺术设计": {
     "micro_actions": [
@@ -9099,7 +9961,8 @@
       "无红绿色盲"
     ],
     "social_heat": "低",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "极小"
   },
   "新媒体艺术": {
     "micro_actions": [
@@ -9111,7 +9974,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "包装设计": {
     "micro_actions": [
@@ -9123,7 +9987,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "珠宝首饰设计与工艺": {
     "micro_actions": [
@@ -9135,7 +10000,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "平稳"
+    "heat_trend": "平稳",
+    "enrollment_volume": "小"
   },
   "人居设计": {
     "micro_actions": [
@@ -9147,7 +10013,8 @@
       "无红绿色盲"
     ],
     "social_heat": "中",
-    "heat_trend": "下降"
+    "heat_trend": "下降",
+    "enrollment_volume": "极小"
   },
   "游戏艺术设计": {
     "micro_actions": [
@@ -9159,7 +10026,8 @@
       "无红绿色盲"
     ],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "未来机器人": {
     "micro_actions": [
@@ -9169,7 +10037,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "交叉工程": {
     "micro_actions": [
@@ -9178,7 +10047,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "低空技术与工程": {
     "micro_actions": [
@@ -9188,7 +10058,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "集成电路科学与工程": {
     "micro_actions": [
@@ -9198,7 +10069,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "碳中和科学与工程": {
     "micro_actions": [
@@ -9207,7 +10079,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智慧城市与空间规划": {
     "micro_actions": [
@@ -9216,7 +10089,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智能医学工程": {
     "micro_actions": [
@@ -9225,7 +10099,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "小"
   },
   "生物医药数据科学": {
     "micro_actions": [
@@ -9235,7 +10110,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "智能影像工程": {
     "micro_actions": [
@@ -9245,7 +10121,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "医工学": {
     "micro_actions": [
@@ -9254,7 +10131,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "医疗器械与装备工程": {
     "micro_actions": [
@@ -9264,7 +10142,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "具身智能": {
     "micro_actions": [
@@ -9275,7 +10154,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "脑机科学与技术": {
     "micro_actions": [
@@ -9284,7 +10164,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "工程互联网": {
     "micro_actions": [
@@ -9294,7 +10175,8 @@
     ],
     "hard_threshold": [],
     "social_heat": "极高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   },
   "深地科学与工程": {
     "micro_actions": [
@@ -9302,6 +10184,7 @@
     ],
     "hard_threshold": [],
     "social_heat": "高",
-    "heat_trend": "上升"
+    "heat_trend": "上升",
+    "enrollment_volume": "极小"
   }
 }

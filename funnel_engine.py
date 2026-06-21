@@ -226,6 +226,29 @@ def _risk_tier(risk_tolerance: float) -> str:
         return "low"
 
 
+# 招生体量 → 市场容量系数
+ENROLLMENT_CAPACITY_COEFFICIENT: dict[str, float] = {
+    "极大": 1.15,
+    "大":   1.05,
+    "中":   1.00,
+    "小":   0.85,
+    "极小": 0.70,
+}
+
+# 产业热度微调系数（用于 Layer 2 专业类级别）
+INDUSTRY_HEAT_BONUS: dict[str, float] = {
+    "人工智能/大模型":    1.05,
+    "半导体/集成电路":    1.05,
+    "新能源汽车":         1.04,
+    "智能制造/机器人":    1.03,
+    "新能源":            1.03,
+    "互联网/软件":       1.02,
+    "金融/银行":         1.02,
+    "医疗健康/临床":     1.02,
+    "航空航天":          1.04,
+}
+
+
 # ============================================================================
 # 工具函数
 # ============================================================================
@@ -339,6 +362,7 @@ def load_funnel_data() -> FunnelData:
                 "hard_threshold": l3_data.get(name, {}).get("hard_threshold", []),
                 "social_heat": l3_data.get(name, {}).get("social_heat", "中"),
                 "heat_trend": l3_data.get(name, {}).get("heat_trend", "平稳"),
+                "enrollment_volume": l3_data.get(name, {}).get("enrollment_volume", "中"),
             }
             data.majors.append(major_entry)
             data._cat_to_disc[category] = discipline
@@ -462,6 +486,13 @@ def layer2_category_match(
         # 综合得分
         score = industry_match * 0.5 + asset_match * 0.2 + score_match * 0.3
 
+        # 产业热度微调系数（0.95 ~ 1.05）
+        industry_bonus = 1.0
+        for tag in industry_tags:
+            if tag in INDUSTRY_HEAT_BONUS:
+                industry_bonus = max(industry_bonus, INDUSTRY_HEAT_BONUS[tag])
+        score = score * industry_bonus
+
         # L1 门类得分微调（±5%）
         disc_bonus = disc_scores.get(disc_name, 0.5)
         score = score * (0.95 + 0.1 * disc_bonus)
@@ -535,8 +566,10 @@ def layer3_major_match(
                             triggered.append(ht)
                             break
 
-            # 🔴 最终公式
-            score = (micro_match * 0.6 + heat_align * 0.4) * threshold_pass
+            # 🔴 最终公式（含招生体量市场容量系数）
+            enroll_vol = major.get("enrollment_volume", "中")
+            capacity_coef = ENROLLMENT_CAPACITY_COEFFICIENT.get(enroll_vol, 1.0)
+            score = (micro_match * 0.6 + heat_align * 0.4) * capacity_coef * threshold_pass
 
             major_results.append({
                 "major_name": major["name"],
