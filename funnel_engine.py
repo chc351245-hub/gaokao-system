@@ -501,6 +501,28 @@ CATEGORY_SUBJECT_REQUIREMENTS: dict[str, set[str]] = {
 
 
 # ============================================================================
+# 特殊赛道 → 专业类映射（Layer 2 使用）
+# ============================================================================
+
+MEDICAL_CATEGORIES = {
+    "临床医学类", "口腔医学类", "基础医学类", "中医学类", "中西医结合类",
+    "药学类", "中药学类", "法医学类", "医学技术类", "护理学类",
+    "公共卫生与预防医学类",
+}
+
+TEACHING_CATEGORIES = {
+    "教育学类", "体育学类",
+}
+
+MILITARY_POLICE_CATEGORIES = {
+    "公安学类", "公安技术类", "兵器类",
+}
+
+# 军警体检红线
+MILITARY_PHYSICAL_RED_LINES = {"身高不达标", "裸眼视力<4.8"}
+
+
+# ============================================================================
 # Layer 1: 学科门类匹配
 # ============================================================================
 
@@ -605,6 +627,17 @@ def layer2_category_match(
         # 产业广度微调（多标签覆盖的类别小幅加成）
         industry_match = min(1.0, industry_match * (1.0 + 0.05 * min(len(industry_tags), 8)))
 
+        # 特殊赛道 → 产业匹配强制拉升（用户明确意向 > 问卷推测）
+        track = user.special_track_intent
+        stance = user.special_track_stance
+        if track and stance == "强烈意向":
+            if cat_name in MEDICAL_CATEGORIES and track == "医学":
+                industry_match = max(industry_match, 0.65)
+            elif cat_name in TEACHING_CATEGORIES and track == "师范":
+                industry_match = max(industry_match, 0.60)
+            elif cat_name in MILITARY_POLICE_CATEGORIES and track == "军警":
+                industry_match = max(industry_match, 0.60)
+
         # --- asset_match ---
         asset_sens = cat_labels.get("asset_sensitivity", "中")
         asset_match = ASSET_ALIGNMENT_MATRIX.get(econ_level, {}).get(asset_sens, 0.5)
@@ -626,6 +659,34 @@ def layer2_category_match(
         # 选科匹配加成：每满足1个必选科目 +3%
         if required_subjects:
             score *= 1.0 + 0.03 * len(required_subjects)
+
+        # ---- special_track：特殊赛道阻断与提权 ----
+        track = user.special_track_intent
+        stance = user.special_track_stance
+
+        # 医学赛道
+        if cat_name in MEDICAL_CATEGORIES:
+            if track == "医学" and stance == "极度抗拒":
+                continue  # 用户明确拒绝 → 跳过
+            elif track == "医学" and stance == "强烈意向":
+                score *= 1.50  # 强烈意愿 → 提权 50%
+
+        # 师范赛道
+        if cat_name in TEACHING_CATEGORIES:
+            if track == "师范" and stance == "极度抗拒":
+                continue
+            elif track == "师范" and stance == "强烈意向":
+                score *= 1.30
+
+        # 军警赛道（必须主动且强烈选择）
+        if cat_name in MILITARY_POLICE_CATEGORIES:
+            if track != "军警" or stance != "强烈意向":
+                continue  # 非强烈意向 → 直接跳过
+            # 体检红线
+            user_conds = set(user.physical_conditions)
+            if user_conds & MILITARY_PHYSICAL_RED_LINES:
+                continue  # 体检不通过
+            score *= 1.50  # 强烈意愿 + 体检合格 → 提权 50%
 
         # L1 门类得分传导（±25%）：认知/人格匹配结果渗入L2
         disc_bonus = disc_scores.get(disc_name, 0.5)
@@ -798,7 +859,7 @@ def _generate_category_reason(cat: dict, user: UserProfile) -> str:
     cat_labels = cat.get("category_labels", {})
     asset_sens = cat_labels.get("asset_sensitivity", "中")
     if asset_match >= 0.8 and asset_sens == "低":
-        parts.append("技术驱动为主，家庭资源门槛低")
+        parts.append("该方向对家庭资源的依赖度较低，竞争更看个人能力")
     elif asset_match < 0.4:
         parts.append(f"该方向对家庭资源有一定要求（资产敏感度：{asset_sens}）")
 
@@ -907,22 +968,38 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
         print("[ERROR] Layer 2 returned no categories!")
         return []
 
-    # ---- 多样性强制打散：若 ≥6/8 来自同一门类，替换末位 ----
+    # ---- 多样性强制打散：同一门类占比过高时逐步替换末位 ----
+    # 注意：若用户有强烈意向特殊赛道，跳过打散（尊重用户明确选择）
+    has_strong_track = (
+        user.special_track_intent is not None
+        and user.special_track_stance == "强烈意向"
+    )
     from collections import Counter
     disc_counts = Counter(c["discipline_name"] for c in l2)
     dominant_disc, dominant_count = disc_counts.most_common(1)[0]
-    if dominant_count >= 6:
+    if not has_strong_track and dominant_count >= 5:
         all_cats = layer2_category_match(user, data, l1, top_n=999)
-        replaced = None
-        for cat in all_cats[8:]:
-            if cat["discipline_name"] != dominant_disc:
-                replaced = cat
-                break
-        if replaced:
-            l2[-1] = replaced
-            if verbose:
-                print(f"  [Diversity] 强制打散: {dominant_disc} 占 {dominant_count}/8, "
-                      f"末位替换为 {replaced['category_name']}({replaced['discipline_name']})")
+        # 从候选池按顺序取跨门类替补
+        candidate_idx = 0
+        for replace_pos in range(len(l2) - 1, -1, -1):
+            if l2[replace_pos]["discipline_name"] != dominant_disc:
+                continue  # 已经是跨门类，无需替换
+            # 找下一个跨门类候选
+            while candidate_idx < len(all_cats):
+                cand = all_cats[candidate_idx]
+                candidate_idx += 1
+                if cand["category_name"] not in {c["category_name"] for c in l2}:
+                    if cand["discipline_name"] != dominant_disc:
+                        l2[replace_pos] = cand
+                        if verbose:
+                            print(f"  [Diversity] 替换 #{replace_pos+1}: "
+                                  f"{cand['category_name']}({cand['discipline_name']})")
+                        break
+            # 更新计数
+            disc_counts = Counter(c["discipline_name"] for c in l2)
+            dominant_disc, dominant_count = disc_counts.most_common(1)[0]
+            if dominant_count <= 4:
+                break  # 已足够多样
 
     # ---- Layer 3: 专业微观狙击 (≤6/类) ----
     if verbose:
@@ -934,6 +1011,23 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
             for m in cat["recommended_majors"][:3]:
                 print(f"    {m['major_name']}: {m['score']:.4f} "
                       f"(micro={m['micro_match']:.3f} heat={m['heat_align']:.3f})")
+
+    # 救援机制：若 L3 输出偏少（类别<5 或总专业<15），从备选池补充
+    total_majors = sum(len(c["recommended_majors"]) for c in l3)
+    if (len(l3) <= 5 or total_majors < 15) and len(l3) < len(l2):
+        rescued_needed = 8 - len(l3)
+        # 取 L2 中未参与 L3 的类别（第 9 名起）
+        all_l2 = layer2_category_match(user, data, l1, top_n=999)
+        used_names = {c["category_name"] for c in l2}
+        candidates = [c for c in all_l2 if c["category_name"] not in used_names]
+        rescue_cats = candidates[:rescued_needed]
+        if rescue_cats:
+            l3_rescue = layer3_major_match(user, data, rescue_cats)
+            l3.extend(l3_rescue)
+            if verbose:
+                print(f"  [Rescue] 输出偏少(类别{len(l3)}/专业{total_majors})，"
+                      f"补充 {len(l3_rescue)} 个备选类别: "
+                      f"{[c['category_name'] for c in l3_rescue]}")
 
     # ---- 格式化输出 ----
     output = []
