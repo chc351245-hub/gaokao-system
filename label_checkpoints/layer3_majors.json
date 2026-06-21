@@ -1,0 +1,9307 @@
+{
+  "哲学": {
+    "micro_actions": [
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "逻辑学": {
+    "micro_actions": [
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "宗教学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "伦理学": {
+    "micro_actions": [
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "经济学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "经济统计学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "国民经济管理": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "资源与环境经济学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "商务经济学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "能源经济": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "劳动经济学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "经济工程": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "数字经济": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "A/B测试与增长实验"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "低空经济与管理": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "资源环境审计": {
+    "micro_actions": [
+      "审计底稿编制",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "财政学": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "税收学": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "国际税收": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "金融学": {
+    "micro_actions": [
+      "财务报表编制与分析",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "金融工程": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "保险学": {
+    "micro_actions": [
+      "风险评估与量化",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "投资学": {
+    "micro_actions": [
+      "财务报表编制与分析",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "金融数学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "信用管理": {
+    "micro_actions": [
+      "风险评估与量化",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "经济与金融": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "精算学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "互联网金融": {
+    "micro_actions": [
+      "代码编写与Review",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "下降"
+  },
+  "金融科技": {
+    "micro_actions": [
+      "代码编写与Review",
+      "系统架构设计",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "金融审计": {
+    "micro_actions": [
+      "审计底稿编制",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "数字金融": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "A/B测试与增长实验"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "国际经济与贸易": {
+    "micro_actions": [
+      "合同谈判与尽调",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "贸易经济": {
+    "micro_actions": [
+      "合同谈判与尽调",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "国际经济发展合作": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "数字贸易": {
+    "micro_actions": [
+      "A/B测试与增长实验",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "法学": {
+    "micro_actions": [
+      "法律文书起草与审查",
+      "庭审辩论与质证"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "知识产权": {
+    "micro_actions": [
+      "法律文书起草与审查",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "监狱学": {
+    "micro_actions": [
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "信用风险管理与法律防控": {
+    "micro_actions": [
+      "风险评估与量化",
+      "法律文书起草与审查"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "国际经贸规则": {
+    "micro_actions": [
+      "法律文书起草与审查",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "司法警察学": {
+    "micro_actions": [
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "社区矫正": {
+    "micro_actions": [
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "纪检监察": {
+    "micro_actions": [
+      "法律文书起草与审查",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "国际法": {
+    "micro_actions": [
+      "法律文书起草与审查",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "司法鉴定学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "医学影像判读"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "国家安全学": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "海外利益安全": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "政治学与行政学": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "国际政治": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "外交学": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "国际事务与国际关系": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "政治学、经济学与哲学": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "文献检索与综述撰写",
+      "田野调查与访谈",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "国际组织与全球治理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "多语种翻译与本地化",
+      "文献检索与综述撰写",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "社会学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "数据分析与统计建模",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "社会工作": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "用户需求调研与访谈",
+      "学生心理辅导"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "人类学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "女性学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "田野调查与访谈",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "家政学": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "教学设计/教案编写",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "老年学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "数据分析与统计建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "社会政策": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "数据分析与统计建模",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "民族学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "科学社会主义": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "政策文本分析与解读",
+      "教学设计/教案编写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "中国共产党历史": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "政策文本分析与解读",
+      "教学设计/教案编写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "思想政治教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "学生心理辅导",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "马克思主义理论": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "政策文本分析与解读",
+      "教学设计/教案编写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "工会学": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "田野调查与访谈",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "治安学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "法律文书起草与审查",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "侦查学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "法律文书起草与审查",
+      "风险评估与量化",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "边防管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "法律文书起草与审查",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "禁毒学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "风险评估与量化",
+      "法律文书起草与审查"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "警犬技术": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "经济犯罪侦查": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "法律文书起草与审查",
+      "田野调查与访谈",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "边防指挥": {
+    "micro_actions": [
+      "风险评估与量化",
+      "政策文本分析与解读",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "消防指挥": {
+    "micro_actions": [
+      "风险评估与量化",
+      "工地现场管理与监理",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "警卫学": {
+    "micro_actions": [
+      "风险评估与量化",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "公安情报学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "文献检索与综述撰写",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "犯罪学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "数据分析与统计建模",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "公安管理学": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "涉外警务": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "法律文书起草与审查",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "国内安全保卫": {
+    "micro_actions": [
+      "风险评估与量化",
+      "田野调查与访谈",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "警务指挥与战术": {
+    "micro_actions": [
+      "风险评估与量化",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "技术侦查学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "法律文书起草与审查"
+    ],
+    "hard_threshold": [
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "海警执法": {
+    "micro_actions": [
+      "法律文书起草与审查",
+      "政策文本分析与解读",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "公安政治工作": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "教学设计/教案编写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "移民管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "多语种翻译与本地化",
+      "法律文书起草与审查"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "出入境管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "多语种翻译与本地化",
+      "法律文书起草与审查"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "反恐警务": {
+    "micro_actions": [
+      "风险评估与量化",
+      "政策文本分析与解读",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "消防政治工作": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "教学设计/教案编写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "铁路警务": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "法律文书起草与审查",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "森林消防": {
+    "micro_actions": [
+      "环境采样与监测",
+      "风险评估与量化",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "政治安全保卫": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "教育学": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "科学教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "人文教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "教育技术学": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "软件UI/UX设计",
+      "镜头语言与剪辑",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "艺术教育": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "乐器演奏/声乐训练",
+      "课堂讲授与互动",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "学前教育": {
+    "micro_actions": [
+      "课堂讲授与互动",
+      "学生心理辅导",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "小学教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "学生心理辅导"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "特殊教育": {
+    "micro_actions": [
+      "课堂讲授与互动",
+      "学生心理辅导",
+      "康复训练方案制定",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "华文教育": {
+    "micro_actions": [
+      "课堂讲授与互动",
+      "多语种翻译与本地化",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "教育康复学": {
+    "micro_actions": [
+      "康复训练方案制定",
+      "学生心理辅导",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "卫生教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "公共卫生流行病学调查"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "认知科学与技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "融合教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "学生心理辅导",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "劳动教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "家庭教育": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "教学设计/教案编写",
+      "学生心理辅导"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "孤独症儿童教育": {
+    "micro_actions": [
+      "学生心理辅导",
+      "康复训练方案制定",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "人工智能教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "代码编写与Review",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "婴幼儿发展与健康管理": {
+    "micro_actions": [
+      "临床护理操作",
+      "教学设计/教案编写",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "体育教育": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "课堂讲授与互动",
+      "竞赛战术制定"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "运动训练": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "竞赛战术制定",
+      "运动生物力学分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "社会体育指导与管理": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "用户需求调研与访谈",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "武术与民族传统体育": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "竞赛战术制定",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "运动人体科学": {
+    "micro_actions": [
+      "运动生物力学分析",
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "运动康复": {
+    "micro_actions": [
+      "康复训练方案制定",
+      "临床护理操作",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "休闲体育": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "体能训练": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "运动生物力学分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "冰雪运动": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "竞赛战术制定"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "电子竞技运动与管理": {
+    "micro_actions": [
+      "竞赛战术制定",
+      "A/B测试与增长实验",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "智能体育工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "产品原型设计与迭代",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "体育旅游": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "运动能力开发": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "运动生物力学分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "足球运动": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "竞赛战术制定",
+      "运动生物力学分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "马术运动与管理": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "竞赛战术制定"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "体育康养": {
+    "micro_actions": [
+      "康复训练方案制定",
+      "临床护理操作",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "航空运动": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "竞赛战术制定"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "太极拳": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "汉语言文学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "政策文本分析与解读",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "汉语言": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "多语种翻译与本地化",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "汉语国际教育": {
+    "micro_actions": [
+      "课堂讲授与互动",
+      "多语种翻译与本地化",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "中国少数民族语言文学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "文献检索与综述撰写",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "古典文献学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "应用语言学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "实验设计与执行",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "秘书学": {
+    "micro_actions": [
+      "法律文书起草与审查",
+      "政策文本分析与解读",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "中国语言与文化": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "手语翻译": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "数字人文": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "系统架构设计",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "中国古典学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "汉学与中国学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "多语种翻译与本地化",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "应用中文": {
+    "micro_actions": [
+      "新闻采访与稿件撰写",
+      "政策文本分析与解读",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "语言科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "桑戈语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "英语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "下降"
+  },
+  "俄语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "德语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "法语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "西班牙语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "阿拉伯语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "日语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "下降"
+  },
+  "波斯语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "朝鲜语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "菲律宾语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "语言学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "塔玛齐格特语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "爪哇语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "旁遮普语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "区域国别学": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "田野调查与访谈",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "法律英语": {
+    "micro_actions": [
+      "法律文书起草与审查",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "计算语言学": {
+    "micro_actions": [
+      "代码编写与Review",
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "语言智能": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "代码编写与Review",
+      "数据分析与统计建模",
+      "Debug与迭代修复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "梵语巴利语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "印度尼西亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "印地语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "柬埔寨语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "老挝语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "缅甸语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "马来语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "蒙古语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "僧伽罗语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "泰语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "乌尔都语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "希伯来语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "越南语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "豪萨语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "斯瓦希里语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "阿尔巴尼亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "保加利亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "波兰语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "捷克语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "斯洛伐克语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "罗马尼亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "葡萄牙语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "瑞典语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "塞尔维亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "土耳其语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "希腊语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "匈牙利语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "意大利语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "泰米尔语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "普什图语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "世界语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "孟加拉语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "尼泊尔语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "克罗地亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "荷兰语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "芬兰语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "乌克兰语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "挪威语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "丹麦语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "冰岛语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "爱尔兰语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "拉脱维亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "立陶宛语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "斯洛文尼亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "爱沙尼亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "马耳他语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "哈萨克语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "乌兹别克语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "祖鲁语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "拉丁语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "翻译": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "商务英语": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "阿姆哈拉语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "吉尔吉斯语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "索马里语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "土库曼语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "加泰罗尼亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "约鲁巴语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "亚美尼亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "马达加斯加语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "格鲁吉亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "阿塞拜疆语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "阿非利卡语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "马其顿语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "塔吉克语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "茨瓦纳语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "恩德贝莱语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "科摩罗语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "克里奥尔语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "绍纳语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "提格雷尼亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "白俄罗斯语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "毛利语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "汤加语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "萨摩亚语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "库尔德语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "比斯拉马语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "达里语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "德顿语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "迪维希语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "斐济语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "库克群岛毛利语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "隆迪语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "卢森堡语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "卢旺达语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "纽埃语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "皮金语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "切瓦语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "塞苏陀语": {
+    "micro_actions": [
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "新闻学": {
+    "micro_actions": [
+      "新闻采访与稿件撰写",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "广播电视学": {
+    "micro_actions": [
+      "新闻采访与稿件撰写",
+      "镜头语言与剪辑",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "广告学": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "新闻采访与稿件撰写",
+      "A/B测试与增长实验"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "传播学": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "新闻采访与稿件撰写",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "编辑出版学": {
+    "micro_actions": [
+      "新闻采访与稿件撰写",
+      "文献检索与综述撰写",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "网络与新媒体": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "A/B测试与增长实验",
+      "新闻采访与稿件撰写",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "数字出版": {
+    "micro_actions": [
+      "产品原型设计与迭代",
+      "新闻采访与稿件撰写",
+      "A/B测试与增长实验"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "时尚传播": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "新闻采访与稿件撰写",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "国际新闻与传播": {
+    "micro_actions": [
+      "新闻采访与稿件撰写",
+      "多语种翻译与本地化",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "会展": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "产品原型设计与迭代",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "历史学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "世界史": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "考古学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "文献检索与综述撰写",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "文物与博物馆学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "田野调查与访谈",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "文物保护技术": {
+    "micro_actions": [
+      "材料性能测试",
+      "色谱/光谱分析",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "外国语言与外国历史": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "文化遗产": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "田野调查与访谈",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "古文字学": {
+    "micro_actions": [
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "科学史": {
+    "micro_actions": [
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "数学与应用数学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "信息与计算科学": {
+    "micro_actions": [
+      "代码编写与Review",
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "数理基础科学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "数据计算及应用": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "智能计算": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "代码编写与Review",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "物理学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "应用物理学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "材料性能测试"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "核物理": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "声学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "信号完整性分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "系统科学与工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "数据分析与统计建模",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "量子信息科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "化学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "应用化学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "化学生物学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "分子科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "能源化学": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "材料性能测试",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "化学测量学与技术": {
+    "micro_actions": [
+      "色谱/光谱分析",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "资源化学": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "环境采样与监测",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "天文学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "实验设计与执行",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "地理科学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "环境采样与监测",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "自然地理与资源环境": {
+    "micro_actions": [
+      "环境采样与监测",
+      "生态修复方案设计",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "人文地理与城乡规划": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "政策文本分析与解读",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "地理信息科学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "系统架构设计",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "大气科学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "环境采样与监测",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "应用气象学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "环境采样与监测",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "气象技术与工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "系统架构设计",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "地球系统科学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "环境采样与监测",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "海洋科学": {
+    "micro_actions": [
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "海洋技术": {
+    "micro_actions": [
+      "环境采样与监测",
+      "系统架构设计",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "海洋资源与环境": {
+    "micro_actions": [
+      "环境采样与监测",
+      "生态修复方案设计",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "军事海洋学": {
+    "micro_actions": [
+      "环境采样与监测",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "海洋科学与技术": {
+    "micro_actions": [
+      "环境采样与监测",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "地球物理学": {
+    "micro_actions": [
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "空间科学与技术": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "实验设计与执行",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "防灾减灾科学与工程": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "数据分析与统计建模",
+      "风险评估与量化",
+      "环评报告编制"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "行星科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "地质学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "实验设计与执行",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "地球化学": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "实验设计与执行",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "地球信息科学与技术": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "工程制图/CAD建模",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "古生物学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "实验设计与执行",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "生物科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "文献检索与综述撰写",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "生物技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "生物信息学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "代码编写与Review",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "生态学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "数据分析与统计建模",
+      "环境采样与监测",
+      "生态修复方案设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "整合科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "神经科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "心理学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "应用心理学": {
+    "micro_actions": [
+      "学生心理辅导",
+      "临床诊断与鉴别",
+      "用户需求调研与访谈",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "心理、脑与认知科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "统计学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "实验设计与执行",
+      "A/B测试与增长实验"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "应用统计学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "实验设计与执行",
+      "A/B测试与增长实验"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "数据科学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "代码编写与Review",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "生物统计学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "实验设计与执行",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "理论与应用力学": {
+    "micro_actions": [
+      "结构力学计算与分析",
+      "工程制图/CAD建模",
+      "数据分析与统计建模",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "工程力学": {
+    "micro_actions": [
+      "结构力学计算与分析",
+      "工程制图/CAD建模",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "机械工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "系统架构设计",
+      "实验设计与执行",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "机械设计制造及其自动化": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "代码编写与Review",
+      "嵌入式系统开发",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "材料成型及控制工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "实验设计与执行",
+      "材料性能测试",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "机械电子工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "电路设计与PCB布局",
+      "工程制图/CAD建模",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "工业设计": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "软件UI/UX设计",
+      "三维建模与渲染",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "过程装备与控制工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "实验设计与执行",
+      "系统架构设计",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "车辆工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "实验设计与执行",
+      "产品原型设计与迭代",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "下降"
+  },
+  "汽车服务工程": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "工程制图/CAD建模",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "机械工艺技术": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "实验设计与执行",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "微机电系统工程": {
+    "micro_actions": [
+      "芯片版图设计",
+      "嵌入式系统开发",
+      "实验设计与执行",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "机电技术教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "汽车维修工程教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "工地现场管理与监理",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "智能制造工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "嵌入式系统开发",
+      "代码编写与Review",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "智能车辆工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "代码编写与Review",
+      "机器学习模型训练",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "仿生科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "三维建模与渲染",
+      "产品原型设计与迭代",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "新能源汽车工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "工程制图/CAD建模",
+      "实验设计与执行",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "增材制造工程": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "实验设计与执行",
+      "材料性能测试",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "智能交互设计": {
+    "micro_actions": [
+      "软件UI/UX设计",
+      "用户需求调研与访谈",
+      "产品原型设计与迭代",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "应急装备技术与工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "工程制图/CAD建模",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "农林智能装备工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "工程制图/CAD建模",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "真空工程与技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "工程制图/CAD建模",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "测控技术与仪器": {
+    "micro_actions": [
+      "电路设计与PCB布局",
+      "嵌入式系统开发",
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "精密仪器": {
+    "micro_actions": [
+      "实验设计与执行",
+      "系统架构设计",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "智能感知工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "材料科学与工程": {
+    "micro_actions": [
+      "材料性能测试",
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "材料物理": {
+    "micro_actions": [
+      "材料性能测试",
+      "实验设计与执行",
+      "化学合成与分离纯化"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "材料化学": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "冶金工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "材料性能测试",
+      "工地现场管理与监理",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "金属材料工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "材料性能测试",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "无机非金属材料工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "材料性能测试",
+      "化学合成与分离纯化"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "高分子材料与工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "材料性能测试",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "复合材料与工程": {
+    "micro_actions": [
+      "材料性能测试",
+      "实验设计与执行",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "粉体材料科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "宝石及材料工艺学": {
+    "micro_actions": [
+      "色谱/光谱分析",
+      "实验设计与执行",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "焊接技术与工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "材料性能测试",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "功能材料": {
+    "micro_actions": [
+      "实验设计与执行",
+      "材料性能测试",
+      "化学合成与分离纯化"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "纳米材料与技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "材料性能测试",
+      "化学合成与分离纯化"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "新能源材料与器件": {
+    "micro_actions": [
+      "实验设计与执行",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "材料设计科学与工程": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "复合材料成型工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "材料性能测试",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "智能材料与结构": {
+    "micro_actions": [
+      "实验设计与执行",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "光电信息材料与器件": {
+    "micro_actions": [
+      "实验设计与执行",
+      "材料性能测试",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "生物材料": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "材料智能技术": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "电子信息材料": {
+    "micro_actions": [
+      "实验设计与执行",
+      "材料性能测试",
+      "化学合成与分离纯化"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "软物质科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "稀土材料科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "材料性能测试",
+      "化学合成与分离纯化"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "能源与动力工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "工程制图/CAD建模",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "能源与环境系统工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "工程制图/CAD建模",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "新能源科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "工程制图/CAD建模",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "储能科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "系统架构设计",
+      "材料性能测试"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "能源服务工程": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "氢能科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "可持续能源": {
+    "micro_actions": [
+      "系统架构设计",
+      "实验设计与执行",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "能源科学与工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "实验设计与执行",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "电气工程及其自动化": {
+    "micro_actions": [
+      "电路设计与PCB布局",
+      "嵌入式系统开发",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "智能电网信息工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "数据分析与统计建模",
+      "电路设计与PCB布局"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "光源与照明": {
+    "micro_actions": [
+      "电路设计与PCB布局",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "电气工程与智能控制": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "电路设计与PCB布局"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "电机电器智能化": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "电路设计与PCB布局"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "电缆工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "材料性能测试",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "能源互联网工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "智慧能源工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "电动载运工程": {
+    "micro_actions": [
+      "电路设计与PCB布局",
+      "嵌入式系统开发",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "大功率半导体科学与工程": {
+    "micro_actions": [
+      "芯片版图设计",
+      "电路设计与PCB布局",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "电子信息工程": {
+    "micro_actions": [
+      "代码编写与Review",
+      "电路设计与PCB布局",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "电子科学与技术": {
+    "micro_actions": [
+      "芯片版图设计",
+      "实验设计与执行",
+      "电路设计与PCB布局"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "通信工程": {
+    "micro_actions": [
+      "代码编写与Review",
+      "射频调试与匹配",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "微电子科学与工程": {
+    "micro_actions": [
+      "芯片版图设计",
+      "实验设计与执行",
+      "电路设计与PCB布局"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "光电信息科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "电路设计与PCB布局",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "信息工程": {
+    "micro_actions": [
+      "代码编写与Review",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "广播电视工程": {
+    "micro_actions": [
+      "代码编写与Review",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "水声工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "信号完整性分析",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "电子封装技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "电路设计与PCB布局",
+      "材料性能测试"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "集成电路设计与集成系统": {
+    "micro_actions": [
+      "芯片版图设计",
+      "代码编写与Review",
+      "信号完整性分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "医学信息工程": {
+    "micro_actions": [
+      "代码编写与Review",
+      "嵌入式系统开发",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "电磁场与无线技术": {
+    "micro_actions": [
+      "射频调试与匹配",
+      "信号完整性分析",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "电波传播与天线": {
+    "micro_actions": [
+      "射频调试与匹配",
+      "信号完整性分析",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "电子信息科学与技术": {
+    "micro_actions": [
+      "电路设计与PCB布局",
+      "信号完整性分析",
+      "嵌入式系统开发",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "电信工程及管理": {
+    "micro_actions": [
+      "系统架构设计",
+      "射频调试与匹配",
+      "工程制图/CAD建模",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "应用电子技术教育": {
+    "micro_actions": [
+      "课堂讲授与互动",
+      "教学设计/教案编写",
+      "电路设计与PCB布局",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "人工智能": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "数据分析与统计建模",
+      "代码编写与Review",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "海洋信息工程": {
+    "micro_actions": [
+      "信号完整性分析",
+      "数据分析与统计建模",
+      "环境采样与监测",
+      "射频调试与匹配"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "柔性电子学": {
+    "micro_actions": [
+      "材料性能测试",
+      "电路设计与PCB布局",
+      "化学合成与分离纯化",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "智能测控工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "数据分析与统计建模",
+      "系统架构设计",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "智能视觉工程": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "代码编写与Review",
+      "数据分析与统计建模",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "智能视听工程": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "代码编写与Review",
+      "信号完整性分析",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "半导体工艺与装备": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "材料性能测试",
+      "实验设计与执行",
+      "芯片版图设计"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "自动化": {
+    "micro_actions": [
+      "系统架构设计",
+      "嵌入式系统开发",
+      "电路设计与PCB布局",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "轨道交通信号与控制": {
+    "micro_actions": [
+      "系统架构设计",
+      "电路设计与PCB布局",
+      "信号完整性分析",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "机器人工程": {
+    "micro_actions": [
+      "代码编写与Review",
+      "嵌入式系统开发",
+      "系统架构设计",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "邮政工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "工程制图/CAD建模",
+      "代码编写与Review",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "核电技术与控制工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "风险评估与量化",
+      "实验设计与执行",
+      "电路设计与PCB布局"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "智能装备与系统": {
+    "micro_actions": [
+      "系统架构设计",
+      "嵌入式系统开发",
+      "代码编写与Review",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "工业智能": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "数据分析与统计建模",
+      "系统架构设计",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "智能工程与创意设计": {
+    "micro_actions": [
+      "系统架构设计",
+      "用户需求调研与访谈",
+      "产品原型设计与迭代",
+      "软件UI/UX设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "计算机科学与技术": {
+    "micro_actions": [
+      "代码编写与Review",
+      "Debug与迭代修复",
+      "系统架构设计",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "软件工程": {
+    "micro_actions": [
+      "代码编写与Review",
+      "Debug与迭代修复",
+      "系统架构设计",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "网络工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "代码编写与Review",
+      "Debug与迭代修复",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "信息安全": {
+    "micro_actions": [
+      "风险评估与量化",
+      "代码编写与Review",
+      "系统架构设计",
+      "Debug与迭代修复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "物联网工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "代码编写与Review",
+      "系统架构设计",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "数字媒体技术": {
+    "micro_actions": [
+      "软件UI/UX设计",
+      "三维建模与渲染",
+      "代码编写与Review",
+      "镜头语言与剪辑"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "智能科学与技术": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "数据分析与统计建模",
+      "代码编写与Review",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "空间信息与数字技术": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "代码编写与Review",
+      "数据库设计与优化",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "电子与计算机工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "电路设计与PCB布局",
+      "代码编写与Review",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "数据科学与大数据技术": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "数据库设计与优化",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "网络空间安全": {
+    "micro_actions": [
+      "风险评估与量化",
+      "代码编写与Review",
+      "系统架构设计",
+      "Debug与迭代修复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "新媒体技术": {
+    "micro_actions": [
+      "软件UI/UX设计",
+      "代码编写与Review",
+      "新闻采访与稿件撰写",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "电影制作": {
+    "micro_actions": [
+      "镜头语言与剪辑",
+      "三维建模与渲染",
+      "代码编写与Review",
+      "剧本分析与表演创作"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "保密技术": {
+    "micro_actions": [
+      "风险评估与量化",
+      "代码编写与Review",
+      "系统架构设计",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "服务科学与工程": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "系统架构设计",
+      "代码编写与Review",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "虚拟现实技术": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "软件UI/UX设计",
+      "代码编写与Review",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "区块链工程": {
+    "micro_actions": [
+      "代码编写与Review",
+      "系统架构设计",
+      "风险评估与量化",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "密码科学与技术": {
+    "micro_actions": [
+      "代码编写与Review",
+      "风险评估与量化",
+      "系统架构设计",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "工业软件": {
+    "micro_actions": [
+      "代码编写与Review",
+      "系统架构设计",
+      "用户需求调研与访谈",
+      "Debug与迭代修复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "土木工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "结构力学计算与分析",
+      "工地现场管理与监理",
+      "造价预算编制"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "建筑环境与能源应用工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "系统架构设计",
+      "环境采样与监测",
+      "造价预算编制"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "给排水科学与工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "环境采样与监测",
+      "环评报告编制",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "建筑电气与智能化": {
+    "micro_actions": [
+      "电路设计与PCB布局",
+      "工程制图/CAD建模",
+      "系统架构设计",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "城市地下空间工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "结构力学计算与分析",
+      "工地现场管理与监理",
+      "环评报告编制"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "道路桥梁与渡河工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "结构力学计算与分析",
+      "工地现场管理与监理",
+      "造价预算编制"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "铁道工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "结构力学计算与分析",
+      "工地现场管理与监理",
+      "造价预算编制"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "智能建造": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "系统架构设计",
+      "三维建模与渲染",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "土木、水利与海洋工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "结构力学计算与分析",
+      "环境采样与监测",
+      "环评报告编制"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "土木、水利与交通工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "结构力学计算与分析",
+      "工地现场管理与监理",
+      "系统架构设计"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "城市水系统工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "环评报告编制",
+      "工程制图/CAD建模",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "智能建造与智慧交通": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "系统架构设计",
+      "三维建模与渲染",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "工程软件": {
+    "micro_actions": [
+      "代码编写与Review",
+      "系统架构设计",
+      "用户需求调研与访谈",
+      "Debug与迭代修复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "城市更新": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "工地现场管理与监理",
+      "造价预算编制",
+      "结构力学计算与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "水利水电工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "结构力学计算与分析",
+      "工地现场管理与监理",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "水文与水资源工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "生态修复方案设计",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "港口航道与海岸工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "结构力学计算与分析",
+      "工地现场管理与监理",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "水务工程": {
+    "micro_actions": [
+      "工地现场管理与监理",
+      "环境采样与监测",
+      "工程制图/CAD建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "水利科学与工程": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "实验设计与执行",
+      "工程制图/CAD建模",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "智慧水利": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "数据分析与统计建模",
+      "系统架构设计",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "测绘工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "环境采样与监测",
+      "三维建模与渲染",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "遥感科学与技术": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "三维建模与渲染",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "导航工程": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "嵌入式系统开发",
+      "电路设计与PCB布局",
+      "信号完整性分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "地理国情监测": {
+    "micro_actions": [
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "政策文本分析与解读",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "地理空间信息工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "代码编写与Review",
+      "数据分析与统计建模",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "时空信息工程": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "代码编写与Review",
+      "三维建模与渲染",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "化学工程与工艺": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "材料性能测试",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "制药工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "实验设计与执行",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "资源循环科学与工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "材料性能测试",
+      "环境采样与监测",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "能源化学工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "材料性能测试",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "化学工程与工业生物工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "实验设计与执行",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "化工安全工程": {
+    "micro_actions": [
+      "风险评估与量化",
+      "环境采样与监测",
+      "政策文本分析与解读",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "涂料工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "材料性能测试",
+      "色谱/光谱分析",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "精细化工": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "实验设计与执行",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "智能分子工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "机器学习模型训练",
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "地质工程": {
+    "micro_actions": [
+      "工地现场管理与监理",
+      "环境采样与监测",
+      "工程制图/CAD建模",
+      "结构力学计算与分析"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "勘查技术与工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "工程制图/CAD建模",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "资源勘查工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "地下水科学与工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "实验设计与执行",
+      "生态修复方案设计"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "旅游地学与规划工程": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "政策文本分析与解读",
+      "工程制图/CAD建模",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "智能地球探测": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "环境采样与监测",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "资源环境大数据工程": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "环境采样与监测",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "采矿工程": {
+    "micro_actions": [
+      "工地现场管理与监理",
+      "风险评估与量化",
+      "环境采样与监测",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "石油工程": {
+    "micro_actions": [
+      "工地现场管理与监理",
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "矿物加工工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "实验设计与执行",
+      "材料性能测试",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "油气储运工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "风险评估与量化",
+      "环境采样与监测",
+      "结构力学计算与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "矿物资源工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "海洋油气工程": {
+    "micro_actions": [
+      "工地现场管理与监理",
+      "环境采样与监测",
+      "结构力学计算与分析",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "智能采矿工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "数据分析与统计建模",
+      "工地现场管理与监理",
+      "系统架构设计"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "碳储科学与工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "化学合成与分离纯化",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "稀土科学与工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "材料性能测试",
+      "色谱/光谱分析",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "纺织工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "材料性能测试",
+      "产品原型设计与迭代",
+      "化学合成与分离纯化"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "服装设计与工程": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "软件UI/UX设计",
+      "产品原型设计与迭代",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "非织造材料与工程": {
+    "micro_actions": [
+      "材料性能测试",
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "服装设计与工艺教育": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "软件UI/UX设计",
+      "产品原型设计与迭代",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "丝绸设计与工程": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "材料性能测试",
+      "实验设计与执行",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "纤维科学与智能制造": {
+    "micro_actions": [
+      "材料性能测试",
+      "嵌入式系统开发",
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "轻化工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "实验设计与执行",
+      "材料性能测试",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "包装工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "材料性能测试",
+      "产品原型设计与迭代",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "印刷工程": {
+    "micro_actions": [
+      "色谱/光谱分析",
+      "软件UI/UX设计",
+      "材料性能测试",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "香料香精技术与工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍",
+      "嗅觉正常"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "化妆品技术与工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "实验设计与执行",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "生物质能源与材料": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "实验设计与执行",
+      "材料性能测试",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "生物质技术与工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "环境采样与监测",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "交通运输": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "政策文本分析与解读",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "交通工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "数据分析与统计建模",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "航海技术": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "风险评估与量化",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "裸眼视力≥5.0",
+      "无传染性疾病"
+    ],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "轮机工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "Debug与迭代修复",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "飞行技术": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "风险评估与量化",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "裸眼视力≥5.0",
+      "无传染性疾病"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "交通设备与控制工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "电路设计与PCB布局",
+      "信号完整性分析",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "救助与打捞工程": {
+    "micro_actions": [
+      "风险评估与量化",
+      "工程制图/CAD建模",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "船舶电子电气工程": {
+    "micro_actions": [
+      "电路设计与PCB布局",
+      "嵌入式系统开发",
+      "信号完整性分析",
+      "Debug与迭代修复"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "轨道交通电气与控制": {
+    "micro_actions": [
+      "电路设计与PCB布局",
+      "嵌入式系统开发",
+      "系统架构设计",
+      "信号完整性分析"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "邮轮工程与管理": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "多语种翻译与本地化",
+      "系统架构设计",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "智慧交通": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "系统架构设计",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "智能运输工程": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "数据分析与统计建模",
+      "系统架构设计",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "交通能源融合工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "环境采样与监测",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "船舶与海洋工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "结构力学计算与分析",
+      "三维建模与渲染",
+      "系统架构设计"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "海洋工程与技术": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "环境采样与监测",
+      "结构力学计算与分析",
+      "生态修复方案设计"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "海洋资源开发技术": {
+    "micro_actions": [
+      "环境采样与监测",
+      "化学合成与分离纯化",
+      "工程制图/CAD建模",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "海洋机器人": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "电路设计与PCB布局",
+      "三维建模与渲染",
+      "Debug与迭代修复"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "智慧海洋技术": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "系统架构设计",
+      "机器学习模型训练",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "智能海洋装备": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "嵌入式系统开发",
+      "系统架构设计",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "海洋智能与无人技术": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "嵌入式系统开发",
+      "系统架构设计",
+      "信号完整性分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "航空航天工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "结构力学计算与分析",
+      "系统架构设计",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "飞行器设计与工程": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "结构力学计算与分析",
+      "工程制图/CAD建模",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "飞行器制造工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "材料性能测试",
+      "嵌入式系统开发",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "飞行器动力工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "工程制图/CAD建模",
+      "材料性能测试",
+      "结构力学计算与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "飞行器环境与生命保障工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "系统架构设计",
+      "环境采样与监测",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "飞行器质量与可靠性": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "实验设计与执行",
+      "风险评估与量化",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "飞行器适航技术": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "飞行器控制与信息工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "代码编写与Review",
+      "信号完整性分析",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "无人驾驶航空器系统工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "机器学习模型训练",
+      "三维建模与渲染",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "智能飞行器技术": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "系统架构设计",
+      "代码编写与Review",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "空天智能电推进技术": {
+    "micro_actions": [
+      "电路设计与PCB布局",
+      "嵌入式系统开发",
+      "实验设计与执行",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "飞行器运维工程": {
+    "micro_actions": [
+      "Debug与迭代修复",
+      "系统架构设计",
+      "风险评估与量化",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "武器系统与工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "实验设计与执行",
+      "嵌入式系统开发",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "武器发射工程": {
+    "micro_actions": [
+      "结构力学计算与分析",
+      "工程制图/CAD建模",
+      "实验设计与执行",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "探测制导与控制技术": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "信号完整性分析",
+      "机器学习模型训练",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "弹药工程与爆炸技术": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "实验设计与执行",
+      "材料性能测试",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "特种能源技术与工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "实验设计与执行",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "装甲车辆工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "结构力学计算与分析",
+      "嵌入式系统开发",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "信息对抗技术": {
+    "micro_actions": [
+      "代码编写与Review",
+      "Debug与迭代修复",
+      "系统架构设计",
+      "信号完整性分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "智能无人系统技术": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "嵌入式系统开发",
+      "系统架构设计",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "核工程与核技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "系统架构设计",
+      "环境采样与监测",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "辐射防护与核安全": {
+    "micro_actions": [
+      "环境采样与监测",
+      "风险评估与量化",
+      "实验设计与执行",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "工程物理": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "系统架构设计",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "核化工与核燃料工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "环境采样与监测",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "农业工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "生态修复方案设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "农业机械化及其自动化": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "嵌入式系统开发",
+      "电路设计与PCB布局",
+      "Debug与迭代修复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "农业电气化": {
+    "micro_actions": [
+      "电路设计与PCB布局",
+      "工程制图/CAD建模",
+      "嵌入式系统开发",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "农业建筑环境与能源工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "工程制图/CAD建模",
+      "化学合成与分离纯化",
+      "生态修复方案设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "农业水利工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "环境采样与监测",
+      "结构力学计算与分析",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "土地整治工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "工地现场管理与监理",
+      "生态修复方案设计",
+      "环评报告编制"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "农业智能装备工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "工程制图/CAD建模",
+      "机器学习模型训练",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "农业机器人": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "三维建模与渲染",
+      "运动生物力学分析",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "森林工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "工地现场管理与监理",
+      "生态修复方案设计",
+      "结构力学计算与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "木材科学与工程": {
+    "micro_actions": [
+      "材料性能测试",
+      "实验设计与执行",
+      "工程制图/CAD建模",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "林产化工": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "实验设计与执行",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "家具设计与工程": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "工程制图/CAD建模",
+      "素描/色彩/造型创作",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "木结构建筑与材料": {
+    "micro_actions": [
+      "结构力学计算与分析",
+      "工程制图/CAD建模",
+      "材料性能测试",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "环境科学与工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "环评报告编制",
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "环境工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "环评报告编制",
+      "生态修复方案设计",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "环境科学": {
+    "micro_actions": [
+      "环境采样与监测",
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "环境生态工程": {
+    "micro_actions": [
+      "生态修复方案设计",
+      "环境采样与监测",
+      "环评报告编制",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "环保设备工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "三维建模与渲染",
+      "产品原型设计与迭代",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "资源环境科学": {
+    "micro_actions": [
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "文献检索与综述撰写",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "水质科学与技术": {
+    "micro_actions": [
+      "环境采样与监测",
+      "实验设计与执行",
+      "环评报告编制",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "生物医学工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "代码编写与Review",
+      "机器学习模型训练",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "假肢矫形工程": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "产品原型设计与迭代",
+      "运动生物力学分析",
+      "康复训练方案制定"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "临床工程技术": {
+    "micro_actions": [
+      "系统架构设计",
+      "嵌入式系统开发",
+      "Debug与迭代修复",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "康复工程": {
+    "micro_actions": [
+      "产品原型设计与迭代",
+      "康复训练方案制定",
+      "运动生物力学分析",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "健康科学与技术": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "产品原型设计与迭代",
+      "机器学习模型训练",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "食品科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "化学合成与分离纯化",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "食品质量与安全": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "数据分析与统计建模",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "粮食工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "实验设计与执行",
+      "产品原型设计与迭代",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "乳品工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "酿酒工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "化学合成与分离纯化",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "嗅觉正常"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "葡萄与葡萄酒工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "化学合成与分离纯化",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "嗅觉正常"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "食品营养与检验教育": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "数据分析与统计建模",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "烹饪与营养教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "食品安全与检测": {
+    "micro_actions": [
+      "色谱/光谱分析",
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "食品营养与健康": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "用户需求调研与访谈",
+      "实验设计与执行",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "食用菌科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "白酒酿造工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "化学合成与分离纯化",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "嗅觉正常"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "咖啡科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "化学合成与分离纯化",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "嗅觉正常"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "建筑学": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "三维建模与渲染",
+      "工程制图/CAD建模",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "下降"
+  },
+  "城乡规划": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "工程制图/CAD建模",
+      "数据分析与统计建模",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "风景园林": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "三维建模与渲染",
+      "工程制图/CAD建模",
+      "生态修复方案设计"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "历史建筑保护工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "三维建模与渲染",
+      "素描/色彩/造型创作",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "人居环境科学与技术": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "城市设计": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "素描/色彩/造型创作",
+      "工程制图/CAD建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "智慧建筑与建造": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "系统架构设计",
+      "工程制图/CAD建模",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "智慧景观营造": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "嵌入式系统开发",
+      "工程制图/CAD建模",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "安全工程": {
+    "micro_actions": [
+      "风险评估与量化",
+      "工地现场管理与监理",
+      "数据分析与统计建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "应急技术与管理": {
+    "micro_actions": [
+      "风险评估与量化",
+      "数据分析与统计建模",
+      "政策文本分析与解读",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "职业卫生工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "公共卫生流行病学调查",
+      "风险评估与量化",
+      "环评报告编制"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "安全生产监管": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化",
+      "工地现场管理与监理",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "智慧应急": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "系统架构设计",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "生物工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "生物制药": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "合成生物学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "生物制造": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "产品原型设计与迭代",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "刑事科学技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "消防工程": {
+    "micro_actions": [
+      "风险评估与量化",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "交通管理工程": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "系统架构设计"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "安全防范工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "公安视听技术": {
+    "micro_actions": [
+      "代码编写与Review",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "抢险救援指挥与技术": {
+    "micro_actions": [
+      "风险评估与量化",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "火灾勘查": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "网络安全与执法": {
+    "micro_actions": [
+      "代码编写与Review",
+      "机器学习模型训练",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "核生化消防": {
+    "micro_actions": [
+      "实验设计与执行",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "海警舰艇指挥与技术": {
+    "micro_actions": [
+      "竞赛战术制定",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "数据警务技术": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "食品药品环境犯罪侦查技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "低空安全管理": {
+    "micro_actions": [
+      "系统架构设计",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "视力矫正≥4.8"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "农学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "园艺": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "植物保护": {
+    "micro_actions": [
+      "实验设计与执行",
+      "田野调查与访谈",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "植物科学与技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "种子科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "设施农业科学与工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "茶学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "烟草": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "应用生物科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "农艺教育": {
+    "micro_actions": [
+      "课堂教学与互动",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "园艺教育": {
+    "micro_actions": [
+      "课堂教学与互动",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "智慧农业": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "菌物科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "农药化肥": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "实验设计与执行",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "生物农药科学与工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "生物育种科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "生物育种技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "农业资源与环境": {
+    "micro_actions": [
+      "环境采样与监测",
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "野生动物与自然保护区管理": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "实验设计与执行",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "水土保持与荒漠化防治": {
+    "micro_actions": [
+      "环境采样与监测",
+      "生态修复方案设计",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "生物质科学与工程": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "实验设计与执行",
+      "材料性能测试"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "土地科学与技术": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "湿地保护与恢复": {
+    "micro_actions": [
+      "环境采样与监测",
+      "生态修复方案设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "国家公园建设与管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "生态修复方案设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "生态修复学": {
+    "micro_actions": [
+      "生态修复方案设计",
+      "环境采样与监测",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "盐碱地科学与工程": {
+    "micro_actions": [
+      "环境采样与监测",
+      "实验设计与执行",
+      "生态修复方案设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "动物科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "蚕学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "蜂学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "经济动物学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "马业科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "饲料工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "智慧牧业科学与工程": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "动物医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "手术/介入操作",
+      "医学影像判读"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "动物药学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "动植物检疫": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "实验动物学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "手术/介入操作",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "中兽医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "兽医公共卫生": {
+    "micro_actions": [
+      "公共卫生流行病学调查",
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "林学": {
+    "micro_actions": [
+      "环境采样与监测",
+      "生态修复方案设计",
+      "田野调查与访谈",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "园林": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "生态修复方案设计",
+      "环境采样与监测",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "森林保护": {
+    "micro_actions": [
+      "环境采样与监测",
+      "实验设计与执行",
+      "生态修复方案设计",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "经济林": {
+    "micro_actions": [
+      "环境采样与监测",
+      "实验设计与执行",
+      "田野调查与访谈",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "智慧林业": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "系统架构设计",
+      "环境采样与监测",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "水产养殖学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "环境采样与监测",
+      "数据分析与统计建模",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "海洋渔业科学与技术": {
+    "micro_actions": [
+      "环境采样与监测",
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "水族科学与技术": {
+    "micro_actions": [
+      "环境采样与监测",
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "水生动物医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "实验设计与执行",
+      "手术/介入操作",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "智慧渔业": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "系统架构设计",
+      "实验设计与执行",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "草业科学": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "实验设计与执行",
+      "环境采样与监测",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "草坪科学与工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "环境采样与监测",
+      "实验设计与执行",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "基础医学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "文献检索与综述撰写",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "生物医学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "生物医学科学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "临床医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "手术/介入操作",
+      "医学影像判读",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "无传染性疾病"
+    ],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "麻醉学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "手术/介入操作",
+      "风险评估与量化",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "无传染性疾病"
+    ],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "医学影像学": {
+    "micro_actions": [
+      "医学影像判读",
+      "临床诊断与鉴别",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "无传染性疾病"
+    ],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "眼视光医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "医学影像判读",
+      "手术/介入操作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "无传染性疾病"
+    ],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "精神医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "学生心理辅导",
+      "数据分析与统计建模",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无传染性疾病"
+    ],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "放射医学": {
+    "micro_actions": [
+      "医学影像判读",
+      "手术/介入操作",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍",
+      "无传染性疾病"
+    ],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "儿科学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "手术/介入操作",
+      "医学影像判读"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "无传染性疾病"
+    ],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "口腔医学": {
+    "micro_actions": [
+      "手术/介入操作",
+      "临床诊断与鉴别",
+      "医学影像判读",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "无传染性疾病"
+    ],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "预防医学": {
+    "micro_actions": [
+      "公共卫生流行病学调查",
+      "数据分析与统计建模",
+      "政策文本分析与解读",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "下降"
+  },
+  "食品卫生与营养学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "公共卫生流行病学调查",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "妇幼保健医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "公共卫生流行病学调查",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "卫生监督": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "环境采样与监测",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "全球健康学": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "公共卫生流行病学调查",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "运动与公共健康": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "公共卫生流行病学调查",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "中医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "手术/介入操作",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "针灸推拿学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "手术/介入操作",
+      "康复训练方案制定"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "藏医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "蒙医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "维医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "壮医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "哈医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "傣医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "回医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "中医康复学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "康复训练方案制定",
+      "手术/介入操作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "中医养生学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "康复训练方案制定",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "中医儿科学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "手术/介入操作",
+      "医学影像判读"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "中医骨伤科学": {
+    "micro_actions": [
+      "手术/介入操作",
+      "临床诊断与鉴别",
+      "康复训练方案制定"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "中西医临床医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "手术/介入操作",
+      "医学影像判读",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "无传染性疾病"
+    ],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "药学": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "药物制剂": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "临床药学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "药事管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "法律文书起草与审查",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "药物分析": {
+    "micro_actions": [
+      "色谱/光谱分析",
+      "化学合成与分离纯化",
+      "实验设计与执行",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "药物化学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "海洋药学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "环境采样与监测",
+      "化学合成与分离纯化",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "化妆品科学与技术": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "材料性能测试",
+      "用户需求调研与访谈",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "药物经济与管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化",
+      "财务报表编制与分析",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "中药学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "化学合成与分离纯化",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "中药资源与开发": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "环境采样与监测",
+      "色谱/光谱分析",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "藏药学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "蒙药学": {
+    "micro_actions": [
+      "实验设计与执行",
+      "化学合成与分离纯化",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "中药制药": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "实验设计与执行",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "中草药栽培与鉴定": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "环境采样与监测",
+      "色谱/光谱分析"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "法医学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "医学影像判读"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "无传染性疾病"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "医学检验技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "临床诊断与鉴别",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "医学实验技术": {
+    "micro_actions": [
+      "实验设计与执行",
+      "色谱/光谱分析",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "医学影像技术": {
+    "micro_actions": [
+      "医学影像判读",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "眼视光学": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "康复治疗学": {
+    "micro_actions": [
+      "康复训练方案制定",
+      "体能训练与运动康复",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "口腔医学技术": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "工程制图/CAD建模",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "卫生检验与检疫": {
+    "micro_actions": [
+      "环境采样与监测",
+      "色谱/光谱分析",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "听力与言语康复学": {
+    "micro_actions": [
+      "康复训练方案制定",
+      "用户需求调研与访谈",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "康复物理治疗": {
+    "micro_actions": [
+      "康复训练方案制定",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "康复作业治疗": {
+    "micro_actions": [
+      "康复训练方案制定",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "健康与医疗保障": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "老年医学与健康": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "康复训练方案制定",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "核医学工程": {
+    "micro_actions": [
+      "医学影像判读",
+      "实验设计与执行",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "护理学": {
+    "micro_actions": [
+      "临床护理操作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲",
+      "无传染性疾病"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "助产学": {
+    "micro_actions": [
+      "临床护理操作"
+    ],
+    "hard_threshold": [
+      "无传染性疾病",
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "管理科学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "系统架构设计",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "信息管理与信息系统": {
+    "micro_actions": [
+      "数据库设计与优化",
+      "系统架构设计",
+      "数据分析与统计建模",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "工程管理": {
+    "micro_actions": [
+      "工地现场管理与监理",
+      "造价预算编制",
+      "风险评估与量化",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "房地产开发与管理": {
+    "micro_actions": [
+      "风险评估与量化",
+      "合同谈判与尽调",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "工程造价": {
+    "micro_actions": [
+      "造价预算编制",
+      "工程制图/CAD建模",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "保密管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "邮政管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "大数据管理与应用": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "数据库设计与优化",
+      "机器学习模型训练",
+      "A/B测试与增长实验"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "工程审计": {
+    "micro_actions": [
+      "审计底稿编制",
+      "财务报表编制与分析",
+      "造价预算编制",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "计算金融": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "风险评估与量化",
+      "机器学习模型训练",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "应急管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化",
+      "工地现场管理与监理"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "工商管理": {
+    "micro_actions": [
+      "财务报表编制与分析",
+      "用户需求调研与访谈",
+      "合同谈判与尽调",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "市场营销": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "A/B测试与增长实验",
+      "产品原型设计与迭代",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "会计学": {
+    "micro_actions": [
+      "财务报表编制与分析",
+      "审计底稿编制",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "下降"
+  },
+  "财务管理": {
+    "micro_actions": [
+      "财务报表编制与分析",
+      "风险评估与量化",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "国际商务": {
+    "micro_actions": [
+      "合同谈判与尽调",
+      "多语种翻译与本地化",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "人力资源管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "政策文本分析与解读",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "审计学": {
+    "micro_actions": [
+      "审计底稿编制",
+      "财务报表编制与分析",
+      "合同谈判与尽调",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "资产评估": {
+    "micro_actions": [
+      "财务报表编制与分析",
+      "风险评估与量化",
+      "合同谈判与尽调",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "物业管理": {
+    "micro_actions": [
+      "工地现场管理与监理",
+      "用户需求调研与访谈",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "文化产业管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "用户需求调研与访谈",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "劳动关系": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "合同谈判与尽调",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "体育经济与管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "产品原型设计与迭代",
+      "A/B测试与增长实验",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "财务会计教育": {
+    "micro_actions": [
+      "财务报表编制与分析",
+      "教学设计/教案编写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "下降"
+  },
+  "市场营销教育": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "A/B测试与增长实验",
+      "教学设计/教案编写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "零售业管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "A/B测试与增长实验",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "创业管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "产品原型设计与迭代",
+      "A/B测试与增长实验",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "海关稽查": {
+    "micro_actions": [
+      "审计底稿编制",
+      "风险评估与量化",
+      "法律文书起草与审查",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "内部审计": {
+    "micro_actions": [
+      "审计底稿编制",
+      "风险评估与量化",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "商业人工智能": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "用户需求调研与访谈",
+      "A/B测试与增长实验"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "农林经济管理": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "政策文本分析与解读",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "农村区域发展": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "政策文本分析与解读",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "乡村治理": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "政策文本分析与解读",
+      "法律文书起草与审查"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "公共事业管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "用户需求调研与访谈",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "行政管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "法律文书起草与审查"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "劳动与社会保障": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化",
+      "法律文书起草与审查"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "土地资源管理": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "工程制图/CAD建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "城市管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "用户需求调研与访谈",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "海关管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "法律文书起草与审查",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "交通管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "海事管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化",
+      "环境采样与监测"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "公共关系学": {
+    "micro_actions": [
+      "新闻采访与稿件撰写",
+      "用户需求调研与访谈",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "健康服务与管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "政策文本分析与解读",
+      "教学设计/教案编写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "海警后勤管理": {
+    "micro_actions": [
+      "财务报表编制与分析",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "医疗产品管理": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "风险评估与量化",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "医疗保险": {
+    "micro_actions": [
+      "风险评估与量化",
+      "政策文本分析与解读",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "养老服务管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "政策文本分析与解读",
+      "康复训练方案制定"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "海关检验检疫安全": {
+    "micro_actions": [
+      "环境采样与监测",
+      "色谱/光谱分析",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "海外安全管理": {
+    "micro_actions": [
+      "风险评估与量化",
+      "政策文本分析与解读",
+      "法律文书起草与审查"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "自然资源登记与管理": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "工程制图/CAD建模",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "慈善管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "财务报表编制与分析",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "航空安防管理": {
+    "micro_actions": [
+      "风险评估与量化",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "无障碍管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "政策文本分析与解读",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "人才发展与管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "教学设计/教案编写",
+      "课堂讲授与互动"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "数字公共治理": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "政策文本分析与解读",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "图书馆学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "用户需求调研与访谈",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "档案学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "信息资源管理": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "数据库设计与优化",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "数据资源与数据智能": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "数据库设计与优化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "物流管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "风险评估与量化",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "物流工程": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "系统架构设计",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "采购管理": {
+    "micro_actions": [
+      "合同谈判与尽调",
+      "风险评估与量化",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "供应链管理": {
+    "micro_actions": [
+      "系统架构设计",
+      "数据分析与统计建模",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "工业工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "工程制图/CAD建模",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "标准化工程": {
+    "micro_actions": [
+      "政策文本分析与解读",
+      "实验设计与执行"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "质量管理工程": {
+    "micro_actions": [
+      "实验设计与执行",
+      "数据分析与统计建模",
+      "风险评估与量化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "电子商务": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "A/B测试与增长实验",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "下降"
+  },
+  "电子商务及法律": {
+    "micro_actions": [
+      "法律文书起草与审查",
+      "合同谈判与尽调",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "跨境电子商务": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "用户需求调研与访谈",
+      "A/B测试与增长实验"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "旅游管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "酒店管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "财务报表编制与分析"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "会展经济与管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "旅游管理与服务教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "国际邮轮管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "多语种翻译与本地化"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "数字文旅": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "产品原型设计与迭代",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "艺术史论": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "艺术管理": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "产品原型设计与迭代",
+      "合同谈判与尽调"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "非物质文化遗产保护": {
+    "micro_actions": [
+      "田野调查与访谈",
+      "文献检索与综述撰写",
+      "政策文本分析与解读"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "音乐表演": {
+    "micro_actions": [
+      "乐器演奏/声乐训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "音乐学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "作曲与作曲技术理论": {
+    "micro_actions": [
+      "乐器演奏/声乐训练",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "舞蹈表演": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "剧本分析与表演创作"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "舞蹈学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "舞蹈编导": {
+    "micro_actions": [
+      "剧本分析与表演创作",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "舞蹈教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "航空服务艺术与管理": {
+    "micro_actions": [
+      "多语种翻译与本地化",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [
+      "裸眼视力≥5.0",
+      "无任何色觉障碍",
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "流行音乐": {
+    "micro_actions": [
+      "乐器演奏/声乐训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "音乐治疗": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "学生心理辅导",
+      "乐器演奏/声乐训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "流行舞蹈": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "剧本分析与表演创作"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "音乐教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "乐器演奏/声乐训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "冰雪舞蹈表演": {
+    "micro_actions": [
+      "体能训练与运动康复",
+      "剧本分析与表演创作",
+      "竞赛战术制定"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "舞蹈治疗": {
+    "micro_actions": [
+      "临床诊断与鉴别",
+      "学生心理辅导",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "音乐科技": {
+    "micro_actions": [
+      "代码编写与Review",
+      "系统架构设计",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "乐器智造": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "材料性能测试",
+      "三维建模与渲染",
+      "乐器演奏/声乐训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "表演": {
+    "micro_actions": [
+      "剧本分析与表演创作"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "平稳"
+  },
+  "戏剧学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "剧本分析与表演创作"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "电影学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "镜头语言与剪辑"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "戏剧影视文学": {
+    "micro_actions": [
+      "剧本分析与表演创作",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "广播电视编导": {
+    "micro_actions": [
+      "镜头语言与剪辑",
+      "新闻采访与稿件撰写",
+      "剧本分析与表演创作"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "戏剧影视导演": {
+    "micro_actions": [
+      "剧本分析与表演创作",
+      "镜头语言与剪辑"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "戏剧影视美术设计": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "三维建模与渲染",
+      "工程制图/CAD建模"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "录音艺术": {
+    "micro_actions": [
+      "代码编写与Review",
+      "射频调试与匹配"
+    ],
+    "hard_threshold": [
+      "无听力障碍(裸耳≥5m)"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "播音与主持艺术": {
+    "micro_actions": [
+      "新闻采访与稿件撰写",
+      "多语种翻译与本地化",
+      "剧本分析与表演创作"
+    ],
+    "hard_threshold": [
+      "无口吃/发音障碍"
+    ],
+    "social_heat": "高",
+    "heat_trend": "下降"
+  },
+  "动画": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "三维建模与渲染",
+      "镜头语言与剪辑"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "影视摄影与制作": {
+    "micro_actions": [
+      "镜头语言与剪辑",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "影视技术": {
+    "micro_actions": [
+      "代码编写与Review",
+      "系统架构设计",
+      "信号完整性分析",
+      "镜头语言与剪辑"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "戏剧教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "剧本分析与表演创作"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "曲艺": {
+    "micro_actions": [
+      "剧本分析与表演创作",
+      "乐器演奏/声乐训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "音乐剧": {
+    "micro_actions": [
+      "乐器演奏/声乐训练",
+      "剧本分析与表演创作",
+      "体能训练与运动康复"
+    ],
+    "hard_threshold": [],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "数字戏剧": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "代码编写与Review",
+      "剧本分析与表演创作"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "数字演艺设计": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "工程制图/CAD建模",
+      "剧本分析与表演创作"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "智能影像艺术": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "代码编写与Review",
+      "镜头语言与剪辑"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "美术学": {
+    "micro_actions": [
+      "文献检索与综述撰写",
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "绘画": {
+    "micro_actions": [
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "雕塑": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "摄影": {
+    "micro_actions": [
+      "镜头语言与剪辑",
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "书法学": {
+    "micro_actions": [
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "中国画": {
+    "micro_actions": [
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "实验艺术": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "三维建模与渲染",
+      "田野调查与访谈"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "跨媒体艺术": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "代码编写与Review",
+      "镜头语言与剪辑"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "文物保护与修复": {
+    "micro_actions": [
+      "化学合成与分离纯化",
+      "色谱/光谱分析",
+      "材料性能测试"
+    ],
+    "hard_threshold": [
+      "无任何色觉障碍"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "漫画": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "剧本分析与表演创作",
+      "镜头语言与剪辑"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "纤维艺术": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "材料性能测试"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "科技艺术": {
+    "micro_actions": [
+      "代码编写与Review",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "美术教育": {
+    "micro_actions": [
+      "教学设计/教案编写",
+      "课堂讲授与互动",
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "虚拟空间艺术": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "软件UI/UX设计",
+      "镜头语言与剪辑"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "艺术治疗": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "学生心理辅导"
+    ],
+    "hard_threshold": [],
+    "social_heat": "低",
+    "heat_trend": "上升"
+  },
+  "艺术设计学": {
+    "micro_actions": [
+      "用户需求调研与访谈",
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "视觉传达设计": {
+    "micro_actions": [
+      "软件UI/UX设计",
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "平稳"
+  },
+  "环境设计": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "工程制图/CAD建模",
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "产品设计": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "产品原型设计与迭代",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "服装与服饰设计": {
+    "micro_actions": [
+      "素描/色彩/造型创作",
+      "三维建模与渲染",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "公共艺术": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "工艺美术": {
+    "micro_actions": [
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "数字媒体艺术": {
+    "micro_actions": [
+      "镜头语言与剪辑",
+      "三维建模与渲染",
+      "软件UI/UX设计"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "艺术与科技": {
+    "micro_actions": [
+      "软件UI/UX设计",
+      "三维建模与渲染",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "陶瓷艺术设计": {
+    "micro_actions": [
+      "素描/色彩/造型创作"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "低",
+    "heat_trend": "平稳"
+  },
+  "新媒体艺术": {
+    "micro_actions": [
+      "镜头语言与剪辑",
+      "软件UI/UX设计",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "上升"
+  },
+  "包装设计": {
+    "micro_actions": [
+      "软件UI/UX设计",
+      "素描/色彩/造型创作",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "珠宝首饰设计与工艺": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "素描/色彩/造型创作",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "平稳"
+  },
+  "人居设计": {
+    "micro_actions": [
+      "工程制图/CAD建模",
+      "三维建模与渲染",
+      "用户需求调研与访谈"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "中",
+    "heat_trend": "下降"
+  },
+  "游戏艺术设计": {
+    "micro_actions": [
+      "三维建模与渲染",
+      "软件UI/UX设计",
+      "镜头语言与剪辑"
+    ],
+    "hard_threshold": [
+      "无红绿色盲"
+    ],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  },
+  "未来机器人": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "机器学习模型训练",
+      "系统架构设计"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "交叉工程": {
+    "micro_actions": [
+      "系统架构设计",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "低空技术与工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "系统架构设计",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "集成电路科学与工程": {
+    "micro_actions": [
+      "芯片版图设计",
+      "信号完整性分析",
+      "射频调试与匹配"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "碳中和科学与工程": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "环评报告编制"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "智慧城市与空间规划": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "三维建模与渲染"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "智能医学工程": {
+    "micro_actions": [
+      "医学影像判读",
+      "机器学习模型训练"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "生物医药数据科学": {
+    "micro_actions": [
+      "数据分析与统计建模",
+      "机器学习模型训练",
+      "文献检索与综述撰写"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "智能影像工程": {
+    "micro_actions": [
+      "医学影像判读",
+      "机器学习模型训练",
+      "数据分析与统计建模"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "医工学": {
+    "micro_actions": [
+      "系统架构设计",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "医疗器械与装备工程": {
+    "micro_actions": [
+      "嵌入式系统开发",
+      "系统架构设计",
+      "产品原型设计与迭代"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "具身智能": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "嵌入式系统开发",
+      "系统架构设计",
+      "代码编写与Review"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "脑机科学与技术": {
+    "micro_actions": [
+      "机器学习模型训练",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "工程互联网": {
+    "micro_actions": [
+      "系统架构设计",
+      "代码编写与Review",
+      "嵌入式系统开发"
+    ],
+    "hard_threshold": [],
+    "social_heat": "极高",
+    "heat_trend": "上升"
+  },
+  "深地科学与工程": {
+    "micro_actions": [
+      "环境采样与监测"
+    ],
+    "hard_threshold": [],
+    "social_heat": "高",
+    "heat_trend": "上升"
+  }
+}
