@@ -394,8 +394,9 @@ def _render_question_block(
     block_title: str,
     block_desc: str,
     form_key: str,
-) -> None:
-    """渲染一个题目块（st.form）"""
+    submit_label: str = "💾 保存并继续",
+) -> bool:
+    """渲染一个题目块（st.form），返回 True 表示表单刚被提交"""
     st.markdown(f"### {block_title}")
     st.caption(block_desc)
 
@@ -405,92 +406,98 @@ def _render_question_block(
             st.markdown(f"##### **{qid}. {q['question']}**")
 
             opt_keys = list(q["options"].keys())
+            # 如果已有答案，预填；否则不预设选中项
+            existing = st.session_state.answers.get(qid)
+            default_idx = opt_keys.index(existing) if existing in opt_keys else None
             selected = st.radio(
                 f"Q_{qid}",
                 options=opt_keys,
                 format_func=lambda k, q=q: f"{k}. {q['options'][k]['text']}",
                 key=f"radio_{qid}",
                 label_visibility="collapsed",
-                index=None,
+                index=default_idx,
             )
             if selected:
                 st.session_state.answers[qid] = selected
 
-        st.form_submit_button(
-            "💾 保存并继续",
+        submitted = st.form_submit_button(
+            submit_label,
             type="primary",
             use_container_width=True,
         )
+    return submitted
 
 
 def render_questionnaire() -> None:
     """
     隐蔽式问卷：先10道宏观题，再30道微观题（分3块，每块10题）。
     每块一个 st.form，提交后进入下一块。
+    支持 review_block 回看/修改之前的题目，答案保留不清除。
     """
     st.markdown("---")
     st.markdown('<p class="section-title">🧠 深度测评（40题）</p>', unsafe_allow_html=True)
     st.caption("没有标准答案，选最接近你真实做法的选项。你的诚实比「正确」更重要。")
 
-    # ---- 导航按钮：返回上一页 ----
+    # 各块的 ID 集合
+    macro_ids = {q["id"] for q in MACRO_QUESTIONS}
+    micro_1_ids = {q["id"] for q in MICRO_QUESTIONS[:10]}
+    micro_2_ids = {q["id"] for q in MICRO_QUESTIONS[10:20]}
+    micro_3_ids = {q["id"] for q in MICRO_QUESTIONS[20:30]}
+    all_block_ids = [macro_ids, micro_1_ids, micro_2_ids, micro_3_ids]
+    block_names = ["第1部分", "第2部分", "第3部分", "第4部分"]
+
+    answered = set(st.session_state.answers.keys())
+    review_block = st.session_state.get("review_block", None)
+
+    # ---- 导航按钮 ----
     col_nav1, col_nav2, col_nav3 = st.columns([0.3, 0.3, 0.4])
 
-    # 按钮1：返回修改基本信息
     with col_nav1:
         if st.button("⬅️ 返回修改基本信息", use_container_width=True, key="back_to_profile"):
             st.session_state.profile_done = False
             st.rerun()
 
-    # 按钮2：返回上一部分（清除最近完成的题目块）
     with col_nav2:
-        # 判断当前处于哪个阶段，清除上一阶段的答案
-        macro_ids = {q["id"] for q in MACRO_QUESTIONS}
-        micro_1_ids = {q["id"] for q in MICRO_QUESTIONS[:10]}
-        micro_2_ids = {q["id"] for q in MICRO_QUESTIONS[10:20]}
-        micro_3_ids = {q["id"] for q in MICRO_QUESTIONS[20:30]}
+        # 找到最近完成的块，允许返回查看/修改（不删除答案）
+        latest_completed = None
+        for i, ids in enumerate(all_block_ids):
+            if ids.issubset(answered):
+                latest_completed = i  # 0=macro, 1=micro_1, 2=micro_2, 3=micro_3
 
-        answered = set(st.session_state.answers.keys())
+        if latest_completed is not None:
+            # 如果当前就在回顾某一块，允许再往上一块跳
+            target_block = review_block if review_block is not None else latest_completed
+            if target_block > 0:
+                prev_block = target_block - 1
+                if st.button(f"⬅️ 返回{block_names[prev_block]}", use_container_width=True, key="back_one_block"):
+                    st.session_state.review_block = prev_block
+                    st.rerun()
 
-        # 检查各块的完成情况，找出可以回退的目标
-        can_go_back = False
-        back_label = "⬅️ 返回上一部分"
-
-        if micro_3_ids.issubset(answered):
-            # 第4块已完成 → 可清除第4块答案
-            can_go_back = True
-            back_label = "⬅️ 返回上一部分（清除第4部分）"
-        elif micro_2_ids.issubset(answered):
-            # 第3块已完成 → 可清除第3块答案
-            can_go_back = True
-            back_label = "⬅️ 返回上一部分（清除第3部分）"
-        elif micro_1_ids.issubset(answered):
-            # 第2块已完成 → 可清除第2块答案
-            can_go_back = True
-            back_label = "⬅️ 返回上一部分（清除第2部分）"
-        elif macro_ids.issubset(answered):
-            # 第1块已完成 → 可清除第1块答案
-            can_go_back = True
-            back_label = "⬅️ 返回上一部分（清除第1部分）"
-
-        if can_go_back:
-            if st.button(back_label, use_container_width=True, key="back_one_block"):
-                if micro_3_ids.issubset(answered):
-                    for qid in micro_3_ids:
-                        st.session_state.answers.pop(qid, None)
-                elif micro_2_ids.issubset(answered):
-                    for qid in micro_2_ids:
-                        st.session_state.answers.pop(qid, None)
-                elif micro_1_ids.issubset(answered):
-                    for qid in micro_1_ids:
-                        st.session_state.answers.pop(qid, None)
-                elif macro_ids.issubset(answered):
-                    for qid in macro_ids:
-                        st.session_state.answers.pop(qid, None)
+    # ---- 回顾模式：显示指定块的完整题目 ----
+    if review_block is not None:
+        block_configs = [
+            (MACRO_QUESTIONS, "🔭 未来向往（第1部分 / 共4部分 · 回顾）",
+             "以下问题探测你对不同产业方向的真实向往程度。", "form_macro_review", "💾 保存修改，回到当前进度"),
+            (MICRO_QUESTIONS[:10], "🔬 日常行为（第2部分 / 共4部分 · 回顾）",
+             "实验课、小组作业、课余时间——你真实的行为模式是什么？", "form_micro_1_review", "💾 保存修改，回到当前进度"),
+            (MICRO_QUESTIONS[10:20], "💡 思维与习惯（第3部分 / 共4部分 · 回顾）",
+             "学习方式、信息摄入、压力应对——这些细节暴露你的底层天赋。", "form_micro_2_review", "💾 保存修改，回到当前进度"),
+            (MICRO_QUESTIONS[20:30], "🧩 社交与日常（第4部分 / 共4部分 · 回顾）",
+             "社交风格、整理习惯、自我驱动——最后10题。", "form_micro_3_review", "💾 保存修改，回到当前进度"),
+        ]
+        if 0 <= review_block < 4:
+            questions, title, desc, fkey, slabel = block_configs[review_block]
+            submitted = _render_question_block(questions, title, desc, fkey, submit_label=slabel)
+            if submitted:
+                # 清除回顾标记，回到正常流程（继续从最后一题往后）
+                st.session_state.review_block = None
                 st.rerun()
+        return
 
+    # ---- 正常答题流程 ----
     render_progress(st.session_state.answers)
 
-    # ---- 第1块：宏观意愿题 M1-M10 ----
+    # 第1块：宏观意愿题 M1-M10
     unanswered_macro = [q for q in MACRO_QUESTIONS if q["id"] not in st.session_state.answers]
     if unanswered_macro:
         _render_question_block(
@@ -501,7 +508,7 @@ def render_questionnaire() -> None:
         )
         return
 
-    # ---- 第2块：微观行为 U1-U10 ----
+    # 第2块：微观行为 U1-U10
     micro_1 = [q for q in MICRO_QUESTIONS[:10] if q["id"] not in st.session_state.answers]
     if micro_1:
         _render_question_block(
@@ -512,7 +519,7 @@ def render_questionnaire() -> None:
         )
         return
 
-    # ---- 第3块：微观行为 U11-U20 ----
+    # 第3块：微观行为 U11-U20
     micro_2 = [q for q in MICRO_QUESTIONS[10:20] if q["id"] not in st.session_state.answers]
     if micro_2:
         _render_question_block(
@@ -523,7 +530,7 @@ def render_questionnaire() -> None:
         )
         return
 
-    # ---- 第4块：微观行为 U21-U30 ----
+    # 第4块：微观行为 U21-U30
     micro_3 = [q for q in MICRO_QUESTIONS[20:30] if q["id"] not in st.session_state.answers]
     if micro_3:
         _render_question_block(
@@ -585,7 +592,7 @@ def compute_and_show_results() -> None:
         st.error("⚠️ 推荐引擎未返回结果。请检查数据文件是否完整：`label_checkpoints/` 目录下应有 3 个 JSON 文件，以及 `gaokao_majors.xlsx`。")
         st.info("可尝试在终端运行 `python test_funnel.py` 排查问题。")
     else:
-        render_funnel_results(funnel_results, user)
+        st.rerun()
 
 
 def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None:
@@ -984,6 +991,7 @@ def main() -> None:
         "user_industry_conn": "无",
         "user_track": "暂无",
         "user_stance": None,
+        "review_block": None,
     }
     for k, v in defaults.items():
         if k not in st.session_state:
@@ -1000,8 +1008,15 @@ def main() -> None:
 
         if st.session_state.funnel_results is not None:
             render_funnel_results(st.session_state.funnel_results, st.session_state.user)
-            _, cbtn, _ = st.columns([0.35, 0.3, 0.35])
-            with cbtn:
+            col_back, col_restart, _ = st.columns([0.25, 0.25, 0.5])
+            with col_back:
+                if st.button("⬅️ 返回修改答案", use_container_width=True, key="back_to_review"):
+                    # 回到最后一页题目（答案保留，不清除）
+                    st.session_state.review_block = 3  # 第4部分
+                    st.session_state.funnel_results = None
+                    st.session_state.user = None
+                    st.rerun()
+            with col_restart:
                 if st.button("🔄 重新测评", use_container_width=True, key="restart_result"):
                     # 回到激活码输入页
                     st.session_state.license_activated = False
@@ -1011,6 +1026,7 @@ def main() -> None:
                     st.session_state.user = None
                     st.session_state.key_consumed = False
                     st.session_state.profile_done = False
+                    st.session_state.review_block = None
                     # 清除用户画像数据
                     st.session_state.user_subjects = []
                     st.session_state.user_score = 500
