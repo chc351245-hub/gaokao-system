@@ -351,12 +351,13 @@ def render_user_profile_form() -> None:
             )
         with col_b:
             if track != "暂无":
+                stance_val = st.session_state.get("user_stance", "可以接受")
+                if stance_val not in ["强烈意向", "可以接受", "极度抗拒"]:
+                    stance_val = "可以接受"
                 stance = st.radio(
                     "你的态度是？",
                     options=["强烈意向", "可以接受", "极度抗拒"],
-                    index=["强烈意向", "可以接受", "极度抗拒"].index(
-                        st.session_state.get("user_stance", "可以接受")
-                    ),
+                    index=["强烈意向", "可以接受", "极度抗拒"].index(stance_val),
                 )
             else:
                 stance = None
@@ -430,6 +431,62 @@ def render_questionnaire() -> None:
     st.markdown("---")
     st.markdown('<p class="section-title">🧠 深度测评（40题）</p>', unsafe_allow_html=True)
     st.caption("没有标准答案，选最接近你真实做法的选项。你的诚实比「正确」更重要。")
+
+    # ---- 导航按钮：返回上一页 ----
+    col_nav1, col_nav2, col_nav3 = st.columns([0.3, 0.3, 0.4])
+
+    # 按钮1：返回修改基本信息
+    with col_nav1:
+        if st.button("⬅️ 返回修改基本信息", use_container_width=True, key="back_to_profile"):
+            st.session_state.profile_done = False
+            st.rerun()
+
+    # 按钮2：返回上一部分（清除最近完成的题目块）
+    with col_nav2:
+        # 判断当前处于哪个阶段，清除上一阶段的答案
+        macro_ids = {q["id"] for q in MACRO_QUESTIONS}
+        micro_1_ids = {q["id"] for q in MICRO_QUESTIONS[:10]}
+        micro_2_ids = {q["id"] for q in MICRO_QUESTIONS[10:20]}
+        micro_3_ids = {q["id"] for q in MICRO_QUESTIONS[20:30]}
+
+        answered = set(st.session_state.answers.keys())
+
+        # 检查各块的完成情况，找出可以回退的目标
+        can_go_back = False
+        back_label = "⬅️ 返回上一部分"
+
+        if micro_3_ids.issubset(answered):
+            # 第4块已完成 → 可清除第4块答案
+            can_go_back = True
+            back_label = "⬅️ 返回上一部分（清除第4部分）"
+        elif micro_2_ids.issubset(answered):
+            # 第3块已完成 → 可清除第3块答案
+            can_go_back = True
+            back_label = "⬅️ 返回上一部分（清除第3部分）"
+        elif micro_1_ids.issubset(answered):
+            # 第2块已完成 → 可清除第2块答案
+            can_go_back = True
+            back_label = "⬅️ 返回上一部分（清除第2部分）"
+        elif macro_ids.issubset(answered):
+            # 第1块已完成 → 可清除第1块答案
+            can_go_back = True
+            back_label = "⬅️ 返回上一部分（清除第1部分）"
+
+        if can_go_back:
+            if st.button(back_label, use_container_width=True, key="back_one_block"):
+                if micro_3_ids.issubset(answered):
+                    for qid in micro_3_ids:
+                        st.session_state.answers.pop(qid, None)
+                elif micro_2_ids.issubset(answered):
+                    for qid in micro_2_ids:
+                        st.session_state.answers.pop(qid, None)
+                elif micro_1_ids.issubset(answered):
+                    for qid in micro_1_ids:
+                        st.session_state.answers.pop(qid, None)
+                elif macro_ids.issubset(answered):
+                    for qid in macro_ids:
+                        st.session_state.answers.pop(qid, None)
+                st.rerun()
 
     render_progress(st.session_state.answers)
 
