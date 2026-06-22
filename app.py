@@ -350,17 +350,15 @@ def render_user_profile_form() -> None:
                 ),
             )
         with col_b:
-            if track != "暂无":
-                stance_val = st.session_state.get("user_stance", "可以接受")
-                if stance_val not in ["强烈意向", "可以接受", "极度抗拒"]:
-                    stance_val = "可以接受"
-                stance = st.radio(
-                    "你的态度是？",
-                    options=["强烈意向", "可以接受", "极度抗拒"],
-                    index=["强烈意向", "可以接受", "极度抗拒"].index(stance_val),
-                )
-            else:
-                stance = None
+            # 始终显示态度选项（st.form 内无法根据 track 动态显示/隐藏）
+            stance_val = st.session_state.get("user_stance", "可以接受")
+            if stance_val not in ["强烈意向", "可以接受", "极度抗拒"]:
+                stance_val = "可以接受"
+            stance = st.radio(
+                "你的态度是？（选「暂无赛道」时忽略此项）",
+                options=["强烈意向", "可以接受", "极度抗拒"],
+                index=["强烈意向", "可以接受", "极度抗拒"].index(stance_val),
+            )
 
         submitted = st.form_submit_button("💾 保存并进入测评", type="primary", use_container_width=True)
 
@@ -374,7 +372,8 @@ def render_user_profile_form() -> None:
             st.session_state.user_overseas = overseas
             st.session_state.user_industry_conn = industry_conn
             st.session_state.user_track = track
-            st.session_state.user_stance = stance
+            # track 为「暂无」时忽略态度，存 None
+            st.session_state.user_stance = stance if track != "暂无" else None
             st.session_state.profile_done = True
             st.rerun()
 
