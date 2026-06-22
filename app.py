@@ -310,6 +310,7 @@ def render_user_profile_form() -> None:
                 default=st.session_state.get("user_physical", []),
                 help="无不填",
             )
+            st.caption("⚠️ 以上体检选项仅供参考，具体专业对身体条件的要求请务必与目标院校招生办核实，以官方文件为准。")
 
         with col2:
             st.markdown("##### 🏠 家庭背景")
@@ -718,6 +719,21 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
         "⚠️ 本测评结果基于数据模型与大语言模型生成，仅供志愿填报参考。"
         "高考录取受政策、排位、招生计划等多重动态因素影响，可能存在数据偏差。"
         "最终志愿决策与风险需由本人及家属独立承担。"
+    )
+
+    st.markdown("---")
+    st.markdown(
+        "<div style='text-align:center; padding: 24px 0;'>"
+        "<p style='font-size:20px; font-weight:700; color:#667EEA; margin-bottom:8px;'>"
+        "🌟 愿你前程似锦，得偿所愿 🌟"
+        "</p>"
+        "<p style='font-size:15px; color:#555; line-height:2;'>"
+        "祝愿你能够考入理想的院校，选到自己真正热爱的专业。<br>"
+        "高考只是人生的一个路口，无论去向何方，<br>"
+        "保持好奇、保持努力，每一步都算数。"
+        "</p>"
+        "</div>",
+        unsafe_allow_html=True,
     )
 
 # ========================================================================
