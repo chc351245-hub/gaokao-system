@@ -720,31 +720,6 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
         "最终志愿决策与风险需由本人及家属独立承担。"
     )
 
-    _, cbtn, _ = st.columns([0.35, 0.3, 0.35])
-    with cbtn:
-        if st.button("🔄 重新测评", use_container_width=True, key="restart_result"):
-            # 回到激活码输入页
-            st.session_state.license_activated = False
-            st.session_state.license_key = ""
-            st.session_state.answers = {}
-            st.session_state.funnel_results = None
-            st.session_state.user = None
-            st.session_state.key_consumed = False
-            st.session_state.profile_done = False
-            # 清除用户画像数据
-            st.session_state.user_subjects = []
-            st.session_state.user_score = 500
-            st.session_state.user_rank_pct = 50.0
-            st.session_state.user_physical = []
-            st.session_state.user_econ = "中"
-            st.session_state.user_city = "新一线"
-            st.session_state.user_overseas = False
-            st.session_state.user_industry_conn = "无"
-            st.session_state.user_track = "暂无"
-            st.session_state.user_stance = "可以接受"
-            st.rerun()
-
-
 # ========================================================================
 # 第7部分：UI 页面组件
 # ========================================================================
