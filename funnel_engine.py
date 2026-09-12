@@ -206,6 +206,12 @@ SCORE_ALIGNMENT_MATRIX: dict[str, dict[str, float]] = {
 }
 
 
+# 用户核心产业意向的判定比例：达到个人峰值该比例以上的产业集群，视为"核心意向"。
+# 用相对峰值而非绝对阈值，是因为不同用户的意向强度天然不同（实测随机答卷峰值
+# 均值 57、个别用户可达 90+），但"他最想要的那几个方向"这件事是可比的。
+INDUSTRY_PEAK_RATIO = 0.65
+
+
 def _rank_tier(percentile: float) -> str:
     if percentile <= 10:
         return "top"
@@ -217,45 +223,68 @@ def _rank_tier(percentile: float) -> str:
         return "lower"
 
 
+def get_top_industries(user: UserProfile) -> set[str]:
+    """
+    用户的核心产业意向集 = 产业向量中达到个人峰值 INDUSTRY_PEAK_RATIO 以上的集群。
+
+    抽成独立函数是为了让 Layer 2 的筛选和推荐理由的生成共用同一定义，
+    避免两处各自维护阈值导致口径漂移。
+    """
+    iv = user.macro_industry_vector or {}
+    peak = max(iv.values()) if iv else 0.0
+    if peak <= 0:
+        return set()
+    return {ind for ind, score in iv.items() if score >= peak * INDUSTRY_PEAK_RATIO}
+
+
+# 风险容忍度分档阈值（绝对值，基于 questionnaire.py 的「按维度各自归一化」）
+# 归一化修复后实测：随机答卷均值 50.7、中位 50.0、范围 0~100；
+# 直接答"高风险偏好"(M6=D, M8=A) 的用户得 78.6，答"低风险偏好"(M6=A, M8=B) 的得 0.0。
+# 所以 65/35 能把三类人分开，而不是像原来那样把 86% 的人塞进同一档。
+RISK_TIER_HIGH = 65.0
+RISK_TIER_MEDIUM = 35.0
+
+
 def _risk_tier(user: UserProfile) -> str:
-    """根据用户价值观向量内部相对值判断风险容忍度等级"""
+    """
+    根据风险容忍度的绝对水平判断风险偏好档位。
+
+    为什么不再用「相对最大值」：原实现拿 风险容忍度 / max(五个价值维度) 做判定。
+    但那五个维度共享同一个分母、总分恒为 100，而"风险容忍度"在选项权重里出现得
+    本来就少（只有 M6/M7/M8/M10 涉及），于是它天然垫底——实测 500 份答卷里
+    high 出现 0 次、low 占 432 次，HEAT_ALIGNMENT_MATRIX 的 high 行成了死代码，
+    heat_align（占 Layer 3 分数的 40%）退化成「社会热度的固定查表」。
+    现在归一化改成按维度各自的上限，这里的绝对阈值才有意义。
+    """
     risk_tolerance = user.macro_value_vector.get("风险容忍度", 50.0)
-    # 用户在五个价值观维度中的最大值（用于内部归一化）
-    all_vals = list(user.macro_value_vector.values())
-    max_val = max(all_vals) if all_vals else 100.0
-    if max_val <= 0:
-        max_val = 100.0
-    # 相对风险容忍度
-    relative_risk = risk_tolerance / max_val
-    if relative_risk >= 0.6:
+    if risk_tolerance >= RISK_TIER_HIGH:
         return "high"
-    elif relative_risk >= 0.35:
+    elif risk_tolerance >= RISK_TIER_MEDIUM:
         return "medium"
     else:
         return "low"
 
 
 # 招生体量 → 市场容量系数
+#
+# 注意：这个系数乘在 Layer 3 总分上，所以它的摆幅必须显著小于 micro_match 的
+# 真实区分度。原表摆幅是 0.70~1.15（相差 64%），而 883 个专业里 440 个是"极小"
+# ——等于给一半专业无条件打了七折，比"你和这个专业合不合"影响还大。
+#
+# 招生体量是「就业市场容量」信息，不是「适配度」。这里把它降级为不超过 ±3% 的
+# 破并列项，保留它的相对大小关系，不让它主导排序。
 ENROLLMENT_CAPACITY_COEFFICIENT: dict[str, float] = {
-    "极大": 1.15,
-    "大":   1.05,
+    "极大": 1.03,
+    "大":   1.015,
     "中":   1.00,
-    "小":   0.85,
-    "极小": 0.70,
+    "小":   0.985,
+    "极小": 0.97,
 }
 
-# 产业热度微调系数（用于 Layer 2 专业类级别）
-INDUSTRY_HEAT_BONUS: dict[str, float] = {
-    "人工智能/大模型":    1.05,
-    "半导体/集成电路":    1.05,
-    "新能源汽车":         1.04,
-    "智能制造/机器人":    1.03,
-    "新能源":            1.03,
-    "互联网/软件":       1.02,
-    "金融/银行":         1.02,
-    "医疗健康/临床":     1.02,
-    "航空航天":          1.04,
-}
+# 说明：原先这里有一张 INDUSTRY_HEAT_BONUS（产业风口加成表），对 AI/半导体/新能源
+# 等赛道给 1.02~1.05 的乘数。它是「专业/产业的属性」，与用户是谁无关，属于白皮书
+# 1.2 节明令禁止"污染匹配分"的那类项，已从匹配分中移除。如需保留"风口"信息，
+# 建议作为前端的独立展示标签，而不是参与排序。
 
 
 # ============================================================================
@@ -300,19 +329,22 @@ def tags_to_vector(
     mapping: dict[str, dict[str, float]],
     dims: list[str],
 ) -> list[float]:
-    """将标签列表通过映射表转换为归一化向量"""
+    """
+    将标签列表通过映射表转换为向量。
+
+    说明：本函数的所有调用方都用余弦相似度做比对，而余弦对向量的整体缩放不敏感，
+    所以这里不做"除以标签数量"的归一化——那一步在数学上是空操作，只会让人误以为
+    它影响结果。真正决定对比结果的是各维度之间的相对比例。
+
+    归一化例外：无可用标签时必须返回零向量。原实现返回 [0.5] * len(dims)，而它与
+    典型用户向量的余弦高达 0.86，会让一个完全没有标签数据的专业拿到接近满分的匹配。
+    """
     vec = {d: 0.0 for d in dims}
-    if not tags:
-        return [0.5] * len(dims)  # 无标签时返回中性向量
     for tag in tags:
         if tag in mapping:
             for dim, weight in mapping[tag].items():
                 if dim in vec:
                     vec[dim] += weight
-    # 归一化：除以标签数量
-    n = len(tags)
-    if n > 0:
-        vec = {k: min(1.0, v / n) for k, v in vec.items()}
     return [vec[d] for d in dims]
 
 
@@ -554,13 +586,19 @@ def layer1_discipline_match(user: UserProfile, data: FunnelData) -> list[dict]:
         cog_sim = cosine_similarity(user_behavior, disc_cognitive_vec)
         per_sim = cosine_similarity(user_personality, disc_persona_vec)
 
-        score = cog_sim * 0.5 + per_sim * 0.3 + disc_weight * 0.2
+        # 认知:人格 = 50:30 的相对比例保持不变，去掉静态项后重新归一化到 0~1。
+        # 去掉了原来的 `+ disc_weight * 0.2`：discipline_weight 是一个写死的
+        # 「学科就业前景」排序（工学 0.92 / 医学 0.6 / 艺术学 0.4 / 哲学 0.25），
+        # 对每个用户固定贡献 0.05~0.184 分，与"这个人和这个门类合不合"无关，
+        # 属于白皮书 1.2 节禁止混入匹配分的那类项。
+        # discipline_weight 仍保留在返回值里供前端展示，但不参与打分。
+        score = cog_sim * 0.625 + per_sim * 0.375
 
         results.append({
             "discipline_name": disc_name,
             "cognitive_sim": round(cog_sim, 4),
             "persona_sim": round(per_sim, 4),
-            "weight_bonus": round(disc_weight, 4),
+            "weight_bonus": round(disc_weight, 4),  # 仅供展示，不参与打分
             "score": round(score, 4),
         })
 
@@ -586,17 +624,19 @@ def layer2_category_match(
     2. score = industry_match × 0.5 + asset_match × 0.2 + score_match × 0.3
     3. × 产业热度微调 + 选科匹配加成(+3%/科) + L1门类传导(±25%)
     """
-    # 用户顶层产业（得分 > 60 的集群）
-    top_industries = {
-        ind for ind, score in user.macro_industry_vector.items()
-        if score >= 60
-    }
-    if not top_industries:
-        top_industries = {"互联网与软件"}  # 默认
+    # ---- 用户核心产业 ----
+    top_industries = get_top_industries(user)
+    iv = user.macro_industry_vector or {}
+    # 注意：原实现在 top_industries 为空时硬编码兜底为 {"互联网与软件"}，且因为
+    # 旧的归一化让 >=60 永远打不到，这个兜底 100% 命中——等于给所有用户都安上了
+    # 同一个互联网偏好。现在如实反映"这个用户确实没有明显产业倾向"：
+    # 意向集为空 → 每个专业类的产业覆盖度都是 0 → 产业项对所有专业类是同一个常数，
+    # 自然失去区分力，由资产/分数项决定排序。这是正确的退化行为。
 
     rank_tier = _rank_tier(user.estimated_rank_percentile)
     econ_level = user.family_economic_level  # "高"/"中"/"低"
-    risk_tier = _risk_tier(user)
+    # 说明：原来这里算了一个 risk_tier 却从未在 Layer 2 中使用（死代码），已删除。
+    # risk_tier 只在 Layer 3 的 heat_align 里使用。
 
     # 构建 L1 的门类得分查找表
     disc_scores = {d["discipline_name"]: d["score"] for d in l1_results}
@@ -612,20 +652,51 @@ def layer2_category_match(
             # 不满足该专业类的选科要求 → 直接跳过
             continue
 
-        # --- industry_match ---
+        # --- industry_match：用户产业意向被该专业类覆盖的比例 ---
         industry_tags = cat_labels.get("industry_map", [])
-        matched_clusters = set()
-        category_clusters = set()
-        for tag in industry_tags:
-            cluster = INDUSTRY_TAG_TO_CLUSTER.get(tag, "")
-            category_clusters.add(cluster)
-            if cluster in top_industries:
-                matched_clusters.add(cluster)
-        # Jaccard 指数: 交集 / 并集（双向惩罚）
-        union = top_industries | category_clusters
-        industry_match = len(matched_clusters) / max(len(union), 1)
-        # 产业广度微调（多标签覆盖的类别小幅加成）
-        industry_match = min(1.0, industry_match * (1.0 + 0.05 * min(len(industry_tags), 8)))
+        category_clusters = {INDUSTRY_TAG_TO_CLUSTER.get(t, "") for t in industry_tags}
+        category_clusters.discard("")  # 未收录标签不应污染计算
+
+        # 原实现用 Jaccard(len(交集)/len(并集))，而并集含「用户的全部意向集群」，
+        # 于是专业类覆盖的产业越广、分母越大、得分反而越低——完全倒挂：
+        #   物流管理与工程类（2个集群）0.500 > 计算机类（5个集群）0.250
+        #   > 临床医学类（1个不映射互联网的集群）0.000
+        # 后果是医学/法学/农学/基础理学/教育学的产业项恒为 0（Layer 2 一半权重被清零），
+        # 且"物流管理"成为技术爱好者的第一推荐。
+        #
+        # 中途曾改成 served/total_intent（求和/总意向），它修好了「恒为 0」和倒挂，
+        # 但引入了相反方向的偏差：求和使**标签越多分越高**，把「这个专业类有几条
+        # 出路」当成了「有多契合我」。实测（生物医药型用户，峰值=100、政府公共=55.2）：
+        #   临床医学类 ['医疗健康/临床']                         → 生物医药          = 0.339
+        #   基础医学类 ['医疗健康/临床','科研/学术','制药/生物技术'] → 生物医药+政府公共  = 0.527
+        # 基础医学类凭空高 1.55 倍，只因为它多挂了一条「科研/学术」。而全表标签最多的
+        # 心理学类（互联网/软件+政府公共+教育培训+生物医药）拿到 0.702，被顶到该用户
+        # 第一名——这不是契合度，这是标签广度。
+        #
+        # 现改为「最强出路 × 平均出路 的几何平均」。对每条出路算 意向/峰值：
+        #   best  = max(意向/峰值)   —— 它最好的一条出路，是不是我最想要的
+        #   mean_ = mean(意向/峰值)  —— 它整体上有多少条出路合我口味
+        #   industry_match = sqrt(best * mean_)
+        #
+        # 为什么不用两者之一：
+        #   · 只用 mean_（纯平均）：会**惩罚宽口径专业**。实测技术爱好者（峰值 AI=100）
+        #     计算机类有 4 条出路 {AI 1.00, 互联网 0.68, 智能制造 0.63, 金融 0.21}
+        #     → mean=0.630，反而低于只有 2 条中等出路的物流管理与工程类（0.655）。
+        #     结果是计算机类被挤出 Top8、位置让给电子商务类/物流类——最典型的工科
+        #     强相关专业输给了「每条出路都平庸」的专业，方向错了。
+        #   · 只用 best（最强）：会**丧失区分度**。凡带"生物医药"标签的专业类全部
+        #     封顶 1.000（医学画像下 10 个专业类并列），Top8 截断线无从下手。
+        # 几何平均恒有 sqrt(best*mean_) ≥ mean_（因 best ≥ mean_），且 best=mean_ 时
+        # 等于两者——即「每条出路都完全对口」才得满分，「有一条顶级对口出路」也不会
+        # 被其余平庸出路拖垮。上界恒为 1.0，与标签数量无关，跨专业类可比。
+        peak_intent = max(iv.values()) if iv else 0.0
+        if category_clusters and peak_intent > 0:
+            ratios = [iv.get(c, 0.0) / peak_intent for c in category_clusters]
+            best_ratio = max(ratios)
+            mean_ratio = sum(ratios) / len(ratios)
+            industry_match = (best_ratio * mean_ratio) ** 0.5
+        else:
+            industry_match = 0.0
 
         # 特殊赛道 → 产业匹配强制拉升（用户明确意向 > 问卷推测）
         track = user.special_track_intent
@@ -649,16 +720,10 @@ def layer2_category_match(
         # 综合得分
         score = industry_match * 0.5 + asset_match * 0.2 + score_match * 0.3
 
-        # 产业热度微调系数（0.95 ~ 1.05）
-        industry_bonus = 1.0
-        for tag in industry_tags:
-            if tag in INDUSTRY_HEAT_BONUS:
-                industry_bonus = max(industry_bonus, INDUSTRY_HEAT_BONUS[tag])
-        score = score * industry_bonus
-
-        # 选科匹配加成：每满足1个必选科目 +3%
-        if required_subjects:
-            score *= 1.0 + 0.03 * len(required_subjects)
+        # 已移除的两项静态加成（都只取决于专业类自身，与用户无关）：
+        #   1. industry_bonus：按其产业标签给 AI/半导体/新能源 等风口 1.02~1.05 的乘数
+        #   2. 选科数量加成 `1.0 + 0.03 * len(required_subjects)`：这条逻辑是反的
+        #      ——选科要求越多代表门槛越高，不该反而加分（物化双锁 +6% > 单选物理 +3%）
 
         # ---- special_track：特殊赛道阻断与提权 ----
         track = user.special_track_intent
@@ -698,7 +763,12 @@ def layer2_category_match(
             "industry_match": round(industry_match, 4),
             "asset_match": round(asset_match, 4),
             "score_match": round(score_match, 4),
-            "score": round(min(1.0, score), 4),
+            # 不在这里做 min(1.0, ...) 截断：特殊赛道提权(×1.5/×1.3)和 L1 门类传导
+            # (最高 ×1.25) 本就会把分数推过 1.0，截断会把多个"被提权的方向"压成同一个
+            # 1.000，排名退化成"谁先出现在数据文件里谁靠前"。实测技术爱好者用户会出现
+            # 电子信息类 1.000 与另一个类别 1.000 并列；传媒用户更是出现两个 1.000。
+            # 分数只用于排序与展示，放开上限没有任何副作用。
+            "score": round(score, 4),
             "labels": cat_labels,
         })
 
@@ -790,6 +860,15 @@ def layer3_major_match(
                 "category_name": cat_name,
                 "discipline_name": disc_name,
                 "category_score": cat["score"],
+                # 三个分项必须一并带出来：下游 _reality_assessment 要靠它们把
+                # 「契合度」与「现实折损」拆开展示。原先这里只传了 category_score，
+                # 于是下游 .get(...) 全部落到默认值——契合度恒为 0、现实折损恒为「高」，
+                # UI 上会显示成"你完全不适合，而且哪个方向都高不可攀"。
+                "industry_match": cat.get("industry_match", 0.0),
+                "asset_match": cat.get("asset_match", 0.5),
+                "score_match": cat.get("score_match", 0.5),
+                # 注意 L2 里这个字段叫 labels，L3 这里沿用 category_labels——
+                # 两处命名不一致是历史遗留，_reality_assessment 读的是后者。
                 "category_labels": cat["labels"],
                 "recommended_majors": top_majors,
             })
@@ -845,14 +924,18 @@ def _generate_category_reason(cat: dict, user: UserProfile) -> str:
     parts = []
 
     # 产业匹配
+    # 阈值按新的「覆盖度」口径标定：industry_match 现在表示"该专业类覆盖了用户
+    # 多大比例的产业意向"，实测有效区间约 0.05~0.60（旧口径下这里是 0~1 的
+    # Jaccard，阈值 0.7 在新口径下几乎不可能触发，会让这段理由永不出现）。
     ind_match = cat.get("industry_match", 0)
-    if ind_match >= 0.7:
-        top_inds = [
-            ind for ind, score in user.macro_industry_vector.items()
-            if score >= 70
-        ]
+    if ind_match >= 0.35:
+        top_inds = sorted(get_top_industries(user), key=lambda i: -user.macro_industry_vector.get(i, 0))
         if top_inds:
             parts.append(f"你强烈向往的{'/'.join(top_inds[:3])}赛道与此方向高度对口")
+    elif ind_match >= 0.15:
+        top_inds = sorted(get_top_industries(user), key=lambda i: -user.macro_industry_vector.get(i, 0))
+        if top_inds:
+            parts.append(f"与你关注的{'/'.join(top_inds[:2])}方向有一定衔接")
 
     # 资产匹配
     asset_match = cat.get("asset_match", 0)
@@ -875,6 +958,97 @@ def _generate_category_reason(cat: dict, user: UserProfile) -> str:
         parts.append("综合多维度评估后的推荐方向")
 
     return "；".join(parts)
+
+
+# ---------------------------------------------------------------------------
+# 现实折损：把「契合度」与「现实可行度」拆成两个可独立展示的量
+# ---------------------------------------------------------------------------
+# 背景：`category_score = industry_match*0.5 + asset_match*0.2 + score_match*0.3`
+# 是一个把「你适不适合」和「你能不能上/扛不扛得住」混在一起的数。app.py 曾经
+# 直接把它当「方向匹配分」显示，同时又在下方提示「匹配分衡量你适不适合，不等同于
+# 你能不能考上」——这句话对那个数不成立（它有 50% 权重不是契合度）。
+#
+# 白皮书§五要求：录取概率必须作为独立标签展示，让用户能分辨
+# 「我适合但这个分不够」和「我不太适合」。所以这里把两者拆开输出：
+#   fit_score      —— 纯契合度（industry_match），只回答「适不适合」
+#   reality_tier   —— 现实折损档位，「能不能上 / 家庭扛不扛得住」的合并结论
+#   reality_reason —— 一句可直接展示给人看的话
+#
+# 注意：**排序仍用原来的 category_score**，这次改动只增加展示用的字段，
+# 不改变任何推荐结果。改排序口径是另一件事，需单独决策。
+REALITY_TIER_LOW = 0.85   # asset*0.4 + score*0.6 高于此值 → 折损小
+REALITY_TIER_MID = 0.65
+
+_SCORE_SENS_PHRASE = {
+    "极高": "该专业通常需要前 10% 位次，院校层级几乎决定职业高度",
+    "高":   "该专业通常需要前 15% 位次，好平台影响明显",
+    "中":   "该专业中分段仍可进入行业，院校差距主要体现在起点",
+    "低":   "该专业各层次院校差距不大，更看个人能力",
+    "极低": "该专业对院校层级不敏感，靠手艺吃饭",
+}
+
+_ASSET_SENS_PHRASE = {
+    "低": "对家庭资源依赖低，主要靠个人能力",
+    "中": "需要中等家庭资源支撑",
+    "高": "强资源驱动，家庭条件会形成长期天花板",
+}
+
+_RANK_TIER_PHRASE = {
+    "top": "前 10%", "upper": "前 10-30%",
+    "middle": "前 30-60%", "lower": "前 60-100%",
+}
+
+
+def _reality_assessment(cat: dict, user: UserProfile) -> dict:
+    """把现实折损拆成档位 + 可读理由，供 UI 独立展示（不进排序公式）"""
+    asset_match = cat.get("asset_match", 0.5)
+    score_match = cat.get("score_match", 0.5)
+    # 兼容两种字段名：L2 的输出用 "labels"，L3 把它改名成了 "category_labels"。
+    # 只认后者会让本函数在直接吃 L2 结果时静默退化成"敏感度=中"——临床医学类明明是
+    # 极高敏感，却会显示成"中分段仍可进入行业"，把最该提醒的话说反。
+    labels = cat.get("category_labels") or cat.get("labels") or {}
+    score_sens = labels.get("score_sensitivity", "中")
+    asset_sens = labels.get("asset_sensitivity", "中")
+
+    # 分数位次是比家庭资源更硬的约束（位次当年就定死了，资源还有 4 年可变），
+    # 故合并时给分数 0.6、资源 0.4。
+    combined = asset_match * 0.4 + score_match * 0.6
+    if combined >= REALITY_TIER_LOW:
+        tier = "低"
+    elif combined >= REALITY_TIER_MID:
+        tier = "中"
+    else:
+        tier = "高"
+
+    rank_tier = _rank_tier(getattr(user, "estimated_rank_percentile", 50.0))
+    econ = getattr(user, "family_economic_level", "中")
+
+    # 分数那句要说清「为什么是这一档」：score_match 低有两种相反的原因——
+    #   位次不够（专业太卷）  或  位次富裕（专业太浅）。
+    # 早期实现只会照抄 score_sensitivity 的描述，于是护理学类对前 15% 的考生
+    # 一边显示「现实折损：高」、一边写着"各层次院校差距不大，更看个人能力"——
+    # 高折损却说了一句宽心话，用户看不懂到底哪里不行。这里按组合分别表述。
+    my_rank = _RANK_TIER_PHRASE.get(rank_tier, "未知")
+    if score_sens in ("低", "极低") and rank_tier in ("top", "upper"):
+        score_note = (f"你的位次约在{my_rank}，高于该专业的常见录取区间——"
+                      f"它各层次院校差距不大，读它可能浪费你的位次")
+    elif score_sens in ("极高", "高") and rank_tier in ("middle", "lower"):
+        score_note = (f"你的位次约在{my_rank}，低于该专业的常见录取区间——"
+                      f"它高度依赖院校层级，需要位次再加把劲")
+    else:
+        score_note = (f"你的位次约在{my_rank}，"
+                      f"{_SCORE_SENS_PHRASE.get(score_sens, '该专业对分数位次有一定要求')}")
+
+    notes = [
+        score_note,
+        f"你的家庭经济水平为「{econ}」，该方向{_ASSET_SENS_PHRASE.get(asset_sens, '')}",
+    ]
+    return {
+        "fit_score": round(cat.get("industry_match", 0.0), 4),
+        "reality_tier": tier,
+        "reality_score": round(combined, 4),
+        "reality_reason": "；".join(notes),
+    }
 
 
 def _generate_major_reason(major: dict, user: UserProfile) -> str:
@@ -1001,6 +1175,15 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
             if dominant_count <= 4:
                 break  # 已足够多样
 
+        # 上面是「按位置就地替换」(l2[replace_pos] = cand)，替补的跨门类专业类
+        # 分数通常低于被换掉的那个，却继承了原位置 —— 于是对外展示的顺序不再
+        # 按分数单调。实测技术爱好者用户：材料类(0.9422)/力学类(0.9070) 被换成
+        # 数学类(0.8869)/物理学类(0.8895)，名单上就出现 #6 0.887 < #7 0.890
+        # < #8 0.893 的倒挂。
+        # 打散只关心「选哪些类专业类」，不关心顺序，故替换后重排一次即可，
+        # 打散效果完全保留。
+        l2.sort(key=lambda x: x["score"], reverse=True)
+
     # ---- Layer 3: 专业微观狙击 (≤6/类) ----
     if verbose:
         print(f"\n[Layer 3] 专业微观狙击 → ≤6/类 截断")
@@ -1028,6 +1211,9 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
                 print(f"  [Rescue] 输出偏少(类别{len(l3)}/专业{total_majors})，"
                       f"补充 {len(l3_rescue)} 个备选类别: "
                       f"{[c['category_name'] for c in l3_rescue]}")
+            # 救援类别是直接 extend 到末尾的，而它们的分数未必最低（它们只是
+            # 从 L2 第 9 名往后取的，不是按分数补的），同样会造成展示顺序倒挂。
+            l3.sort(key=lambda x: x["category_score"], reverse=True)
 
     # ---- 格式化输出 ----
     output = []
@@ -1047,11 +1233,17 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
             })
 
         cat_reason = _generate_category_reason(cat, user)
+        reality = _reality_assessment(cat, user)
         output.append({
             "category_name": cat["category_name"],
             "discipline_name": cat["discipline_name"],
             "category_reason": cat_reason,
             "category_score": cat["category_score"],
+            # 展示用分项：让「适不适合」与「能不能上」分开可见（见 _reality_assessment）
+            "fit_score": reality["fit_score"],
+            "reality_tier": reality["reality_tier"],
+            "reality_score": reality["reality_score"],
+            "reality_reason": reality["reality_reason"],
             "recommended_majors": majors_out,
         })
 
@@ -1072,8 +1264,12 @@ def print_funnel_results(results: list[dict]) -> None:
     for ci, cat in enumerate(results):
         medal = {0: "🥇", 1: "🥈", 2: "🥉"}.get(ci, f"#{ci+1}")
         print(f"\n{medal} [{cat['category_name']}] ({cat['discipline_name']})")
-        print(f"   得分: {cat['category_score']:.3f}")
+        print(f"   契合度: {cat.get('fit_score', 0):.3f}  "
+              f"| 现实折损: {cat.get('reality_tier', '?')}  "
+              f"| 综合排序分: {cat['category_score']:.3f}")
         print(f"   📌 {cat['category_reason']}")
+        if cat.get("reality_reason"):
+            print(f"   ⚖️ {cat['reality_reason']}")
         print(f"   ──────────────────────────────")
 
         for mi, m in enumerate(cat["recommended_majors"]):

@@ -688,44 +688,98 @@ CONSISTENCY_RULES = [
 # 第4部分：问卷评分函数
 # ============================================================================
 
+VALUE_DIMENSIONS = ["稳定偏好", "成长导向", "风险容忍度", "社会影响力", "经济回报"]
+
+
+def _normalize_by_own_max(raw: dict[str, float], maxima: dict[str, float]) -> dict[str, float]:
+    """
+    按「每个维度各自的理论上限」归一化到 0-100。
+
+    为什么不能用共享分母（原实现的问题）：
+      原实现用 max_possible = 作答数 × 10 当所有维度的共同分母。因为每道题各选项的
+      权重之和恒为 1.0，分数是在全部维度之间「分摊」的，于是：
+        - 10 个产业的分数加起来恒等于 100，每个平均只有 10 分；
+        - 价值向量同理，5 个维度加起来恒等于 100。
+      这意味着向量表达的是「偏好份额」而不是「0-100 的绝对水平」。但下游
+      funnel_engine 用 `>= 60` 这类绝对阈值去筛用户的核心产业，实测 300 份随机
+      答卷 0 份能达到——阈值永远打不到，整条产业链路被静默旁路。
+
+      改为各自归一化后，单个维度的 100 分有明确含义：「你几乎每一道题都选了
+      最偏向该维度的选项」。
+    """
+    out = {}
+    for k, v in raw.items():
+        mx = maxima.get(k, 0.0)
+        out[k] = round(min(1.0, max(0.0, v / mx)) * 100.0, 1) if mx > 0 else 0.0
+    return out
+
+
 def score_macro_questions(answers: dict[str, str]) -> tuple[dict[str, float], dict[str, float]]:
     industry_raw = {ind: 0.0 for ind in INDUSTRY_CLUSTERS}
-    value_raw = {"稳定偏好": 0.0, "成长导向": 0.0, "风险容忍度": 0.0, "社会影响力": 0.0, "经济回报": 0.0}
-    answered_count = 0
+    value_raw = {val: 0.0 for val in VALUE_DIMENSIONS}
+    # 每个维度各自的可得分上限（只统计用户实际作答的题目）
+    industry_max = {ind: 0.0 for ind in INDUSTRY_CLUSTERS}
+    value_max = {val: 0.0 for val in VALUE_DIMENSIONS}
+
     for q in MACRO_QUESTIONS:
         chosen = answers.get(q["id"])
-        if chosen and chosen in q["options"]:
-            answered_count += 1
-            opt = q["options"][chosen]
-            for ind, weight in opt["industry_weights"].items():
-                industry_raw[ind] += weight * 10
-            for val, weight in opt["value_weights"].items():
-                value_raw[val] += weight * 10
-    max_possible = max(answered_count, 1) * 10 * 1.0
-    industry_vector = {k: min(100.0, round(v / max_possible * 100, 1)) for k, v in industry_raw.items()}
-    value_vector = {k: min(100.0, round(v / max_possible * 100, 1)) for k, v in value_raw.items()}
-    return industry_vector, value_vector
+        if not (chosen and chosen in q["options"]):
+            continue
+        options = q["options"].values()
+        # 该题每个维度最多能拿多少 = 各选项里该维度权重的最大值
+        for ind in INDUSTRY_CLUSTERS:
+            industry_max[ind] += max((o["industry_weights"].get(ind, 0.0) for o in options), default=0.0)
+        for val in VALUE_DIMENSIONS:
+            value_max[val] += max((o["value_weights"].get(val, 0.0) for o in options), default=0.0)
+        # 实际得分
+        opt = q["options"][chosen]
+        for ind, weight in opt["industry_weights"].items():
+            if ind in industry_raw:
+                industry_raw[ind] += weight
+        for val, weight in opt["value_weights"].items():
+            if val in value_raw:
+                value_raw[val] += weight
+
+    return (_normalize_by_own_max(industry_raw, industry_max),
+            _normalize_by_own_max(value_raw, value_max))
+
 
 def score_micro_questions(answers: dict[str, str]) -> dict[str, float]:
+    """
+    微观行为评分，同样按「每个维度各自的上限」归一化。
+
+    为什么这是必须的：原实现把每个维度的分母算成「所有题、所有选项的正向贡献之和」，
+    即使用户每题都选最偏向该维度的选项也拿不到 100。而且惩罚是不均匀的——实测
+    各维度天花板为：创造性思维 83.3、精细操作 79.5、……抗压能力 55.7、沟通表达 58.8。
+    也就是说凡是要求「抗压能力」「沟通表达」的专业（临床医学、护理、师范）都在被
+    系统性压分，而这不是任何人的设计意图。
+    """
     raw = {dim: 0.0 for dim in BEHAVIOR_DIMENSIONS}
     max_possible = {dim: 0.0 for dim in BEHAVIOR_DIMENSIONS}
+
     for q in MICRO_QUESTIONS:
+        chosen = answers.get(q["id"])
+        if not (chosen and chosen in q["options"]):
+            continue
+        # 该题每个维度的上限 = 各选项中该维度的最大正向贡献
+        per_dim_best = {dim: 0.0 for dim in BEHAVIOR_DIMENSIONS}
         for opt in q["options"].values():
             for dim_key, delta in opt["dims"].items():
-                dim_name = _resolve_dim(dim_key)
                 if delta > 0:
-                    max_possible[dim_name] += delta
-        chosen = answers.get(q["id"])
-        if chosen and chosen in q["options"]:
-            for dim_key, delta in q["options"][chosen]["dims"].items():
-                dim_name = _resolve_dim(dim_key)
-                raw[dim_name] += delta
+                    dim_name = _resolve_dim(dim_key)
+                    if delta > per_dim_best[dim_name]:
+                        per_dim_best[dim_name] = delta
+        for dim, best in per_dim_best.items():
+            max_possible[dim] += best
+        # 实际得分
+        for dim_key, delta in q["options"][chosen]["dims"].items():
+            raw[_resolve_dim(dim_key)] += delta
+
     behavior_vector = {}
     for dim in BEHAVIOR_DIMENSIONS:
         mx = max_possible[dim]
         if mx > 0:
-            normalized = raw[dim] / mx * 100.0
-            behavior_vector[dim] = min(100.0, max(0.0, round(normalized, 1)))
+            behavior_vector[dim] = round(min(100.0, max(0.0, raw[dim] / mx * 100.0)), 1)
         else:
             behavior_vector[dim] = 50.0
     return behavior_vector
@@ -735,7 +789,9 @@ def _resolve_dim(dim_key: str) -> str:
     return mapping.get(dim_key, dim_key)
 
 def score_all(macro_answers, micro_answers):
-    return score_macro_questions(macro_answers)[0], score_macro_questions(macro_answers)[1], score_micro_questions(micro_answers)
+    # 修：原实现把 score_macro_questions 调用了两遍（同一份答卷算两次宏观分）
+    industry_vector, value_vector = score_macro_questions(macro_answers)
+    return industry_vector, value_vector, score_micro_questions(micro_answers)
 
 def build_user_from_answers(macro_answers, micro_answers, selected_subjects=None, estimated_score=0, estimated_rank_percentile=100.0, physical_conditions=None, family_economic_level="中", family_city_tier="新一线", family_has_overseas_resource=False, family_has_industry_connection="无", special_track_intent=None, special_track_stance=None):
     industry_vector, value_vector, behavior_vector = score_all(macro_answers, micro_answers)
