@@ -25,7 +25,6 @@ import openpyxl
 from user_profile import (
     UserProfile,
     BEHAVIOR_DIMENSIONS,
-    INDUSTRY_CLUSTERS,
 )
 
 # ============================================================================
@@ -133,42 +132,28 @@ MICRO_ACTION_TO_BEHAVIOR: dict[str, dict[str, float]] = {
     "公共卫生流行病学调查":     {"数据敏感": 0.40, "逻辑推理": 0.30, "团队协作": 0.30},
 }
 
-# 新产业标签 → 旧 10 产业集群映射（用于向后兼容现有问卷）
-INDUSTRY_TAG_TO_CLUSTER: dict[str, str] = {
-    "互联网/软件":       "互联网与软件",
-    "人工智能/大模型":    "AI与大模型",
-    "半导体/集成电路":    "半导体与芯片",
-    "通信/5G/6G":        "互联网与软件",
-    "智能制造/机器人":    "智能制造",
-    "新能源汽车":         "新能源",
-    "金融/银行":          "金融科技",
-    "证券/基金/资管":     "金融科技",
-    "保险/精算":          "金融科技",
-    "医疗健康/临床":      "生物医药",
-    "制药/生物技术":      "生物医药",
-    "教育培训":           "教育培训",
-    "法律服务/合规":      "政府公共",
-    "建筑/土木/城规":     "智能制造",
-    "能源/电力/碳中和":   "新能源",
-    "石油/化工/材料":     "新能源",
-    "农业/食品/林业":     "生物医药",
-    "传媒/广告/公关":     "文化传媒",
-    "影视/动画/娱乐":     "文化传媒",
-    "艺术设计/文创":      "文化传媒",
-    "体育产业":           "教育培训",
-    "政府/公共服务":      "政府公共",
-    "军事/国防工业":      "政府公共",
-    "科研/学术":          "政府公共",
-    "环保/新能源":        "新能源",
-    "物流/供应链":        "智能制造",
-    "零售/电商/消费":     "互联网与软件",
-    "房地产/物业":        "政府公共",
-    "咨询/审计/税务":     "金融科技",
-    "旅游/酒店/会展":     "文化传媒",
-    "航空航天":           "智能制造",
-    "海洋工程/船舶":      "智能制造",
-    "测绘/地质/矿业":     "新能源",
-}
+# ---------------------------------------------------------------------------
+# 【已删除】INDUSTRY_TAG_TO_CLUSTER / UNMAPPED_INDUSTRY_TAGS
+#
+# 这里原本有一张「33 个产业标签 → 10 个产业集群」的多对一映射表：用户向量是 10 维、
+# 专业类的标签有 33 个，靠这张表对齐。它是本引擎两个长期缺陷的共同根源：
+#
+#   · 「政府公共」吞并了 法律服务/合规、科研/学术、军事/国防工业、房地产/物业，
+#     一个维度覆盖 50/93 = 53.8% 的专业类，几乎不携带区分信息；
+#   · 「智能制造」吞并了 物流/供应链、建筑/土木/城规、航空航天、海洋工程/船舶，
+#     使「物流管理与工程类」凭空继承两个最热门的集群——实测 300 份随机答卷里
+#     16 份把它推为第一名、92 份进 Top8，而它真实的去向（物流/供应链）
+#     从头到尾没参与过打分。
+#
+# 中间做过一轮症状修复（把这 5 个错配标签排除出映射表）：物流确实降下去了，但代价是
+# 这些方向对**所有**用户恒为 0——因为问卷当时根本无法表达它们（用户向量只有 10 维，
+# M1-M10 没有一题问得到物流/建筑/航空航天）。拿假阳性换假阴性只是权宜。
+#
+# 现在：用户向量与专业类标签共用同一套 33 维词表（user_profile.INDUSTRY_DIMENSIONS），
+# 问卷也补上了能表达这些方向的 M11。映射层因此被**彻底删除**——专业类的
+# industry_map 标签直接就是用户向量的键，不需要任何转换。
+# 新增产业方向时，只需同时更新 INDUSTRY_DIMENSIONS 与相关题目的 industry_weights。
+# ---------------------------------------------------------------------------
 
 # 热度匹配：风险容忍度 → 社会热度的匹配分
 # 行：风险容忍度等级，列：社会热度等级
@@ -653,25 +638,32 @@ def layer2_category_match(
             continue
 
         # --- industry_match：用户产业意向被该专业类覆盖的比例 ---
-        industry_tags = cat_labels.get("industry_map", [])
-        category_clusters = {INDUSTRY_TAG_TO_CLUSTER.get(t, "") for t in industry_tags}
-        category_clusters.discard("")  # 未收录标签不应污染计算
+        # 专业类的 industry_map 标签与用户向量的键**是同一套 33 维词表**
+        # （user_profile.INDUSTRY_DIMENSIONS），因此这里不需要任何映射或转换。
+        ind_dims = cat_labels.get("industry_map", [])
+        #
+        # 标签直接作为查找键，不存在的键 iv.get(..., 0.0) 记 0 分——这是有意的：
+        # 一个专业类挂着的每条出路（哪怕用户完全没兴趣）都要留在分母里。**去掉一个 0
+        # 会抬高均值**：早期版本把未映射的标签直接丢弃，实测「建筑类」在传媒画像下
+        # 从 0.678 虚高到 0.830，一个建筑专业压过了中国语言文学类跃居第一。
+        # 同理，industry_map 里若出现没在 INDUSTRY_DIMENSIONS 登记的标签（登记遗漏），
+        # 它同样记 0 并留在分母——宁可让该专业类吃亏，也不要凭空放大它的契合度。
 
-        # 原实现用 Jaccard(len(交集)/len(并集))，而并集含「用户的全部意向集群」，
+        # 原实现用 Jaccard(len(交集)/len(并集))，而并集含「用户的全部意向产业」，
         # 于是专业类覆盖的产业越广、分母越大、得分反而越低——完全倒挂：
-        #   物流管理与工程类（2个集群）0.500 > 计算机类（5个集群）0.250
-        #   > 临床医学类（1个不映射互联网的集群）0.000
+        #   物流管理与工程类（2条出路）0.500 > 计算机类（5条出路）0.250
+        #   > 临床医学类（1条不含互联网的出路）0.000
         # 后果是医学/法学/农学/基础理学/教育学的产业项恒为 0（Layer 2 一半权重被清零），
         # 且"物流管理"成为技术爱好者的第一推荐。
         #
         # 中途曾改成 served/total_intent（求和/总意向），它修好了「恒为 0」和倒挂，
         # 但引入了相反方向的偏差：求和使**标签越多分越高**，把「这个专业类有几条
-        # 出路」当成了「有多契合我」。实测（生物医药型用户，峰值=100、政府公共=55.2）：
-        #   临床医学类 ['医疗健康/临床']                         → 生物医药          = 0.339
-        #   基础医学类 ['医疗健康/临床','科研/学术','制药/生物技术'] → 生物医药+政府公共  = 0.527
+        # 出路」当成了「有多契合我」。实测（生物医药型用户，峰值=100）：
+        #   临床医学类 ['医疗健康/临床']                            = 0.339
+        #   基础医学类 ['医疗健康/临床','科研/学术','制药/生物技术']  = 0.527
         # 基础医学类凭空高 1.55 倍，只因为它多挂了一条「科研/学术」。而全表标签最多的
-        # 心理学类（互联网/软件+政府公共+教育培训+生物医药）拿到 0.702，被顶到该用户
-        # 第一名——这不是契合度，这是标签广度。
+        # 心理学类（互联网/软件+教育培训+医疗健康/临床+政府/公共服务）拿到 0.702，
+        # 被顶到该用户第一名——这不是契合度，这是标签广度。
         #
         # 现改为「最强出路 × 平均出路 的几何平均」。对每条出路算 意向/峰值：
         #   best  = max(意向/峰值)   —— 它最好的一条出路，是不是我最想要的
@@ -684,14 +676,14 @@ def layer2_category_match(
         #     → mean=0.630，反而低于只有 2 条中等出路的物流管理与工程类（0.655）。
         #     结果是计算机类被挤出 Top8、位置让给电子商务类/物流类——最典型的工科
         #     强相关专业输给了「每条出路都平庸」的专业，方向错了。
-        #   · 只用 best（最强）：会**丧失区分度**。凡带"生物医药"标签的专业类全部
+        #   · 只用 best（最强）：会**丧失区分度**。凡带"医疗健康/临床"标签的专业类全部
         #     封顶 1.000（医学画像下 10 个专业类并列），Top8 截断线无从下手。
         # 几何平均恒有 sqrt(best*mean_) ≥ mean_（因 best ≥ mean_），且 best=mean_ 时
         # 等于两者——即「每条出路都完全对口」才得满分，「有一条顶级对口出路」也不会
         # 被其余平庸出路拖垮。上界恒为 1.0，与标签数量无关，跨专业类可比。
         peak_intent = max(iv.values()) if iv else 0.0
-        if category_clusters and peak_intent > 0:
-            ratios = [iv.get(c, 0.0) / peak_intent for c in category_clusters]
+        if ind_dims and peak_intent > 0:
+            ratios = [iv.get(d, 0.0) / peak_intent for d in ind_dims]
             best_ratio = max(ratios)
             mean_ratio = sum(ratios) / len(ratios)
             industry_match = (best_ratio * mean_ratio) ** 0.5
@@ -845,6 +837,10 @@ def layer3_major_match(
                 "heat_trend": major.get("heat_trend", "平稳"),
                 "hard_threshold": hard_thresholds,
                 "micro_actions": micro_tags,
+                # 招生体量原先只被换算成 capacity_coef 参与打分，没有带进结果，
+                # 于是推荐理由里想说「这专业全国招得极少」也拿不到数——而这是
+                # 家长最该看到的硬信息之一。
+                "enrollment_volume": enroll_vol,
                 "score": round(score, 4),
             })
 
@@ -880,15 +876,55 @@ def layer3_major_match(
 # 标签与理由生成
 # ============================================================================
 
+# 「产业风口」标签的判定集合。
+#
+# 这里原来写着 "新能源" 和 "碳中和"——它们是**旧 10 产业集群词表的残留**，而专业类的
+# industry_map 用的是 33 维标签（user_profile.INDUSTRY_DIMENSIONS），这两个字符串
+# 永远不可能命中，等于白写。
+#
+# 修法是**删掉，而不是换成新名字**：若把它们改写成 "能源/电力/碳中和" 与
+# "环保/新能源"，[产业风口] 会从 30/93 个专业类涨到 43/93，新增的是草学类、林学类、
+# 自然保护与环境生态类、海洋科学类、化学类这种——标成「风口」是误导。
+# 而真正该标风口的（电气类、能源动力类、材料类、机械类）本来就靠
+# 新能源汽车/智能制造/航空航天 命中了，删掉不会漏。
 HOT_INDUSTRY_TAGS = {
     "人工智能/大模型", "半导体/集成电路", "新能源汽车",
-    "智能制造/机器人", "新能源", "碳中和",
-    "互联网/软件", "航空航天",
+    "智能制造/机器人", "互联网/软件", "航空航天",
 }
 
 
-def _generate_major_tags(major: dict, cat_labels: dict) -> list[str]:
-    """为专业生成展示标签"""
+def _generate_category_tags(cat_labels: dict) -> list[str]:
+    """专业类级别的标签——对该类下**所有**专业都是同一个值。
+
+    这些标签原先挂在每张专业卡片上，于是一页 6 张卡片会把同一个标签重复 6 遍。
+    改成在类级别说明一次：既不再复读，信息也没丢。
+    """
+    tags = []
+
+    industry_tags = set(cat_labels.get("industry_map", []))
+    if industry_tags & HOT_INDUSTRY_TAGS:
+        tags.append("[产业风口]")
+
+    if cat_labels.get("score_sensitivity", "中") in ("极高", "高"):
+        tags.append("[高分敏感]")
+
+    if cat_labels.get("asset_sensitivity", "中") == "低":
+        tags.append("[低资源友好]")
+
+    # 薪资潜力：数据里一直有（layer2_categories.json 的 salary_potential），
+    # 但此前全引擎 0 次引用——采了没用。
+    if cat_labels.get("salary_potential") in ("高", "极高"):
+        tags.append("[薪资潜力高]")
+
+    return tags
+
+
+def _generate_major_tags(major: dict) -> list[str]:
+    """为专业生成展示标签——只放**专业之间会不同**的维度。
+
+    类级别的属性（产业风口/高分敏感/低资源友好/薪资潜力）见 _generate_category_tags，
+    不在这里重复。
+    """
     tags = []
     micro = major.get("micro_match", 0)
 
@@ -897,17 +933,10 @@ def _generate_major_tags(major: dict, cat_labels: dict) -> list[str]:
     elif micro >= 0.70:
         tags.append("[微观高度契合]")
 
-    score_sens = cat_labels.get("score_sensitivity", "中")
-    if score_sens in ("极高", "高"):
-        tags.append("[高分敏感]")
-
-    asset_sens = cat_labels.get("asset_sensitivity", "中")
-    if asset_sens == "低":
-        tags.append("[低资源友好]")
-
-    industry_tags = set(cat_labels.get("industry_map", []))
-    if industry_tags & HOT_INDUSTRY_TAGS:
-        tags.append("[产业风口]")
+    # 招生体量紧跟微观契合排在前面：它是这几个标签里最影响决策的一个
+    # （「极小」= 全国只有少数院校开设，大小年波动大、调剂风险高）。
+    if major.get("enrollment_volume") == "极小":
+        tags.append("[招生体量极小]")
 
     heat = major.get("social_heat", "中")
     if heat == "极高":
@@ -1051,33 +1080,97 @@ def _reality_assessment(cat: dict, user: UserProfile) -> dict:
     }
 
 
-def _generate_major_reason(major: dict, user: UserProfile) -> str:
-    """生成具体专业的推荐理由"""
+def _pick(variants: list[str], i: int) -> str:
+    """按**名次**挑句式变体。
+
+    这里不能用哈希（无论 crc32 还是内置 hash）：哈希在全局上分布均匀，但在**同一页
+    内部**不保证散开——实测 crc32 会在一页 6 个专业里挑出 3 个同款句式，正是要避免的
+    画面。按名次取模能保证相邻两个专业必然换一种说法。
+
+    也不用内置 hash()：它对字符串按进程随机加盐，同一个专业刷新一次页面就换一句话。
+    """
+    return variants[i % len(variants)]
+
+
+def _generate_major_reason(major: dict, user: UserProfile, cat_labels: dict = None,
+                           idx: int = 0) -> str:
+    """生成具体专业的推荐理由。
+
+    设计原则：**每一条理由都必须提到这个专业本身**。
+
+    旧实现最致命的一档是 micro < 0.70 的兜底：「你的核心优势（抗压能力(59分)、
+    创造性思维(48分)）与此专业有一定关联」——它只夸用户、完全不提专业，套在哲学、
+    护理、土木上全都成立。实测它占了全部推荐理由的 67.6%，是「文案官方、重复率高」
+    的最大来源（真正提到专业的 micro>=0.85 那档只占 2.4%，因为门槛太高）。
+    所以这里改成：说明这个专业**要什么**、和你的强项差在哪、它为什么还在榜上。
+    """
     parts = []
     micro = major.get("micro_match", 0)
     actions = major.get("micro_actions", [])
+    name = major.get("major_name", "该专业")
+    code = major.get("major_code", "")
+    demand = "、".join(actions[:2])
+    best_dim, best_val = user.get_top_behaviors(1)[0]
 
-    if micro >= 0.85:
-        top_actions = actions[:3] if actions else []
-        action_str = "、".join(top_actions)
-        parts.append(f"你的微观行为模式（{action_str}）与此专业核心要求极度吻合")
+    if micro >= 0.85 and demand:
+        parts.append(_pick([
+            f"{demand}——这正是{name}的核心动作，也是你最强的那一档",
+            f"你的行为画像与{name}几乎重合：它要的就是{demand}",
+            f"{name}的日常就是{demand}，在所有专业里算罕见的对口",
+        ], idx))
 
-    elif micro >= 0.70:
-        top_actions = actions[:2] if actions else []
-        action_str = "、".join(top_actions)
-        parts.append(f"你在{action_str}等方面与此专业有较好匹配")
+    elif micro >= 0.70 and demand:
+        parts.append(_pick([
+            f"{name}主要要求{demand}，和你对得上",
+            f"你在{demand}上有底子，正是{name}的日常",
+            f"{name}的核心动作是{demand}，与你重合度较高",
+        ], idx))
+
+    elif demand:
+        # 这一档不再空夸用户，而是如实交代落差与上榜原因。
+        # 注意三个变体里只有**一个**会点名用户的最强维度：用户的最强维度是固定的，
+        # 如果每条理由都念一遍，一页 4 个专业就会出现 4 次「不是你最强的动手实验
+        # (58分)」——句式轮换了，读起来还是复读机（实测每页 3.68 条在念同一个维度）。
+        parts.append(_pick([
+            f"{name}要的是{demand}，不是你最强的{best_dim}({best_val:.0f}分)——"
+            f"它上榜靠的是所属专业类的整体匹配",
+            f"它主要要求{demand}，与你的强项不同路，属于可以了解而非高度对口",
+            f"{name}的日常是{demand}；这一档不是你的强项，"
+            f"它进榜靠的是专业类整体匹配",
+        ], idx))
 
     else:
-        top_behaviors = user.get_top_behaviors(2)
-        bh_str = "、".join(f"{k}({v:.0f}分)" for k, v in top_behaviors)
-        parts.append(f"你的核心优势（{bh_str}）与此专业有一定关联")
+        parts.append(f"你的核心优势（{best_dim}({best_val:.0f}分)）与此专业有一定关联")
 
-    # 热度提示
-    heat = major.get("social_heat", "中")
-    if heat == "极高":
-        parts.append("该专业当前竞争极为激烈，建议做好梯度规划")
-    elif heat == "低":
-        parts.append("该专业相对冷门但稳定，竞争压力较小")
+    # 补充信息按重要性排序，最多再放一条——卡片正文被截断在 100 字，
+    # 塞太多反而把最该看的挤掉。
+    # 同一件事实给多个说法：一页里 4 个专业都「招生体量极小」时，若用同一句话
+    # 复述 4 遍，就又变回模板了。
+    extra = ""
+    thresholds = major.get("hard_threshold", [])
+    if thresholds:
+        extra = _pick([
+            f"该专业设体检门槛：{'、'.join(thresholds)}（你已符合）",
+            f"报考有硬门槛——{'、'.join(thresholds)}，你的条件没问题",
+            f"注意它有体检限制（{'、'.join(thresholds)}），你符合要求",
+        ], idx + 1)
+    elif major.get("enrollment_volume") == "极小":
+        extra = _pick([
+            "全国招生体量极小，开设院校少、分数波动大，志愿梯度要拉开",
+            "招生体量极小，只有少数院校开设，大小年波动明显",
+        ], idx + 1)
+    elif major.get("social_heat") == "极高":
+        extra = _pick([
+            "该专业当前竞争极为激烈，建议做好梯度规划",
+            "眼下报考热度极高，冲稳保三档都要留足",
+        ], idx + 1)
+    elif major.get("social_heat") == "低":
+        extra = _pick([
+            "该专业相对冷门但稳定，竞争压力较小",
+            "报考热度不高，录取相对从容",
+        ], idx + 1)
+    if extra:
+        parts.append(extra)
 
     return "。".join(parts)
 
@@ -1220,9 +1313,10 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
     for cat in l3:
         cat_labels = cat.get("category_labels", {})
         majors_out = []
-        for m in cat["recommended_majors"]:
-            tags = _generate_major_tags(m, cat_labels)
-            reason = _generate_major_reason(m, user)
+        for mi, m in enumerate(cat["recommended_majors"]):
+            tags = _generate_major_tags(m)
+            # 传名次 mi：理由的句式按名次轮换，保证同一页相邻的专业不会用同一种说法
+            reason = _generate_major_reason(m, user, cat_labels, idx=mi)
             majors_out.append({
                 "major_name": m["major_name"],
                 "major_code": m["major_code"],
@@ -1239,6 +1333,11 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
             "discipline_name": cat["discipline_name"],
             "category_reason": cat_reason,
             "category_score": cat["category_score"],
+            # 薪资潜力是**专业类**级别的属性（layer2_categories.json 里就有），
+            # 全引擎此前 0 次引用——采了没用。放在类级别展示一次，既补上了这块
+            # 信息，又避免 6 个专业卡片上重复 6 遍。
+            "salary_potential": cat_labels.get("salary_potential", "中"),
+            "category_tags": _generate_category_tags(cat_labels),
             # 展示用分项：让「适不适合」与「能不能上」分开可见（见 _reality_assessment）
             "fit_score": reality["fit_score"],
             "reality_tier": reality["reality_tier"],

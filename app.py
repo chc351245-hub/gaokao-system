@@ -30,7 +30,7 @@ from supabase import create_client, Client
 from user_profile import (
     UserProfile,
     BEHAVIOR_DIMENSIONS,
-    INDUSTRY_CLUSTERS,
+    INDUSTRY_DIMENSIONS,
     RIASEC_INFO,
 )
 from questionnaire import (
@@ -243,11 +243,38 @@ def get_all_keys() -> pd.DataFrame:
 # 第3部分：可视化组件
 # ========================================================================
 
-def render_bar_chart(scores: dict, color_map: dict = None, height: int = 320):
-    """柱状图（Plotly）"""
+# 33 个产业方向的配色：按 INDUSTRY_DIMENSIONS 的固定顺序循环取色，同一方向在任何
+# 用户下都是同一种颜色，便于横向比较。不用哈希/字典序取色——那会随键的顺序漂移。
+_INDUSTRY_PALETTE = [
+    "#667EEA", "#764BA2", "#E74C3C", "#F39C12", "#E67E22", "#2ECC71",
+    "#3498DB", "#1ABC9C", "#E91E63", "#FF5722", "#607D8B", "#9B59B6",
+]
+INDUSTRY_COLORS = {
+    name: _INDUSTRY_PALETTE[i % len(_INDUSTRY_PALETTE)]
+    for i, name in enumerate(INDUSTRY_DIMENSIONS)
+}
+
+
+def _clip(text: str, limit: int) -> str:
+    """超出 limit 才加省略号。
+
+    原来卡片里写的是 `{reason[:100]}...`——省略号是无条件拼上去的，短理由后面
+    也会挂一个「...」，看着像被截断了，其实是完整的。
+    """
+    text = text or ""
+    return text if len(text) <= limit else text[:limit - 1] + "…"
+
+
+def render_bar_chart(scores: dict, color_map: dict = None, height: int = 320, top_n: int = 0):
+    """柱状图（Plotly）
+
+    top_n > 0 时只画得分最高的 top_n 项（33 维产业向量全画会糊成一片）。
+    """
     import plotly.graph_objects as go
 
     items = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+    if top_n:
+        items = items[:top_n]
     labels = [k for k, _ in items]
     values = [v for _, v in items]
     colors = [color_map.get(k, "#667EEA") for k, _ in items] if color_map else ["#667EEA"] * len(labels)
@@ -623,16 +650,13 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
         )
 
     with col2:
-        st.markdown("##### 🏭 10大产业向往")
-        industry_color = {
-            "AI与大模型": "#667EEA", "互联网与软件": "#764BA2", "半导体与芯片": "#E74C3C",
-            "金融科技": "#F39C12", "智能制造": "#E67E22", "新能源": "#2ECC71",
-            "生物医药": "#3498DB", "教育培训": "#1ABC9C", "政府公共": "#95A5A6",
-            "文化传媒": "#E91E63",
-        }
+        st.markdown("##### 🏭 产业方向向往（Top 12）")
         st.plotly_chart(
-            render_bar_chart(user.macro_industry_vector, industry_color),
+            render_bar_chart(user.macro_industry_vector, INDUSTRY_COLORS, top_n=12),
             use_container_width=True,
+        )
+        st.caption(
+            "产业方向共 33 个，这里只画得分最高的 12 个；你没表露兴趣的方向为 0，不显示。"
         )
 
         # 推断人格
@@ -720,7 +744,13 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
             )
             if cat.get("reality_reason"):
                 st.caption(f"⚖️ {cat['reality_reason']}")
-            st.caption(f"共 {len(cat['recommended_majors'])} 个专业")
+            # 专业类级别的属性在这里说明一次——它们对类下 6 个专业是同一个值，
+            # 挂在每张专业卡片上只会变成 6 行重复（见 _generate_category_tags）。
+            _cat_tags = cat.get("category_tags") or []
+            st.caption(
+                f"共 {len(cat['recommended_majors'])} 个专业"
+                + ("　　" + " ".join(_cat_tags) if _cat_tags else "")
+            )
 
             # 专业卡片网格
             cols = st.columns(min(len(cat["recommended_majors"]), 3))
@@ -737,7 +767,7 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
                         <small><code>{m['major_code']}</code></small><br>
                         <small>匹配分: {m['major_score']:.3f}</small><br>
                         <div style="margin-top:6px;">{tag_html}</div>
-                        <p style="font-size:12px;color:#666;margin-top:6px;">{m['major_reason'][:100]}...</p>
+                        <p style="font-size:12px;color:#666;margin-top:6px;">{_clip(m['major_reason'], 110)}</p>
                         </div>
                         """,
                         unsafe_allow_html=True,

@@ -29,7 +29,7 @@ from questionnaire import (
     MACRO_QUESTIONS, MICRO_QUESTIONS, VALUE_DIMENSIONS,
     score_macro_questions, score_micro_questions, build_user_from_answers,
 )
-from user_profile import BEHAVIOR_DIMENSIONS, INDUSTRY_CLUSTERS
+from user_profile import BEHAVIOR_DIMENSIONS
 from funnel_engine import (
     load_funnel_data, run_funnel, layer1_discipline_match,
     layer2_category_match, get_top_industries, _risk_tier,
@@ -50,12 +50,25 @@ def check(cond: bool, label: str, detail: str = "") -> None:
 # ---------------------------------------------------------------------------
 
 def best_macro_for(target: str) -> dict:
-    """每题都选最偏向 target 产业集群的选项（构造一个立场最鲜明的用户）"""
-    return {
-        q["id"]: max(q["options"].items(),
-                     key=lambda kv: kv[1]["industry_weights"].get(target, 0.0))[0]
-        for q in MACRO_QUESTIONS
-    }
+    """每题都选最偏向 target 产业方向的选项（构造一个立场最鲜明的用户）
+
+    坑：M11 的选项 A~F 各只覆盖一组冷门方向，对一个主流 target 的权重**全是 0**。
+    直接 max() 会把并列的最大值判给**第一个**选项（A = 建筑/土木/城规），于是
+    「人工智能」画像的测试用户凭空多出一个建筑意向，把土木类顶到第一名——
+    这是构造画像时的假象，不是引擎的锅。所以这里显式跳过零权重的选项；
+    整题都没有带该 target 的选项时，选那个**不带任何产业权重**的选项
+    （即「以上都不是」），与真实用户作答的语义一致。
+    """
+    out = {}
+    for q in MACRO_QUESTIONS:
+        weights = {k: v["industry_weights"].get(target, 0.0)
+                   for k, v in q["options"].items()}
+        if max(weights.values()) <= 0.0:
+            neutral = [k for k, v in q["options"].items() if not v["industry_weights"]]
+            out[q["id"]] = neutral[0] if neutral else next(iter(q["options"]))
+        else:
+            out[q["id"]] = max(weights, key=lambda k: weights[k])
+    return out
 
 
 def micro_for(dim_weights: dict) -> dict:
@@ -69,18 +82,18 @@ def micro_for(dim_weights: dict) -> dict:
 
 
 PROFILES = {
-    "技术/编程": (best_macro_for("AI与大模型"),
+    "技术/编程": (best_macro_for("人工智能/大模型"),
                  micro_for({"logic": 3.0, "hands_on": 3.0, "focus": 2.5,
                             "data_sense": 2.0, "detail": 1.0}),
                  ["物理", "化学", "生物"], 15.0),
-    "传媒/创作": (best_macro_for("文化传媒"),
+    "传媒/创作": (best_macro_for("传媒/广告/公关"),
                  micro_for({"creative": 3.0, "comm": 3.0, "memory": 1.0, "team": 1.0}),
                  ["历史", "地理", "政治"], 25.0),
-    "医学/临床": (best_macro_for("生物医药"),
+    "医学/临床": (best_macro_for("医疗健康/临床"),
                  micro_for({"memory": 3.0, "focus": 2.5, "detail": 2.0,
                             "stress_tol": 2.5, "logic": 1.0}),
                  ["物理", "化学", "生物"], 15.0),
-    "金融/商业": (best_macro_for("金融科技"),
+    "金融/商业": (best_macro_for("金融/银行"),
                  micro_for({"data_sense": 3.0, "logic": 2.0, "comm": 2.5,
                             "stress_tol": 2.0}),
                  ["物理", "化学", "生物"], 12.0),
@@ -125,10 +138,10 @@ def test_normalization():
           f"最低维度上限 = {worst:.1f}")
 
     # 产业向量必须能突破旧代码的 60 分门槛（旧实现 400 份答卷全部 < 60）
-    iv, _ = score_macro_questions(best_macro_for("AI与大模型"))
-    check(iv["AI与大模型"] >= 90.0,
+    iv, _ = score_macro_questions(best_macro_for("人工智能/大模型"))
+    check(iv["人工智能/大模型"] >= 90.0,
           "鲜明立场的用户其目标产业分可达 90+",
-          f"AI与大模型 = {iv['AI与大模型']:.1f}")
+          f"人工智能/大模型 = {iv['人工智能/大模型']:.1f}")
 
     # 风险容忍度必须能突破 high 档门槛（旧实现 high 出现 0 次）
     _, vv = score_macro_questions(
@@ -232,7 +245,7 @@ def test_user_distinctness():
                for name, u in build_profiles().items()}
 
     names = list(results)
-    # 「金融科技」与「AI/互联网」在学科上是真实相邻的（金融工程/量化交易本身就要
+    # 「金融/银行」与「AI/互联网」在学科上是真实相邻的（金融工程/量化交易本身就要
     # 计算机+数学+统计），这对画像允许较高重合；其余画像之间必须近乎不相交。
     ADJACENT = {frozenset({"技术/编程", "金融/商业"})}
     for i in range(len(names)):
