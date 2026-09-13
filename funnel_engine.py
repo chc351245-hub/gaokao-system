@@ -197,6 +197,140 @@ SCORE_ALIGNMENT_MATRIX: dict[str, dict[str, float]] = {
 INDUSTRY_PEAK_RATIO = 0.65
 
 
+# 「用户没表达过兴趣的出路」在均值项里的权重。
+#
+# 见 layer2_category_match 里对 industry_match 的推导。等权均值（本参数 = 1.0）会把
+# 「这个专业类有几条出路你没提过」和「你提过的出路匹配得不好」按同一力度扣分，于是
+# 窄口径的明确申报吃亏：物流管理与工程类 {物流 1.0, 零售 0.35, 智能制造 0}
+# 只拿 sqrt(1.0 × 0.45) = 0.67，输给标签全对口的医学技术类。
+#
+# 取值 0.5 是**扫出来的**，不是拍的。只对**没申报过**的出路打折、对申报过但分数低的
+# 出路照常计权，所以它不会变成"标签越少越占便宜"（那正是之前修掉的标签广度偏差）。
+#
+# 扫描 0.0 / 0.2 / 0.3 / 0.5 / 0.7 / 1.0 六个值（1.0 = 改动前的等权版本），指标为
+# 「四类主流画像的 #1 是否正确」「Top8 平均不同分值」「契合度极差」「M11 明确申报的
+# 命中率」：
+#   β=1.0 → 主流 4/4，M11 命中 68.3%
+#   β=0.5 → 主流 4/4，M11 命中 70.2%   ← 取这个
+#   β=0.3 → 主流 3/4，M11 命中 72.1%   ← 弃用
+#   β=0.0 → 主流 2/4，M11 命中 71.9%
+# β=0.3 多出来的那点命中率，代价是技术画像的第 2 名被「生物医学工程类」顶掉、
+# 金融画像的第 1 名从统计学类翻成经济学类——而这 1.9 个百分点本身落在噪声里。
+# β=0.0 更是直接让窄标签专业类白拿满分。所以取 0.5：该涨的涨（技术倾向+申报物流
+# 的用户，交通运输类命中 2/60 → 15/60），既有排序一个不动。
+UNDECLARED_EXIT_WEIGHT = 0.5
+
+
+# 「明确申报方向」（M11）命中时，把 industry_match 往 1.0 拉拽的强度。
+#
+# 语义：M11 是全问卷唯一一道要求用户在具体行业方向里**选一个**的题，它表达的是
+# 明确申报而非推测，所以命中的专业类应该再往满分拉近一些。见 layer2_category_match
+# 里 `industry_match += (1 - industry_match) * DECLARED_BOOST * coverage` 的推导。
+#
+# ── β 是扫出来的，不是拍的 ──────────────────────────────────────────────
+# 扫描 0.0（=改动前）/ 0.15 / 0.25 / 0.35 / 0.50 / 0.70。指标是「M11 明确申报某方向
+# 时，代表专业类进 Top8 的份数（40 份/场景）」，同时监督聚合质量不能被拖坏。
+# 做法：主流方向（技术/传媒/医学/金融）的画像上，把 M11 单独改成冷门方向再跑。
+#
+#   β      物流   建筑   航空航天   农业*  │ 不同分值  极差     并列
+#   0.00   22    23     12        0      │ 7.540    0.4343   41.0%
+#   0.15   22    23     12        0      │ （与 0.00 完全一致，太弱、等于没改）
+#   0.25   22    32     12        0      │ 7.513    0.4409   40.8%
+#   0.35   40    29     25        0      │ 7.550    0.4221   41.0%   ← 取这个
+#   0.50   40    29     25        0      │ 7.530    0.4091   42.5%
+#   0.70   40    29     32        0      │ 7.465    0.3766   50.0%
+#
+# 取 0.35 的理由：物流 22→40（全中）、航空航天 12→25，而**聚合质量一分没掉**
+# （不同分值 7.540→7.550，并列答卷 41.0% 持平）。0.50 与 0.35 的命中数完全相同，
+# 但并列从 41.0% 涨到 42.5%（提权把更多类拉向 1.0，代价开始显形）；
+# 0.70 再多换来航空航天 25→32，代价是并列涨到 50.0%、极差从 0.43 掉到 0.38——
+# 那是本版专门要消灭的并列，不划算。
+# 四类主流画像的 #1 在**所有** β 下都保持正确，所以这里只在「申报命中」和
+# 「并列代价」之间权衡。
+#
+# *「农业」那一列在所有 β 下都是 0，但那不是没修好：`植物生产类` 的标签多挂了
+#   一条「科研/学术」，同类里还有 8 个专业类都挂着「农业/食品/林业」且契合度更高，
+#   Top8 根本装不下。真正该看的指标是「该方向进榜的专业类个数」：
+#   0.8 → 1.2（β=0.35）→ 2.4（β=0.70）。农业方向本身是被服务到的，
+#   只是不落在某一个特定专业类上。这条踩过一次坑（见版本报告 v6.2 的纠正记录）。
+#
+# ── 提权能改什么、不能改什么（别把这个常量想得太神）─────────────────────
+# 它只抬高 `industry_match`，也就是**只抬高契合度**。Top8 的座次由 category_score
+# 决定（industry_match×0.5 + asset_match×0.2 + score_match×0.3，再乘 L1 学科门类
+# 得分与特殊赛道系数），提权只吃其中一半权重。实测主流 IT 画像（pct 12/18/25）：
+#
+#   M11=B 物流管理与工程类   关提权 0/3 进榜 → 开提权 3/3   （契合度 .864 → .912）
+#   M11=A 建筑类             关提权 0/3 进榜 → 开提权 3/3
+#   M11=C 航空航天类         关提权 0/3 进榜 → 开提权 0/3   （契合度确实涨了，但座次不够）
+#   M11=D 农业 / F 体育      同上，0/3
+#
+# 也就是说：**声明方向一定变得更「契合」，但不保证挤进 Top8**——它的 asset/score
+# 匹配与所属学科门类仍按本人的实际情况算。这是有意的（白皮书要求契合度只衡量
+# 人↔专业的内在匹配、不得掺入录取维度），但「明确申报的方向要不要保底给一个榜位」
+# 是一个产品取舍，不是算法能自己定的事，已记入待办等用户拍板，不擅自改。
+DECLARED_BOOST = 0.35
+
+
+def _weighted_mean_ratio(ratios: list[float]) -> float:
+    """
+    对各条出路的「意向/峰值」求均值，但对**用户没申报过的出路**打折。
+
+    定义「申报过」为 ratio > 0，即该出路在用户向量里明确有分量。
+
+    为什么不能等权：等权均值把两件不同的事混为一谈——
+      · ratio == 0：这条出路用户**从没提过**；
+      · ratio 很低但 > 0：用户提过，只是这条出路对他吸引力一般。
+    前者不该和后者同罚。实测（M11 明确选物流的用户）等权均值下
+    物流管理与工程类进不了 Top8，而农业、体育方向同样接不住。
+
+    为什么又不能干脆把 ratio==0 的出路剔出分母：那等于"少挂一条出路就多得分"，
+    会把之前刚修掉的「标签广度」偏差从反方向请回来（极端情况是只挂 1 条标签的专业类
+    白拿满分）。所以只打折、不剔除。
+    """
+    if not ratios:
+        return 0.0
+    declared = sum(1 for r in ratios if r > 0)
+    undeclared = len(ratios) - declared
+    denom = declared + UNDECLARED_EXIT_WEIGHT * undeclared
+    if denom <= 0:
+        return 0.0
+    return sum(ratios) / denom
+
+
+def rank_by_score(
+    items: list[dict],
+    *,
+    score_key: str,
+    name_key: str,
+    fit_key: str | None = None,
+) -> list[dict]:
+    """
+    按分数降序排序，并保证**并列时的次序是确定的、与数据文件键顺序无关**。
+
+    为什么必须显式做这件事：代码里原先全是
+        items.sort(key=lambda x: x["score"], reverse=True)
+    Python 的排序是稳定的，于是分数完全相同时，谁排在前面**由元素进入列表的顺序**
+    决定——而那个顺序就是 layer2_categories.json / layer3_majors.json 里的键顺序。
+    实测 1000 份随机答卷，Top8 硬截断线上第 8 名与第 9 名分数完全相同的有 43 份
+    （4.3%）：也就是"谁能进推荐名单"由数据文件先写了谁决定。这不是排序，是抽签。
+
+    并列本身往往是**真实的**，不该被消灭：专业类的产业标签集合相同时，industry_match
+    是同一个数（数学上必然相等）；SCORE_ALIGNMENT_MATRIX 里也有多处格子取值相同。
+    所以这里只给并列定一个可解释、可复现的次序：
+      1. score_key 高者优先（主键）
+      2. fit_key 高者优先（次键）—— 分数相同时，优先给"更适合你"的那个
+      3. name_key 升序（末键）—— 纯粹为了确定性，与数据文件顺序解耦
+    """
+    # 末键单独排一次：Python 的稳定排序保证后一次排序不会打乱已排好的相对次序，
+    # 这是唯一能把「主键降序 + 末键升序」放进同一个稳定排序里的写法。
+    ordered = sorted(items, key=lambda x: str(x.get(name_key, "")))
+    if fit_key:
+        ordered.sort(key=lambda x: (x.get(score_key, 0.0), x.get(fit_key, 0.0)), reverse=True)
+    else:
+        ordered.sort(key=lambda x: x.get(score_key, 0.0), reverse=True)
+    return ordered
+
+
 def _rank_tier(percentile: float) -> str:
     if percentile <= 10:
         return "top"
@@ -587,7 +721,10 @@ def layer1_discipline_match(user: UserProfile, data: FunnelData) -> list[dict]:
             "score": round(score, 4),
         })
 
-    results.sort(key=lambda x: x["score"], reverse=True)
+    # 门类得分直接以 ±25% 传导进 Layer 2，并列若按数据文件顺序决出，会连带影响下游排序
+    results = rank_by_score(
+        results, score_key="score", fit_key="cognitive_sim", name_key="discipline_name"
+    )
     return results
 
 
@@ -681,14 +818,52 @@ def layer2_category_match(
         # 几何平均恒有 sqrt(best*mean_) ≥ mean_（因 best ≥ mean_），且 best=mean_ 时
         # 等于两者——即「每条出路都完全对口」才得满分，「有一条顶级对口出路」也不会
         # 被其余平庸出路拖垮。上界恒为 1.0，与标签数量无关，跨专业类可比。
+        # 均值项不是等权平均，而是「用户申报过的出路照常计权、没申报过的打折」，
+        # 见 _weighted_mean_ratio。等权版本会因「专业类挂着用户没点过的标签」扣分，
+        # 而窄口径的明确申报恰恰表现为「只有一条标签对得上」——实测 M11 明确选物流、
+        # 农业、体育的用户，对应专业类全部进不了 Top8，这正是当初要修的问题。
         peak_intent = max(iv.values()) if iv else 0.0
         if ind_dims and peak_intent > 0:
             ratios = [iv.get(d, 0.0) / peak_intent for d in ind_dims]
             best_ratio = max(ratios)
-            mean_ratio = sum(ratios) / len(ratios)
+            mean_ratio = _weighted_mean_ratio(ratios)
             industry_match = (best_ratio * mean_ratio) ** 0.5
         else:
             industry_match = 0.0
+
+        # --- 明确申报提权（M11）---
+        # M11 是全问卷唯一一道「如果必须选一个更具体的行业方向，你更愿意去?」。
+        # 它表达的是**明确申报**，不是从 M1–M10 里推出来的倾向，理应比问卷推测更重。
+        # 这和下面 special_track 的 `max(industry_match, 0.65)` 是同一个道理
+        # （「用户明确意向 > 问卷推测」），只是这里做成连续提权而非硬地板。
+        #
+        # 为什么不能只靠把它混进 macro_industry_vector：M11 只有 1 题的证据量，
+        # 进同一个向量会被 M1–M10 的 10 题稀释。实测（v6.2 及以前）：
+        #   申报「物流」→ 物流管理与工程类进 Top8 的命中率 29/60
+        #   申报「农业」→ 植物生产类  0/60（农业方向整体被顶掉）
+        #   申报「体育」→ 体育学类    14/60
+        #   申报「航空航天」→ 航空航天类 13/60
+        # 上面这段注释里写的「这正是当初要修的问题」，就是这个。
+        #
+        # 提权方式：按专业类**覆盖了多少申报分量**把 industry_match 往 1.0 拉。
+        #   coverage = 该专业类命中的申报权重之和 / 申报里最大的那条权重
+        # 用「最大权重」而不是「权重之和」做分母，是为了回答「这个专业类服务的是
+        # 我申报的**主方向**，还是顺带的次要方向」——M11 的 C 选项是
+        # {航空航天 0.4, 海洋工程/船舶 0.3, 军事/国防工业 0.2, 智能制造 0.1}，
+        # 航空航天类命中 0.4/0.4 = 1.0 拿满提权，只命中船舶的则拿 0.75。
+        # 用拉拽式 `x + (1-x)·β·coverage` 而不是硬地板，是因为硬地板会把所有命中
+        # 的专业类一起顶到同一个数（`max(x, 0.65)` 在医学赛道上就是这么做的），
+        # 那正是本版要消灭的并列来源。拉拽式保序、连续、且**上界仍是 1.0**。
+        #
+        # β 的取值见 DECLARED_BOOST 处的扫描记录。
+        declared = user.declared_industry_vector or {}
+        if declared:
+            max_declared = max(declared.values())
+            if max_declared > 0:
+                covered = sum(w for tag, w in declared.items() if tag in ind_dims)
+                coverage = min(1.0, covered / max_declared)
+                if coverage > 0:
+                    industry_match += (1.0 - industry_match) * DECLARED_BOOST * coverage
 
         # 特殊赛道 → 产业匹配强制拉升（用户明确意向 > 问卷推测）
         track = user.special_track_intent
@@ -764,7 +939,10 @@ def layer2_category_match(
             "labels": cat_labels,
         })
 
-    results.sort(key=lambda x: x["score"], reverse=True)
+    # 并列时按契合度、再按名称决定次序——不能靠数据文件里的键顺序（见 rank_by_score）
+    results = rank_by_score(
+        results, score_key="score", fit_key="industry_match", name_key="category_name"
+    )
 
     # 🔴 硬截断：保留 Top N
     return results[:top_n]
@@ -846,7 +1024,10 @@ def layer3_major_match(
 
         # 过滤 threshold_pass=0 的专业 + 排序
         major_results = [m for m in major_results if m["threshold_pass"]]
-        major_results.sort(key=lambda x: x["score"], reverse=True)
+        # 微观分并列时按微观契合度、再按名称决定次序（同一专业类内不会跨类比较）
+        major_results = rank_by_score(
+            major_results, score_key="score", fit_key="micro_match", name_key="major_name"
+        )
 
         # 🔴 硬截断：每类最多 6 个
         top_majors = major_results[:6]
@@ -1179,6 +1360,34 @@ def _generate_major_reason(major: dict, user: UserProfile, cat_labels: dict = No
 # 主入口：运行三层漏斗
 # ============================================================================
 
+def _annotate_fit_ties(output: list[dict]) -> None:
+    """
+    把「契合度显示值完全相同」的专业类互相标注，供页面如实说明（就地写回 fit_tied_with）。
+
+    为什么需要：industry_match 是专业类产业标签集合的**纯函数**——标签集合相同，
+    数值在数学上必然完全相等，这不是精度问题、也不是打分环节能修的。
+    实测 2000 份随机答卷，Top8 里出现显示级并列的有 852 份（42.6%）；按来源拆分，
+    其中 84% 来自 19 个标签集合完全相同的专业类（8 组，例如
+    中西医结合类/临床医学类/医学技术类/口腔医学类/护理学类 五者的标签都只有
+    「医疗健康/临床」），另外 16% 是标签不同、但差异标签恰好对该用户等值。
+
+    这里**不发明差异**——那只会把「标签广度」偏差从别的方向请回来。它只做一件事：
+    把事实说出来，免得并排三张卡片挂着一模一样的数字，看着像算错了。
+    注意 5 个医学类的去向在"产业"这个粒度上确实就是同一个，它们的区别在微观行为，
+    那是 Layer 3 在回答的问题，不是 Layer 2 的缺陷。
+
+    判定用 3 位小数，与页面 {fit:.3f} 的显示精度一致——用户看到相同就是相同。
+    """
+    groups: dict[float, list[dict]] = {}
+    for c in output:
+        groups.setdefault(round(c.get("fit_score", 0.0), 3), []).append(c)
+    for cats in groups.values():
+        if len(cats) < 2:
+            continue
+        for c in cats:
+            c["fit_tied_with"] = [o["category_name"] for o in cats if o is not c]
+
+
 def run_funnel(user: UserProfile, verbose: bool = False) -> list[dict]:
     """
     运行三层递进漏斗，返回结构化推荐结果。
@@ -1275,7 +1484,9 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
         # < #8 0.893 的倒挂。
         # 打散只关心「选哪些类专业类」，不关心顺序，故替换后重排一次即可，
         # 打散效果完全保留。
-        l2.sort(key=lambda x: x["score"], reverse=True)
+        l2 = rank_by_score(
+            l2, score_key="score", fit_key="industry_match", name_key="category_name"
+        )
 
     # ---- Layer 3: 专业微观狙击 (≤6/类) ----
     if verbose:
@@ -1306,7 +1517,9 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
                       f"{[c['category_name'] for c in l3_rescue]}")
             # 救援类别是直接 extend 到末尾的，而它们的分数未必最低（它们只是
             # 从 L2 第 9 名往后取的，不是按分数补的），同样会造成展示顺序倒挂。
-            l3.sort(key=lambda x: x["category_score"], reverse=True)
+            l3 = rank_by_score(
+                l3, score_key="category_score", fit_key="industry_match", name_key="category_name"
+            )
 
     # ---- 格式化输出 ----
     output = []
@@ -1346,7 +1559,160 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
             "recommended_majors": majors_out,
         })
 
+    # 标注契合度并列（就地写回 fit_tied_with 字段），页面据此如实说明
+    _annotate_fit_ties(output)
+
     return output
+
+
+def declared_direction_note(user: UserProfile, shown_names,
+                            max_directions: int = 2, max_missed: int = 2) -> list[dict]:
+    """M11 明确申报的方向里，**没能进入推荐名单**的专业类，以及为什么没能进。
+
+    这是「保底榜位」的折中做法（用户 2026-09-13 拍板）：**不改 Top8 名单、不进任何
+    排序公式**，只在结果页另起一块如实交代。理由见 `DECLARED_BOOST` 处的注释——
+    白皮书要求契合度只衡量人↔专业的内在匹配，不能把「用户说了想要」变成加分项去
+    挤掉综合得分更高的专业类；但用户的心理预期是「我明说了你就该给我看」，
+    两边的折中就是把名单和解释分开。
+
+    注意本函数**不假定** Top8 是按 category_score 取的前 8 名：多样性打散会在
+    L2 选出前 8 之后再替换掉末位，所以「分数排进前 8」和「真的出现在名单上」
+    是两回事。调用方必须把**实际展示的类名**传进来（`shown_names`），
+    否则会把「被多样性规则挤下去的」误判成「分数不够」。
+
+    **输出必须短。** 一个申报方向底下可能挂着十几个专业类（M11=D 的
+    `农业/食品/林业` 有 14 个落榜），全列出来就不是「提示」而是刷屏了。所以
+    只取 `max_directions` 个方向、每个方向最多 `max_missed` 个代表，且**跨方向去重**
+    （`化工与制药类` 同时挂着 `环保/新能源` 和 `制药/生物技术`，同一页只出现一次）。
+    剩下的用 `missed_total` 报个数，让用户知道「还有多少」，而不是假装只有这些。
+
+    Args:
+        user: 用户画像。没有明确申报（`declared_industry_vector` 为空）时返回空列表。
+        shown_names: 结果页实际展示的专业类名集合（`run_funnel` 输出的
+            `category_name`）。传 None 视作空，会把所有相关专业类都报成「未进榜」。
+        max_directions: 最多交代几个申报方向，按申报权重降序取。
+        max_missed: 每个方向最多列几个落榜专业类，按综合排序分降序取。
+
+    Returns:
+        list[dict]，每个**有专业类落榜的**申报方向一项，按申报权重降序：
+            direction    产业标签名，如 "航空航天"
+            weight       该方向的申报权重（原值）
+            is_primary   是否属于申报里权重最大的那批方向（M11 的 F 选项就是
+                         并列两个 0.45，此时两个都算主方向）
+            in_top       该方向下进了名单的专业类名
+            headline     一句话结论，可直接显示，无需再拼
+            missed       落榜的专业类，每项含 category_name / fit_score /
+                         category_score / reason
+            missed_total 该方向落榜的专业类总数（可能多于 len(missed)）
+        该方向下的专业类全部进了名单时**不返回**这一项——不需要解释「做对了什么」。
+    """
+    declared = getattr(user, "declared_industry_vector", None) or {}
+    if not declared:
+        return []
+
+    data = load_funnel_data()
+    if not data.categories:
+        return []
+    l1 = layer1_discipline_match(user, data)
+    cats = layer2_category_match(user, data, l1, top_n=999)
+    if not cats:
+        return []
+
+    shown = set(shown_names or [])
+
+    # 名次一律按**全体专业类**（89~93 个）算，而不是只在这几个相关的类之间排——
+    # 「契合度全表第 2」和「这几个里的第 2」对用户是两件事。
+    # 次序键带上类名是为了并列时也稳定，否则同一份答卷两次调用可能给出不同的名次。
+    by_score = sorted(cats, key=lambda c: (-c["score"], c["category_name"]))
+    score_rank = {c["category_name"]: i + 1 for i, c in enumerate(by_score)}
+    by_fit = sorted(cats, key=lambda c: (-c["industry_match"], c["category_name"]))
+    fit_rank = {c["category_name"]: i + 1 for i, c in enumerate(by_fit)}
+
+    max_weight = max(declared.values())
+    notes = []
+    already_listed = set()   # 跨方向去重：同一个专业类只在权重最高的那个方向下出现
+    # 按权重降序，让主方向排在最前（并列时按标签名，保证稳定）
+    for tag, weight in sorted(declared.items(), key=lambda kv: (-kv[1], kv[0])):
+        if len(notes) >= max_directions:
+            break
+        holders = [c for c in cats if tag in
+                   (data.categories.get(c["category_name"], {}).get("industry_map") or [])]
+        if not holders:
+            continue
+        in_top = [c["category_name"] for c in holders if c["category_name"] in shown]
+        missed = sorted((c for c in holders if c["category_name"] not in shown),
+                        key=lambda c: (-c["score"], c["category_name"]))
+        if not missed:
+            continue
+
+        items = []
+        for c in missed:
+            if len(items) >= max_missed:
+                break
+            name = c["category_name"]
+            if name in already_listed:
+                continue
+            rank = score_rank[name]
+            if rank <= len(shown):
+                # 分数够得着，是被多样性打散换掉的。这个区别必须说清楚，
+                # 否则用户会以为「这个方向分数不行」，实际是主动让位给别的门类。
+                #
+                # 归因到「多样性」有前提：名单得是满的。名单不满时还有另一个可能——
+                # L3 把这个专业类底下的专业全按硬门槛滤掉了，于是它整个类不出现在
+                # 输出里，这与多样性无关。实测 300 份随机答卷输出恒为 8 个类，
+                # 所以下面那个分支是保险丝而非常态；宁可说得含糊，也不要把
+                # 「被硬门槛滤掉」说成「被多样性挤掉」。
+                if len(shown) >= 8:
+                    why = (f"综合排序分其实排在第 {rank}，在上面这 {len(shown)} 个之内，"
+                           f"是被「同一学科门类不超过 4 个」的多样性规则挤下去的")
+                else:
+                    why = (f"综合排序分其实排在第 {rank}，在名单长度（{len(shown)}）之内——"
+                           f"它没出现在上面不是分数不够，是被后续规则挡下的")
+            else:
+                weak = ("分数位次匹配" if c["score_match"] <= c["asset_match"]
+                        else "家庭资源匹配")
+                fit = c["industry_match"]
+                # ⚠️ 「对口」这句话不能无条件说。契合度 0.197 的 `政治学类`
+                # 套上同一句式就成了「说明你与它确实对口」——把一句假话印给用户。
+                # 只有真的高才说对口，否则如实说这个方向本来就一般。
+                verdict = ("说明你与它确实对口" if fit >= 0.6
+                           else "它和你的行为、价值观画像本来就只沾一点边")
+                why = (f"契合度 {fit:.3f}（全表第 {fit_rank[name]} 名），{verdict}；"
+                       f"但综合排序分 {c['score']:.3f} 只排第 {rank} 名——"
+                       f"差距出在{weak}（{min(c['score_match'], c['asset_match']):.2f}）")
+            items.append({
+                "category_name": name,
+                "fit_score": c["industry_match"],
+                "category_score": c["score"],
+                "reason": why,
+            })
+            already_listed.add(name)
+
+        if not items:
+            continue   # 这个方向的落榜类已经在前面的方向里交代过了，不重复起一条
+
+        if in_top:
+            head = f"你申报的「{tag}」有 {len(in_top)} 个专业类进了上面的名单（{('、'.join(in_top))}）"
+        else:
+            head = f"你申报的「{tag}」**没有任何专业类进入上面的名单**"
+        head += f"，另有 {len(missed)} 个相关专业类没进"
+        # 只列了 2 个却写「另有 8 个」，用户会以为下面漏印了。把「列了几个、
+        # 一共几个」说清楚，剩下的用数字交代，而不是假装只有这些。
+        if len(items) < len(missed):
+            head += f"（下面列出其中最接近的 {len(items)} 个）"
+        head += "。"
+
+        notes.append({
+            "direction": tag,
+            "weight": weight,
+            "is_primary": weight >= max_weight - 1e-9,
+            "in_top": in_top,
+            "headline": head,
+            "missed": items,
+            "missed_total": len(missed),
+        })
+
+    return notes
 
 
 # ============================================================================

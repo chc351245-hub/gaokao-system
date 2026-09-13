@@ -208,6 +208,19 @@ class UserProfile:
     在 Step 0 中可能被衰减。
     """
 
+    declared_industry_vector: dict[str, float] = field(default_factory=dict)
+    """
+    **明确申报**的产业方向（权重原值，不归一化）。只来自 M11。
+
+    M11 是全问卷唯一一道「如果必须选一个更具体的行业方向，你更愿意去?」的题，
+    选中的选项就是用户对某个方向的**明确申报**，而不是从 M1–M10 里推出来的倾向。
+    之所以要单独拎出来，是因为 M11 只有 1 题的证据量，混进和 M1–M10 同一个向量里
+    时会被 10 题稀释掉——实测申报「物流」的用户，物流管理与工程类进不了 Top8。
+    `layer2_category_match` 用它给命中的专业类单独提权（见 DECLARED_BOOST）。
+
+    空字典 = 用户在 M11 选了「以上都不是」，即没有明确申报任何方向。
+    """
+
     macro_value_vector: dict[str, float] = field(default_factory=dict)
     """
     宏观价值观向量（0-100）。

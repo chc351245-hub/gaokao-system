@@ -50,6 +50,7 @@ from funnel_engine import (
     run_funnel,
     print_funnel_results,
     load_funnel_data,
+    declared_direction_note,
 )
 
 # ========================================================================
@@ -66,9 +67,9 @@ st.set_page_config(
 TABLE_NAME = "keys_table"
 
 # 题目总数
-TOTAL_MACRO = len(MACRO_QUESTIONS)    # 10
+TOTAL_MACRO = len(MACRO_QUESTIONS)    # 11（M1–M11，v6.1 补了 M11）
 TOTAL_MICRO = len(MICRO_QUESTIONS)    # 30
-TOTAL_QUESTIONS = TOTAL_MACRO + TOTAL_MICRO  # 40
+TOTAL_QUESTIONS = TOTAL_MACRO + TOTAL_MICRO  # 41
 
 
 # ========================================================================
@@ -605,6 +606,12 @@ def compute_and_show_results() -> None:
     with st.spinner("🎯 正在运行三层递进漏斗匹配..."):
         funnel_results = run_funnel(user, verbose=False)
 
+    # 申报方向提示块在这里就算好，而不是等 render 时现算：render_funnel_results
+    # 是挂在 session_state 上、每次交互都会重跑的，现算等于用户每展开一个折叠卡片
+    # 就把 Layer 1 + Layer 2 全量重跑一遍（93 个专业类）。
+    st.session_state.declared_notes = declared_direction_note(
+        user, [c["category_name"] for c in funnel_results]
+    )
     st.session_state.funnel_results = funnel_results
     st.session_state.user = user
 
@@ -618,6 +625,43 @@ def compute_and_show_results() -> None:
         st.info("可尝试在终端运行 `python test_funnel.py` 排查问题。")
     else:
         st.rerun()
+
+
+def _render_declared_direction_note(notes: list[dict]) -> None:
+    """「你明确申报的方向，为什么没出现在下面的名单里」提示块。
+
+    这是「保底榜位」的折中（用户 2026-09-13 拍板）：**不动下面的名单、不改排序**，
+    只在名单之前另起一块如实交代。为什么不直接把申报方向塞进 Top8——白皮书要求
+    契合度只衡量人↔专业的内在匹配，不能因为「用户说了想要」就让它去挤掉综合得分
+    更高的专业类。但用户的心理预期是「我明说了你就该给我看」，所以两头分开：
+    名单照旧，解释另给。
+
+    `notes` 由 `funnel_engine.declared_direction_note()` 在跑漏斗时算好、存在
+    `session_state.declared_notes` 里（见 `render_questionnaire` 的提交分支）——
+    不在本函数里现算，否则用户每展开一个折叠卡片就要重跑一遍全量匹配。
+    没有明确申报（M11 选了「以上都不是」）或申报方向全部进榜时 `notes` 为空，
+    此时**不显示**——不需要解释「做对了什么」。
+    """
+    if not notes:
+        return
+
+    # 只用 Markdown，不掺 HTML：st.info 的 unsafe_allow_html 默认是 False，
+    # 写了 <span style=...> 会被当成纯文本原样印在页面上（连尖括号一起）。
+    #
+    # 子弹列表前**必须留一个空行**，而且不能靠缩进表示层级：CommonMark 里
+    # 「段落行 + 空行 + 减号」才是列表，紧贴段落或用 4 空格缩进都可能被当成
+    # 上一段的续行，于是页面上出现一串光秃秃的「- 某某类：……」。
+    blocks = []
+    for n in notes:
+        # 「一个都没进」和「进了几个、还剩几个没进」是两种不同的严重程度，
+        # 前者要显眼，后者说明清楚就够。
+        flag = "🔴" if not n["in_top"] else "🔸"
+        lines = [f"{flag} **{n['headline']}**", ""]
+        lines += [f"- **{it['category_name']}**：{it['reason']}" for it in n["missed"]]
+        blocks.append("\n".join(lines))
+    blocks.append("> 只是如实说明，不代表这些方向不好——契合度是你与专业的内在匹配，"
+                  "综合排序分另外算了分数位次与家庭资源的现实折损。")
+    st.info("**📣 你明确申报的方向，有专业类没能进入下面的名单**\n\n" + "\n\n".join(blocks))
 
 
 def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None:
@@ -693,6 +737,8 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
     st.markdown("---")
     st.markdown('<p class="section-title">🎯 专业推荐（按方向分组）</p>', unsafe_allow_html=True)
 
+    _render_declared_direction_note(st.session_state.get("declared_notes") or [])
+
     for ci, cat in enumerate(funnel_results):
         medal = {0: "🥇", 1: "🥈", 2: "🥉"}.get(ci, f"#{ci+1}")
         cat_name = cat["category_name"]
@@ -717,6 +763,16 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
             # 够呛（后者才是实情：契合度 1.000，差距全在现实折损）。
             # 现在拆成两个各自可解释的量——排序仍用原来的 category_score，推荐结果不变。
             fit = cat.get("fit_score", 0)
+            # 契合度并列说明。industry_match 是专业类产业标签集合的纯函数——标签集合
+            # 相同就必然算出同一个数（实测 42.6% 的答卷 Top8 里至少有一组并列）。
+            # 不解释的话，并排三张卡片挂着一模一样的数字，用户只会认为算错了。
+            # 这里不编造差异，只说明"你们差在哪儿"。
+            tied = cat.get("fit_tied_with") or []
+            tie_note = (
+                f'<div style="color:#888;margin-top:2px;line-height:1.4;">'
+                f'与 {"、".join(tied)} 并列——你们在你没表达过意向的维度上才有区别</div>'
+                if tied else ""
+            )
             tier = cat.get("reality_tier", "中")
             tier_color = {"低": "#2E7D32", "中": "#E65100", "高": "#C62828"}.get(tier, "#666")
             tier_hint = {
@@ -729,9 +785,10 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
                 <div style="display:flex;gap:18px;align-items:flex-start;
                             padding:10px 12px;margin:6px 0 10px 0;
                             background:#FAFAFA;border-radius:10px;font-size:13px;">
-                  <div style="min-width:150px;">
+                  <div style="min-width:190px;">
                     <div style="color:#666;">契合度（你适不适合）</div>
                     <div style="font-size:20px;font-weight:600;color:#3949AB;">{fit:.3f}</div>
+                    {tie_note}
                   </div>
                   <div>
                     <div style="color:#666;">现实折损（能不能上 / 资源够不够）</div>
@@ -1071,6 +1128,7 @@ def main() -> None:
                     st.session_state.review_block = 3  # 第4部分
                     st.session_state.funnel_results = None
                     st.session_state.user = None
+                    st.session_state.declared_notes = None
                     st.rerun()
             with col_restart:
                 if st.button("🔄 重新测评", use_container_width=True, key="restart_result"):
@@ -1080,6 +1138,7 @@ def main() -> None:
                     st.session_state.answers = {}
                     st.session_state.funnel_results = None
                     st.session_state.user = None
+                    st.session_state.declared_notes = None
                     st.session_state.key_consumed = False
                     st.session_state.profile_done = False
                     st.session_state.review_block = None

@@ -4,7 +4,8 @@
 ================================================================================
  设计原则：
    1. 所有题目面向18岁高中生日常场景，不使用任何专业术语
-   2. 宏观意愿题(10道) 探测产业向往与价值观
+   2. 宏观意愿题(11道) 探测产业向往与价值观，每题另带一个零权重的
+      「都不感兴趣」选项（见 MACRO_QUESTIONS 里 M1 的注释）
    3. 微观行为题(30道) 通过具体场景探测10个行为维度
    4. 测谎规则对：宏观-微观矛盾检测
 
@@ -70,6 +71,28 @@ MACRO_QUESTIONS = [
                                      "旅游/酒店/会展": 0.10, "互联网/软件": 0.10},
                 "value_weights": {"社会影响力": 0.7, "成长导向": 0.3},
             },
+            # ---- 「都不感兴趣」选项（M1–M10 每题各有一个）----
+            # industry_weights **刻意留空**，这是本次改动的全部要点。
+            #
+            # 为什么必须加：原先每题都强制在 4 个产业方向里选一个，一个对主流方向无感的
+            # 用户只能退而求其次，反复选「稳定 / 理论 / 规律」那一类的选项，于是被
+            # **被动累积** 医疗健康/临床、政府/公共服务 等权重（各题 0.10~0.15）。
+            # 实测这类用户最后峰值落在医学类——而他从未表达过任何医学意向。
+            # 加了零权重选项后，「我不表态」才第一次成为可表达的答案。
+            #
+            # 为什么不会污染已经答过卷的老用户：score_macro_questions 的分母是
+            # 「该题各选项中某维度的最大权重」，新增选项是 0，取 max 后分母不变；
+            # 不选它的人得分一分不差。这一点由 test_algorithm_quality 锁定。
+            #
+            # value_weights 同样留空，但语义不同：价值维度（风险容忍度等）在
+            # 「都不感兴趣」下应当理解为**没提供信息**，由 score_macro_questions
+            # 按该题均值补齐，而不是记 0——记 0 会让「无所谓」被误读成「极度厌恶风险」。
+            "E": {
+                "text": "没想过，过得踏实就行",
+                "industry_weights": {},
+                "value_weights": {},
+                "neutral": True,
+            },
         },
     },
 
@@ -102,6 +125,13 @@ MACRO_QUESTIONS = [
                 "industry_weights": {"影视/动画/娱乐": 0.30, "旅游/酒店/会展": 0.30, "传媒/广告/公关": 0.20,
                                      "艺术设计/文创": 0.10, "互联网/软件": 0.10},
                 "value_weights": {"成长导向": 0.5, "社会影响力": 0.3, "稳定偏好": 0.2},
+            },
+            # 「都不感兴趣」选项，理由见 M1（industry_weights 必须为空）
+            "E": {
+                "text": "休息、打游戏、陪家人，没什么计划",
+                "industry_weights": {},
+                "value_weights": {},
+                "neutral": True,
             },
         },
     },
@@ -137,6 +167,13 @@ MACRO_QUESTIONS = [
                                      "农业/食品/林业": 0.10, "半导体/集成电路": 0.10},
                 "value_weights": {"成长导向": 0.8, "社会影响力": 0.2},
             },
+            # 「都不感兴趣」选项，理由见 M1
+            "E": {
+                "text": "都行，看具体是什么事",
+                "industry_weights": {},
+                "value_weights": {},
+                "neutral": True,
+            },
         },
     },
 
@@ -168,6 +205,13 @@ MACRO_QUESTIONS = [
                 "industry_weights": {"影视/动画/娱乐": 0.35, "艺术设计/文创": 0.25, "传媒/广告/公关": 0.25,
                                      "互联网/软件": 0.15},
                 "value_weights": {"社会影响力": 0.5, "成长导向": 0.5},
+            },
+            # 「都不感兴趣」选项，理由见 M1
+            "E": {
+                "text": "都不算，我觉得工作稳当就好",
+                "industry_weights": {},
+                "value_weights": {},
+                "neutral": True,
             },
         },
     },
@@ -201,6 +245,13 @@ MACRO_QUESTIONS = [
                 "industry_weights": {"影视/动画/娱乐": 0.30, "艺术设计/文创": 0.30, "传媒/广告/公关": 0.25,
                                      "互联网/软件": 0.15},
                 "value_weights": {"社会影响力": 0.6, "成长导向": 0.4},
+            },
+            # 「都不感兴趣」选项，理由见 M1
+            "E": {
+                "text": "家人健康、日子过得舒服就够了",
+                "industry_weights": {},
+                "value_weights": {},
+                "neutral": True,
             },
         },
     },
@@ -236,6 +287,13 @@ MACRO_QUESTIONS = [
                                      "人工智能/大模型": 0.15, "咨询/审计/税务": 0.15},
                 "value_weights": {"风险容忍度": 0.7, "经济回报": 0.3},
             },
+            # 「都不感兴趣」选项，理由见 M1
+            "E": {
+                "text": "没认真想过，顺其自然",
+                "industry_weights": {},
+                "value_weights": {},
+                "neutral": True,
+            },
         },
     },
 
@@ -269,6 +327,13 @@ MACRO_QUESTIONS = [
                                      "影视/动画/娱乐": 0.15, "医疗健康/临床": 0.15, "制药/生物技术": 0.10},
                 "value_weights": {"成长导向": 0.6, "社会影响力": 0.4},
             },
+            # 「都不感兴趣」选项，理由见 M1
+            "E": {
+                "text": "顺利毕业，过得开心就好",
+                "industry_weights": {},
+                "value_weights": {},
+                "neutral": True,
+            },
         },
     },
 
@@ -301,6 +366,13 @@ MACRO_QUESTIONS = [
                 "industry_weights": {"互联网/软件": 0.30, "人工智能/大模型": 0.25, "传媒/广告/公关": 0.15,
                                      "影视/动画/娱乐": 0.10, "艺术设计/文创": 0.10, "旅游/酒店/会展": 0.10},
                 "value_weights": {"风险容忍度": 0.5, "成长导向": 0.3, "经济回报": 0.2},
+            },
+            # 「都不感兴趣」选项，理由见 M1
+            "E": {
+                "text": "无所谓，看工作本身",
+                "industry_weights": {},
+                "value_weights": {},
+                "neutral": True,
             },
         },
     },
@@ -342,6 +414,13 @@ MACRO_QUESTIONS = [
                                      "医疗健康/临床": 0.10, "传媒/广告/公关": 0.10},
                 "value_weights": {"社会影响力": 0.7, "稳定偏好": 0.3},
             },
+            # 「都不感兴趣」选项，理由见 M1。M9 原有 A~E 五个选项，故编号为 F。
+            "F": {
+                "text": "说不好，上面这些都没有特别想选的",
+                "industry_weights": {},
+                "value_weights": {},
+                "neutral": True,
+            },
         },
     },
 
@@ -375,6 +454,13 @@ MACRO_QUESTIONS = [
                 "industry_weights": {"教育培训": 0.35, "传媒/广告/公关": 0.20, "艺术设计/文创": 0.20,
                                      "影视/动画/娱乐": 0.15, "旅游/酒店/会展": 0.10},
                 "value_weights": {"社会影响力": 0.7, "成长导向": 0.3},
+            },
+            # 「都不感兴趣」选项，理由见 M1
+            "E": {
+                "text": "说不上来，各人有各人的活法",
+                "industry_weights": {},
+                "value_weights": {},
+                "neutral": True,
             },
         },
     },
@@ -831,6 +917,26 @@ def _normalize_by_own_max(raw: dict[str, float], maxima: dict[str, float]) -> di
     return out
 
 
+def declared_industry_from_answers(answers: dict[str, str]) -> dict[str, float]:
+    """取出 M11 选中的**明确申报方向**（权重原值，不归一化）。
+
+    M11 是全问卷唯一一道「如果必须选一个更具体的行业方向，你更愿意去?」——
+    选中的选项就是用户的明确申报。选 G「以上都不是」时返回空字典（没有申报）。
+
+    为什么要单独拎出来、而不是让它像 M1–M10 一样混进 macro_industry_vector：
+    M11 只有 1 题的证据量，进同一个向量会被另外 10 题稀释。实测申报「物流」的用户
+    物流管理与工程类进不了 Top8（见 DECLARED_BOOST 的推导注释）。
+    """
+    for q in MACRO_QUESTIONS:
+        if q["id"] != "M11":
+            continue
+        chosen = answers.get("M11")
+        if not (chosen and chosen in q["options"]):
+            return {}
+        return dict(q["options"][chosen]["industry_weights"])
+    return {}
+
+
 def score_macro_questions(answers: dict[str, str]) -> tuple[dict[str, float], dict[str, float]]:
     industry_raw = {ind: 0.0 for ind in INDUSTRY_DIMENSIONS}
     value_raw = {val: 0.0 for val in VALUE_DIMENSIONS}
@@ -843,13 +949,32 @@ def score_macro_questions(answers: dict[str, str]) -> tuple[dict[str, float], di
         if not (chosen and chosen in q["options"]):
             continue
         options = q["options"].values()
-        # 该题每个维度最多能拿多少 = 各选项里该维度权重的最大值
+        # 该题每个维度最多能拿多少 = 各选项里该维度权重的最大值。
+        #
+        # 注意分母**照常累加**，包含那些用户没选的选项、也包含「都不感兴趣」选项
+        # （它是 0，取 max 后不影响结果）。这是有意的：放弃一题不等于这一题不存在，
+        # 否则用户只要对哪题选「都不感兴趣」，其他题目的得分就会被重新放大。
         for ind in INDUSTRY_DIMENSIONS:
             industry_max[ind] += max((o["industry_weights"].get(ind, 0.0) for o in options), default=0.0)
         for val in VALUE_DIMENSIONS:
             value_max[val] += max((o["value_weights"].get(val, 0.0) for o in options), default=0.0)
         # 实际得分
         opt = q["options"][chosen]
+
+        # 「都不感兴趣」：产业维度上它零权重（industry_weights 为空），语义是"不表态"，
+        # 这正是加这个选项的目的——堵住"被主流方向被动累积"。
+        #
+        # 但价值维度不能同样记 0。风险容忍度等价值维度是按**绝对阈值**解读的
+        # （funnel_engine.RISK_TIER_*：<35 判 low），把"无所谓"记成 0 会被读成
+        # "极度厌恶风险"，进而改变 Layer 3 的热度对齐。所以这里用该题**其余选项的均值**
+        # 补齐：既不是"没答"（分母还在），也不偏向任何一端，与「我没意见」语义一致。
+        if opt.get("neutral"):
+            non_neutral = [o["value_weights"] for o in options if not o.get("neutral")]
+            if non_neutral:
+                for val in VALUE_DIMENSIONS:
+                    value_raw[val] += sum(w.get(val, 0.0) for w in non_neutral) / len(non_neutral)
+            continue
+
         for ind, weight in opt["industry_weights"].items():
             if ind in industry_raw:
                 industry_raw[ind] += weight
@@ -912,7 +1037,7 @@ def score_all(macro_answers, micro_answers):
 
 def build_user_from_answers(macro_answers, micro_answers, selected_subjects=None, estimated_score=0, estimated_rank_percentile=100.0, physical_conditions=None, family_economic_level="中", family_city_tier="新一线", family_has_overseas_resource=False, family_has_industry_connection="无", special_track_intent=None, special_track_stance=None):
     industry_vector, value_vector, behavior_vector = score_all(macro_answers, micro_answers)
-    user = UserProfile(selected_subjects=selected_subjects or [], estimated_score=estimated_score, estimated_rank_percentile=estimated_rank_percentile, physical_conditions=physical_conditions or [], family_economic_level=family_economic_level, family_city_tier=family_city_tier, family_has_overseas_resource=family_has_overseas_resource, family_has_industry_connection=family_has_industry_connection, special_track_intent=special_track_intent, special_track_stance=special_track_stance, macro_industry_vector=industry_vector, macro_value_vector=value_vector, micro_behavior_vector=behavior_vector)
+    user = UserProfile(selected_subjects=selected_subjects or [], estimated_score=estimated_score, estimated_rank_percentile=estimated_rank_percentile, physical_conditions=physical_conditions or [], family_economic_level=family_economic_level, family_city_tier=family_city_tier, family_has_overseas_resource=family_has_overseas_resource, family_has_industry_connection=family_has_industry_connection, special_track_intent=special_track_intent, special_track_stance=special_track_stance, macro_industry_vector=industry_vector, declared_industry_vector=declared_industry_from_answers(macro_answers), macro_value_vector=value_vector, micro_behavior_vector=behavior_vector)
     user.infer_personality_from_behavior()
     return user
 
