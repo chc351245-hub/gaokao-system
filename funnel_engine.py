@@ -508,6 +508,7 @@ class FunnelData:
     disciplines: dict[str, dict] = field(default_factory=dict)
     categories: dict[str, dict] = field(default_factory=dict)
     majors: list[dict] = field(default_factory=list)
+    reality_insights: dict[str, dict] = field(default_factory=dict)
     # 索引
     _cat_to_disc: dict[str, str] = field(default_factory=dict)
     _cat_to_majors: dict[str, list[dict]] = field(default_factory=dict)
@@ -539,6 +540,12 @@ def load_funnel_data() -> FunnelData:
             data.categories = json.load(f)
     else:
         errors.append(f"L2 missing: {l2_path}")
+
+    # Reality Insights: 专业现实特征与行业避坑洞察
+    insights_path = CHECKPOINT_DIR / "category_reality_insights.json"
+    if insights_path.exists():
+        with open(insights_path, "r", encoding="utf-8") as f:
+            data.reality_insights = json.load(f)
 
     # Layer 3: 从 JSON 加载标签
     l3_path = CHECKPOINT_DIR / "layer3_majors.json"
@@ -1419,19 +1426,20 @@ def _annotate_fit_ties(output: list[dict]) -> None:
             c["fit_tied_with"] = [o["category_name"] for o in cats if o is not c]
 
 
-def run_funnel(user: UserProfile, verbose: bool = False) -> list[dict]:
+def run_funnel(user: UserProfile, verbose: bool = False, filter_pitfalls: bool = False) -> list[dict]:
     """
     运行三层递进漏斗，返回结构化推荐结果。
 
     Args:
         user: 用户画像
         verbose: 是否打印中间过程
+        filter_pitfalls: 是否开启避坑排雷模式（自动阻断物流、生化环材、空泛商科等低实用性专业，除非明确主动申报）
 
     Returns:
         list[dict]: 符合前端 Schema 的推荐结果
     """
     try:
-        return _run_funnel_impl(user, verbose)
+        return _run_funnel_impl(user, verbose, filter_pitfalls)
     except Exception as e:
         import traceback
         print(f"[ERROR] run_funnel failed: {e}")
@@ -1439,7 +1447,7 @@ def run_funnel(user: UserProfile, verbose: bool = False) -> list[dict]:
         return []
 
 
-def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
+def _run_funnel_impl(user: UserProfile, verbose: bool = False, filter_pitfalls: bool = False) -> list[dict]:
     data = load_funnel_data()
 
     # 数据校验
@@ -1519,6 +1527,50 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
             l2, score_key="score", fit_key="industry_match", name_key="category_name"
         )
 
+    # ---- 避坑与实用性排雷机制（若开启）----
+    filtered_out_names = []
+    if filter_pitfalls:
+        declared_tags = set(user.declared_industry_vector.keys()) if getattr(user, "declared_industry_vector", None) else set()
+        clean_l2 = []
+        used_names = set()
+
+        all_l2_cands = layer2_category_match(user, data, l1, top_n=999)
+        cand_ptr = 0
+
+        for c in l2:
+            c_name = c["category_name"]
+            insight = getattr(data, "reality_insights", {}).get(c_name, {})
+            c_tags = set(c.get("labels", {}).get("industry_map", []))
+            is_declared = bool(c_tags & declared_tags)
+
+            # 如果是预警避坑专业且用户并未明确申报，则过滤
+            if insight.get("is_pitfall") and not is_declared:
+                filtered_out_names.append(c_name)
+            else:
+                clean_l2.append(c)
+                used_names.add(c_name)
+
+        # 从全量候选池中补充非坑专业填满 8 个
+        while len(clean_l2) < len(l2) and cand_ptr < len(all_l2_cands):
+            cand = all_l2_cands[cand_ptr]
+            cand_ptr += 1
+            cand_name = cand["category_name"]
+            if cand_name in used_names:
+                continue
+            cand_insight = getattr(data, "reality_insights", {}).get(cand_name, {})
+            cand_tags = set(cand.get("labels", {}).get("industry_map", []))
+            cand_declared = bool(cand_tags & declared_tags)
+            if cand_insight.get("is_pitfall") and not cand_declared:
+                continue
+            clean_l2.append(cand)
+            used_names.add(cand_name)
+
+        l2 = rank_by_score(clean_l2, score_key="score", fit_key="industry_match", name_key="category_name")
+        if verbose and filtered_out_names:
+            print(f"  [Pitfall Filter] 已自动排雷并替换 {len(filtered_out_names)} 个低实用性/避坑专业: {filtered_out_names}")
+
+    setattr(user, "_filtered_pitfalls", filtered_out_names)
+
     # ---- Layer 3: 专业微观狙击 (≤6/类) ----
     if verbose:
         print(f"\n[Layer 3] 专业微观狙击 → ≤6/类 截断")
@@ -1572,6 +1624,8 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
 
         cat_reason = _generate_category_reason(cat, user)
         reality = _reality_assessment(cat, user)
+        cat_name = cat["category_name"]
+        cat_insight = getattr(data, "reality_insights", {}).get(cat_name, {})
         output.append({
             "category_name": cat["category_name"],
             "discipline_name": cat["discipline_name"],
@@ -1582,6 +1636,15 @@ def _run_funnel_impl(user: UserProfile, verbose: bool = False) -> list[dict]:
             # 信息，又避免 6 个专业卡片上重复 6 遍。
             "salary_potential": cat_labels.get("salary_potential", "中"),
             "category_tags": _generate_category_tags(cat_labels),
+            # 专业现实特征与行业避坑洞察
+            "engineering_hardness": cat_insight.get("engineering_hardness", 0.5),
+            "hardness_label": cat_insight.get("hardness_label", ""),
+            "degree_requirement": cat_insight.get("degree_requirement", ""),
+            "tier_risk": cat_insight.get("tier_risk", ""),
+            "reality_insight": cat_insight.get("reality_insight", ""),
+            "is_pitfall": cat_insight.get("is_pitfall", False),
+            "utility_tier": cat_insight.get("utility_tier", "稳健行业"),
+            "pitfall_warning": cat_insight.get("pitfall_warning", ""),
             # 展示用分项：让「适不适合」与「能不能上」分开可见（见 _reality_assessment）
             "fit_score": reality["fit_score"],
             "reality_tier": reality["reality_tier"],
@@ -1766,6 +1829,10 @@ def print_funnel_results(results: list[dict]) -> None:
         print(f"   📌 {cat['category_reason']}")
         if cat.get("reality_reason"):
             print(f"   ⚖️ {cat['reality_reason']}")
+        if cat.get("reality_insight"):
+            print(f"   💡 [洞察|硬度:{cat.get('hardness_label','')}|学历:{cat.get('degree_requirement','')}] {cat['reality_insight']}")
+        if cat.get("is_pitfall") and cat.get("pitfall_warning"):
+            print(f"   ⚠️ {cat['pitfall_warning']}")
         print(f"   ──────────────────────────────")
 
         for mi, m in enumerate(cat["recommended_majors"]):

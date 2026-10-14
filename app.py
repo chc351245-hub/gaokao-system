@@ -604,7 +604,8 @@ def compute_and_show_results() -> None:
         )
 
     with st.spinner("🎯 正在运行三层递进漏斗匹配..."):
-        funnel_results = run_funnel(user, verbose=False)
+        filter_pit = st.session_state.get("enable_pitfall_filter", True)
+        funnel_results = run_funnel(user, verbose=False, filter_pitfalls=filter_pit)
 
     # 申报方向提示块在这里就算好，而不是等 render 时现算：render_funnel_results
     # 是挂在 session_state 上、每次交互都会重跑的，现算等于用户每展开一个折叠卡片
@@ -737,6 +738,33 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
     st.markdown("---")
     st.markdown('<p class="section-title">🎯 专业推荐（按方向分组）</p>', unsafe_allow_html=True)
 
+    col_mode1, col_mode2 = st.columns([1.8, 1.2])
+    with col_mode1:
+        current_filter = st.session_state.get("enable_pitfall_filter", True)
+        enable_filter = st.checkbox(
+            "🛡️ 开启「高考志愿避坑与实用性排雷」模式",
+            value=current_filter,
+            key="chk_pitfall_filter",
+            help="自动识别并排雷物流管理、生化环材、空泛商科、传统土木等低实用性/现场艰苦类专业，优先推荐硬核技能与高实用性方向。"
+        )
+        if enable_filter != current_filter:
+            st.session_state.enable_pitfall_filter = enable_filter
+            st.session_state.funnel_results = run_funnel(user, verbose=False, filter_pitfalls=enable_filter)
+            st.session_state.declared_notes = declared_direction_note(
+                user, [c["category_name"] for c in st.session_state.funnel_results]
+            )
+            st.rerun()
+
+    filtered_pits = getattr(user, "_filtered_pitfalls", [])
+    if filtered_pits and st.session_state.get("enable_pitfall_filter", True):
+        with st.expander(f"🛡️ 志愿避坑排雷守护：已自动为你拦截 {len(filtered_pits)} 个低实用性/现场艰苦类专业（点击展开）", expanded=False):
+            st.markdown(
+                f"根据真实就业大数据与志愿避坑模型，以下专业因**缺乏技术壁垒、现场环境艰苦、周期下行严重或本科缺乏对口研发岗**，已为你自动避开：<br>"
+                f"**已拦截方向**：`{'`、`'.join(filtered_pits)}`<br>"
+                f"<small style='color:#666;'>💡 提示：若考生确实有家族产业接班或对某一特定方向有特殊志向，可在问卷行业申报中明确选择对应方向，或关闭上方避坑模式。</small>",
+                unsafe_allow_html=True
+            )
+
     _render_declared_direction_note(st.session_state.get("declared_notes") or [])
 
     for ci, cat in enumerate(funnel_results):
@@ -801,6 +829,47 @@ def render_funnel_results(funnel_results: list[dict], user: UserProfile) -> None
             )
             if cat.get("reality_reason"):
                 st.caption(f"⚖️ {cat['reality_reason']}")
+
+            # 避坑预警提示
+            if cat.get("is_pitfall") and cat.get("pitfall_warning"):
+                st.markdown(
+                    f"""
+                    <div style="background:#FFF9E6;border-left:4px solid #FF9800;border-radius:6px;padding:9px 13px;margin:8px 0 10px 0;font-size:13px;color:#8A5300;line-height:1.6;">
+                      <div style="font-weight:700;color:#E65100;font-size:13px;margin-bottom:2px;">⚠️ 高考志愿实用性与避坑预警</div>
+                      <div>{cat['pitfall_warning']}</div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+
+            # 大数据行业现实与避坑指南
+            reality_insight = cat.get("reality_insight")
+            hardness_label = cat.get("hardness_label")
+            degree_requirement = cat.get("degree_requirement")
+            tier_risk = cat.get("tier_risk")
+            utility_tier = cat.get("utility_tier")
+            if reality_insight or hardness_label:
+                tags_badge = []
+                if hardness_label:
+                    tags_badge.append(f"🛠️ <b>硬度定位</b>: {hardness_label}")
+                if utility_tier:
+                    tags_badge.append(f"🎯 <b>实用性定级</b>: {utility_tier}")
+                if degree_requirement:
+                    tags_badge.append(f"🎓 <b>学历导向</b>: {degree_requirement}")
+                if tier_risk:
+                    tags_badge.append(f"🏛️ <b>院校敏感/风险</b>: {tier_risk}")
+                badges_html = " &nbsp;|&nbsp; ".join(tags_badge)
+
+                st.markdown(
+                    f"""
+                    <div style="background:#F0F4FF;border-left:4px solid #4C6EF5;border-radius:6px;padding:9px 13px;margin:8px 0 10px 0;font-size:13px;color:#2D3748;line-height:1.6;">
+                      <div style="color:#2B4380;font-size:12px;margin-bottom:4px;">{badges_html}</div>
+                      <div>💡 <b>大数据行业现实与避坑指南</b>: {reality_insight or '暂无行业现实评语'}</div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+
             # 专业类级别的属性在这里说明一次——它们对类下 6 个专业是同一个值，
             # 挂在每张专业卡片上只会变成 6 行重复（见 _generate_category_tags）。
             _cat_tags = cat.get("category_tags") or []

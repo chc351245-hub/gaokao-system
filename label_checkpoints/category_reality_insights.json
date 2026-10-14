@@ -1,0 +1,942 @@
+{
+  "计算机类": {
+    "engineering_hardness": 0.95,
+    "hardness_label": "硬核技术工科",
+    "degree_requirement": "大厂与高端岗建议考研深造",
+    "tier_risk": "两极分化严重",
+    "reality_insight": "行业目前呈现明显的分化：大厂算法与核心架构对研究生学历和名校背景要求显著提高；普通院校本科就业竞争加剧，需狠抓实际工程代码量与项目经验；高端复合型技术人才长远前景依然极其广阔。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "电子信息类": {
+    "engineering_hardness": 0.95,
+    "hardness_label": "硬核技术工科",
+    "degree_requirement": "芯片/算法研发强考研刚需",
+    "tier_risk": "层级门槛高",
+    "reality_insight": "半导体芯片、射频通信与嵌入式硬件长期处于国家战略风口。但IC芯片设计等高薪研发岗普遍要求硕士及以上；本科直接就业多偏向硬件测试、现场技术支持与设备调试。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "自动化类": {
+    "engineering_hardness": 0.92,
+    "hardness_label": "硬核技术工科",
+    "degree_requirement": "本硕皆宜（高端智能化建议读研）",
+    "tier_risk": "就业面极宽/双非友好",
+    "reality_insight": "工科中的‘万金油’，软硬兼修。在制造业工业自动化、新能源汽车智造、产线控制方面底盘极稳；向上可走工业机器人与机器视觉，但需注意在大学期间选准软控或硬控主线，避免学而不精。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "电气类": {
+    "engineering_hardness": 0.9,
+    "hardness_label": "硬核技术工科",
+    "degree_requirement": "本科即可进电网，科研建议读研",
+    "tier_risk": "电力原直属名校优势突出",
+    "reality_insight": "传统工科长青树，进国家电网、南方电网及发电集团的确定性极高，体制内与国企首选之一。院校行业背景（原电力部直属高校）对校招录取影响显著，求稳首选。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "机械类": {
+    "engineering_hardness": 0.88,
+    "hardness_label": "传统重工/高端制造",
+    "degree_requirement": "建议结合智能化考研转型",
+    "tier_risk": "起点薪资平稳/慢热型",
+    "reality_insight": "工业基石，岗位需求量极大但传统车间工作环境较苦、薪资起点相对偏低。强烈建议大学期间向机电一体化、智能制造、机器人底盘、数控加工或新能源汽车三电方向靠拢转型。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "土木类": {
+    "engineering_hardness": 0.85,
+    "hardness_label": "传统基建工科",
+    "degree_requirement": "本硕皆宜（看重执业资格证）",
+    "tier_risk": "行业周期下行调整",
+    "reality_insight": "受房地产与基建建设周期调整影响深远，传统施工单位出差常驻工地较辛苦，设计院内卷加剧。建议重点关注涉外工程出海、城市更新、智能建造与基础设施数字化运维方向。",
+    "is_pitfall": true,
+    "utility_tier": "周期风险",
+    "pitfall_warning": "【避坑预警】受房地产与大基建周期调整影响，传统施工单位需常年驻扎偏远工地板房、随工程四处漂泊，生活艰苦，提桶跑路率高。"
+  },
+  "建筑类": {
+    "engineering_hardness": 0.8,
+    "hardness_label": "工程与艺术交叉",
+    "degree_requirement": "本硕皆宜（本科5年制）",
+    "tier_risk": "设计院缩招/转型期",
+    "reality_insight": "兼具工程结构与审美设计属性，学习周期长且课业熬夜较多。传统地产建筑设计需求萎缩，但老旧小区微改造、绿色建筑节能评级、文旅空间策划设计方向正迎来结构性转型。",
+    "is_pitfall": true,
+    "utility_tier": "周期风险",
+    "pitfall_warning": "【避坑预警】地产设计院红利退潮严重，5年制学业繁重熬夜频繁，行业招聘规模大幅缩减，非顶尖名校或真爱慎入。"
+  },
+  "生物医学工程类": {
+    "engineering_hardness": 0.9,
+    "hardness_label": "医工交叉硬核",
+    "degree_requirement": "强考研刚需（研发门槛极高）",
+    "tier_risk": "高度依赖高层次平台",
+    "reality_insight": "现代高端医疗器械（如CT、核磁共振、监护仪、手术机器人）的核心赛道。本科课程涵盖医学、电子、算法与生物学，内容庞杂，若想进入迈瑞、联影等头部研发岗强烈建议读研。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "仪器类": {
+    "engineering_hardness": 0.9,
+    "hardness_label": "精密测控硬核",
+    "degree_requirement": "高端传感器建议读研",
+    "tier_risk": "手艺与实操导向",
+    "reality_insight": "被严重低估的宝藏工科。高端工业母机、精密光学、工业传感器是工业皇冠上的明珠。虽然名字不如计算机时髦，但在高端制造、质检计量与仪器校准领域就业极其扎实稳定。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "航空航天类": {
+    "engineering_hardness": 0.95,
+    "hardness_label": "大国重器国防硬核",
+    "degree_requirement": "强考研/读博刚需",
+    "tier_risk": "院所层级壁垒极高",
+    "reality_insight": "服务于大飞机、火箭、卫星与国防军工。体制内各大主机厂与研究所工作体面、待遇有保障，但研发核心岗普遍要求硕士以上，且对政审背景与保密纪律有极其严格的刚性要求。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "材料类": {
+    "engineering_hardness": 0.86,
+    "hardness_label": "新材料与工业基石",
+    "degree_requirement": "考研刚需（高端芯片材料需博士）",
+    "tier_risk": "普通院校对口难度大",
+    "reality_insight": "正在发生深刻的分化：半导体光刻胶、新能源锂电正极、碳纤维复合材料需求火爆且高薪；但传统水泥钢铁陶瓷较为苦闷。一定要往电子化学品、新能源功能材料等新赛道靠拢。",
+    "is_pitfall": true,
+    "utility_tier": "周期风险",
+    "pitfall_warning": "【避坑预警】传统制造业材料多进厂三班倒、生产环境较艰苦；高端新材料对硕博学历要求极高，普通本科研发岗较少。"
+  },
+  "化工与制药类": {
+    "engineering_hardness": 0.86,
+    "hardness_label": "现代过程工程",
+    "degree_requirement": "研发建议读研",
+    "tier_risk": "央国企石化与精细外企对口",
+    "reality_insight": "现代化工早已摆脱傻大黑粗，精细化工、现代合成生物、生物医药中间体附加值极高。大型国企（中石油、中石化、万华化学）福利优厚，但生产现场对环保与安全合规要求极高。",
+    "is_pitfall": true,
+    "utility_tier": "周期风险",
+    "pitfall_warning": "【避坑预警】传统化工进厂倒班多、存在一定安全与气味环境风险，普通院校本科难进核心高薪研发岗。"
+  },
+  "核工程类": {
+    "engineering_hardness": 0.92,
+    "hardness_label": "特种战略工程",
+    "degree_requirement": "本硕皆宜（定向性极强）",
+    "tier_risk": "央企垄断对口性高",
+    "reality_insight": "中核、中广核及各大核电站刚需专业。行业高度集中封闭、收入体面稳定，但工作地点多在核电基地（沿海较偏远地区），适合追求稳定、能接受相对封闭环境的考生。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "能源动力类": {
+    "engineering_hardness": 0.88,
+    "hardness_label": "动力与清洁能源",
+    "degree_requirement": "本硕皆宜",
+    "tier_risk": "新能源转型期",
+    "reality_insight": "传统锅炉汽轮机逐步向氢能、储能电站、燃气轮机与动力电池热管理全面升级。发电集团与新能源车企电池包热设计岗位需求旺盛，工科底盘扎实。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "交通运输类": {
+    "engineering_hardness": 0.75,
+    "hardness_label": "工程与运营复合",
+    "degree_requirement": "本科即可进国铁/民航",
+    "tier_risk": "国铁民航行业壁垒高",
+    "reality_insight": "涵盖铁路机车、轨道交通运营与民航签派。中国中铁、中国铁建、各大铁路局与航空公司校招直通车，对口稳定性极强，偏重运营调度与安全管控。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "海洋工程类": {
+    "engineering_hardness": 0.9,
+    "hardness_label": "船舶海工重器",
+    "degree_requirement": "研发建议读研",
+    "tier_risk": "造船周期强对口",
+    "reality_insight": "中国造船业份额全球第一，深海采矿与海上风电安装平台迎来高景气度。中船集团旗下船厂与研究所刚需，薪酬随行业周期走高，工作地点多在沿海港口城市。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "水利类": {
+    "engineering_hardness": 0.85,
+    "hardness_label": "水利电力基建",
+    "degree_requirement": "进水利系统/电建本硕皆可",
+    "tier_risk": "体制内与央企主导",
+    "reality_insight": "三峡集团、南水北调集团及各地水利局/水务局核心对口。国家水网大战略支撑，工作性质与土木类似但多依托特大型国企与水务事业单位，稳定性较好。",
+    "is_pitfall": true,
+    "utility_tier": "艰苦行业",
+    "pitfall_warning": "【避坑预警】水电站与水利大坝多位于偏远山区峡谷，工作地点远离市区，生活相对枯燥闭塞。"
+  },
+  "兵器类": {
+    "engineering_hardness": 0.95,
+    "hardness_label": "国防特种装备",
+    "degree_requirement": "强考研刚需（军工科研院所）",
+    "tier_risk": "军工集团定向招录",
+    "reality_insight": "兵器工业、兵器装备集团直属对口。枪炮、弹药、装甲车辆与光电制导研发，社会通用性较低，但军工研究所终身稳定体面，涉密政审严格。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "力学类": {
+    "engineering_hardness": 0.9,
+    "hardness_label": "理论与仿真计算",
+    "degree_requirement": "考研/读博刚需",
+    "tier_risk": "高端仿真CAE对口",
+    "reality_insight": "工程界的高深理论源泉。在航空航天结构计算、汽车碰撞仿真、工业软件CAE有限元分析中是稀缺的高级人才，但本科直接就业难度较大，必须读研深造。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "测绘类": {
+    "engineering_hardness": 0.85,
+    "hardness_label": "空间信息与大地测绘",
+    "degree_requirement": "本科可就业（GIS建议复合计算机）",
+    "tier_risk": "野外实操向数字化转型",
+    "reality_insight": "从传统的野外测量水准仪，全面转型为无人机遥感、卫星导航北斗应用与自动驾驶高精地图。进自然资源规划局勘测院稳定，结合GIS软件开发薪资跃升。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "地质类": {
+    "engineering_hardness": 0.8,
+    "hardness_label": "资源勘查与地质工程",
+    "degree_requirement": "进地质勘察院本硕皆可",
+    "tier_risk": "野外作业环境较辛苦",
+    "reality_insight": "矿产勘探、地质灾害评估与工程地质勘察。工作多涉及野外地质调查，环境较艰苦但国家战略资源保障不可替代，适合吃苦耐劳、热爱大自然的考生。",
+    "is_pitfall": true,
+    "utility_tier": "艰苦行业",
+    "pitfall_warning": "【避坑预警】常年野外地质勘查、随队流动作业，工作与生活环境艰苦，非有志于地质事业者慎报。"
+  },
+  "矿业类": {
+    "engineering_hardness": 0.82,
+    "hardness_label": "矿产开采与智能矿山",
+    "degree_requirement": "大型矿业集团直录",
+    "tier_risk": "行业环境与安全性",
+    "reality_insight": "采矿工程如今全面推进无人化与‘智能矿山’建设。各大能源矿业央企（神华、陕煤等）福利待遇高、包食宿，但矿山一线生活相对单调封闭。",
+    "is_pitfall": true,
+    "utility_tier": "艰苦行业",
+    "pitfall_warning": "【避坑预警】属于艰苦地矿行业，常需常驻偏远矿区与井下现场，工作环境闭塞艰苦，普通考生需极度慎重。"
+  },
+  "农业工程类": {
+    "engineering_hardness": 0.78,
+    "hardness_label": "农机智能与农业水土",
+    "degree_requirement": "本硕皆宜",
+    "tier_risk": "现代农业机械风口",
+    "reality_insight": "大型拖拉机智能网联、温室环境智能控制与无人农场。虽然挂农业，本质是机械电子在农业的应用，农机龙头企业（如一拖、雷沃）与农业农村局刚需。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "林业工程类": {
+    "engineering_hardness": 0.75,
+    "hardness_label": "木材加工与生物质能源",
+    "degree_requirement": "本硕皆宜",
+    "tier_risk": "林产与环保新材料",
+    "reality_insight": "涵盖家具板材智能制造、生物质新材料加工与无醛胶水研发。偏重轻工与木业产业链，对口企业多在南方林产发达地区。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "环境科学与工程类": {
+    "engineering_hardness": 0.78,
+    "hardness_label": "环保与固废污水处理",
+    "degree_requirement": "考研刚需（研发/环评）",
+    "tier_risk": "普通双非就业起点偏低",
+    "reality_insight": "污水治理、固废处理与碳排放核查。第三方检测机构与环保工程公司门槛不高但薪酬较平淡，进入大型国企环境板块或生态环境局编制需较强学历与综合能力。",
+    "is_pitfall": true,
+    "utility_tier": "避坑预警",
+    "pitfall_warning": "【避坑预警】生化环材天坑之一，对口多为污水处理厂、垃圾焚烧厂或环保监测打杂，利润薄薪资低，概念高大上但就业极骨感。"
+  },
+  "安全科学与工程类": {
+    "engineering_hardness": 0.75,
+    "hardness_label": "安全监管与风险控制",
+    "degree_requirement": "注册安全工程师高含金量",
+    "tier_risk": "政策强合规刚需",
+    "reality_insight": "所有大中型工矿、建筑、化工企业强制配备安全工程师的‘法律刚需’专业。应急管理部门公务员首选专业之一，责任重大但地位随国家安全生产立法持续上升。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "生物工程类": {
+    "engineering_hardness": 0.85,
+    "hardness_label": "发酵与合成生物学",
+    "degree_requirement": "强考研刚需",
+    "tier_risk": "合成生物高精尖 vs 普通常规发酵",
+    "reality_insight": "合成生物学正在颠覆医药、化工与农业。高端研发高薪抢人但必须研究生起步，普通本科多流向啤酒发酵、抗生素生产线车间，两极分化显著。",
+    "is_pitfall": true,
+    "utility_tier": "避坑预警",
+    "pitfall_warning": "【避坑预警】生化环材四大天坑之一，本科几乎无研发岗，多进药厂化工厂倒班发酵或做试剂销售，非名校硕博慎入。"
+  },
+  "食品科学与工程类": {
+    "engineering_hardness": 0.75,
+    "hardness_label": "食品研发与质检",
+    "degree_requirement": "大厂研发建议读研",
+    "tier_risk": "行业民生抗周期/慢热",
+    "reality_insight": "民以食为天，强抗周期行业。伊利、蒙牛、海天等大型快消食品企业需求稳定，研发新口味新配方需研究生，本科偏向质检化验、品控与车间管理。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "纺织类": {
+    "engineering_hardness": 0.75,
+    "hardness_label": "特种纤维与智能织物",
+    "degree_requirement": "本硕皆宜",
+    "tier_risk": "新材料外贸出口",
+    "reality_insight": "早已摆脱纺织娘刻板印象，航天宇航服、医疗人工血管、阻燃防弹高科技纺织纤维处于风口。沿海面料外贸与特种纤维龙头企业常年高薪招人。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "轻工类": {
+    "engineering_hardness": 0.75,
+    "hardness_label": "造纸印染日化工程",
+    "degree_requirement": "本硕皆宜",
+    "tier_risk": "精细日化化妆品方向好",
+    "reality_insight": "涵盖造纸、洗涤日化、化妆品配方与烟草包装。尤其是精细日化、国潮护肤品配方研发工程师紧缺，传统造纸行业多集中在龙头大厂与环保线。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "公安技术类": {
+    "engineering_hardness": 0.88,
+    "hardness_label": "警务科技与网络安全",
+    "degree_requirement": "入警率极高（公安联考）",
+    "tier_risk": "提前批特殊选拔",
+    "reality_insight": "网络安全保卫、刑事科学技术、交通管理工程。在公安警校通过公安联考入警率超过90%，编制稳定性与社会地位极高，但对政审和体能体检有极其苛刻要求。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "交叉类": {
+    "engineering_hardness": 0.95,
+    "hardness_label": "新兴前沿交叉",
+    "degree_requirement": "强考研刚需",
+    "tier_risk": "前沿拔尖平台好",
+    "reality_insight": "集成电路科学与工程、人工智能、碳中和科学。由国家最高层特设的前沿拔尖学科，院校多为顶尖985，资源投入充沛，未来10年国家重点扶持赛道。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "物流管理与工程类": {
+    "engineering_hardness": 0.45,
+    "hardness_label": "管工交叉/偏商科管理",
+    "degree_requirement": "本科即可就业",
+    "tier_risk": "实践与业务导向/非纯技术",
+    "reality_insight": "【实用性提醒】虽然授予工学/管理学学位，但其核心业务是供应链仓储调度、跨境电商货代与物流网络规划。偏重流程管理、沟通组织与商业运营，而非写代码或造机器；不适合追求硬核技术的考生。",
+    "is_pitfall": true,
+    "utility_tier": "避坑预警",
+    "pitfall_warning": "【避坑预警】虽挂工学/管理学头衔，但对口就业多为偏远仓储调度、货代与快递网点现场管培，工作环境艰苦且技术壁垒低，追求高技术高薪请谨慎报考。"
+  },
+  "工业工程类": {
+    "engineering_hardness": 0.5,
+    "hardness_label": "管工交叉/生产管理",
+    "degree_requirement": "本硕皆宜",
+    "tier_risk": "管理与统计综合导向",
+    "reality_insight": "制造业企业的‘效率医生’与运筹分析师。偏重精益生产、产线人机工效与排程优化。数学统计与沟通管理占比大，属于工科中的管理学派，非纯技术研发。",
+    "is_pitfall": true,
+    "utility_tier": "避坑预警",
+    "pitfall_warning": "【避坑预警】虽挂工科，多为制造业工厂流水线掐秒表、车间IE现场排产，一线工作环境艰苦、升迁慢，并非算法或硬核研发。"
+  },
+  "电子商务类": {
+    "engineering_hardness": 0.4,
+    "hardness_label": "商科与信息交叉",
+    "degree_requirement": "本科直接就业/重实战",
+    "tier_risk": "看重平台资源与运营力",
+    "reality_insight": "偏向电商平台流量运营、跨境出海营销与供应链选品。技术主要作为工具使用，核心壁垒在于商业敏感度与流量操盘能力，适合喜欢经商与互联网运营的考生。",
+    "is_pitfall": true,
+    "utility_tier": "避坑预警",
+    "pitfall_warning": "【避坑预警】缺少底层代码与技术壁垒，本科就业多偏向电商客服、店铺打杂或直播带货运营，可替代性高、门槛较低。"
+  },
+  "临床医学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "治病救人/长周期培养",
+    "degree_requirement": "强名校硕博刚需（5+3+X）",
+    "tier_risk": "顶级三甲门槛极高",
+    "reality_insight": "培养周期至少8~10年，30岁前几乎没有经济回报。规培值班抗压要求极高，进顶级三甲必须名校博士且需高水平SCI论文；但一旦立足，职业壁垒无可替代、越老越吃香。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "口腔医学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "独立执业黄金赛道",
+    "degree_requirement": "进三甲需硕士，独立开诊所本硕皆可",
+    "tier_risk": "民营与公立双通道灵活",
+    "reality_insight": "医学中最具性价比的细分赛道之一。不强制依赖大型公立医院晋升体系，民营口腔门诊成熟，医患矛盾相对较低，手艺性极强，收入天花板高且投资回报周期短于临床。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "基础医学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "医学科研与高等教学",
+    "degree_requirement": "强博士刚需（走科研路线）",
+    "tier_risk": "不能考医师资格证",
+    "reality_insight": "【重大避坑提醒】基础医学毕业不能考执业医师资格证、不能当主治医生！主要出路是医学院当大学老师或药企研发做科研，必须做好长线读博、坐学术冷板凳的心理准备。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "中医学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "传统医学/注重传承",
+    "degree_requirement": "规培硕博刚需",
+    "tier_risk": "医院编制与名中医传承",
+    "reality_insight": "国粹传承，越老越受敬重。公立中医院进人门槛同样水涨船高，需要扎实的经典古籍功底与漫长的临床跟师经验积累，适合性格沉静、热爱传统文化的考生。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "中药学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "中药制药与检验",
+    "degree_requirement": "本硕皆宜（研发建议读研）",
+    "tier_risk": "药企质检与流通",
+    "reality_insight": "偏重中药饮片鉴别、中药新药研发与质量把控。中药龙头企业、药监所与医院中药房对口，相比西药研发其机理研究难度大但国家政策保护倾斜明显。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "中西医结合类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "双轨兼修临床",
+    "degree_requirement": "建议硕博深造",
+    "tier_risk": "中西医结合医院编制",
+    "reality_insight": "西医诊断技术结合中医辨证施治，在肿瘤康复、慢性病管理方面优势明显。具备考取执业医师资格，在中西医结合三甲医院与综合医院中医科拥有广阔天地。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "法医学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "司法鉴定与刑侦法医",
+    "degree_requirement": "本科即可进公安（政法联考）",
+    "tier_risk": "体制内公安司法高度对口",
+    "reality_insight": "为生者权、为死者言。公安局刑侦支队、检察院与司法鉴定中心核心对口。工作常涉及非正常死亡现场与尸体解剖，需要极强的心理素质和正义感，待遇与警察序列持平。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "药学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "现代化学与药物制剂",
+    "degree_requirement": "高端研发强博士刚需",
+    "tier_risk": "研发与医药销售两极化",
+    "reality_insight": "跨国药企与创新药企核心研发门槛极高（基本要求清北复交或海归博士）；本科生多流向临床监查员（CRA）、医药代表、药房药剂师，需明确自己走研发还是流通。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "医学技术类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "医院医技支撑",
+    "degree_requirement": "本硕皆宜",
+    "tier_risk": "医院技师非处方权",
+    "reality_insight": "医学检验、医学影像技术、听力与视光。不能考临床医生处方权，但在医院检验科、放射科当技师，工作环境干净、不承担临床抢救风险，稳定性良好。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "公共卫生与预防医学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "疾控流行病与卫监",
+    "degree_requirement": "进省级疾控建议读研",
+    "tier_risk": "疾控中心与卫健委事业单位",
+    "reality_insight": "疾病预防控制中心（CDC）、卫生监督所与海关检验检疫。大健康守护者，体制内编制稳定，突发公共卫生事件时承担重要防控职责，收入平稳体面。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "护理学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "临床护理与照护",
+    "degree_requirement": "本科即可进三甲医院",
+    "tier_risk": "各层次院校均刚需/工作辛苦",
+    "reality_insight": "【现实考量】全国各大三甲医院极度紧缺，男生报考尤为吃香。就业率接近100%，但临床三班倒作息颠倒、体力与精神消耗巨大。高分考生需权衡生活品质与稳定就业。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "数学类": {
+    "engineering_hardness": 0.3,
+    "hardness_label": "基础理学皇冠",
+    "degree_requirement": "强建议考研复合工程/金融",
+    "tier_risk": "降维打击但需复合技能",
+    "reality_insight": "所有理工与经济的底层基石。考研转计算机人工智能、统计精算、量化交易拥有无与伦比的数学壁垒；但若本科直接找工作，务必自学Python编程与数据库实操。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "物理学类": {
+    "engineering_hardness": 0.5,
+    "hardness_label": "物质本质与理论计算",
+    "degree_requirement": "考研/读博刚需",
+    "tier_risk": "考研转半导体/光学极吃香",
+    "reality_insight": "探求微观粒子与宏观宇宙。科研路线需要天赋与死磕精神；工科应用路线上，考研跨考半导体物理、微电子集成电路、光学工程极其受导师青睐。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "化学类": {
+    "engineering_hardness": 0.6,
+    "hardness_label": "物质合成与转化",
+    "degree_requirement": "强考研刚需（避免中分陷阱）",
+    "tier_risk": "名校与普通院校两极分化",
+    "reality_insight": "【中分段避坑】基础化学实验室有毒有害试剂较多，实验周期长。名校科研或进新能源锂电/电子化学品研发前景优渥，普通二本毕业直接对口较难，务必考研深造。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "生物科学类": {
+    "engineering_hardness": 0.4,
+    "hardness_label": "生命机理与分子遗传",
+    "degree_requirement": "强博士刚需（走学术之路）",
+    "tier_risk": "中分段天坑代表",
+    "reality_insight": "【重大避坑提醒】21世纪确实是生命科学的世纪，但前提是名校博士起步！本科阶段重在微观机理，缺少直接产业技能；若无长线读博打算，切忌盲目冲动报考。",
+    "is_pitfall": true,
+    "utility_tier": "避坑预警",
+    "pitfall_warning": "【避坑预警】纯理科学术路线，本科对口就业极难，必须一路读硕博走科研，转行率极高。"
+  },
+  "天文学类": {
+    "engineering_hardness": 0.4,
+    "hardness_label": "宇宙探索与天体物理",
+    "degree_requirement": "强读博刚需（天文台科研）",
+    "tier_risk": "极小众名校垄断",
+    "reality_insight": "仰望星空的极致纯粹。国内仅南大、中科大、国科大等少数顶尖学府开设。出路高度集中在国家天文台与高校任教，适合家境优渥、纯粹热爱的理想主义考生。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "大气科学类": {
+    "engineering_hardness": 0.6,
+    "hardness_label": "气象探测与气候模式",
+    "degree_requirement": "进气象局本硕皆可",
+    "tier_risk": "气象局垄断/体制内确定性高",
+    "reality_insight": "宝藏小众专业！中国气象局及各省市气象台系统直属对口。南信大、兰大等气象名校入编率极高，结合超算做数值天气预报或新能源风光功率预测极具实用价值。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "海洋科学类": {
+    "engineering_hardness": 0.5,
+    "hardness_label": "海洋调查与环境物理",
+    "degree_requirement": "考研/读博刚需",
+    "tier_risk": "海研所与国家海洋局",
+    "reality_insight": "物理海洋、海洋化学与深海资源调查。出海科考有一定补贴但生活较单调，自然资源部第一至第四海洋研究所是核心出路，建议深造走科研编制。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "地球物理学类": {
+    "engineering_hardness": 0.65,
+    "hardness_label": "地球探测与地震勘探",
+    "degree_requirement": "科研院所建议读研",
+    "tier_risk": "地震局与油田物探",
+    "reality_insight": "利用声波、重力、磁法探测地球内部。中石油物探院、中国地震局核心刚需。兼具物理计算与野外探测属性，在地下空间开发和隧道隐患排查中不可替代。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "地质学类": {
+    "engineering_hardness": 0.5,
+    "hardness_label": "地层古生物与构造",
+    "degree_requirement": "考研读博刚需",
+    "tier_risk": "学术与博物馆路线",
+    "reality_insight": "区别于工科地质，理科地质更偏向地球演变史与矿物岩石学基础理论。科研院校、地质调查局与自然博物馆是主要去向，适合学术钻研型人才。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "统计学类": {
+    "engineering_hardness": 0.4,
+    "hardness_label": "数据分析与概率建模",
+    "degree_requirement": "大厂数据分析建议硕士",
+    "tier_risk": "通用性极强/抗周期",
+    "reality_insight": "大数据时代的通用硬核武器。在金融风控、互联网推荐算法、生物医药统计与政府统计局极具竞争力，既有理学的严谨，又有商科的高薪出口。",
+    "is_pitfall": false,
+    "utility_tier": "高实用性/硬核壁垒",
+    "pitfall_warning": ""
+  },
+  "地理科学类": {
+    "engineering_hardness": 0.3,
+    "hardness_label": "地理教育与遥感规划",
+    "degree_requirement": "当高中地理老师需考公费师范/考研",
+    "tier_risk": "师范体制内首选",
+    "reality_insight": "两大主要分流：第一是当中学地理名师（稳定有寒暑假，高考选科地理人数大增导致教师需求旺盛）；第二是转向遥感GIS空间规划，走国土资源企事业单位。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "心理学类": {
+    "engineering_hardness": 0.2,
+    "hardness_label": "认知脑科学与心理辅导",
+    "degree_requirement": "建议硕士深造",
+    "tier_risk": "社会知名度高但商业成熟度待提升",
+    "reality_insight": "社会对心理健康关注度激增，中小学专职心理老师、高校辅导员刚需；互联网大厂用户体验（UX/UR）高薪吸纳；但独立开心理咨询室需要极长的前期积累与受督导成本。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "金融学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "资本运作与财富管理",
+    "degree_requirement": "强名校硕博刚需（核心投行买方）",
+    "tier_risk": "极度两极分化/看重资源背景",
+    "reality_insight": "【高风险提示】极度依赖第一学历与研究生Target School名校光环。顶级PE/VC、券商投行核心岗学历门槛严苛且高度看重人脉；普通本科极易流入银行柜员或保险电销，家境普通慎盲目追逐。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "经济学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "宏观经济与政策分析",
+    "degree_requirement": "考研/考公刚需",
+    "tier_risk": "学术理论偏重",
+    "reality_insight": "偏向宏观理论与政策推演。直接对口的企业岗位较少，但考公考编（发改委、财政局、税务局）招录岗位极其丰富，是体制内文官序列的热门跳板。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "财政学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "财税政策与税务审计",
+    "degree_requirement": "本硕皆宜（考公首选）",
+    "tier_risk": "税务系统体制内主力",
+    "reality_insight": "全国税务局每年国考招录的大户！课程针对税法、税收筹划与审计。体制内进国家税务局确定性高，体制外去四大会计师事务所与企业税务合规部同样吃香。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "经济与贸易类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "跨境出海与国际贸易",
+    "degree_requirement": "本科可就业（看重外语与实战）",
+    "tier_risk": "外贸大盘与汇率周期",
+    "reality_insight": "跨境电商出海（亚马逊、TikTok Shop、Shein）红利期大受裨益。重实战、看外语听说能力，在沿海开放城市搞外贸提成高、上限大，适合性格外向狼性求富的考生。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "工商管理类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "企业运营与战略管理",
+    "degree_requirement": "本硕皆宜（看重实习实战）",
+    "tier_risk": "概念宽泛需找准垂直方向",
+    "reality_insight": "涵盖会计、财务管理与市场营销。会计学实用性强（有CPA证书吃香），纯工商管理容易‘样样通样样松’，在校期间务必选准财务、人力或数字营销某个具体专业技能深挖。",
+    "is_pitfall": true,
+    "utility_tier": "避坑预警",
+    "pitfall_warning": "【避坑预警】没有技术壁垒，什么都学一点什么都不精，除顶级名校商学院有校友圈层外，普通院校本科就业优势微弱。"
+  },
+  "管理科学与工程类": {
+    "engineering_hardness": 0.55,
+    "hardness_label": "信息管理与商业分析",
+    "degree_requirement": "建议硕士（数据分析方向）",
+    "tier_risk": "商业与IT融合度高",
+    "reality_insight": "信息管理与信息系统（信管）、工程造价。既学管理又学计算机数据库。互联网大厂产品经理、数据分析师与银行信息科技部的偏好专业，比纯文科管理更具硬技能支撑。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "公共管理类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "行政管理与公共事务",
+    "degree_requirement": "考公/事业单位主力",
+    "tier_risk": "体制内强依赖",
+    "reality_insight": "行政管理、土地资源管理。为考公务员量身定制，申论和行政职业能力对口度高；若不进体制，在企业一般做行政人事或物业资产运营，可替代性较高。",
+    "is_pitfall": true,
+    "utility_tier": "避坑预警",
+    "pitfall_warning": "【避坑预警】课程大而全、无技术护城河，除考公考编外，私企就业基本没有硬核对口岗位。"
+  },
+  "农林经济管理类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "乡村振兴与农业金融",
+    "degree_requirement": "本硕皆宜（考公大户）",
+    "tier_risk": "政策红利大/选调生偏爱",
+    "reality_insight": "国家全面推进‘乡村振兴’的急需智囊。各大省份定向选调生招录、农业发展银行、中粮等农业央企非常偏好，竞争烈度小于纯金融，性价比较高。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "图书情报与档案管理类": {
+    "engineering_hardness": 0.35,
+    "hardness_label": "信息检索与档案数字化",
+    "degree_requirement": "体制内本硕皆可",
+    "tier_risk": "与世无争稳妥型",
+    "reality_insight": "图书馆、档案馆、保密局与大型央企机要室的核心对口。结合计算机数据治理与知识图谱可转型互联网数据标注与知识管理，工作安静稳定、内卷程度低。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "旅游管理类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "文旅策划与会展酒店",
+    "degree_requirement": "本科即可/重实践人际",
+    "tier_risk": "文旅繁荣但基层起点低",
+    "reality_insight": "涵盖文旅IP运营、景区策划与高端酒店。文旅消费大热，但行业普遍存在‘起薪低、从服务基层做起’的现实落差；适合性格外向热情、热爱旅行与人际交往的考生。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "法学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "法律规则与司法审判",
+    "degree_requirement": "通过法考 + 名校硕士刚需（红圈所）",
+    "tier_risk": "法考淘汰率高但体制内岗位极多",
+    "reality_insight": "专业壁垒极高，必须死磕通过国家统一法律职业资格考试（法考）。顶级律所要求五院四系名校硕，但公检法司、纪委监委公考招录规模名列前茅，体制内首选利器。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "社会学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "社会调研与社区治理",
+    "degree_requirement": "考研/考公为主",
+    "tier_risk": "市场对口岗位少",
+    "reality_insight": "社会工作、民政救助与社会调查。街道办基层公务员、公益组织与民调机构对口。属于纯文科情怀学科，直接商业变现能力偏弱，进体制是主流通道。",
+    "is_pitfall": true,
+    "utility_tier": "学术理论",
+    "pitfall_warning": "【避坑预警】理论偏向社会调查与政策研究，缺乏企业刚需硬技能，市场对口招聘极少。"
+  },
+  "马克思主义理论类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "思政教育与党建党务",
+    "degree_requirement": "考研刚需（高校辅导员/思政教师）",
+    "tier_risk": "高校体制内大热",
+    "reality_insight": "近年来各大高校与中学思政教师‘刚性配备’政策催生出巨大红利。考大学辅导员、马院教师极其吃香，大型国企党群工作部核心需求，政治素养要求极高。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "政治学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "国际政治与国家安全",
+    "degree_requirement": "强名校考公/涉外智库",
+    "tier_risk": "就业出口高度体制内",
+    "reality_insight": "外交部、商务部外事局、国家安全部与国际关系智库。大国博弈时代国家急需高端战略人才，但主要集中在外交学院、北大等少数名校，普通院校慎重选择。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "民族学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "民族文化与边疆治理",
+    "degree_requirement": "考公/体制内为主",
+    "tier_risk": "特定地域性强",
+    "reality_insight": "民族宗教事务委员会、边疆民族地区选调生与地方文化馆。受众小众，但在特定少数民族自治区具备定向招录政策扶持优势。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "公安学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "治安管理与侦查办案",
+    "degree_requirement": "公安警校联考（入警率极高）",
+    "tier_risk": "提前批铁饭碗",
+    "reality_insight": "警校招生的王牌。只要在公安院校完成学业，通过公安联考直接入警，穿警服带编制率超90%。工作具有一定纪律与危险性，但就业确定性全国第一。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "中国语言文学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "汉语言文字与文学鉴赏",
+    "degree_requirement": "教师需教师资格证/考研",
+    "tier_risk": "体制内公考第一万能专业",
+    "reality_insight": "公务员考试招录之王！各大党政机关综合材料岗‘笔杆子’永远紧缺。师范路线可当中小学语文老师，大厂可做文案内容策划，是文科中最稳健、容错率最高的专业。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "外国语言文学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "外语互译与跨文化传播",
+    "degree_requirement": "重听说实战与复合小语种",
+    "tier_risk": "AI机器翻译冲击基层翻译",
+    "reality_insight": "【AI时代冲击提醒】AI大模型对普通基础笔译/口译造成巨大冲击。纯英语专业优势下滑，建议一定要复合第二技能（外语+法学/经贸），或专注中东阿语、俄语、西语等‘一带一路’稀缺出海语言。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "新闻传播学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "新媒体内容与传播",
+    "degree_requirement": "重个人爆款作品与实习",
+    "tier_risk": "传统媒体转型自媒体激战",
+    "reality_insight": "电视台与纸媒衰落，但政企新媒体矩阵、短视频IP孵化、企业公关品牌部需求巨大。行业不迷信学历，看重实际操盘流量、文案功底与视频剪辑网感，竞争激烈但上限高。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "历史学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "文史考据与文物考古",
+    "degree_requirement": "考研/考教资为主",
+    "tier_risk": "清贫而纯粹/博物馆中学教师",
+    "reality_insight": "修身养性之学。主要出路是中学历史名师、博物馆馆藏修复与社科院科研。考古学受国家文化战略支持有所回暖，适合坐得住冷板凳、对人类历史充满敬畏的考生。",
+    "is_pitfall": true,
+    "utility_tier": "学术理论",
+    "pitfall_warning": "【避坑预警】纯人文学术研究，就业基本依赖考编考教师或文博馆所，商业就业竞争力弱。"
+  },
+  "哲学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "底层元逻辑与终极思辨",
+    "degree_requirement": "考研/考公转型",
+    "tier_risk": "就业需跨界组合",
+    "reality_insight": "思辨与逻辑分析能力的顶级训练营。不能直接对口买面包，但哲学系学生考公考编逻辑思维极强、大厂高管中多有哲学背景；需要考生做好大学阶段自我复合第二技能的规划。",
+    "is_pitfall": true,
+    "utility_tier": "学术理论",
+    "pitfall_warning": "【避坑预警】纯学术理论探索，市场化对口岗位极少，除考公考编或深造留校外，就业面非常窄。"
+  },
+  "教育学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "教育规律与教学管理",
+    "degree_requirement": "考公立编制需过招教考试",
+    "tier_risk": "人口出生率变化对小学的长期影响",
+    "reality_insight": "学前教育、小学教育、特殊教育。受人口出生率波动影响，幼儿园与小学教职竞争加剧；特殊教育、高等职业技术教育与职业培训平台仍有稳定空间，公立在编稳定体面。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "体育学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "体育运动与健康康复",
+    "degree_requirement": "专长教练证书/考教资",
+    "tier_risk": "大健康中考体育利好",
+    "reality_insight": "中考体育分值提升带动中小学体育老师大热。体能训练、运动康复与青少年专项体育培训市场蓬勃发展，适合身体素质优秀、性格阳光开朗的运动达人。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "艺术学理论类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "艺术史论与策展评论",
+    "degree_requirement": "建议硕士深造",
+    "tier_risk": "美术馆文博系统",
+    "reality_insight": "美术馆策展人、艺术品拍卖行与高校艺术史论教师。偏文博雅致，商业变现周期长，适合艺术氛围熏陶良好、有家庭后盾支持的考生。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "音乐与舞蹈学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "声乐器乐舞蹈编导",
+    "degree_requirement": "专业基本功与演艺考资",
+    "tier_risk": "自幼童子功积累/重舞台",
+    "reality_insight": "童子功积累深厚。专业院团招录名额有限，但中小学艺术素质教育、艺术培训中心及个人自媒体演艺具备宽广空间，综合台风与感染力是核心资产。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "戏剧与影视学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "编导表演摄影影视",
+    "degree_requirement": "看重行业人脉与爆款作品",
+    "tier_risk": "文娱行业头部集中度极高",
+    "reality_insight": "短剧出海、商业广告片与影视特效。行业高度看重作品集和导师人脉圈子，光鲜亮丽但淘汰残酷，能写出爆款剧本或精通影视工业化后期制作的技术型人才更吃香。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "美术学类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "纯艺术绘画雕塑",
+    "degree_requirement": "看重个人画功与艺术造诣",
+    "tier_risk": "自由艺术家或美术教师",
+    "reality_insight": "纯艺术追求，油画版画雕塑。绝大多数毕业生流向中学美术教师或艺考画室创业；若结合商业数字插画、游戏概念原画，收入将显著跃升。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "设计学类": {
+    "engineering_hardness": 0.35,
+    "hardness_label": "工业设计视觉传达UIUX",
+    "degree_requirement": "重商业作品集（大厂看作品）",
+    "tier_risk": "AI生图工具重塑行业生态",
+    "reality_insight": "【AI时代重塑】Midjourney等AI工具淘汰了大量底层美工，但懂用户体验交互（UI/UX）、懂三维工业产品设计（汽车/智能硬件）的高阶设计师成为稀缺香饽饽。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "植物生产类": {
+    "engineering_hardness": 0.5,
+    "hardness_label": "农艺种业与作物育种",
+    "degree_requirement": "种业研发强硕博刚需",
+    "tier_risk": "种业芯片风口但田间较辛苦",
+    "reality_insight": "中国种业‘农业芯片’核心战略赛道。国家对种业自主可控倾注海量资金，隆平高科、先正达研发岗位诱人，但日常涉及农田试验，适合耐得住寂寞的实干家。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "动物生产类": {
+    "engineering_hardness": 0.6,
+    "hardness_label": "现代畜牧与集约化养殖",
+    "degree_requirement": "本硕皆宜（牧原温氏大型现代养殖）",
+    "tier_risk": "生猪周期/封闭式养殖基地",
+    "reality_insight": "告别传统散养，牧原、温氏等特大型养殖集团已全面实现数字化楼房养猪与智能环控。技术员起薪高、包吃住，但封闭式防疫驻场管理对生活自由度有一定限制。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "动物医学类": {
+    "engineering_hardness": 0.7,
+    "hardness_label": "兽医执业与宠物医疗",
+    "degree_requirement": "执业兽医师资格证（黄金金字招牌）",
+    "tier_risk": "宠物经济大爆发带来高回报",
+    "reality_insight": "农学中最炙手可热的超级风口！城市宠物经济狂飙突进，宠物医院主治医师待遇比肩人类医生且无医保控费限制，自主开宠物诊所前景极其诱人，求稳还可去海关动植物检验检疫。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "林学类": {
+    "engineering_hardness": 0.4,
+    "hardness_label": "森林培育与碳汇经济",
+    "degree_requirement": "本硕皆宜（林草局/碳汇）",
+    "tier_risk": "林业局事业单位对口",
+    "reality_insight": "国家碳达峰碳中和‘林业碳汇’全新风口。森林资源调查、国家森林公园管理与林草局事业单位稳定性高，在大自然中工作心境开阔。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "水产类": {
+    "engineering_hardness": 0.6,
+    "hardness_label": "水产养殖与深海网箱",
+    "degree_requirement": "本硕皆宜",
+    "tier_risk": "沿海内陆特种水产高利润",
+    "reality_insight": "小龙虾、大闸蟹、深海金枪鱼现代化养殖与水产饲料研发（海大、通威）。特种水产养殖利润极其丰厚，技术入股空间大，是农学中闷声发大财的实用方向。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "草学类": {
+    "engineering_hardness": 0.4,
+    "hardness_label": "草坪绿化与草原生态修复",
+    "degree_requirement": "考研/林草局编制",
+    "tier_risk": "小众但竞争压力小",
+    "reality_insight": "高尔夫球场草坪培育、城市园林绿化草毯及西北草原退化生态修复。招生规模小、竞争压力低，在生态修复国企与农林规划部门有稳定一席之地。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "自然保护与环境生态类": {
+    "engineering_hardness": 0.45,
+    "hardness_label": "国家公园与生物多样性",
+    "degree_requirement": "进科研保护区建议读研",
+    "tier_risk": "国家公园体制红利",
+    "reality_insight": "三江源、大熊猫等国家公园体系建设正处于起飞期。野生动植物保护与自然保护区巡护科研，使命感高尚，适合热爱大自然与生态保护的考生。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  },
+  "农业经济管理类": {
+    "engineering_hardness": 0.0,
+    "hardness_label": "乡村振兴与农业金融",
+    "degree_requirement": "本硕皆宜（考公大户）",
+    "tier_risk": "政策红利大/选调生偏爱",
+    "reality_insight": "国家全面推进‘乡村振兴’的急需智囊。各大省份定向选调生招录、农业发展银行、中粮等农业央企非常偏好，竞争烈度小于纯金融，性价比较高。",
+    "is_pitfall": false,
+    "utility_tier": "稳健行业",
+    "pitfall_warning": ""
+  }
+}
