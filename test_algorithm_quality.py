@@ -821,6 +821,29 @@ def test_declared_direction_note():
     check(not leaked, "名单不满 8 个时，不把落榜归因到多样性规则", f"{leaked}")
 
 
+def test_continuous_score_and_heat_smoothness():
+    """方案 A 新增：连续平滑匹配函数与热度微调验证。
+    1. 连续平滑：9.9% 与 10.1% 之间的分数差距极小（无断崖跳跃，摆幅 < 0.05，改前为 0.40）。
+    2. 热度解绑：低风险偏好下的微观天才专业（micro_match >= 0.85）不会被热度扣杀至 0.65 以下。
+    """
+    print("\n[Test 16] 方案 A：连续平滑曲线与热度解绑验证")
+    from funnel_engine import compute_continuous_score_match
+
+    # 1. 验证临界点平滑度
+    for sens in ("极高", "高", "中", "低"):
+        s1 = compute_continuous_score_match(9.9, sens)
+        s2 = compute_continuous_score_match(10.1, sens)
+        diff = abs(s1 - s2)
+        check(diff < 0.05, f"{sens}敏感度: 9.9% vs 10.1% 连续平滑无断崖 (diff={diff:.4f} < 0.05)")
+
+    # 2. 验证微观高匹配专业的保障度（micro_match * 0.75 + heat_align * 0.25）
+    # 当微观匹配极高（0.88）且哪怕命中低风险+极高内卷（heat_align=0.55），总分依然稳固在 0.79 以上（改前跌至 0.608）
+    from funnel_engine import HEAT_ALIGNMENT_MATRIX
+    low_risk_heat = HEAT_ALIGNMENT_MATRIX["low"]["极高"]  # 0.55
+    score = 0.88 * 0.75 + low_risk_heat * 0.25
+    check(score >= 0.78, "微观契合度极高的专业在低风险下仍保持高分保障", f"总分={score:.3f} >= 0.78")
+
+
 def main():
     print("=" * 74)
     print("  算法质量回归测试")
@@ -840,6 +863,7 @@ def main():
     test_order_independent_of_data_file()
     test_fit_ties_are_disclosed()
     test_undeclared_exit_discount()
+    test_continuous_score_and_heat_smoothness()
 
     print("\n" + "=" * 74)
     if _FAILURES:

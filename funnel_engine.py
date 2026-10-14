@@ -157,13 +157,14 @@ MICRO_ACTION_TO_BEHAVIOR: dict[str, dict[str, float]] = {
 
 # 热度匹配：风险容忍度 → 社会热度的匹配分
 # 行：风险容忍度等级，列：社会热度等级
+# 优化：提升极差底线（从 0.2 提升至 0.55~0.60），避免对冷门/高热专业产生毁灭性扣分
 HEAT_ALIGNMENT_MATRIX: dict[str, dict[str, float]] = {
     # 高风险容忍 → 喜欢追风口，极高/高热 = 高分
-    "high":    {"极高": 1.0, "高": 0.9, "中": 0.5, "低": 0.2},
+    "high":    {"极高": 1.0, "高": 0.9, "中": 0.75, "低": 0.55},
     # 中风险容忍 → 适中，匹配高/中 = 高分
-    "medium":  {"极高": 0.6, "高": 0.8, "中": 1.0, "低": 0.5},
+    "medium":  {"极高": 0.8, "高": 0.9, "中": 1.0,  "低": 0.70},
     # 低风险容忍 → 追求稳定，低/中热 = 高分
-    "low":     {"极高": 0.2, "高": 0.4, "中": 0.8, "低": 1.0},
+    "low":     {"极高": 0.55, "高": 0.75, "中": 0.9, "低": 1.0},
 }
 
 # 资产敏感度匹配：家庭经济水平 → 资产敏感度的匹配分
@@ -189,6 +190,36 @@ SCORE_ALIGNMENT_MATRIX: dict[str, dict[str, float]] = {
     # 前60-100% → 中低排名
     "lower":     {"极高": 0.1, "高": 0.3, "中": 0.6, "低": 1.0},
 }
+
+
+def compute_continuous_score_match(rank_percentile: float, score_sensitivity: str) -> float:
+    """
+    连续平滑分数位次匹配函数（消除离散 4 档矩阵在临界点如 9.9% vs 10.1% 处的断崖跳变）。
+
+    原理：
+      采用基于位次百分比的连续分段线性样条插值，在各敏感度靶心区间保持平滑过渡：
+        - 极高/高敏感：位次越靠前越强（前8%~10%满分），向后平滑衰减
+        - 中等敏感：中间位次（12%~60%）保持高位（0.90），极高位次适度下调
+        - 低/极低敏感：低分段友好（60%~100%满分），高分段提示“浪费位次”进行平滑衰减
+    """
+    curves = {
+        "极高": [(0.0, 1.0), (8.0, 1.0), (10.0, 0.85), (12.0, 0.60), (30.0, 0.60), (45.0, 0.45), (60.0, 0.30), (80.0, 0.15), (100.0, 0.10)],
+        "高":   [(0.0, 1.0), (8.0, 1.0), (10.0, 0.95), (12.0, 0.90), (30.0, 0.90), (45.0, 0.70), (60.0, 0.50), (80.0, 0.35), (100.0, 0.30)],
+        "中":   [(0.0, 0.60), (8.0, 0.60), (10.0, 0.75), (12.0, 0.90), (30.0, 0.90), (45.0, 0.90), (60.0, 0.85), (80.0, 0.70), (100.0, 0.60)],
+        "低":   [(0.0, 0.30), (8.0, 0.30), (10.0, 0.35), (12.0, 0.40), (30.0, 0.40), (45.0, 0.60), (60.0, 0.80), (80.0, 0.95), (100.0, 1.0)],
+        "极低": [(0.0, 0.25), (8.0, 0.25), (10.0, 0.30), (12.0, 0.35), (30.0, 0.40), (45.0, 0.60), (60.0, 0.80), (80.0, 0.95), (100.0, 1.0)],
+    }
+    pts = curves.get(score_sensitivity, curves["中"])
+    r = max(0.0, min(100.0, float(rank_percentile)))
+    for i in range(len(pts) - 1):
+        x0, y0 = pts[i]
+        x1, y1 = pts[i + 1]
+        if x0 <= r <= x1:
+            if x1 == x0:
+                return y0
+            t = (r - x0) / (x1 - x0)
+            return round(y0 + t * (y1 - y0), 4)
+    return pts[-1][1]
 
 
 # 用户核心产业意向的判定比例：达到个人峰值该比例以上的产业集群，视为"核心意向"。
@@ -880,9 +911,9 @@ def layer2_category_match(
         asset_sens = cat_labels.get("asset_sensitivity", "中")
         asset_match = ASSET_ALIGNMENT_MATRIX.get(econ_level, {}).get(asset_sens, 0.5)
 
-        # --- score_match ---
+        # --- score_match（平滑连续函数，消除阶梯跳变）---
         score_sens = cat_labels.get("score_sensitivity", "中")
-        score_match = SCORE_ALIGNMENT_MATRIX.get(rank_tier, {}).get(score_sens, 0.5)
+        score_match = compute_continuous_score_match(user.estimated_rank_percentile, score_sens)
 
         # 综合得分
         score = industry_match * 0.5 + asset_match * 0.2 + score_match * 0.3
@@ -997,10 +1028,10 @@ def layer3_major_match(
                             triggered.append(ht)
                             break
 
-            # 🔴 最终公式（含招生体量市场容量系数）
+            # 🔴 最终公式（微观天赋占主导 0.75，社会热度作为微调 0.25，含招生体量容量系数）
             enroll_vol = major.get("enrollment_volume", "中")
             capacity_coef = ENROLLMENT_CAPACITY_COEFFICIENT.get(enroll_vol, 1.0)
-            score = (micro_match * 0.6 + heat_align * 0.4) * capacity_coef * threshold_pass
+            score = (micro_match * 0.75 + heat_align * 0.25) * capacity_coef * threshold_pass
 
             major_results.append({
                 "major_name": major["name"],
