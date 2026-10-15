@@ -316,8 +316,8 @@ def render_user_profile_form() -> None:
             subjects = st.multiselect(
                 "选考科目",
                 options=["物理", "化学", "生物", "历史", "地理", "政治"],
-                default=st.session_state.get("user_subjects", []),
-                help="请选择你高考的选考科目",
+                default=st.session_state.get("user_subjects", ["物理", "化学", "生物"]),
+                help="请选择你高考的选考科目（默认物化生理科组合，文科考生可手动更改）",
             )
             score = st.number_input(
                 "预估高考分数（裸分）",
@@ -1163,7 +1163,7 @@ def main() -> None:
         "rate_failed_attempts": 0,
         "rate_lockout_until": None,
         # 用户画像
-        "user_subjects": [],
+        "user_subjects": ["物理", "化学", "生物"],
         "user_score": 500,
         "user_rank_pct": 50.0,
         "user_physical": [],
@@ -1212,7 +1212,7 @@ def main() -> None:
                     st.session_state.profile_done = False
                     st.session_state.review_block = None
                     # 清除用户画像数据
-                    st.session_state.user_subjects = []
+                    st.session_state.user_subjects = ["物理", "化学", "生物"]
                     st.session_state.user_score = 500
                     st.session_state.user_rank_pct = 50.0
                     st.session_state.user_physical = []

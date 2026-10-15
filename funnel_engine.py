@@ -808,8 +808,8 @@ def layer2_category_match(
 
         # ---- subject_check：新高考选科硬要求 ----
         required_subjects = CATEGORY_SUBJECT_REQUIREMENTS.get(cat_name)
-        if required_subjects and not required_subjects.issubset(user_subjects):
-            # 不满足该专业类的选科要求 → 直接跳过
+        if user_subjects and required_subjects and not required_subjects.issubset(user_subjects):
+            # 仅在用户明确选考了科目时执行硬淘汰；未选科时不设门槛
             continue
 
         # --- industry_match：用户产业意向被该专业类覆盖的比例 ---

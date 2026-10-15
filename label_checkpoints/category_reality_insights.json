@@ -661,13 +661,13 @@
   },
   "图书情报与档案管理类": {
     "engineering_hardness": 0.35,
-    "hardness_label": "信息检索与档案数字化",
-    "degree_requirement": "体制内本硕皆可",
-    "tier_risk": "与世无争稳妥型",
-    "reality_insight": "图书馆、档案馆、保密局与大型央企机要室的核心对口。结合计算机数据治理与知识图谱可转型互联网数据标注与知识管理，工作安静稳定、内卷程度低。",
-    "is_pitfall": false,
-    "utility_tier": "稳健行业",
-    "pitfall_warning": ""
+    "hardness_label": "信息检索与档案文职",
+    "degree_requirement": "体制内考编为主",
+    "tier_risk": "对口岗位窄/非硬核技术",
+    "reality_insight": "对口图书馆、档案馆与企事业单位机要室，极度依赖考公考编；缺乏市场化硬技能壁垒，如果不打算进体制内，普通本科就业面较窄。",
+    "is_pitfall": true,
+    "utility_tier": "避坑预警",
+    "pitfall_warning": "【避坑预警】涵盖图书馆学、档案学等，市场化对口岗位极少，无硬核代码/技术壁垒，不打算考公考编或追求高薪技术者请避开。"
   },
   "旅游管理类": {
     "engineering_hardness": 0.0,
